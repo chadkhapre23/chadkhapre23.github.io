@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos | James Nyarango TV</title>
+<meta name="description" content="Watch the latest news reports, interviews, programmes and video coverage from James Nyarango TV.">
+<meta name="theme-color" content="#071a35">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&family=Roboto+Condensed:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--navy:#071a35;
+--navy2:#10294b;
+--red:#e00016;
+--ink:#202124;
+--muted:#62676d;
+--line:#dfe2e5;
+--light:#f4f5f6;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:#fff;
+color:var(--ink);
+font-family:Roboto,Arial,sans-serif;
+font-size:14px;
+line-height:1.5;
+}
+
+a{text-decoration:none;color:inherit}
+
+.top-header{
+background:var(--navy);
+border-bottom:3px solid var(--red);
+}
+
+.header-inner{
+max-width:1360px;
+min-height:92px;
+margin:auto;
+padding:10px 25px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.brand img{
+width:76px;
+height:68px;
+object-fit:contain;
+}
+
+.brand-name{
+margin:0;
+color:white;
+font-size:22px;
+font-weight:900;
+line-height:1.15;
+}
+
+.brand-tagline{
+margin-top:5px;
+color:#ff7782;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.8px;
+}
+
+.header-label{
+color:white;
+font-size:11px;
+font-weight:800;
+letter-spacing:1px;
+}
+
+.navigation{
+background:var(--navy2);
+border-bottom:1px solid #d9dde2;
+}
+
+.nav-inner{
+max-width:1360px;
+min-height:45px;
+margin:auto;
+padding:0 20px;
+display:flex;
+align-items:stretch;
+overflow-x:auto;
+scrollbar-width:none;
+}
+
+.nav-inner::-webkit-scrollbar{display:none}
+
+.nav-inner a{
+display:flex;
+align-items:center;
+padding:0 16px;
+color:white;
+font-size:11px;
+font-weight:800;
+letter-spacing:.35px;
+white-space:nowrap;
+border-bottom:3px solid transparent;
+}
+
+.nav-inner a:hover,
+.nav-inner a.active{
+background:#18375e;
+border-bottom-color:var(--red);
+}
+
+main{
+max-width:1320px;
+margin:auto;
+padding:27px 25px 55px;
+}
+
+.page-heading{
+margin-bottom:23px;
+padding-bottom:15px;
+border-bottom:2px solid var(--navy);
+}
+
+.page-heading h1{
+margin:0 0 5px;
+font-family:'Roboto Condensed',Arial,sans-serif;
+font-size:32px;
+font-weight:900;
+letter-spacing:-.5px;
+}
+
+.page-heading p{
+margin:0;
+color:var(--muted);
+font-size:13px;
+}
+
+.section-heading{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:25px 0 16px;
+padding-bottom:9px;
+border-bottom:2px solid var(--navy);
+}
+
+.section-heading h2{
+margin:0;
+font-family:'Roboto Condensed',Arial,sans-serif;
+font-size:23px;
+font-weight:800;
+}
+
+.section-heading span{
+color:var(--red);
+font-size:10px;
+font-weight:900;
+letter-spacing:.5px;
+}
+
+.featured-video{
+display:grid;
+grid-template-columns:1.65fr 1fr;
+gap:23px;
+align-items:center;
+padding-bottom:25px;
+border-bottom:1px solid var(--line);
+}
+
+.featured-player{
+position:relative;
+width:100%;
+aspect-ratio:16/9;
+background:#111;
+overflow:hidden;
+}
+
+.featured-player iframe,
+.featured-player video{
+width:100%;
+height:100%;
+border:0;
+}
+
+.featured-placeholder{
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+background:linear-gradient(135deg,#071a35,#18375e);
+color:white;
+text-align:center;
+}
+
+.featured-placeholder .play{
+width:65px;
+height:65px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:13px;
+border-radius:50%;
+background:var(--red);
+font-size:24px;
+}
+
+.featured-placeholder strong{
+font-family:'Roboto Condensed',Arial,sans-serif;
+font-size:20px;
+}
+
+.featured-placeholder small{
+margin-top:7px;
+color:#d5dce6;
+font-size:11px;
+}
+
+.featured-info .category{
+color:var(--red);
+font-size:10px;
+font-weight:900;
+letter-spacing:.7px;
+text-transform:uppercase;
+}
+
+.featured-info h2{
+margin:10px 0;
+font-family:'Roboto Condensed',Arial,sans-serif;
+font-size:30px;
+font-weight:900;
+line-height:1.15;
+}
+
+.featured-info p{
+color:#62676d;
+font-size:13px;
+line-height:1.7;
+}
+
+.featured-meta{
+margin-top:14px;
+color:#777e85;
+font-size:10px;
+}
+
+.video-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:25px 20px;
+}
+
+.video-card{
+min-width:0;
+border-bottom:1px solid var(--line);
+padding-bottom:13px;
+}
+
+.video-thumbnail{
+position:relative;
+display:block;
+width:100%;
+aspect-ratio:16/9;
+overflow:hidden;
+background:#071a35;
+}
+
+.video-thumbnail img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:transform .3s;
+}
+
+.video-card:hover .video-thumbnail img{
+transform:scale(1.035);
+}
+
+.play-button{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:var(--red);
+color:white;
+font-size:17px;
+}
+
+.video-details{
+padding-top:11px;
+}
+
+.video-category{
+color:var(--red);
+font-size:9px;
+font-weight:900;
+letter-spacing:.6px;
+text-transform:uppercase;
+}
+
+.video-details h3{
+margin:6px 0;
+font-family:'Roboto Condensed',Arial,sans-serif;
+font-size:19px;
+font-weight:800;
+line-height:1.25;
+}
+
+.video-details p{
+margin:0 0 9px;
+color:#62676d;
+font-size:12px;
+line-height:1.6;
+}
+
+.video-meta{
+color:#858b91;
+font-size:10px;
+}
+
+.empty-state{
+grid-column:1/-1;
+padding:45px 20px;
+background:var(--light);
+border:1px solid var(--line);
+text-align:center;
+}
+
+.empty-state h3{
+margin:0 0 8px;
+color:var(--navy);
+font-family:'Roboto Condensed',Arial,sans-serif;
+font-size:22px;
+}
+
+.empty-state p{
+margin:0;
+color:#656b72;
+font-size:12px;
+}
+
+.footer{
+background:var(--navy);
+color:white;
+border-top:4px solid var(--red);
+}
+
+.footer-inner{
+max-width:1360px;
+margin:auto;
+padding:30px 25px 0;
+}
+
+.footer-columns{
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr;
+gap:35px;
+padding-bottom:25px;
+}
+
+.footer h3{
+margin:0 0 8px;
+font-size:19px;
+font-weight:900;
+}
+
+.footer-tagline{
+color:#ff7580;
+font-size:10px;
+font-weight:900;
+letter-spacing:1.3px;
+}
+
+.footer-desc{
+max-width:350px;
+color:#c4ccd7;
+font-size:12px;
+line-height:1.8;
+}
+
+.footer h4{
+display:inline-block;
+margin:0 0 13px;
+padding-bottom:7px;
+border-bottom:2px solid var(--red);
+font-size:12px;
+}
+
+.footer ul{
+list-style:none;
+margin:0;
+padding:0;
+}
+
+.footer li{
+margin-bottom:9px;
+color:#c4ccd7;
+font-size:12px;
+}
+
+.footer li a:hover{color:#ff7580}
+
+.copyright{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:10px;
+padding:15px 0;
+border-top:1px solid #29405e;
+color:#b9c2cf;
+font-size:11px;
+}
+
+@media(max-width:850px){
+.featured-video{grid-template-columns:1fr}
+.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:600px){
+.header-inner{min-height:80px;padding:10px 15px}
+.brand img{width:65px;height:57px}
+.brand-name{font-size:18px}
+.header-label{font-size:9px}
+.nav-inner{padding:0 8px}
+.nav-inner a{padding:0 12px;font-size:10px}
+main{padding:20px 15px 40px}
+.page-heading h1{font-size:27px}
+.featured-info h2{font-size:25px}
+.video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}
+.video-details h3{font-size:16px}
+.video-details p{font-size:11px}
+.footer-columns{grid-template-columns:1fr;gap:20px}
+.footer-inner{padding:25px 17px 0}
+}
+</style>
+</head>
+
+<body>
+
+<header class="top-header">
+<div class="header-inner">
+<a class="brand" href="./index.html">
+<img src="./JAMO%20LOGO.jpeg" alt="JNTV Logo">
+<div>
+<h1 class="brand-name">JAMES NYARANGO TV</h1>
+<div class="brand-tagline">INFORM • ENTERTAIN • EMPOWER</div>
+</div>
+</a>
+<div class="header-label">JNTV VIDEO CENTRE</div>
+</div>
+</header>
+
+<nav class="navigation">
+<div class="nav-inner">
+<a href="./index.html">HOME</a>
+<a href="./latest-news.html">LATEST NEWS</a>
+<a href="./politics.html">POLITICS</a>
+<a href="./business.html">BUSINESS</a>
+<a href="./sports.html">SPORTS</a>
+<a href="./videos.html" class="active">VIDEOS</a>
+<a href="./about.html">ABOUT US</a>
+</div>
+</nav>
+
+<main>
+
+<div class="page-heading">
+<h1>JNTV VIDEOS</h1>
+<p>Watch the latest reports, interviews, programmes and exclusive coverage from Uganda, Africa and around the world.</p>
+</div>
+
+<section class="featured-video" id="featuredVideo">
+<div class="featured-player">
+<div class="featured-placeholder">
+<div class="play">▶</div>
+<strong>JNTV VIDEO CENTRE</strong>
+<small>INFORM • ENTERTAIN • EMPOWER</small>
+</div>
+</div>
+<div class="featured-info">
+<span class="category">JNTV FEATURED</span>
+<h2>Watch the latest from James Nyarango TV</h2>
+<p>Stay informed through our video reports, interviews, news coverage and programmes.</p>
+<div class="featured-meta">JAMES NYARANGO TV • JNTV</div>
+</div>
+</section>
+
+<div class="section-heading">
+<h2>Latest Videos</h2>
+<span>JNTV VIDEO LIBRARY</span>
+</div>
+
+<section class="video-grid" id="videoGrid">
+<div class="empty-state">
+<h3>Videos Coming Soon</h3>
+<p>Published JNTV video stories will appear here.</p>
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-columns">
+
+<div>
+<h3>JAMES NYARANGO TV</h3>
+<div class="footer-tagline">INFORM • ENTERTAIN • EMPOWER</div>
+<p class="footer-desc">Your digital broadcast destination for news, current affairs, politics, business, sports and entertainment from Uganda, Africa and the world.</p>
+</div>
+
+<div>
+<h4>QUICK LINKS</h4>
+<ul>
+<li><a href="./index.html">Home</a></li>
+<li><a href="./latest-news.html">Latest News</a></li>
+<li><a href="./sports.html">Sports</a></li>
+<li><a href="./politics.html">Politics</a></li>
+<li><a href="./about.html">About Us</a></li>
+</ul>
+</div>
+
+<div>
+<h4>CONTACT JNTV</h4>
+<ul>
+<li><a href="tel:+256775732004">+256 775 732 004</a></li>
+<li><a href="mailto:info@jamesnyarangotv.ac.ug">info@jamesnyarangotv.ac.ug</a></li>
+<li>Kampala, Uganda</li>
+</ul>
+</div>
+
+</div>
+
+<div class="copyright">
+<span>© 2026 James Nyarango TV. All rights reserved.</span>
+<span>INFORM • ENTERTAIN • EMPOWER</span>
+</div>
+</div>
+</footer>
+
+<script>
+(function(){
+
+"use strict";
+
+const KEY="jntvArticles";
+const grid=document.getElementById("videoGrid");
+const featured=document.getElementById("featuredVideo");
+
+function escapeHTML(value){
+return String(value??"").replace(/[&<>"']/g,function(c){
+return {
+"&":"&amp;","<":"&lt;",">":"&gt;",
+'"':"&quot;","'":"&#039;"
+}[c];
+});
+}
+
+function title(a){
+return a.headline||a.title||"Untitled video";
+}
+
+function category(a){
+return a.category||a.section||"Video";
+}
+
+function summary(a){
+return String(a.summary||a.description||a.excerpt||a.content||"")
+.replace(/<[^>]*>/g,"").trim();
+}
+
+function image(a){
+const value=String(a.photo||a.image||a.imageUrl||a.thumbnail||"").trim();
+
+if(/^https?:\/\//i.test(value))return escapeHTML(value);
+
+if(/^data:image\/(jpeg|png|webp|gif);base64,/i.test(value))return value;
+
+return "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900&auto=format&fit=crop&q=80";
+}
+
+function link(a){
+return "./article.html?id="+encodeURIComponent(a.id||a.articleId||"");
+}
+
+function videoUrl(a){
+return String(a.videoUrl||a.video||"").trim();
+}
+
+function getEmbed(url){
+
+if(!url)return "";
+
+let id="";
+
+try{
+const parsed=new URL(url);
+
+if(parsed.hostname.includes("youtu.be")){
+id=parsed.pathname.slice(1);
+}
+else if(parsed.hostname.includes("youtube.com")){
+id=parsed.searchParams.get("v")||"";
+if(!id&&parsed.pathname.includes("/embed/")){
+id=parsed.pathname.split("/embed/")[1].split("/")[0];
+}
+if(!id&&parsed.pathname.includes("/shorts/")){
+id=parsed.pathname.split("/shorts/")[1].split("/")[0];
+}
+}
+}catch(e){return "";}
+
+return id?"https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id):"";
+}
+
+function player(url){
+
+const embed=getEmbed(url);
+
+if(embed){
+return '<iframe src="'+embed+'" title="JNTV Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+}
+
+if(/^https?:\/\/.+\.(mp4|webm|ogg)(\?.*)?$/i.test(url)){
+return '<video controls playsinline preload="metadata"><source src="'+escapeHTML(url)+'"></video>';
+}
+
+return `
+<div class="featured-placeholder">
+<div class="play">▶</div>
+<strong>JNTV VIDEO CENTRE</strong>
+<small>VIDEO PLAYER NOT AVAILABLE</small>
+</div>`;
+}
+
+function render(){
+
+let articles=[];
+
+try{
+articles=JSON.parse(localStorage.getItem(KEY)||"[]");
+}catch(e){
+articles=[];
+}
+
+if(!Array.isArray(articles))articles=[];
+
+articles=articles.filter(a=>
+(!a.status||String(a.status).toLowerCase()==="published")
+);
+
+articles=articles.slice().reverse();
+
+const videos=articles.filter(a=>{
+const cat=category(a).toLowerCase();
+
+return cat.includes("video")||
+cat.includes("episode")||
+cat.includes("programme")||
+cat.includes("program")||
+Boolean(videoUrl(a));
+});
+
+if(!videos.length){
+grid.innerHTML=`
+<div class="empty-state">
+<h3>Videos Coming Soon</h3>
+<p>Published JNTV video stories will appear here.</p>
+</div>`;
+return;
+}
+
+const first=videos[0];
+const firstUrl=videoUrl(first);
+
+featured.querySelector(".featured-player").innerHTML=
+player(firstUrl);
+
+featured.querySelector(".featured-info").innerHTML=`
+<span class="category">${escapeHTML(category(first))}</span>
+<h2>${escapeHTML(title(first))}</h2>
+<p>${escapeHTML(summary(first).slice(0,300))}</p>
+<div class="featured-meta">JNTV • ${escapeHTML(first.date||"Latest Video")}</div>
+`;
+
+grid.innerHTML=videos.slice(1).map(a=>{
+
+const url=videoUrl(a);
+
+return `
+<article class="video-card">
+
+<a class="video-thumbnail" href="${link(a)}">
+<img src="${image(a)}" alt="${escapeHTML(title(a))}"
+onerror="this.style.display='none'">
+<span class="play-button">▶</span>
+</a>
+
+<div class="video-details">
+<span class="video-category">${escapeHTML(category(a))}</span>
+<h3><a href="${link(a)}">${escapeHTML(title(a))}</a></h3>
+<p>${escapeHTML(summary(a).slice(0,150))}</p>
+<div class="video-meta">${escapeHTML(a.date||"JNTV NEWS")}</div>
+</div>
+
+</article>`;
+}).join("");
+
+}
+
+render();
+
+window.addEventListener("storage",function(e){
+if(e.key===KEY)render();
+});
+
+})();
+</script>
+
+</body>
+</html>
