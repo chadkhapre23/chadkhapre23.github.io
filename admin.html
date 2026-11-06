@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JNTV NEWSROOM | Admin Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+:root {
+  --red:#c90019;
+  --dark:#101820;
+  --navy:#18232f;
+  --grey:#f2f4f6;
+  --border:#e1e5e9;
+  --white:#fff;
+}
+
+* {box-sizing:border-box}
+
+body {
+  margin:0;
+  background:var(--grey);
+  color:var(--dark);
+  font-family:Manrope,Arial,sans-serif;
+  font-size:13px;
+}
+
+button,input,textarea,select {font:inherit}
+
+button {cursor:pointer}
+
+.topbar {
+  background:#101820;
+  color:white;
+  padding:17px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:4px solid var(--red);
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-mark {
+  background:var(--red);
+  color:white;
+  font-weight:900;
+  font-size:22px;
+  padding:9px 12px;
+}
+
+.brand h1 {
+  font-family:"Playfair Display",serif;
+  font-size:21px;
+  margin:0;
+}
+
+.brand small {
+  display:block;
+  color:#ff6877;
+  font-size:9px;
+  letter-spacing:2px;
+  font-weight:800;
+  margin-top:4px;
+}
+
+.top-right {
+  color:#ddd;
+  font-size:11px;
+}
+
+.container {
+  max-width:1200px;
+  margin:28px auto;
+  padding:0 20px;
+}
+
+.panel {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:5px;
+  padding:24px;
+  margin-bottom:20px;
+}
+
+.heading {
+  font-family:"Playfair Display",serif;
+  font-size:23px;
+  margin:0 0 7px;
+}
+
+.muted {color:#77818b}
+
+.login-panel {
+  max-width:430px;
+  margin:85px auto;
+}
+
+label {
+  display:block;
+  font-weight:800;
+  font-size:11px;
+  margin:16px 0 7px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+
+input,textarea,select {
+  width:100%;
+  border:1px solid #d8dde2;
+  border-radius:3px;
+  padding:12px;
+  background:white;
+  outline:none;
+  color:#17212b;
+}
+
+input:focus,textarea:focus,select:focus {
+  border-color:var(--red);
+}
+
+textarea {
+  min-height:140px;
+  resize:vertical;
+  line-height:1.7;
+}
+
+.content-area {min-height:280px}
+
+.btn {
+  padding:11px 17px;
+  border:0;
+  border-radius:3px;
+  font-weight:800;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.4px;
+}
+
+.btn-red {background:var(--red);color:white}
+.btn-dark {background:#17212b;color:white}
+.btn-light {background:#e9edf0;color:#17212b}
+.btn-danger {background:#8e1524;color:white}
+
+.btn:hover {opacity:.88}
+
+.full {width:100%;margin-top:20px}
+
+.dashboard-head {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:22px;
+}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.stat {
+  background:white;
+  padding:18px;
+  border:1px solid var(--border);
+  border-top:3px solid var(--red);
+}
+
+.stat strong {
+  display:block;
+  font-size:26px;
+  margin-top:7px;
+}
+
+.stat span {
+  color:#6e7882;
+  font-size:10px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+.form-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 18px;
+}
+
+.full-field {grid-column:1/-1}
+
+.checkline {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:18px;
+  font-weight:800;
+}
+
+.checkline input {
+  width:17px;
+  height:17px;
+  accent-color:var(--red);
+}
+
+.checkline label {
+  margin:0;
+}
+
+.actions {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+
+.preview {
+  width:100%;
+  max-height:220px;
+  object-fit:cover;
+  margin-top:12px;
+  display:none;
+  border-radius:3px;
+}
+
+.article-row {
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.article-info {flex:1;min-width:0}
+
+.article-info strong {
+  font-family:"Playfair Display",serif;
+  font-size:16px;
+  display:block;
+  margin-bottom:6px;
+  overflow-wrap:anywhere;
+}
+
+.article-meta {
+  color:#7a838c;
+  font-size:10px;
+}
+
+.article-buttons {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+.article-buttons button {
+  padding:8px 11px;
+  font-size:10px;
+}
+
+.status {
+  display:inline-block;
+  padding:4px 7px;
+  background:#e8f5ed;
+  color:#18733b;
+  font-size:9px;
+  font-weight:800;
+  margin-right:5px;
+}
+
+.status.draft {
+  background:#fff1dc;
+  color:#9b5a00;
+}
+
+.status.breaking {
+  background:#ffe7e9;
+  color:#bd001b;
+}
+
+.notice {
+  padding:12px;
+  background:#f0f3f6;
+  border-left:3px solid var(--red);
+  margin:15px 0;
+  line-height:1.6;
+}
+
+#message {
+  display:none;
+  padding:12px;
+  margin:12px 0;
+  border-radius:3px;
+  font-weight:700;
+}
+
+.error {background:#ffe9e9;color:#a40018}
+.success {background:#e8f6ed;color:#176a35}
+
+.search-box {max-width:360px}
+
+footer {
+  text-align:center;
+  padding:25px;
+  color:#7a838c;
+  font-size:10px;
+}
+
+.hidden {display:none!important}
+
+@media(max-width:650px) {
+  .container {padding:0 12px}
+  .panel {padding:17px}
+  .stats {gap:7px}
+  .stat {padding:12px}
+  .stat strong {font-size:20px}
+  .form-grid {grid-template-columns:1fr}
+  .full-field {grid-column:auto}
+  .article-row {align-items:flex-start;flex-direction:column}
+  .topbar {padding:14px}
+  .brand h1 {font-size:17px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">J</div>
+    <div>
+      <h1>JNTV NEWSROOM</h1>
+      <small>ADMINISTRATION & PUBLISHING</small>
+    </div>
+  </div>
+  <div class="top-right">SECURE NEWSROOM</div>
+</header>
+
+<main class="container">
+
+<!-- LOGIN -->
+<section id="loginSection" class="panel login-panel">
+  <h2 class="heading">Administrator Login</h2>
+  <p class="muted">Sign in to manage JNTV news publications.</p>
+
+  <div id="loginMessage" class="notice hidden"></div>
+
+  <form id="loginForm">
+    <label>Email Address</label>
+    <input id="email" type="email"
+      value="nyarangojames245@gmail.com"
+      required>
+
+    <label>Password</label>
+    <input id="password" type="password"
+      placeholder="Enter your password"
+      required>
+
+    <button class="btn btn-red full" type="submit">
+      SIGN IN TO NEWSROOM
+    </button>
+  </form>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="hidden">
+
+  <div class="dashboard-head">
+    <div>
+      <h2 class="heading">Publishing Dashboard</h2>
+      <div class="muted">Manage your JNTV digital newsroom.</div>
+    </div>
+    <button class="btn btn-dark" id="logoutBtn">LOG OUT</button>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span>Total Articles</span>
+      <strong id="totalCount">0</strong>
+    </div>
+    <div class="stat">
+      <span>Published</span>
+      <strong id="publishedCount">0</strong>
+    </div>
+    <div class="stat">
+      <span>Drafts</span>
+      <strong id="draftCount">0</strong>
+    </div>
+  </div>
+
+  <div id="message"></div>
+
+  <!-- ARTICLE FORM -->
+  <section class="panel">
+    <h2 class="heading" id="formHeading">Create News Article</h2>
+    <p class="muted">Write, edit and publish news directly to JNTV.</p>
+
+    <form id="articleForm">
+
+      <div class="form-grid">
+
+        <div class="full-field">
+          <label>Article Headline</label>
+          <input id="title" type="text"
+            placeholder="Enter news headline"
+            maxlength="250" required>
+        </div>
+
+        <div>
+          <label>Category</label>
+          <select id="category" required>
+            <option value="Politics">Politics</option>
+            <option value="Sports">Sports</option>
+            <option value="Business">Business</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="National">National</option>
+            <option value="International">International</option>
+            <option value="Technology">Technology</option>
+            <option value="Education">Education</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Publication Status</label>
+          <select id="status">
+            <option value="published">Publish Article</option>
+            <option value="draft">Save as Draft</option>
+          </select>
+        </div>
+
+        <div class="full-field">
+          <label>Article Summary</label>
+          <textarea id="summary"
+            placeholder="Write a short introduction or news summary..."
+            style="min-height:85px"></textarea>
+        </div>
+
+        <div class="full-field">
+          <label>Full News Content</label>
+          <textarea id="content" class="content-area"
+            placeholder="Write the complete news story here..."
+            required></textarea>
+        </div>
+
+        <div class="full-field">
+          <label>Upload Article Photograph</label>
+          <input id="imageFile" type="file"
+            accept="image/jpeg,image/png,image/webp,image/gif">
+
+          <img id="imagePreview" class="preview" alt="Image preview">
+          <div class="muted" style="margin-top:7px">
+            JPG, PNG, WEBP or GIF. Maximum 5 MB.
+          </div>
+        </div>
+
+        <div class="full-field">
+          <div class="checkline">
+            <input type="checkbox" id="breaking">
+            <label for="breaking">Mark as Breaking News</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-red" type="submit" id="saveBtn">
+          PUBLISH ARTICLE
+        </button>
+
+        <button class="btn btn-light" type="button" id="newBtn">
+          CLEAR FORM
+        </button>
+      </div>
+
+      <input type="hidden" id="editingId">
+    </form>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="panel">
+    <div class="dashboard-head">
+      <div>
+        <h2 class="heading">Manage Articles</h2>
+        <p class="muted">View and manage all your newsroom publications.</p>
+      </div>
+      <button class="btn btn-light" id="refreshBtn">REFRESH</button>
+    </div>
+
+    <input class="search-box" id="searchArticles"
+      type="search" placeholder="Search articles...">
+
+    <div id="articleList" style="margin-top:15px">
+      Loading articles...
+    </div>
+  </section>
+
+</section>
+
+</main>
+
+<footer>
+  JNTV NEWSROOM · INFORM • ENTERTAIN • EMPOWER
+  <br><br>
+  Powered by James Nyarang’o
+</footer>
+
+<script>
+const SUPABASE_URL =
+  'https://eqogivrposfajrkdwqbq.supabase.co';
+
+const SUPABASE_KEY =
+  'sb_publishable_l4sKYCzUW6670QvOMtBE_Q_kRCbwDZ-';
+
+const db = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const $ = id => document.getElementById(id);
+
+let currentUser = null;
+let articles = [];
+let currentImageUrl = '';
+let currentImagePath = '';
+
+function message(text, type='success') {
+  const el = $('message');
+  el.textContent = text;
+  el.className = type;
+  el.style.display = 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function loginMessage(text) {
+  const el = $('loginMessage');
+  el.textContent = text;
+  el.classList.remove('hidden');
+}
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#039;'
+  })[char]);
+}
+
+function slugify(text) {
+  return text.toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,'-')
+    .replace(/^-|-$/g,'');
+}
+
+async function verifyAdmin(user) {
+  const {data,error} = await db
+    .from('admin_users')
+    .select('user_id')
+    .eq('user_id',user.id)
+    .maybeSingle();
+
+  if(error) {
+    throw new Error(
+      'Administrator verification failed: ' + error.message
+    );
+  }
+
+  if(!data) {
+    throw new Error(
+      'This account is not registered as a JNTV administrator.'
+    );
+  }
+
+  currentUser = user;
+}
+
+async function openDashboard(user) {
+  await verifyAdmin(user);
+
+  $('loginSection').classList.add('hidden');
+  $('dashboard').classList.remove('hidden');
+
+  await loadArticles();
+}
+
+async function login(email,password) {
+  const {data,error} = await db.auth.signInWithPassword({
+    email,password
+  });
+
+  if(error) throw error;
+
+  await openDashboard(data.user);
+}
+
+$('loginForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+
+  const button = e.submitter;
+  button.disabled = true;
+  button.textContent = 'SIGNING IN...';
+
+  try {
+    await login(
+      $('email').value.trim(),
+      $('password').value
+    );
+  } catch(error) {
+    loginMessage(error.message);
+    await db.auth.signOut();
+  } finally {
+    button.disabled = false;
+    button.textContent = 'SIGN IN TO NEWSROOM';
+  }
+});
+
+async function loadArticles() {
+  $('articleList').textContent = 'Loading articles...';
+
+  const {data,error} = await db
+    .from('articles')
+    .select('*')
+    .order('created_at',{ascending:false});
+
+  if(error) {
+    $('articleList').textContent =
+      'Could not load articles: ' + error.message;
+    return;
+  }
+
+  articles = data || [];
+
+  $('totalCount').textContent = articles.length;
+  $('publishedCount').textContent =
+    articles.filter(a=>a.status==='published').length;
+  $('draftCount').textContent =
+    articles.filter(a=>a.status==='draft').length;
+
+  renderArticles();
+}
+
+function renderArticles() {
+  const search = $('searchArticles').value.toLowerCase();
+
+  const filtered = articles.filter(a=>
+    (a.title || '').toLowerCase().includes(search) ||
+    (a.category || '').toLowerCase().includes(search)
+  );
+
+  const list = $('articleList');
+
+  if(!filtered.length) {
+    list.textContent = 'No articles found.';
+    return;
+  }
+
+  list.innerHTML = '';
+
+  filtered.forEach(article=>{
+    const row = document.createElement('div');
+    row.className = 'article-row';
+
+    const info = document.createElement('div');
+    info.className = 'article-info';
+
+    const statusClass =
+      article.status === 'published' ? '' : 'draft';
+
+    info.innerHTML = `
+      <strong>${escapeHTML(article.title)}</strong>
+      <div class="article-meta">
+        <span class="status ${statusClass}">
+          ${escapeHTML(article.status || 'draft')}
+        </span>
+        ${article.breaking ?
+          '<span class="status breaking">BREAKING</span>' : ''}
+        ${escapeHTML(article.category || '')}
+        · ${escapeHTML(
+          article.created_at ?
+          new Date(article.created_at).toLocaleDateString() : ''
+        )}
+      </div>
+    `;
+
+    const buttons = document.createElement('div');
+    buttons.className = 'article-buttons';
+
+    const edit = document.createElement('button');
+    edit.className = 'btn btn-dark';
+    edit.textContent = 'EDIT';
+    edit.addEventListener('click',()=>editArticle(article));
+
+    const remove = document.createElement('button');
+    remove.className = 'btn btn-danger';
+    remove.textContent = 'DELETE';
+    remove.addEventListener('click',()=>deleteArticle(article));
+
+    buttons.append(edit,remove);
+    row.append(info,buttons);
+    list.appendChild(row);
+  });
+}
+
+$('searchArticles').addEventListener('input',renderArticles);
+
+$('refreshBtn').addEventListener('click',loadArticles);
+
+$('imageFile').addEventListener('change',()=>{
+  const file = $('imageFile').files[0];
+  const preview = $('imagePreview');
+
+  if(!file) {
+    preview.style.display='none';
+    return;
+  }
+
+  if(file.size > 5*1024*1024) {
+    message('Image exceeds the 5 MB limit.','error');
+    $('imageFile').value='';
+    preview.style.display='none';
+    return;
+  }
+
+  if(!['image/jpeg','image/png','image/webp','image/gif']
+      .includes(file.type)) {
+    message('Please select a JPG, PNG, WEBP or GIF image.','error');
+    $('imageFile').value='';
+    preview.style.display='none';
+    return;
+  }
+
+  preview.src=URL.createObjectURL(file);
+  preview.style.display='block';
+});
+
+async function uploadImage(file) {
+  const extension = file.name.split('.').pop().toLowerCase();
+  const path = currentUser.id + '/' +
+    Date.now() + '-' +
+    Math.random().toString(36).slice(2) +
+    '.' + extension;
+
+  const {error} = await db.storage
+    .from('jntv-images')
+    .upload(path,file,{
+      cacheControl:'3600',
+      upsert:false,
+      contentType:file.type
+    });
+
+  if(error) throw error;
+
+  const {data} = db.storage
+    .from('jntv-images')
+    .getPublicUrl(path);
+
+  currentImagePath = path;
+  return data.publicUrl;
+}
+
+$('articleForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+
+  const button = $('saveBtn');
+  button.disabled=true;
+  button.textContent='SAVING...';
+
+  try {
+    const title = $('title').value.trim();
+    const status = $('status').value;
+    const editingId = $('editingId').value;
+
+    const oldArticle = articles.find(
+      a=>String(a.id)===String(editingId)
+    );
+
+    const file = $('imageFile').files[0];
+
+    let imageUrl = currentImageUrl;
+
+    if(file) {
+      imageUrl = await uploadImage(file);
+    }
+
+    const now = new Date().toISOString();
+
+    const article = {
+      title:title,
+      slug:slugify(title),
+      summary:$('summary').value.trim(),
+      content:$('content').value.trim(),
+      category:$('category').value,
+      image_url:imageUrl || null,
+      author:currentUser.email,
+      status:status,
+      breaking:$('breaking').checked,
+      published_at:status==='published'
+        ? (oldArticle?.published_at || now)
+        : null,
+      updated_at:now
+    };
+
+    let result;
+
+    if(editingId) {
+      result = await db
+        .from('articles')
+        .update(article)
+        .eq('id',editingId);
+    } else {
+      result = await db
+        .from('articles')
+        .insert(article);
+    }
+
+    if(result.error) throw result.error;
+
+    message(
+      editingId ?
+      'Article updated successfully!' :
+      'Article saved successfully!'
+    );
+
+    clearForm();
+    await loadArticles();
+
+  } catch(error) {
+    message(error.message,'error');
+  } finally {
+    button.disabled=false;
+    button.textContent='PUBLISH ARTICLE';
+  }
+});
+
+function editArticle(article) {
+  $('editingId').value=article.id;
+  $('title').value=article.title || '';
+  $('category').value=article.category || 'Politics';
+  $('status').value=article.status || 'draft';
+  $('summary').value=article.summary || '';
+  $('content').value=article.content || '';
+  $('breaking').checked=!!article.breaking;
+
+  currentImageUrl=article.image_url || '';
+  currentImagePath='';
+
+  $('imageFile').value='';
+
+  const preview=$('imagePreview');
+
+  if(currentImageUrl) {
+    preview.src=currentImageUrl;
+    preview.style.display='block';
+  } else {
+    preview.style.display='none';
+  }
+
+  $('formHeading').textContent='Edit News Article';
+  $('saveBtn').textContent='UPDATE ARTICLE';
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+async function deleteArticle(article) {
+  if(!confirm(
+    'Are you sure you want to permanently delete this article?'
+  )) return;
+
+  try {
+    const {error} = await db
+      .from('articles')
+      .delete()
+      .eq('id',article.id);
+
+    if(error) throw error;
+
+    message('Article deleted successfully.');
+    await loadArticles();
+
+  } catch(error) {
+    message(error.message,'error');
+  }
+}
+
+function clearForm() {
+  $('articleForm').reset();
+  $('editingId').value='';
+  $('imageFile').value='';
+  $('imagePreview').style.display='none';
+  $('formHeading').textContent='Create News Article';
+  $('saveBtn').textContent='PUBLISH ARTICLE';
+
+  currentImageUrl='';
+  currentImagePath='';
+}
+
+$('newBtn').addEventListener('click',clearForm);
+
+$('logoutBtn').addEventListener('click',async()=>{
+  await db.auth.signOut();
+  currentUser=null;
+  $('dashboard').classList.add('hidden');
+  $('loginSection').classList.remove('hidden');
+  clearForm();
+});
+
+async function initialise() {
+  try {
+    const {data,error} = await db.auth.getSession();
+
+    if(error) throw error;
+
+    if(data.session) {
+      await openDashboard(data.session.user);
+    }
+
+  } catch(error) {
+    loginMessage(error.message);
+    await db.auth.signOut();
+  }
+}
+
+initialise();
+
+</script>
+</body>
+</html>
