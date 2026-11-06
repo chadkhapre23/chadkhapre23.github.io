@@ -1,11 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Business News | JNTV</title>
-<meta name="description" content="The latest business, finance, markets, trade and economic news from Uganda, Africa and around the world.">
+<meta name="description" content="Business, finance, markets, trade and economic news from Uganda, Africa and around the world.">
 <meta name="theme-color" content="#071a35">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,23 +36,14 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-img{
-  display:block;
-  max-width:100%;
-}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
 
 /* HEADER */
 
 .site-header{
   background:var(--navy);
   border-bottom:3px solid var(--red);
-  position:relative;
-  z-index:10;
 }
 
 .header-inner{
@@ -62,14 +53,14 @@ img{
   padding:8px 22px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:22px;
+  justify-content:flex-start;
+  gap:18px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  flex-shrink:0;
+  flex:0 0 auto;
 }
 
 .brand img{
@@ -81,8 +72,9 @@ img{
 .main-nav{
   display:flex;
   align-items:center;
-  justify-content:flex-end;
-  gap:2px;
+  justify-content:flex-start;
+  gap:1px;
+  flex:1;
   min-width:0;
   overflow-x:auto;
   scrollbar-width:none;
@@ -94,9 +86,9 @@ img{
   color:#e7edf5;
   font-size:12px;
   font-weight:700;
-  letter-spacing:.35px;
+  letter-spacing:.25px;
   white-space:nowrap;
-  padding:12px 11px;
+  padding:12px 10px;
   transition:.2s ease;
 }
 
@@ -188,7 +180,7 @@ img{
   background:var(--red);
 }
 
-/* EDITORIAL INTRO */
+/* BUSINESS INTRO */
 
 .business-intro{
   position:relative;
@@ -196,9 +188,7 @@ img{
   margin-bottom:28px;
   padding:25px 30px;
   overflow:hidden;
-  background:
-    linear-gradient(105deg,rgba(7,26,53,.98),rgba(13,48,83,.91)),
-    #071a35;
+  background:linear-gradient(105deg,rgba(7,26,53,.98),rgba(13,48,83,.91));
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -214,9 +204,8 @@ img{
   height:330px;
   border:1px solid rgba(255,255,255,.12);
   border-radius:50%;
-  box-shadow:
-    0 0 0 35px rgba(255,255,255,.025),
-    0 0 0 75px rgba(255,255,255,.02);
+  box-shadow:0 0 0 35px rgba(255,255,255,.025),
+             0 0 0 75px rgba(255,255,255,.02);
 }
 
 .intro-copy{
@@ -230,7 +219,6 @@ img{
   font-size:10px;
   font-weight:800;
   letter-spacing:2px;
-  text-transform:uppercase;
   margin-bottom:8px;
 }
 
@@ -240,7 +228,6 @@ img{
   line-height:1.18;
   font-weight:800;
   margin:0 0 7px;
-  letter-spacing:-.3px;
 }
 
 .intro-copy p{
@@ -264,12 +251,9 @@ img{
   border-left:1px solid rgba(255,255,255,.2);
   font-size:44px;
   font-weight:800;
-  letter-spacing:-3px;
 }
 
-.intro-accent span{
-  color:#ff5363;
-}
+.intro-accent span{color:#ff5363}
 
 /* CONTENT */
 
@@ -296,7 +280,6 @@ img{
   line-height:1.2;
   font-weight:900;
   text-transform:uppercase;
-  letter-spacing:.3px;
   margin:0;
 }
 
@@ -333,13 +316,9 @@ img{
   transition:transform .35s ease;
 }
 
-.featured-media:hover img{
-  transform:scale(1.035);
-}
+.featured-media:hover img{transform:scale(1.035)}
 
-.featured-copy{
-  align-self:center;
-}
+.featured-copy{align-self:center}
 
 .story-category{
   color:var(--red);
@@ -354,7 +333,6 @@ img{
   font-size:25px;
   line-height:1.19;
   font-weight:900;
-  letter-spacing:-.35px;
   margin:9px 0 10px;
 }
 
@@ -367,7 +345,7 @@ img{
 
 .story-meta{
   color:#8993a0;
-  font-size:10px;
+  font-size:11px;
   font-weight:600;
   margin-bottom:12px;
 }
@@ -380,7 +358,6 @@ img{
   font-size:11px;
   font-weight:900;
   text-transform:uppercase;
-  letter-spacing:.4px;
 }
 
 .read-link:hover{color:var(--navy)}
@@ -415,9 +392,7 @@ img{
   transition:transform .3s ease;
 }
 
-.news-card-image:hover img{
-  transform:scale(1.04);
-}
+.news-card-image:hover img{transform:scale(1.04)}
 
 .news-card h3{
   color:var(--navy);
@@ -435,8 +410,6 @@ img{
   line-height:1.55;
   margin:0 0 9px;
 }
-
-.news-card .story-meta{margin-bottom:8px}
 
 /* SIDEBAR */
 
@@ -490,19 +463,19 @@ img{
 
 .sidebar-note h3{
   color:var(--navy);
-  font-size:13px;
+  font-size:14px;
   font-weight:900;
   margin:0 0 7px;
 }
 
 .sidebar-note p{
   color:#687586;
-  font-size:12px;
+  font-size:13px;
   line-height:1.65;
   margin:0;
 }
 
-/* EMPTY / LOADING */
+/* EMPTY STATE */
 
 .empty-state{
   padding:35px 20px;
@@ -513,14 +486,14 @@ img{
 
 .empty-state h3{
   color:var(--navy);
-  font-size:18px;
+  font-size:19px;
   font-weight:800;
   margin:0 0 6px;
 }
 
 .empty-state p{
   color:var(--muted);
-  font-size:12px;
+  font-size:13px;
   line-height:1.6;
   margin:0;
 }
@@ -528,7 +501,7 @@ img{
 .loading-state{
   color:var(--muted);
   padding:28px 10px;
-  font-size:12px;
+  font-size:13px;
 }
 
 /* FOOTER */
@@ -542,114 +515,72 @@ img{
 .footer-inner{
   max-width:1240px;
   margin:auto;
-  padding:30px 22px 23px;
+  padding:32px 22px 27px;
   display:grid;
   grid-template-columns:1.35fr 1fr 1fr 1fr;
-  gap:28px;
+  gap:32px;
 }
 
 .footer-column h3{
   color:#fff;
-  font-size:12px;
+  font-size:15px;
   font-weight:900;
   letter-spacing:.8px;
   text-transform:uppercase;
-  margin:0 0 13px;
+  margin:0 0 15px;
 }
 
 .footer-column p{
-  color:#b9c6d6;
-  font-size:11px;
-  line-height:1.7;
+  color:#c4cfdd;
+  font-size:14px;
+  line-height:1.75;
   margin:0;
 }
 
 .footer-column a{
   display:block;
-  color:#bdc9d8;
-  font-size:11px;
-  margin:0 0 8px;
+  color:#c4cfdd;
+  font-size:14px;
+  font-weight:500;
+  margin:0 0 10px;
   transition:.2s;
 }
 
 .footer-column a:hover{color:#fff}
 
-.footer-brand-mark{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:10px;
-}
-
-.footer-brand-mark img{
-  width:53px;
-  height:45px;
-  object-fit:contain;
-}
-
-.footer-brand-mark strong{
-  color:#fff;
-  font-size:15px;
-  font-weight:900;
-  letter-spacing:.2px;
-}
-
 .footer-bottom{
   max-width:1240px;
   margin:auto;
-  padding:13px 22px;
-  border-top:1px solid rgba(255,255,255,.13);
+  padding:15px 22px;
+  border-top:1px solid rgba(255,255,255,.16);
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:12px;
-  color:#9eafc2;
-  font-size:10px;
+  color:#b8c5d5;
+  font-size:12px;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:900px){
-  .header-inner{
-    gap:12px;
-    padding-left:15px;
-    padding-right:15px;
-  }
-
-  .brand img{
-    width:65px;
-    height:58px;
-  }
-
-  .main-nav a{
-    padding:11px 8px;
-    font-size:11px;
-  }
-
-  .content-grid{
-    grid-template-columns:minmax(0,1fr) 245px;
-    gap:22px;
-  }
-
+@media(max-width:1000px){
+  .header-inner{gap:12px}
+  .main-nav a{padding:11px 7px;font-size:11px}
+  .brand img{width:68px;height:58px}
+  .content-grid{grid-template-columns:minmax(0,1fr) 245px;gap:22px}
   .sidebar{padding-left:17px}
-
-  .footer-inner{
-    grid-template-columns:repeat(2,1fr);
-  }
 }
 
-@media(max-width:680px){
+@media(max-width:760px){
   .header-inner{
     min-height:75px;
     flex-wrap:wrap;
-    justify-content:center;
-    gap:3px;
+    gap:2px;
     padding:6px 12px 0;
   }
 
   .brand{
-    width:100%;
-    justify-content:center;
+    flex:0 0 auto;
   }
 
   .brand img{
@@ -659,6 +590,7 @@ img{
 
   .main-nav{
     width:100%;
+    flex:1 1 100%;
     justify-content:flex-start;
     padding-bottom:7px;
   }
@@ -668,16 +600,9 @@ img{
     padding:9px 10px;
   }
 
-  .section-bar-inner{
-    padding:8px 14px;
-  }
-
-  .container{
-    padding:21px 14px 35px;
-  }
-
+  .section-bar-inner{padding:8px 14px}
+  .container{padding:21px 14px 35px}
   .heading-copy h1{font-size:27px}
-
   .heading-copy p{font-size:12px}
 
   .business-intro{
@@ -715,40 +640,32 @@ img{
   }
 
   .featured-copy h2{font-size:23px}
-
   .news-card-image{height:130px}
-
   .news-card h3{font-size:16px}
 
   .footer-inner{
-    padding:25px 16px 20px;
-    gap:22px;
+    grid-template-columns:repeat(2,1fr);
+    padding:27px 16px 22px;
+    gap:25px;
   }
 
-  .footer-bottom{
-    padding:12px 16px;
-  }
+  .footer-column h3{font-size:14px}
+  .footer-column a{font-size:13px}
+  .footer-column p{font-size:13px}
+
+  .footer-bottom{padding:13px 16px;font-size:11px}
 }
 
 @media(max-width:420px){
   .page-heading{align-items:flex-start}
-
   .heading-copy h1{font-size:24px}
-
   .heading-mark{font-size:9px}
-
   .news-grid{gap:18px 12px}
-
   .news-card-image{height:110px}
-
   .news-card h3{font-size:15px}
-
   .news-card p{font-size:11px}
-
   .business-intro{padding:18px 15px}
-
   .intro-accent{display:none}
-
   .footer-inner{grid-template-columns:1fr 1fr}
 }
 </style>
@@ -842,10 +759,7 @@ img{
   <div class="footer-inner">
 
     <div class="footer-column">
-      <div class="footer-brand-mark">
-        <img src="./JAMO%20LOGO.jpeg" alt="JNTV logo">
-        <strong>JNTV</strong>
-      </div>
+      <h3>JNTV</h3>
       <p>Independent digital journalism covering the stories, people and developments that matter.</p>
     </div>
 
@@ -869,7 +783,7 @@ img{
       <h3>Newsroom</h3>
       <a href="./admin.html">Newsroom Login</a>
       <a href="./latest-news.html">Published Stories</a>
-      <p>For news, updates and current affairs, follow JNTV across its digital platforms.</p>
+      <p>Follow JNTV for news, updates and current affairs.</p>
     </div>
 
   </div>
@@ -945,8 +859,10 @@ function articleImage(article){
 function articleDate(article){
   const value = article.published_at || article.date || article.publishedAt;
   if(!value) return "";
+
   const date = new Date(value);
   if(Number.isNaN(date.getTime())) return "";
+
   return new Intl.DateTimeFormat("en-GB", {
     day:"numeric",
     month:"short",
@@ -984,11 +900,8 @@ function renderFeatured(article){
 
   return `
     <article class="featured">
-
       <a class="featured-media" href="${link}" aria-label="${title}">
-        ${image
-          ? `<img src="${escapeHTML(image)}" alt="${title}" loading="lazy">`
-          : ""}
+        ${image ? `<img src="${escapeHTML(image)}" alt="${title}" loading="lazy">` : ""}
       </a>
 
       <div class="featured-copy">
@@ -996,9 +909,8 @@ function renderFeatured(article){
         <h2><a href="${link}">${title}</a></h2>
         <p>${summary}</p>
         <div class="story-meta">${date}</div>
-        <a class="read-link" href="${link}">Read full story <span>→</span></a>
+        <a class="read-link" href="${link}">Read full story →</a>
       </div>
-
     </article>
   `;
 }
@@ -1012,19 +924,17 @@ function renderCard(article){
 
   return `
     <article class="news-card">
-
-      ${image
-        ? `<a class="news-card-image" href="${link}">
-             <img src="${escapeHTML(image)}" alt="${title}" loading="lazy">
-           </a>`
-        : ""}
+      ${image ? `
+        <a class="news-card-image" href="${link}">
+          <img src="${escapeHTML(image)}" alt="${title}" loading="lazy">
+        </a>
+      ` : ""}
 
       <div class="story-category">BUSINESS</div>
       <h3><a href="${link}">${title}</a></h3>
       <p>${summary}</p>
       <div class="story-meta">${date}</div>
       <a class="read-link" href="${link}">Read story →</a>
-
     </article>
   `;
 }
@@ -1049,15 +959,13 @@ function renderEmpty(){
   businessContainer.innerHTML = `
     <div class="empty-state">
       <h3>No Business Stories Yet</h3>
-      <p>Business and economy reports will appear here automatically when they are published by the JNTV newsroom.</p>
+      <p>Business and economy reports will appear here automatically when published by the JNTV newsroom.</p>
     </div>
   `;
 }
 
 async function loadBusinessNews(){
-
   try{
-
     const response = await fetch(
       `${SUPABASE_URL}/rest/v1/articles?select=*&status=eq.published&order=published_at.desc&limit=100`,
       {
@@ -1075,7 +983,6 @@ async function loadBusinessNews(){
     }
 
     const allArticles = await response.json();
-
     const businessArticles = allArticles.filter(categoryIsBusiness);
 
     if(!businessArticles.length){
@@ -1089,22 +996,19 @@ async function loadBusinessNews(){
 
     businessContainer.innerHTML =
       renderFeatured(featured) +
-      (remaining.length
-        ? `
-          <div class="section-heading">
-            <h2>More Business News</h2>
-            <span>MORE STORIES</span>
-          </div>
-          <div class="news-grid">
-            ${remaining.map(renderCard).join("")}
-          </div>
-        `
-        : "");
+      (remaining.length ? `
+        <div class="section-heading">
+          <h2>More Business News</h2>
+          <span>MORE STORIES</span>
+        </div>
+        <div class="news-grid">
+          ${remaining.map(renderCard).join("")}
+        </div>
+      ` : "");
 
     renderHeadlines(businessArticles);
 
   }catch(error){
-
     console.error("JNTV Business News:",error);
 
     businessContainer.innerHTML = `
