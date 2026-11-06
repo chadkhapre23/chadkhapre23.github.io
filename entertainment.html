@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Entertainment News | James Nyarango TV</title>
+<meta name="description" content="JNTV Entertainment: music, film, culture, celebrities, arts and global entertainment news.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--navy:#101d32;
+--navy2:#172943;
+--red:#d71920;
+--text:#202833;
+--muted:#687383;
+--line:#e3e7ec;
+--light:#f3f5f7;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:#fff;
+color:var(--text);
+font-family:Manrope,Arial,sans-serif;
+font-size:13px;
+}
+
+a{text-decoration:none;color:inherit}
+
+.topbar{
+background:var(--navy);
+color:#fff;
+font-size:10px;
+font-weight:800;
+letter-spacing:.7px;
+}
+
+.topbar-inner{
+max-width:1200px;
+margin:auto;
+padding:9px 18px;
+display:flex;
+justify-content:space-between;
+gap:12px;
+}
+
+.masthead{
+max-width:1200px;
+margin:auto;
+padding:16px 18px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.brand img{
+width:65px;
+height:65px;
+object-fit:contain;
+}
+
+.brand-name{
+font-family:'Playfair Display',serif;
+font-size:23px;
+font-weight:900;
+color:var(--navy);
+line-height:1.15;
+}
+
+.brand-tagline{
+font-size:9px;
+font-weight:800;
+letter-spacing:1.5px;
+color:var(--red);
+margin-top:5px;
+}
+
+.header-label{
+text-align:right;
+font-size:10px;
+font-weight:800;
+letter-spacing:1px;
+color:var(--navy);
+}
+
+.navigation{
+background:var(--navy);
+}
+
+.nav-inner{
+max-width:1200px;
+margin:auto;
+padding:0 18px;
+display:flex;
+overflow-x:auto;
+}
+
+.navigation a{
+padding:14px 15px;
+color:#fff;
+font-size:10px;
+font-weight:800;
+letter-spacing:.5px;
+white-space:nowrap;
+}
+
+.navigation a:hover,
+.navigation a.active{
+background:var(--red);
+}
+
+.section-strip{
+background:#f1f3f5;
+border-bottom:1px solid var(--line);
+}
+
+.section-strip-inner{
+max-width:1200px;
+margin:auto;
+padding:10px 18px;
+display:flex;
+justify-content:space-between;
+gap:10px;
+}
+
+.section-name{
+font-size:11px;
+font-weight:900;
+letter-spacing:1px;
+color:var(--navy);
+}
+
+.section-date{
+font-size:10px;
+color:var(--muted);
+font-weight:600;
+}
+
+.container{
+max-width:1200px;
+margin:27px auto;
+padding:0 18px;
+}
+
+.page-heading{
+border-bottom:3px solid var(--navy);
+padding-bottom:13px;
+margin-bottom:22px;
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:12px;
+}
+
+.page-heading h1{
+font-family:'Playfair Display',serif;
+font-size:32px;
+line-height:1.15;
+margin:0;
+font-weight:900;
+color:var(--navy);
+}
+
+.page-heading p{
+margin:7px 0 0;
+color:var(--muted);
+font-size:12px;
+}
+
+.heading-tag{
+background:var(--red);
+color:white;
+padding:7px 10px;
+font-size:9px;
+font-weight:900;
+letter-spacing:1px;
+}
+
+.coverage-bar{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+border:1px solid var(--line);
+margin-bottom:28px;
+}
+
+.coverage-item{
+padding:14px;
+border-right:1px solid var(--line);
+}
+
+.coverage-item:last-child{
+border-right:0;
+}
+
+.coverage-item strong{
+display:block;
+font-family:'Playfair Display',serif;
+font-size:16px;
+color:var(--navy);
+}
+
+.coverage-item span{
+display:block;
+margin-top:4px;
+font-size:10px;
+color:var(--muted);
+}
+
+.content-grid{
+display:grid;
+grid-template-columns:minmax(0,2fr) minmax(250px,1fr);
+gap:28px;
+}
+
+.section-title{
+font-family:'Playfair Display',serif;
+font-size:19px;
+font-weight:800;
+color:var(--navy);
+border-left:5px solid var(--red);
+padding-left:10px;
+margin:0 0 17px;
+}
+
+.news-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:20px;
+}
+
+.news-card{
+border-bottom:1px solid var(--line);
+padding-bottom:17px;
+}
+
+.news-card img{
+width:100%;
+height:175px;
+object-fit:cover;
+background:var(--light);
+}
+
+.category{
+font-size:9px;
+font-weight:900;
+letter-spacing:1px;
+color:var(--red);
+margin-top:10px;
+text-transform:uppercase;
+}
+
+.news-card h3{
+font-family:'Playfair Display',serif;
+font-size:19px;
+line-height:1.3;
+margin:7px 0;
+color:var(--navy);
+}
+
+.news-card p{
+font-size:11px;
+line-height:1.8;
+color:var(--muted);
+margin:0 0 9px;
+}
+
+.meta{
+font-size:9px;
+color:#858d98;
+font-weight:700;
+}
+
+.read-more{
+display:inline-block;
+margin-top:10px;
+font-size:10px;
+font-weight:900;
+color:var(--red);
+text-transform:uppercase;
+}
+
+.sidebar-box{
+border:1px solid var(--line);
+margin-bottom:20px;
+}
+
+.sidebar-heading{
+background:var(--navy);
+color:#fff;
+padding:12px 14px;
+font-size:11px;
+font-weight:900;
+letter-spacing:.8px;
+}
+
+.sidebar-content{
+padding:14px;
+}
+
+.topic{
+padding:11px 0;
+border-bottom:1px solid var(--line);
+font-size:11px;
+font-weight:700;
+color:var(--navy);
+}
+
+.topic:last-child{
+border-bottom:0;
+}
+
+.topic span{
+display:block;
+font-size:9px;
+color:var(--red);
+margin-bottom:4px;
+font-weight:900;
+}
+
+.editorial-note{
+background:var(--light);
+padding:15px;
+border-left:4px solid var(--red);
+font-size:11px;
+line-height:1.8;
+color:#566170;
+}
+
+.empty-state{
+background:var(--light);
+border:1px solid var(--line);
+padding:30px 20px;
+text-align:center;
+grid-column:1/-1;
+}
+
+.empty-state h3{
+font-family:'Playfair Display',serif;
+font-size:21px;
+color:var(--navy);
+margin:0 0 8px;
+}
+
+.empty-state p{
+font-size:12px;
+color:var(--muted);
+line-height:1.7;
+}
+
+footer{
+background:var(--navy);
+color:#fff;
+margin-top:45px;
+border-top:4px solid var(--red);
+}
+
+.footer-inner{
+max-width:1200px;
+margin:auto;
+padding:26px 18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.footer-brand{
+font-family:'Playfair Display',serif;
+font-size:19px;
+font-weight:900;
+}
+
+.footer-tagline{
+font-size:9px;
+color:#ff7278;
+font-weight:900;
+letter-spacing:1px;
+margin-top:5px;
+}
+
+.footer-copy{
+font-size:10px;
+color:#c0cad6;
+line-height:1.8;
+}
+
+@media(max-width:760px){
+.masthead{padding:13px}
+.brand img{width:53px;height:53px}
+.brand-name{font-size:19px}
+.header-label{display:none}
+.navigation a{padding:13px 12px;font-size:9px}
+.container{margin:20px auto;padding:0 14px}
+.page-heading h1{font-size:25px}
+.content-grid{grid-template-columns:1fr}
+.coverage-bar{grid-template-columns:repeat(2,1fr)}
+.coverage-item:nth-child(2){border-right:0}
+.coverage-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.news-card img{height:145px}
+}
+
+@media(max-width:420px){
+.news-grid{grid-template-columns:1fr}
+.news-card img{height:190px}
+.page-heading h1{font-size:23px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+<div class="topbar-inner">
+<span>JNTV • ENTERTAINMENT & CULTURE</span>
+<span>INFORM • ENTERTAIN • EMPOWER</span>
+</div>
+</div>
+
+<header class="masthead">
+<a class="brand" href="./index.html">
+<img src="./JAMO%20LOGO.jpeg" alt="JNTV Logo">
+<div>
+<div class="brand-name">JAMES NYARANGO TV</div>
+<div class="brand-tagline">INFORM • ENTERTAIN • EMPOWER</div>
+</div>
+</a>
+<div class="header-label">
+INTERNATIONAL NEWS<br>
+ENTERTAINMENT DESK
+</div>
+</header>
+
+<nav class="navigation">
+<div class="nav-inner">
+<a href="./index.html">HOME</a>
+<a href="./latest-news.html">LATEST NEWS</a>
+<a href="./politics.html">POLITICS</a>
+<a href="./business.html">BUSINESS</a>
+<a href="./sports.html">SPORTS</a>
+<a class="active" href="./entertainment.html">ENTERTAINMENT</a>
+<a href="./videos.html">VIDEOS</a>
+<a href="./about.html">ABOUT US</a>
+</div>
+</nav>
+
+<div class="section-strip">
+<div class="section-strip-inner">
+<span class="section-name">ENTERTAINMENT NEWS DESK</span>
+<span class="section-date" id="todayDate"></span>
+</div>
+</div>
+
+<main class="container">
+
+<div class="page-heading">
+<div>
+<h1>Entertainment & Culture</h1>
+<p>Stories, personalities and creative developments shaping the world.</p>
+</div>
+<span class="heading-tag">ENTERTAINMENT</span>
+</div>
+
+<section class="coverage-bar">
+<div class="coverage-item">
+<strong>Music</strong>
+<span>Artists and the music industry</span>
+</div>
+<div class="coverage-item">
+<strong>Film & TV</strong>
+<span>Movies and television</span>
+</div>
+<div class="coverage-item">
+<strong>Culture</strong>
+<span>Arts and cultural affairs</span>
+</div>
+<div class="coverage-item">
+<strong>Celebrity</strong>
+<span>People and personalities</span>
+</div>
+</section>
+
+<div class="content-grid">
+
+<section>
+<h2 class="section-title">Latest Entertainment Headlines</h2>
+
+<div id="entertainmentNews">
+<div class="empty-state">
+<h3>Entertainment Newsroom</h3>
+<p>Entertainment reports, interviews, music, film and cultural stories will appear here as they are published by the JNTV newsroom.</p>
+</div>
+</div>
+
+</section>
+
+<aside>
+
+<div class="sidebar-box">
+<div class="sidebar-heading">ENTERTAINMENT COVERAGE</div>
+<div class="sidebar-content">
+
+<div class="topic">
+<span>01 / MUSIC</span>
+Music releases, artists and performances
+</div>
+
+<div class="topic">
+<span>02 / FILM</span>
+Cinema, television and productions
+</div>
+
+<div class="topic">
+<span>03 / CELEBRITIES</span>
+Profiles, interviews and personalities
+</div>
+
+<div class="topic">
+<span>04 / CULTURE</span>
+Arts, heritage and creative industries
+</div>
+
+<div class="topic">
+<span>05 / LIFESTYLE</span>
+Fashion and contemporary living
+</div>
+
+<div class="topic">
+<span>06 / GLOBAL SHOWBIZ</span>
+International entertainment developments
+</div>
+
+</div>
+</div>
+
+<div class="sidebar-box">
+<div class="sidebar-heading">JNTV ENTERTAINMENT DESK</div>
+<div class="sidebar-content">
+<div class="editorial-note">
+Your destination for entertainment journalism, cultural stories, creative voices and the personalities making headlines in Uganda, Africa and around the world.
+</div>
+</div>
+</div>
+
+</aside>
+</div>
+</main>
+
+<footer>
+<div class="footer-inner">
+<div>
+<div class="footer-brand">JAMES NYARANGO TV</div>
+<div class="footer-tagline">INFORM • ENTERTAIN • EMPOWER</div>
+</div>
+
+<div class="footer-copy">
+Entertainment & Culture News<br>
+© <span id="year"></span> James Nyarango TV. All rights reserved.
+</div>
+</div>
+</footer>
+
+<script>
+document.getElementById("todayDate").textContent =
+new Intl.DateTimeFormat("en-GB", {
+weekday:"long",
+day:"numeric",
+month:"long",
+year:"numeric"
+}).format(new Date());
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+function loadEntertainmentNews(){
+
+const container = document.getElementById("entertainmentNews");
+
+try{
+
+const articles = JSON.parse(
+localStorage.getItem("jntvArticles") || "[]"
+);
+
+const entertainmentArticles = articles.filter(article => {
+
+const category = String(
+article.category || article.section || ""
+).toLowerCase();
+
+const status = String(
+article.status || "published"
+).toLowerCase();
+
+return (
+category.includes("entertainment") ||
+category.includes("music") ||
+category.includes("film") ||
+category.includes("culture") ||
+category.includes("celebrity") ||
+category.includes("lifestyle")
+) && status !== "draft";
+
+});
+
+if(!entertainmentArticles.length) return;
+
+const safe = value => {
+const div = document.createElement("div");
+div.textContent = String(value || "");
+return div.innerHTML;
+};
+
+const getTitle = article =>
+article.title || article.headline || "Entertainment report";
+
+const getSummary = article =>
+article.summary ||
+article.subheadline ||
+article.description ||
+article.excerpt ||
+article.content ||
+"Read the full entertainment report from JNTV.";
+
+const getImage = article =>
+article.image ||
+article.imageUrl ||
+article.photo ||
+article.thumbnail ||
+"";
+
+const getDate = article =>
+article.date || article.publishedAt || "";
+
+const getLink = article =>
+article.id
+? "./article.html?id=" + encodeURIComponent(article.id)
+: "./latest-news.html";
+
+container.innerHTML = `
+<div class="news-grid">
+${entertainmentArticles.map(article => {
+
+const image = getImage(article);
+const title = getTitle(article);
+const link = getLink(article);
+
+return `
+<article class="news-card">
+
+${image ? `
+<a href="${link}">
+<img src="${safe(image)}"
+alt="${safe(title)}"
+loading="lazy">
+</a>
+` : ""}
+
+<div class="category">ENTERTAINMENT</div>
+
+<h3>
+<a href="${link}">${safe(title)}</a>
+</h3>
+
+<p>${safe(getSummary(article).slice(0,180))}</p>
+
+<div class="meta">${safe(getDate(article))}</div>
+
+<a class="read-more" href="${link}">
+READ FULL STORY →
+</a>
+
+</article>
+`;
+
+}).join("")}
+</div>
+`;
+
+}catch(error){
+
+console.error("Unable to load entertainment articles:",error);
+
+}
+
+}
+
+loadEntertainmentNews();
+</script>
+
+</body>
+</html>
