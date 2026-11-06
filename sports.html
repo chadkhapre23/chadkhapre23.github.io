@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sports News | James Nyarango TV</title>
+<meta name="description" content="Follow sports news, football, athletics, basketball, rugby and sporting developments from Uganda, Africa and around the world.">
+<meta name="theme-color" content="#071a35">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:#071a35;
+  --navy2:#10294b;
+  --red:#e00016;
+  --ink:#202124;
+  --muted:#62676d;
+  --line:#dfe2e5;
+  --light:#f4f5f6;
+  --white:#fff;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  margin:0;
+  background:#fff;
+  color:var(--ink);
+  font-family:'Manrope',Arial,sans-serif;
+  font-size:14px;
+  line-height:1.65;
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+button,input {
+  font:inherit;
+}
+
+/* HEADER */
+
+.top-header {
+  background:var(--navy);
+  border-bottom:3px solid var(--red);
+}
+
+.header-inner {
+  max-width:1360px;
+  min-height:92px;
+  margin:auto;
+  padding:10px 25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand img {
+  width:76px;
+  height:68px;
+  object-fit:contain;
+}
+
+.brand-name {
+  margin:0;
+  color:#fff;
+  font-family:'Manrope',Arial,sans-serif;
+  font-size:21px;
+  font-weight:800;
+  line-height:1.2;
+  letter-spacing:-.5px;
+}
+
+.brand-tagline {
+  margin-top:5px;
+  color:#ff7782;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.6px;
+}
+
+.header-actions {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.search-box {
+  display:flex;
+  width:245px;
+  height:39px;
+  background:#fff;
+}
+
+.search-box input {
+  flex:1;
+  width:0;
+  min-width:0;
+  border:0;
+  outline:0;
+  padding:0 12px;
+  font-size:12px;
+}
+
+.search-box button {
+  width:43px;
+  border:0;
+  background:var(--red);
+  color:#fff;
+  font-size:19px;
+  cursor:pointer;
+}
+
+.live-button {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 15px;
+  background:var(--red);
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.pulse-dot {
+  width:8px;
+  height:8px;
+  background:#fff;
+  border-radius:50%;
+  animation:pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  50% {opacity:.3;}
+}
+
+/* NAVIGATION */
+
+.navigation {
+  background:var(--navy2);
+}
+
+.nav-inner {
+  max-width:1360px;
+  min-height:45px;
+  margin:auto;
+  padding:0 20px;
+  display:flex;
+  align-items:stretch;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.nav-inner::-webkit-scrollbar {
+  display:none;
+}
+
+.nav-inner a {
+  display:flex;
+  align-items:center;
+  padding:0 16px;
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.35px;
+  white-space:nowrap;
+  border-bottom:3px solid transparent;
+}
+
+.nav-inner a:hover,
+.nav-inner a.active {
+  background:#18375e;
+  border-bottom-color:var(--red);
+}
+
+/* MAIN */
+
+.main-container {
+  max-width:1320px;
+  margin:auto;
+  padding:25px 25px 55px;
+}
+
+.breadcrumb {
+  margin-bottom:20px;
+  color:#747a81;
+  font-size:11px;
+}
+
+.breadcrumb a {
+  color:var(--red);
+  font-weight:700;
+}
+
+.breaking-strip {
+  display:flex;
+  align-items:center;
+  min-height:38px;
+  margin-bottom:27px;
+  border-bottom:1px solid var(--line);
+}
+
+.breaking-label {
+  flex-shrink:0;
+  padding:9px 14px;
+  background:var(--red);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.7px;
+}
+
+.breaking-text {
+  padding:7px 13px;
+  color:#292d32;
+  font-size:11px;
+  font-weight:600;
+}
+
+/* PAGE HEADING */
+
+.page-heading {
+  margin-bottom:25px;
+  padding-bottom:17px;
+  border-bottom:2px solid var(--navy);
+}
+
+.page-heading .eyebrow {
+  color:var(--red);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
+
+.page-heading h1 {
+  margin:5px 0 7px;
+  color:var(--navy);
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:38px;
+  line-height:1.2;
+  font-weight:800;
+}
+
+.page-heading p {
+  max-width:750px;
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* SPORTS HERO */
+
+.sports-hero {
+  position:relative;
+  min-height:330px;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  margin-bottom:32px;
+  background:
+    linear-gradient(90deg,rgba(7,26,53,.96),rgba(7,26,53,.60)),
+    url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1600&auto=format&fit=crop&q=85') center/cover;
+}
+
+.sports-hero-content {
+  max-width:750px;
+  padding:35px;
+  color:#fff;
+}
+
+.sports-hero-content span {
+  display:inline-block;
+  padding:6px 10px;
+  background:var(--red);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.sports-hero-content h2 {
+  margin:15px 0 12px;
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:39px;
+  line-height:1.18;
+  font-weight:800;
+}
+
+.sports-hero-content p {
+  max-width:600px;
+  margin:0;
+  color:#e0e6ee;
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* SPORT CATEGORIES */
+
+.section-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin:34px 0 17px;
+  padding-bottom:10px;
+  border-bottom:2px solid var(--navy);
+}
+
+.section-heading h2 {
+  margin:0;
+  color:var(--navy);
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:23px;
+  font-weight:800;
+}
+
+.section-heading span {
+  color:var(--red);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+
+.sport-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+
+.sport-card {
+  min-height:155px;
+  padding:21px 18px;
+  background:var(--light);
+  border-bottom:3px solid var(--navy);
+  transition:.2s;
+}
+
+.sport-card:hover {
+  transform:translateY(-3px);
+  border-bottom-color:var(--red);
+}
+
+.sport-icon {
+  display:block;
+  margin-bottom:12px;
+  font-size:27px;
+}
+
+.sport-card h3 {
+  margin:0 0 5px;
+  color:var(--navy);
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:18px;
+}
+
+.sport-card p {
+  margin:0;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+}
+
+/* NEWS AREA */
+
+.news-layout {
+  display:grid;
+  grid-template-columns:minmax(0,2fr) minmax(250px,.8fr);
+  gap:30px;
+  align-items:start;
+}
+
+.news-placeholder {
+  padding:35px 25px;
+  border:1px solid var(--line);
+  background:#fff;
+  text-align:center;
+}
+
+.news-placeholder .placeholder-icon {
+  display:block;
+  margin-bottom:12px;
+  color:var(--red);
+  font-size:32px;
+}
+
+.news-placeholder h3 {
+  margin:0 0 8px;
+  color:var(--navy);
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:21px;
+}
+
+.news-placeholder p {
+  max-width:500px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* SIDEBAR */
+
+.sidebar-box {
+  margin-bottom:22px;
+  padding:20px;
+  background:var(--navy);
+  color:#fff;
+}
+
+.sidebar-box h3 {
+  margin:0 0 10px;
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:20px;
+}
+
+.sidebar-box p {
+  margin:0;
+  color:#d8dfe8;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.sidebar-box a {
+  display:inline-block;
+  margin-top:14px;
+  padding:9px 13px;
+  background:var(--red);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+}
+
+.coverage-list {
+  padding:18px;
+  border:1px solid var(--line);
+}
+
+.coverage-list h3 {
+  margin:0 0 12px;
+  padding-bottom:9px;
+  border-bottom:2px solid var(--navy);
+  color:var(--navy);
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:18px;
+}
+
+.coverage-list ul {
+  margin:0;
+  padding-left:18px;
+}
+
+.coverage-list li {
+  margin-bottom:10px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* FOOTER */
+
+.footer {
+  margin-top:35px;
+  background:var(--navy);
+  color:#fff;
+  border-top:4px solid var(--red);
+}
+
+.footer-inner {
+  max-width:1360px;
+  margin:auto;
+  padding:38px 25px 0;
+}
+
+.footer-columns {
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:35px;
+  padding-bottom:30px;
+}
+
+.footer-brand h3 {
+  margin:0 0 8px;
+  font-size:19px;
+  font-weight:800;
+}
+
+.footer-tagline {
+  color:#ff7580;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.4px;
+}
+
+.footer-desc {
+  max-width:340px;
+  margin:13px 0;
+  color:#c4ccd7;
+  font-size:11px;
+  line-height:1.9;
+}
+
+.footer-web-link {
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+}
+
+.footer-col h4 {
+  display:inline-block;
+  margin:0 0 15px;
+  padding-bottom:8px;
+  border-bottom:2px solid var(--red);
+  font-size:11px;
+  font-weight:800;
+}
+
+.footer-col ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.footer-col li {
+  margin-bottom:10px;
+  color:#c4ccd7;
+  font-size:11px;
+}
+
+.footer-col a {
+  color:#c4ccd7;
+}
+
+.footer-col a:hover {
+  color:#ff7580;
+}
+
+.copyright-bar {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  padding:16px 0;
+  border-top:1px solid #29405e;
+  color:#b9c2cf;
+  font-size:10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px) {
+  .sport-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .news-layout {
+    grid-template-columns:1fr;
+  }
+
+  .footer-columns {
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+  }
+}
+
+@media(max-width:760px) {
+  .header-inner {
+    min-height:80px;
+    padding:10px 15px;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .brand img {
+    width:65px;
+    height:57px;
+  }
+
+  .brand-name {
+    font-size:18px;
+  }
+
+  .header-actions {
+    width:100%;
+  }
+
+  .search-box {
+    flex:1;
+    width:auto;
+  }
+
+  .nav-inner {
+    padding:0 8px;
+  }
+
+  .nav-inner a {
+    padding:0 12px;
+    font-size:10px;
+  }
+
+  .main-container {
+    padding:18px 15px 40px;
+  }
+
+  .page-heading h1 {
+    font-size:31px;
+  }
+
+  .sports-hero {
+    min-height:290px;
+  }
+
+  .sports-hero-content {
+    padding:24px;
+  }
+
+  .sports-hero-content h2 {
+    font-size:30px;
+  }
+}
+
+@media(max-width:520px) {
+  .brand-name {
+    font-size:17px;
+  }
+
+  .brand-tagline {
+    font-size:8px;
+    letter-spacing:1px;
+  }
+
+  .live-button {
+    padding:11px;
+    font-size:10px;
+  }
+
+  .sports-hero {
+    min-height:260px;
+  }
+
+  .sports-hero-content {
+    padding:20px;
+  }
+
+  .sports-hero-content h2 {
+    font-size:26px;
+  }
+
+  .sports-hero-content p {
+    font-size:11px;
+  }
+
+  .sport-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+
+  .sport-card {
+    min-height:145px;
+    padding:15px 12px;
+  }
+
+  .sport-card h3 {
+    font-size:16px;
+  }
+
+  .footer-columns {
+    grid-template-columns:1fr;
+    gap:23px;
+  }
+
+  .footer-inner {
+    padding:30px 17px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="top-header">
+  <div class="header-inner">
+
+    <a class="brand" href="./index.html">
+      <img src="./JAMO%20LOGO.jpeg" alt="James Nyarango TV logo">
+      <div>
+        <div class="brand-name">JAMES NYARANGO TV</div>
+        <div class="brand-tagline">INFORM • ENTERTAIN • EMPOWER</div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <form class="search-box" action="./search.html" method="get">
+        <input type="search" name="q" placeholder="Search news..." aria-label="Search news">
+        <button type="submit" aria-label="Search">⌕</button>
+      </form>
+
+      <a href="./videos.html" class="live-button">
+        <span class="pulse-dot"></span> GO LIVE
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+
+<nav class="navigation">
+  <div class="nav-inner">
+    <a href="./index.html">HOME</a>
+    <a href="./latest-news.html">LATEST NEWS</a>
+    <a href="./politics.html">POLITICS</a>
+    <a href="./business.html">BUSINESS</a>
+    <a href="./sports.html" class="active">SPORTS</a>
+    <a href="./entertainment.html">ENTERTAINMENT</a>
+    <a href="./videos.html">VIDEOS</a>
+    <a href="./about.html">ABOUT US</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+
+<main class="main-container">
+
+  <div class="breadcrumb">
+    <a href="./index.html">HOME</a> / SPORTS
+  </div>
+
+  <div class="breaking-strip">
+    <span class="breaking-label">JNTV SPORTS</span>
+    <div class="breaking-text">
+      Sports news, match developments and sporting stories from Uganda, Africa and around the world.
+    </div>
+  </div>
+
+  <!-- PAGE TITLE -->
+
+  <section class="page-heading">
+    <span class="eyebrow">JAMES NYARANGO TV • SPORTS DESK</span>
+    <h1>Sports News</h1>
+    <p>
+      Your destination for football, athletics, basketball, rugby and the biggest sporting developments across the world.
+    </p>
+  </section>
+
+  <!-- HERO -->
+
+  <section class="sports-hero">
+    <div class="sports-hero-content">
+      <span>SPORTS • ANALYSIS • RESULTS</span>
+      <h2>THE WORLD OF SPORTS, ALL IN ONE PLACE.</h2>
+      <p>
+        Follow the teams, athletes, competitions and sporting moments shaping Uganda, Africa and international sport.
+        Stay informed with James Nyarango TV.
+      </p>
+    </div>
+  </section>
+
+  <!-- SPORT CATEGORIES -->
+
+  <section>
+    <div class="section-heading">
+      <h2>Explore Sports</h2>
+      <span>JNTV SPORTS COVERAGE</span>
+    </div>
+
+    <div class="sport-grid">
+
+      <article class="sport-card">
+        <span class="sport-icon">⚽</span>
+        <h3>Football</h3>
+        <p>Ugandan football, African competitions and international leagues.</p>
+      </article>
+
+      <article class="sport-card">
+        <span class="sport-icon">🏃</span>
+        <h3>Athletics</h3>
+        <p>Track and field, road running and Ugandan sporting talent.</p>
+      </article>
+
+      <article class="sport-card">
+        <span class="sport-icon">🏀</span>
+        <h3>Basketball</h3>
+        <p>Local leagues, international competitions and basketball news.</p>
+      </article>
+
+      <article class="sport-card">
+        <span class="sport-icon">🏉</span>
+        <h3>Rugby</h3>
+        <p>Rugby competitions, teams, results and major developments.</p>
+      </article>
+
+      <article class="sport-card">
+        <span class="sport-icon">🥊</span>
+        <h3>Boxing</h3>
+        <p>Boxing events, professional fights and emerging talent.</p>
+      </article>
+
+      <article class="sport-card">
+        <span class="sport-icon">🏐</span>
+        <h3>Volleyball</h3>
+        <p>Volleyball competitions and updates from the sporting community.</p>
+      </article>
+
+      <article class="sport-card">
+        <span class="sport-icon">🏏</span>
+        <h3>Cricket</h3>
+        <p>Cricket fixtures, results and international coverage.</p>
+      </article>
+
+      <article class="sport-card">
+        <span class="sport-icon">🏆</span>
+        <h3>Other Sports</h3>
+        <p>More competitions, sporting personalities and major events.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- LATEST SPORTS NEWS -->
+
+  <section>
+    <div class="section-heading">
+      <h2>Latest Sports News</h2>
+      <span>JNTV NEWSROOM</span>
+    </div>
+
+    <div class="news-layout">
+
+      <div class="news-placeholder">
+        <span class="placeholder-icon">🏆</span>
+        <h3>Sports Coverage Coming Soon</h3>
+        <p>
+          The JNTV Sports Desk is ready for publication. Sports articles will appear here as they are published by the newsroom.
+          Check back for the latest reports, interviews, match coverage and analysis.
+        </p>
+      </div>
+
+      <aside>
+
+        <div class="sidebar-box">
+          <h3>Sports on JNTV</h3>
+          <p>
+            From local competitions to international sporting events, James Nyarango TV brings you closer to the action.
+          </p>
+          <a href="./index.html">BACK TO HOMEPAGE →</a>
+        </div>
+
+        <div class="coverage-list">
+          <h3>Our Coverage</h3>
+          <ul>
+            <li>Ugandan sports</li>
+            <li>African competitions</li>
+            <li>International football</li>
+            <li>Major sporting events</li>
+            <li>Athlete interviews</li>
+            <li>Sports analysis</li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-columns">
+
+      <div class="footer-brand">
+        <h3>JAMES NYARANGO TV</h3>
+        <div class="footer-tagline">INFORM • ENTERTAIN • EMPOWER</div>
+
+        <p class="footer-desc">
+          Your digital broadcast destination for news, current affairs, politics, business, sports and entertainment from Uganda, Africa and the world.
+        </p>
+
+        <a href="https://www.jamesnyarangotv.ac.ug" target="_blank" rel="noopener" class="footer-web-link">
+          www.jamesnyarangotv.ac.ug
+        </a>
+      </div>
+
+      <div class="footer-col">
+        <h4>ABOUT US</h4>
+        <ul>
+          <li><a href="./about.html">About JNTV</a></li>
+          <li><a href="./about.html">Advertise With Us</a></li>
+          <li><a href="./about.html">Privacy Policy</a></li>
+          <li><a href="./about.html">Contact Us</a></li>
+          <li><a href="./about.html">Terms and Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>CONTACT INFO</h4>
+        <ul>
+          <li><a href="tel:+256775732004">+256 775 732 004</a></li>
+          <li><a href="mailto:info@jamesnyarangotv.ac.ug">info@jamesnyarangotv.ac.ug</a></li>
+          <li>Kampala, Uganda</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>WHAT WE OFFER</h4>
+        <ul>
+          <li>Digital Advertisements</li>
+          <li>Digital Marketing</li>
+          <li>Media Production</li>
+          <li>Live Event Coverage</li>
+          <li>Sponsored Content</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="copyright-bar">
+      <div>© 2026 James Nyarango TV (JNTV). All rights reserved.</div>
+      <div>INFORM • ENTERTAIN • EMPOWER</div>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
