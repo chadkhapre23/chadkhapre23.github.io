@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -192,7 +193,6 @@ button,input{font:inherit}
 
 <header class="top-header">
 <div class="header-inner">
-
 <a class="brand" href="./index.html">
 <img src="./JAMO%20LOGO.jpeg" alt="James Nyarango TV Logo">
 <div>
@@ -210,7 +210,6 @@ button,input{font:inherit}
 <span class="pulse-dot"></span> LATEST NEWS
 </a>
 </div>
-
 </div>
 </header>
 
@@ -284,8 +283,8 @@ Your latest published story will appear here.
 
 <div class="news-grid" id="latestNews">
 <div class="no-results">
-<strong>No articles published yet.</strong>
-Your latest published news will appear here.
+<strong>Loading JNTV news...</strong>
+Please wait.
 </div>
 </div>
 </section>
@@ -350,34 +349,36 @@ www.jamesnyarangotv.ac.ug
 </div>
 </footer>
 
+<!-- SUPABASE LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 (function(){
-
 "use strict";
 
-const ARTICLE_KEY="jntvArticles";
+/* SUPABASE CONNECTION */
+const SUPABASE_URL = "https://eqogivrposfajrkdwqbq.supabase.co";
+const SUPABASE_KEY = "sb_publishable_l4sKYCzUW6670QvOMtBE_Q_kRCbwDZ-";
 
-const leadStory=document.getElementById("leadStory");
-const latestNews=document.getElementById("latestNews");
-const exclusiveStories=document.getElementById("exclusiveStories");
-const latestEpisodes=document.getElementById("latestEpisodes");
+const db = window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
 
-const searchInput=document.getElementById("searchInput");
-const searchButton=document.getElementById("searchButton");
-const searchStatus=document.getElementById("searchStatus");
+/* PAGE ELEMENTS */
+const leadStory = document.getElementById("leadStory");
+const latestNews = document.getElementById("latestNews");
+const exclusiveStories = document.getElementById("exclusiveStories");
+const latestEpisodes = document.getElementById("latestEpisodes");
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+const searchStatus = document.getElementById("searchStatus");
 
-function getArticles(){
-try{
-const saved=JSON.parse(localStorage.getItem(ARTICLE_KEY)||"[]");
-return Array.isArray(saved)?saved:[];
-}catch(error){
-console.error("Unable to read published articles:",error);
-return [];
-}
-}
+let allArticles = [];
 
+/* SECURITY: ESCAPE HTML */
 function escapeHTML(value){
-return String(value??"").replace(/[&<>"']/g,function(c){
+return String(value ?? "").replace(/[&<>"']/g,function(c){
 return {
 "&":"&amp;",
 "<":"&lt;",
@@ -388,83 +389,113 @@ return {
 });
 }
 
-function articleTitle(article){
-return article.headline||article.title||"Untitled news story";
+/* ARTICLE INFORMATION */
+function articleTitle(a){
+return a.title || a.headline || "Untitled news story";
 }
 
-function articleCategory(article){
-return article.category||article.section||"News";
+function articleCategory(a){
+return a.category || a.section || "News";
 }
 
-function articleImage(article){
-return article.photo||article.image||article.imageUrl||article.thumbnail||"";
+function articleImage(a){
+return a.image_url || a.photo || a.image || a.imageUrl || a.thumbnail || "";
 }
 
-function articleDate(article){
-return article.date||"JNTV NEWS";
+function articleSummary(a){
+return String(
+a.summary ||
+a.subheadline ||
+a.description ||
+a.excerpt ||
+a.content ||
+a.story ||
+""
+).replace(/<[^>]*>/g,"").trim();
 }
 
-function articleSummary(article){
-const value=
-article.subheadline||
-article.summary||
-article.description||
-article.excerpt||
-article.story||
-article.content||"";
+function articleDate(a){
+const value = a.published_at || a.created_at;
 
-return String(value).replace(/<[^>]*>/g,"").trim();
+if(!value) return "JNTV NEWS";
+
+const date = new Date(value);
+
+if(isNaN(date.getTime())) return "JNTV NEWS";
+
+return date.toLocaleDateString("en-UG",{
+day:"numeric",
+month:"short",
+year:"numeric"
+});
 }
 
-function articleLink(article){
-const id=article.id||article.articleId||"";
-return "./article.html?id="+encodeURIComponent(id);
+function articleLink(a){
+return "./article.html?id=" + encodeURIComponent(a.id || "");
 }
 
+function isBreaking(a){
+return a.breaking === true ||
+a.breakin === true ||
+String(a.breaking || a.breakin || "").toLowerCase() === "true" ||
+String(a.breaking || a.breakin || "") === "1";
+}
+
+/* IMAGE VALIDATION */
 function safeImage(value){
 
-const fallback="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1000&auto=format&fit=crop&q=80";
-const url=String(value||"").trim();
+const fallback =
+"https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1000&auto=format&fit=crop&q=80";
+
+if(!value) return fallback;
+
+const url = String(value).trim();
+
+if(/^https?:\/\//i.test(url)){
+try{
+const parsed = new URL(url);
+if(parsed.protocol === "https:" || parsed.protocol === "http:"){
+return escapeHTML(parsed.href);
+}
+}catch(e){}
+}
 
 if(/^data:image\/(jpeg|png|webp|gif);base64,/i.test(url)){
 return url;
-}
-
-if(/^https?:\/\//i.test(url)){
-return escapeHTML(url);
-}
-
-if(/^[a-zA-Z0-9_\-./ ]+\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i.test(url)){
-return escapeHTML(url);
 }
 
 return fallback;
 }
 
 /* LEAD STORY */
+function renderLead(a){
 
-function renderLead(article){
+if(!a) return;
 
-if(!article)return;
+const title = articleTitle(a);
+const link = articleLink(a);
 
-const title=articleTitle(article);
-const category=articleCategory(article);
-const summary=articleSummary(article);
-const link=articleLink(article);
-const image=safeImage(articleImage(article));
-
-leadStory.innerHTML=`
+leadStory.innerHTML = `
 <a href="${link}" class="lead-image-link">
-<img class="lead-image" src="${image}" alt="${escapeHTML(title)}"
+<img class="lead-image"
+src="${safeImage(articleImage(a))}"
+alt="${escapeHTML(title)}"
 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1000'">
 </a>
 
 <div class="lead-content">
-<span class="category-label">${escapeHTML(category)}</span>
+<span class="category-label">
+${escapeHTML(articleCategory(a))}
+</span>
+
 <h2><a href="${link}">${escapeHTML(title)}</a></h2>
-<p class="lead-description">${escapeHTML(summary.slice(0,300))}</p>
+
+<p class="lead-description">
+${escapeHTML(articleSummary(a).slice(0,300))}
+</p>
+
 <div class="lead-bottom">
-<span class="news-meta">${escapeHTML(articleDate(article))}</span>
+<span class="news-meta">${escapeHTML(articleDate(a))}</span>
 <a href="${link}" class="read-story">READ FULL STORY →</a>
 </div>
 </div>
@@ -472,27 +503,29 @@ onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-150471143
 }
 
 /* TOP STORIES */
-
 function renderExclusive(articles){
 
-const items=articles.slice(1,5);
+const items = articles.slice(1,5);
 
 if(!items.length){
-exclusiveStories.innerHTML=`<div class="empty-news">More top stories coming soon.</div>`;
+exclusiveStories.innerHTML =
+'<div class="empty-news">More top stories coming soon.</div>';
 return;
 }
 
-exclusiveStories.innerHTML=items.map(article=>{
+exclusiveStories.innerHTML = items.map(a=>{
 
-const title=articleTitle(article);
-const link=articleLink(article);
+const title = articleTitle(a);
+const link = articleLink(a);
 
 return `
 <article class="exclusive-card">
 <a href="${link}" class="exclusive-image">
-<img src="${safeImage(articleImage(article))}" alt="${escapeHTML(title)}"
+<img src="${safeImage(articleImage(a))}"
+alt="${escapeHTML(title)}"
 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1000'">
 </a>
+
 <h4><a href="${link}">${escapeHTML(title)}</a></h4>
 </article>
 `;
@@ -501,44 +534,42 @@ onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-150471143
 }
 
 /* LATEST VIDEOS */
-
 function renderEpisodes(articles){
 
-const videoArticles=articles.filter(article=>{
+const videos = articles.filter(a=>{
 
-const category=articleCategory(article).toLowerCase();
+const category = articleCategory(a).toLowerCase();
 
-return category.includes("video")||
-category.includes("episode")||
-category.includes("entertainment")||
-article.video||
-article.videoUrl;
+return category.includes("video") ||
+category.includes("episode") ||
+category.includes("entertainment") ||
+Boolean(a.video_url || a.videoUrl || a.video);
 
-});
+}).slice(0,2);
 
-const episodes=(videoArticles.length?videoArticles:articles).slice(0,2);
-
-if(!episodes.length){
-latestEpisodes.innerHTML=`<div class="empty-news">Latest video episodes will appear here.</div>`;
+if(!videos.length){
+latestEpisodes.innerHTML =
+'<div class="empty-news">Latest video episodes will appear here.</div>';
 return;
 }
 
-latestEpisodes.innerHTML=episodes.map(article=>{
+latestEpisodes.innerHTML = videos.map(a=>{
 
-const title=articleTitle(article);
-const link=articleLink(article);
+const title = articleTitle(a);
+const link = articleLink(a);
 
 return `
 <article class="episode-card">
 <a href="${link}" class="episode-image">
-<img src="${safeImage(articleImage(article))}" alt="${escapeHTML(title)}"
-onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1000'">
+<img src="${safeImage(articleImage(a))}"
+alt="${escapeHTML(title)}">
 <span class="play-circle">▶</span>
 </a>
+
 <div class="episode-info">
 <h4><a href="${link}">${escapeHTML(title)}</a></h4>
-<p>${escapeHTML(articleSummary(article).slice(0,85))}</p>
-<span>${escapeHTML(articleDate(article))}</span>
+<p>${escapeHTML(articleSummary(a).slice(0,85))}</p>
+<span>${escapeHTML(articleDate(a))}</span>
 </div>
 </article>
 `;
@@ -546,44 +577,48 @@ onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-150471143
 }).join("");
 }
 
-/* NEWS CARDS */
-
+/* LATEST NEWS CARDS */
 function renderNewsCards(articles){
 
 if(!articles.length){
-latestNews.innerHTML=`
+latestNews.innerHTML = `
 <div class="no-results">
 <strong>No news articles found.</strong>
-Publish a story through the newsroom.
+Publish a story through the JNTV newsroom.
 </div>`;
 return;
 }
 
-latestNews.innerHTML=articles.slice(0,12).map(article=>{
+latestNews.innerHTML = articles.slice(0,12).map(a=>{
 
-const title=articleTitle(article);
-const category=articleCategory(article);
-const summary=articleSummary(article);
-const link=articleLink(article);
+const title = articleTitle(a);
+const link = articleLink(a);
 
 return `
 <article class="news-card">
 
 <a href="${link}" class="news-card-image-wrap">
-<img class="news-card-image" src="${safeImage(articleImage(article))}"
+<img class="news-card-image"
+src="${safeImage(articleImage(a))}"
 alt="${escapeHTML(title)}"
 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1000'">
 </a>
 
 <div class="news-content">
-<span class="category-label">${escapeHTML(category)}</span>
+
+<span class="category-label">
+${escapeHTML(articleCategory(a))}
+</span>
+
 <h3><a href="${link}">${escapeHTML(title)}</a></h3>
-<p>${escapeHTML(summary.slice(0,180))}</p>
+
+<p>${escapeHTML(articleSummary(a).slice(0,180))}</p>
 
 <div class="news-card-bottom">
-<span class="news-meta">${escapeHTML(articleDate(article))}</span>
+<span class="news-meta">${escapeHTML(articleDate(a))}</span>
 <a href="${link}" class="read-story">READ MORE →</a>
 </div>
+
 </div>
 </article>
 `;
@@ -591,104 +626,175 @@ onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-150471143
 }).join("");
 }
 
-/* MAIN RENDER */
+/* BREAKING NEWS */
+function renderBreaking(articles){
 
-function renderNews(filterText){
+const breaking = articles.find(isBreaking);
+const strip = document.querySelector(".breaking-strip");
 
-const articles=getArticles().filter(article=>{
-if(article.status&&String(article.status).toLowerCase()!=="published"){
-return false;
+if(!breaking) return;
+
+strip.innerHTML = `
+<span class="breaking-label">BREAKING NEWS</span>
+<a class="breaking-text" href="${articleLink(breaking)}">
+${escapeHTML(articleTitle(breaking))}
+</a>
+`;
 }
-return true;
-});
 
-const newest=articles.slice().reverse();
-const search=(filterText||"").trim().toLowerCase();
+/* MAIN PAGE RENDERING */
+function renderNews(searchText = ""){
 
-const filtered=newest.filter(article=>{
+const search = searchText.trim().toLowerCase();
 
-const searchable=[
-articleTitle(article),
-articleCategory(article),
-articleSummary(article),
-article.author||""
+const filtered = allArticles.filter(a=>{
+
+const searchable = [
+articleTitle(a),
+articleCategory(a),
+articleSummary(a),
+a.author || ""
 ].join(" ").toLowerCase();
 
-return !search||searchable.includes(search);
+return !search || searchable.includes(search);
+
 });
 
 if(search){
-searchStatus.style.display="block";
-searchStatus.textContent=filtered.length+" result(s) found for: "+filterText;
+
+searchStatus.style.display = "block";
+searchStatus.textContent =
+filtered.length + " result(s) found for: " + searchText;
+
+leadStory.innerHTML = "";
+exclusiveStories.innerHTML = "";
+latestEpisodes.innerHTML = "";
+
 }else{
-searchStatus.style.display="none";
-}
 
-if(!search){
+searchStatus.style.display = "none";
 
-if(!newest.length){
+if(!allArticles.length){
 
-leadStory.innerHTML=`
+leadStory.innerHTML = `
 <div class="empty-news">
 <strong>Welcome to James Nyarango TV</strong>
 Your latest published story will appear here.
 </div>`;
 
-exclusiveStories.innerHTML=`<div class="empty-news">Top stories will appear here.</div>`;
-latestEpisodes.innerHTML=`<div class="empty-news">Latest video episodes will appear here.</div>`;
+exclusiveStories.innerHTML =
+'<div class="empty-news">Top stories will appear here.</div>';
+
+latestEpisodes.innerHTML =
+'<div class="empty-news">Latest video episodes will appear here.</div>';
 
 renderNewsCards([]);
 return;
+
 }
 
-renderLead(newest[0]);
-renderExclusive(newest);
-renderEpisodes(newest);
-renderNewsCards(newest);
-return;
-}
+renderLead(allArticles[0]);
+renderExclusive(allArticles);
+renderEpisodes(allArticles);
 
-leadStory.innerHTML="";
-exclusiveStories.innerHTML="";
-latestEpisodes.innerHTML="";
+}
 
 renderNewsCards(filtered);
 }
 
-/* SEARCH */
+/* FETCH PUBLISHED ARTICLES FROM SUPABASE */
+async function loadArticles(){
 
-function runSearch(){
-renderNews(searchInput.value);
-document.getElementById("latestNewsSection").scrollIntoView({
-behavior:"smooth"
+latestNews.innerHTML = `
+<div class="no-results">
+<strong>Loading JNTV news...</strong>
+Please wait.
+</div>`;
+
+try{
+
+const {data,error} = await db
+.from("articles")
+.select("*")
+.eq("status","published")
+.order("published_at",{
+ascending:false,
+nullsFirst:false
+})
+.order("created_at",{
+ascending:false
 });
+
+if(error) throw error;
+
+allArticles = data || [];
+
+/* DISPLAY ARTICLES */
+renderBreaking(allArticles);
+renderNews("");
+
+console.log(
+"JNTV: Successfully loaded",
+allArticles.length,
+"published articles."
+);
+
+}catch(error){
+
+console.error("JNTV Supabase error:",error);
+
+latestNews.innerHTML = `
+<div class="no-results">
+<strong>Unable to load news.</strong>
+${escapeHTML(error.message)}
+</div>`;
+
+leadStory.innerHTML = `
+<div class="empty-news">
+<strong>News connection error</strong>
+Please check the Supabase public read permissions.
+</div>`;
+
+exclusiveStories.innerHTML =
+'<div class="empty-news">Unable to load top stories.</div>';
+
+latestEpisodes.innerHTML =
+'<div class="empty-news">Unable to load videos.</div>';
+
+}
+
+}
+
+/* SEARCH */
+function runSearch(){
+
+renderNews(searchInput.value);
+
+document.getElementById("latestNewsSection")
+.scrollIntoView({behavior:"smooth"});
+
 }
 
 searchButton.addEventListener("click",runSearch);
 
 searchInput.addEventListener("keydown",function(event){
-if(event.key==="Enter"){
+
+if(event.key === "Enter"){
 runSearch();
 }
+
 });
 
 searchInput.addEventListener("input",function(){
+
 if(!searchInput.value.trim()){
 renderNews("");
 }
+
 });
 
-/* INITIAL LOAD */
-
-renderNews("");
-
-/* REFRESH WHEN PUBLISHING SYSTEM UPDATES */
-
-window.addEventListener("storage",function(event){
-if(event.key===ARTICLE_KEY){
-renderNews(searchInput.value);
-}
-});
+/* START WEBSITE */
+loadArticles();
 
 })();
 </script>
