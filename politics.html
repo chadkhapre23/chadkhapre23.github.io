@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Politics | JNTV</title>
 <meta name="description" content="Political news, leadership, governance, elections and public affairs from JNTV.">
 <meta name="theme-color" content="#071a35">
@@ -19,7 +18,6 @@
   --ink:#172033;
   --muted:#687386;
   --line:#e5e8ed;
-  --paper:#ffffff;
   --soft:#f4f6f9;
 }
 
@@ -35,6 +33,7 @@ body{
 
 a{color:inherit;text-decoration:none}
 
+/* HEADER */
 .header{
   background:var(--navy);
   border-bottom:3px solid var(--red);
@@ -43,23 +42,23 @@ a{color:inherit;text-decoration:none}
 .header-inner{
   max-width:1380px;
   margin:auto;
-  padding:8px 18px;
-  min-height:76px;
+  padding:8px 22px;
+  min-height:80px;
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:22px;
 }
 
 .brand{
   display:flex;
   align-items:center;
   flex-shrink:0;
-  margin-right:5px;
+  margin-right:10px;
 }
 
 .brand img{
-  width:68px;
-  height:58px;
+  width:70px;
+  height:60px;
   object-fit:contain;
 }
 
@@ -67,7 +66,7 @@ a{color:inherit;text-decoration:none}
   display:flex;
   align-items:center;
   justify-content:flex-start;
-  gap:10px;
+  gap:13px;
   flex:1;
   min-width:0;
 }
@@ -75,7 +74,7 @@ a{color:inherit;text-decoration:none}
 .nav-inner{
   display:flex;
   align-items:center;
-  gap:0;
+  gap:2px;
   flex-wrap:nowrap;
 }
 
@@ -84,7 +83,7 @@ a{color:inherit;text-decoration:none}
   font-size:11px;
   font-weight:700;
   white-space:nowrap;
-  padding:12px 8px;
+  padding:12px 9px;
   border-bottom:2px solid transparent;
 }
 
@@ -96,7 +95,7 @@ a{color:inherit;text-decoration:none}
 
 .search{
   display:flex;
-  height:34px;
+  height:35px;
   width:145px;
   flex-shrink:0;
   background:#fff;
@@ -126,13 +125,14 @@ a{color:inherit;text-decoration:none}
 .live{
   background:var(--red);
   color:#fff;
-  padding:9px 10px;
-  font-size:10px;
+  padding:10px 11px;
+  font-size:11px;
   font-weight:800;
   white-space:nowrap;
   flex-shrink:0;
 }
 
+/* PAGE */
 .container{
   max-width:1180px;
   padding:0 20px;
@@ -140,7 +140,7 @@ a{color:inherit;text-decoration:none}
 }
 
 .page-top{
-  padding:27px 0 18px;
+  padding:29px 0 19px;
   border-bottom:1px solid var(--line);
 }
 
@@ -173,6 +173,7 @@ a{color:inherit;text-decoration:none}
 .page-description{
   color:var(--muted);
   font-size:12px;
+  line-height:1.7;
   margin:0;
 }
 
@@ -180,7 +181,7 @@ a{color:inherit;text-decoration:none}
   margin:20px 0;
   display:flex;
   align-items:center;
-  min-height:38px;
+  min-height:40px;
   background:#f3f4f6;
   overflow:hidden;
 }
@@ -188,30 +189,29 @@ a{color:inherit;text-decoration:none}
 .breaking-tag{
   background:var(--red);
   color:white;
-  padding:11px 14px;
-  font-size:10px;
+  padding:12px 15px;
+  font-size:11px;
   font-weight:800;
   letter-spacing:.7px;
   white-space:nowrap;
 }
 
 .breaking-text{
-  padding:8px 13px;
+  padding:9px 14px;
   font-size:12px;
   font-weight:700;
   color:var(--navy);
 }
 
+/* LEAD STORY */
 .content-grid{
   display:grid;
   grid-template-columns:minmax(0,1.8fr) minmax(260px,.85fr);
-  gap:25px;
-  margin:22px 0 35px;
+  gap:27px;
+  margin:23px 0 38px;
 }
 
-.feature{
-  min-width:0;
-}
+.feature{min-width:0}
 
 .feature-image{
   display:block;
@@ -234,7 +234,7 @@ a{color:inherit;text-decoration:none}
 .feature-title{
   font-family:'Playfair Display',serif;
   font-size:29px;
-  line-height:1.22;
+  line-height:1.25;
   font-weight:700;
   color:var(--navy);
   margin:0 0 10px;
@@ -253,6 +253,7 @@ a{color:inherit;text-decoration:none}
   font-weight:600;
 }
 
+/* SIDE HEADLINES */
 .side-panel{
   border-top:3px solid var(--navy);
   padding-top:12px;
@@ -269,7 +270,7 @@ a{color:inherit;text-decoration:none}
   display:grid;
   grid-template-columns:105px 1fr;
   gap:12px;
-  padding:13px 0;
+  padding:14px 0;
   border-bottom:1px solid var(--line);
 }
 
@@ -283,15 +284,14 @@ a{color:inherit;text-decoration:none}
 .side-story h3{
   font-family:'Playfair Display',serif;
   font-size:14px;
-  line-height:1.35;
+  line-height:1.4;
   margin:0 0 7px;
   color:var(--navy);
 }
 
-.side-story .meta{font-size:9px}
-
+/* LATEST STORIES */
 .latest-section{
-  padding:10px 0 45px;
+  padding:10px 0 48px;
 }
 
 .section-heading{
@@ -299,8 +299,8 @@ a{color:inherit;text-decoration:none}
   align-items:center;
   justify-content:space-between;
   border-bottom:2px solid var(--navy);
-  padding-bottom:10px;
-  margin-bottom:18px;
+  padding-bottom:11px;
+  margin-bottom:19px;
 }
 
 .section-heading h2{
@@ -321,13 +321,13 @@ a{color:inherit;text-decoration:none}
 .stories-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:23px;
+  gap:24px;
 }
 
 .story-card{
   min-width:0;
   border-bottom:1px solid var(--line);
-  padding-bottom:17px;
+  padding-bottom:18px;
 }
 
 .story-card img{
@@ -342,23 +342,24 @@ a{color:inherit;text-decoration:none}
   font-family:'Playfair Display',serif;
   color:var(--navy);
   font-size:19px;
-  line-height:1.3;
+  line-height:1.35;
   margin:0 0 8px;
 }
 
 .story-card p{
   font-size:12px;
-  line-height:1.7;
+  line-height:1.8;
   color:var(--muted);
   margin:0 0 10px;
 }
 
-.story-card:hover h3,
+.feature:hover .feature-title,
 .side-story:hover h3,
-.feature:hover .feature-title{
+.story-card:hover h3{
   color:var(--red);
 }
 
+/* LOADING AND ERRORS */
 .loading,
 .empty,
 .error{
@@ -367,69 +368,126 @@ a{color:inherit;text-decoration:none}
   color:var(--muted);
   background:var(--soft);
   font-size:13px;
-  line-height:1.7;
+  line-height:1.8;
 }
 
 .error{color:#a3202b}
 
+/* LARGER FOOTER TEXT */
 .footer{
   background:var(--navy);
   color:#d8deea;
-  padding:27px 20px;
+  padding:34px 20px;
   text-align:center;
-  font-size:11px;
-  line-height:1.8;
+  font-size:14px;
+  line-height:2;
+  letter-spacing:.2px;
 }
 
-.footer strong{color:white}
+.footer strong{
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+}
 
+.footer .tagline{
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+}
+
+/* TABLET */
 @media(max-width:1100px){
-  .header-inner{flex-wrap:wrap}
-  .header-right{flex-wrap:wrap}
-  .nav-inner{flex-wrap:wrap}
+  .header-inner{
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .header-right{
+    flex-wrap:wrap;
+  }
+
+  .nav-inner{
+    flex-wrap:wrap;
+  }
 }
 
+/* MOBILE */
 @media(max-width:800px){
   .content-grid{
     grid-template-columns:1fr;
   }
+
   .feature-image{height:320px}
-  .stories-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+  .stories-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
 
 @media(max-width:700px){
   .header-inner{
     padding:9px 12px;
-    gap:7px;
+    gap:9px;
   }
+
+  .brand{
+    margin-right:4px;
+  }
+
   .brand img{
     width:60px;
     height:52px;
   }
+
   .header-right{
     width:100%;
     flex-wrap:wrap;
-    gap:6px;
+    gap:7px;
   }
+
   .nav-inner{
     width:100%;
     overflow-x:auto;
     flex-wrap:nowrap;
   }
-  .nav-inner a{padding:10px 9px}
+
+  .nav-inner a{
+    padding:10px 9px;
+  }
+
   .search{
     flex:1;
     width:auto;
   }
+
   .live{padding:9px 10px}
+
   .container{padding:0 14px}
+
   .page-title{font-size:29px}
+
   .feature-image{height:235px}
+
   .feature-title{font-size:24px}
-  .stories-grid{grid-template-columns:1fr 1fr;gap:13px}
+
+  .stories-grid{
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+
   .story-card img{height:125px}
+
   .story-card h3{font-size:15px}
+
   .story-card p{font-size:11px}
+
+  .footer{
+    padding:28px 15px;
+    font-size:13px;
+  }
+
+  .footer strong{font-size:15px}
 }
 
 @media(max-width:420px){
@@ -443,11 +501,13 @@ a{color:inherit;text-decoration:none}
 
 <header class="header">
   <div class="header-inner">
+
     <a href="./index.html" class="brand" aria-label="JNTV Home">
       <img src="./JAMO%20LOGO.jpeg" alt="JNTV logo">
     </a>
 
     <div class="header-right">
+
       <nav class="nav-inner" aria-label="Main navigation">
         <a href="./index.html">HOME</a>
         <a href="./latest-news.html">LATEST NEWS</a>
@@ -465,6 +525,7 @@ a{color:inherit;text-decoration:none}
       </form>
 
       <a href="./videos.html" class="live">● GO LIVE</a>
+
     </div>
   </div>
 </header>
@@ -475,15 +536,20 @@ a{color:inherit;text-decoration:none}
     <section class="page-top">
       <div class="section-label">JNTV NEWS SECTION</div>
       <h1 class="page-title">Politics</h1>
-      <p class="page-description">Political news, leadership, governance, elections and public affairs from Uganda, Africa and around the world.</p>
+      <p class="page-description">
+        Political news, leadership, governance, elections and public affairs from Uganda, Africa and around the world.
+      </p>
     </section>
 
     <div class="breaking-strip">
       <div class="breaking-tag">POLITICS</div>
-      <div class="breaking-text">The latest political developments, decisions and analysis.</div>
+      <div class="breaking-text">
+        The latest political developments, decisions and analysis.
+      </div>
     </div>
 
     <section class="content-grid">
+
       <div id="feature-area">
         <div class="loading">Loading political news...</div>
       </div>
@@ -494,6 +560,7 @@ a{color:inherit;text-decoration:none}
           <div class="loading">Loading headlines...</div>
         </div>
       </aside>
+
     </section>
 
     <section class="latest-section">
@@ -501,6 +568,7 @@ a{color:inherit;text-decoration:none}
         <h2>Latest in Politics</h2>
         <span>JNTV POLITICS</span>
       </div>
+
       <div id="stories-grid" class="stories-grid">
         <div class="loading">Loading latest political stories...</div>
       </div>
@@ -512,7 +580,7 @@ a{color:inherit;text-decoration:none}
 <footer class="footer">
   <strong>JNTV — JAMES NYARANGO TV</strong><br>
   News • Current Affairs • Media<br>
-  Inform • Entertain • Empower<br>
+  <span class="tagline">INFORM • ENTERTAIN • EMPOWER</span><br>
   © <span id="year"></span> JNTV. All rights reserved.
 </footer>
 
@@ -537,7 +605,10 @@ function safe(value){
 }
 
 function getTitle(article){
-  return article.title || article.headline || article.news_title || "Untitled story";
+  return article.title ||
+         article.headline ||
+         article.news_title ||
+         "Untitled story";
 }
 
 function getImage(article){
@@ -559,9 +630,13 @@ function getExcerpt(article){
 
 function getDate(article){
   const date = article.published_at || article.created_at || article.date;
+
   if(!date) return "JNTV News";
+
   const parsed = new Date(date);
+
   if(Number.isNaN(parsed.getTime())) return "JNTV News";
+
   return parsed.toLocaleDateString("en-UG",{
     day:"numeric",
     month:"short",
@@ -573,30 +648,33 @@ function getArticleLink(article){
   return "./article.html?id=" + encodeURIComponent(article.id);
 }
 
-function imageMarkup(article, className){
+function imageMarkup(article,className){
   const image = getImage(article);
+
   if(!image){
     return `<div class="${className}" style="display:flex;align-items:center;justify-content:center;color:#8992a1;background:#e9edf2;">JNTV NEWS</div>`;
   }
+
   return `<img class="${className}" src="${safe(image)}" alt="${safe(getTitle(article))}" loading="lazy" onerror="this.style.display='none'">`;
 }
 
 function renderFeature(article){
-  const link = getArticleLink(article);
   featureArea.innerHTML = `
-    <a class="feature" href="${link}">
+    <a class="feature" href="${getArticleLink(article)}">
       ${imageMarkup(article,"feature-image")}
       <div class="feature-category">POLITICS</div>
       <h2 class="feature-title">${safe(getTitle(article))}</h2>
       <p class="feature-excerpt">${safe(getExcerpt(article)).slice(0,260)}</p>
-      <div class="meta">${safe(getDate(article))} &nbsp; | &nbsp; JNTV POLITICS</div>
+      <div class="meta">${safe(getDate(article))} | JNTV POLITICS</div>
     </a>
   `;
 }
 
 function renderSide(articles){
   if(!articles.length){
-    sideStories.innerHTML = `<div class="empty">More political headlines will appear here when published.</div>`;
+    sideStories.innerHTML = `
+      <div class="empty">More political headlines will appear here when published.</div>
+    `;
     return;
   }
 
@@ -613,7 +691,9 @@ function renderSide(articles){
 
 function renderGrid(articles){
   if(!articles.length){
-    storiesGrid.innerHTML = `<div class="empty">No additional political stories are available yet.</div>`;
+    storiesGrid.innerHTML = `
+      <div class="empty">No additional political stories are available yet.</div>
+    `;
     return;
   }
 
@@ -654,9 +734,20 @@ async function loadPolitics(){
     });
 
     if(!politics.length){
-      featureArea.innerHTML = `<div class="empty">No published political stories were found. Publish a story in your JNTV newsroom and set its category to Politics.</div>`;
-      sideStories.innerHTML = `<div class="empty">Political headlines will appear here after publication.</div>`;
-      storiesGrid.innerHTML = `<div class="empty">Your published Politics stories will appear here automatically.</div>`;
+      featureArea.innerHTML = `
+        <div class="empty">
+          No published political stories were found. Publish a story in your JNTV newsroom and set its category to Politics.
+        </div>
+      `;
+
+      sideStories.innerHTML = `
+        <div class="empty">Political headlines will appear here after publication.</div>
+      `;
+
+      storiesGrid.innerHTML = `
+        <div class="empty">Your published Politics stories will appear here automatically.</div>
+      `;
+
       return;
     }
 
@@ -667,9 +758,17 @@ async function loadPolitics(){
   }catch(error){
     console.error("JNTV Politics error:",error);
 
-    featureArea.innerHTML = `<div class="error">Political news could not be loaded. Please check the newsroom connection and try again.</div>`;
-    sideStories.innerHTML = `<div class="error">Headlines are temporarily unavailable.</div>`;
-    storiesGrid.innerHTML = `<div class="error">The news service is temporarily unavailable. Please refresh the page.</div>`;
+    featureArea.innerHTML = `
+      <div class="error">Political news could not be loaded. Please check the newsroom connection and try again.</div>
+    `;
+
+    sideStories.innerHTML = `
+      <div class="error">Headlines are temporarily unavailable.</div>
+    `;
+
+    storiesGrid.innerHTML = `
+      <div class="error">The news service is temporarily unavailable. Please refresh the page.</div>
+    `;
   }
 }
 
