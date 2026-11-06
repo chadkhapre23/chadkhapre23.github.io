@@ -23,6 +23,7 @@
 --light:#f4f5f6;
 --white:#fff;
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:#fff;color:var(--ink);font-family:'Roboto',Arial,sans-serif;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -192,20 +193,20 @@ button,input{font:inherit}
 <header class="top-header">
 <div class="header-inner">
 
-<div class="brand">
-<img src="/JAMO%20LOGO.jpeg" alt="James Nyarango TV Logo">
+<a class="brand" href="./index.html">
+<img src="./JAMO%20LOGO.jpeg" alt="James Nyarango TV Logo">
 <div>
 <h1 class="brand-name">JAMES NYARANGO TV</h1>
 <div class="brand-tagline">INFORM • ENTERTAIN • EMPOWER</div>
 </div>
-</div>
+</a>
 
 <div class="header-actions">
 <div class="search-box">
 <input type="search" id="searchInput" placeholder="Search news..." aria-label="Search news">
 <button type="button" id="searchButton" aria-label="Search">⌕</button>
 </div>
-<a href="/latest-news.html" class="live-button">
+<a href="./latest-news.html" class="live-button">
 <span class="pulse-dot"></span> LATEST NEWS
 </a>
 </div>
@@ -215,12 +216,13 @@ button,input{font:inherit}
 
 <nav class="navigation">
 <div class="nav-inner">
-<a href="/" class="active">HOME</a>
-<a href="/latest-news.html">LATEST NEWS</a>
-<a href="/politics.html">POLITICS</a>
-<a href="/sports.html">SPORTS</a>
-<a href="/latest-news.html">VIDEOS</a>
-<a href="mailto:info@jamesnyarangotv.ac.ug">ABOUT US</a>
+<a href="./index.html" class="active">HOME</a>
+<a href="./latest-news.html">LATEST NEWS</a>
+<a href="./politics.html">POLITICS</a>
+<a href="./business.html">BUSINESS</a>
+<a href="./sports.html">SPORTS</a>
+<a href="./videos.html">VIDEOS</a>
+<a href="./about.html">ABOUT US</a>
 </div>
 </nav>
 
@@ -245,7 +247,7 @@ Your latest published story will appear here.
 <section class="sidebar-section">
 <div class="sidebar-heading">
 <h3>Top Stories</h3>
-<a href="/latest-news.html" class="sidebar-link">MORE NEWS →</a>
+<a href="./latest-news.html" class="sidebar-link">MORE NEWS →</a>
 </div>
 <div class="exclusive-grid" id="exclusiveStories">
 <div class="empty-news">Top stories will appear here.</div>
@@ -255,7 +257,7 @@ Your latest published story will appear here.
 <section class="sidebar-section">
 <div class="sidebar-heading">
 <h3>Latest Videos</h3>
-<a href="/latest-news.html" class="sidebar-link">SEE ALL →</a>
+<a href="./videos.html" class="sidebar-link">SEE ALL →</a>
 </div>
 <div id="latestEpisodes">
 <div class="empty-news">Latest video episodes will appear here.</div>
@@ -266,7 +268,7 @@ Your latest published story will appear here.
 <small>JNTV DIGITAL BROADCAST</small>
 <h3>Watch. Listen. Stay Informed.</h3>
 <p>Discover interviews, programmes, reports and exclusive video coverage.</p>
-<a href="/latest-news.html">EXPLORE VIDEOS →</a>
+<a href="./videos.html">EXPLORE VIDEOS →</a>
 </div>
 
 </aside>
@@ -275,7 +277,7 @@ Your latest published story will appear here.
 <section class="news-section" id="latestNewsSection">
 <div class="news-section-heading">
 <h2>Latest News</h2>
-<a href="/latest-news.html">VIEW ALL NEWS →</a>
+<a href="./latest-news.html">VIEW ALL NEWS →</a>
 </div>
 
 <div class="search-status" id="searchStatus"></div>
@@ -309,6 +311,7 @@ www.jamesnyarangotv.ac.ug
 <div class="footer-col">
 <h4>ABOUT US</h4>
 <ul>
+<li><a href="./about.html">About JNTV</a></li>
 <li><a href="#">Advertise With Us</a></li>
 <li><a href="#">Privacy Policy</a></li>
 <li><a href="#">Careers</a></li>
@@ -415,7 +418,7 @@ return String(value).replace(/<[^>]*>/g,"").trim();
 
 function articleLink(article){
 const id=article.id||article.articleId||"";
-return "/article.html?id="+encodeURIComponent(id);
+return "./article.html?id="+encodeURIComponent(id);
 }
 
 function safeImage(value){
