@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JNTV NEWSROOM | Admin Dashboard</title>
+<title>JNTV NEWSROOM | Administration</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -19,316 +19,131 @@
   --border:#e1e5e9;
   --white:#fff;
 }
-
-* {box-sizing:border-box}
-
-body {
-  margin:0;
-  background:var(--grey);
-  color:var(--dark);
-  font-family:Manrope,Arial,sans-serif;
-  font-size:13px;
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--grey);color:var(--dark);
+  font-family:Manrope,Arial,sans-serif;font-size:13px
 }
-
-button,input,textarea,select {font:inherit}
-
-button {cursor:pointer}
-
-.topbar {
-  background:#101820;
-  color:white;
-  padding:17px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-bottom:4px solid var(--red);
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.topbar{
+  background:#101820;color:white;padding:17px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:4px solid var(--red)
 }
-
-.brand {
-  display:flex;
-  align-items:center;
-  gap:12px;
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  background:var(--red);color:white;font-weight:900;
+  font-size:22px;padding:9px 12px
 }
-
-.brand-mark {
-  background:var(--red);
-  color:white;
-  font-weight:900;
-  font-size:22px;
-  padding:9px 12px;
+.brand h1{font-family:"Playfair Display",serif;font-size:21px;margin:0}
+.brand small{
+  display:block;color:#ff6877;font-size:9px;
+  letter-spacing:2px;font-weight:800;margin-top:4px
 }
-
-.brand h1 {
+.top-right{color:#ddd;font-size:11px}
+.container{max-width:1200px;margin:28px auto;padding:0 20px}
+.panel{
+  background:white;border:1px solid var(--border);
+  border-radius:5px;padding:24px;margin-bottom:20px
+}
+.heading{
   font-family:"Playfair Display",serif;
-  font-size:21px;
-  margin:0;
+  font-size:23px;margin:0 0 7px
 }
-
-.brand small {
-  display:block;
-  color:#ff6877;
-  font-size:9px;
-  letter-spacing:2px;
-  font-weight:800;
-  margin-top:4px;
+.muted{color:#77818b}
+.login-panel{max-width:430px;margin:85px auto}
+label{
+  display:block;font-weight:800;font-size:11px;
+  margin:16px 0 7px;text-transform:uppercase;letter-spacing:.5px
 }
-
-.top-right {
-  color:#ddd;
-  font-size:11px;
+input,textarea,select{
+  width:100%;border:1px solid #d8dde2;border-radius:3px;
+  padding:12px;background:white;outline:none;color:#17212b
 }
-
-.container {
-  max-width:1200px;
-  margin:28px auto;
-  padding:0 20px;
+input:focus,textarea:focus,select:focus{border-color:var(--red)}
+textarea{min-height:140px;resize:vertical;line-height:1.7}
+.content-area{min-height:280px}
+.btn{
+  padding:11px 17px;border:0;border-radius:3px;
+  font-weight:800;font-size:11px;text-transform:uppercase;
+  letter-spacing:.4px
 }
-
-.panel {
-  background:white;
-  border:1px solid var(--border);
-  border-radius:5px;
-  padding:24px;
-  margin-bottom:20px;
+.btn-red{background:var(--red);color:white}
+.btn-dark{background:#17212b;color:white}
+.btn-light{background:#e9edf0;color:#17212b}
+.btn-danger{background:#8e1524;color:white}
+.btn:hover{opacity:.88}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.full{width:100%;margin-top:20px}
+.dashboard-head{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:15px;flex-wrap:wrap;margin-bottom:22px
 }
-
-.heading {
-  font-family:"Playfair Display",serif;
-  font-size:23px;
-  margin:0 0 7px;
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:15px;margin-bottom:20px
 }
-
-.muted {color:#77818b}
-
-.login-panel {
-  max-width:430px;
-  margin:85px auto;
+.stat{
+  background:white;padding:18px;border:1px solid var(--border);
+  border-top:3px solid var(--red)
 }
-
-label {
-  display:block;
-  font-weight:800;
-  font-size:11px;
-  margin:16px 0 7px;
-  text-transform:uppercase;
-  letter-spacing:.5px;
+.stat strong{display:block;font-size:26px;margin-top:7px}
+.stat span{
+  color:#6e7882;font-size:10px;font-weight:800;text-transform:uppercase
 }
-
-input,textarea,select {
-  width:100%;
-  border:1px solid #d8dde2;
-  border-radius:3px;
-  padding:12px;
-  background:white;
-  outline:none;
-  color:#17212b;
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.full-field{grid-column:1/-1}
+.checkline{display:flex;align-items:center;gap:9px;margin-top:18px;font-weight:800}
+.checkline input{width:17px;height:17px;accent-color:var(--red)}
+.checkline label{margin:0}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.preview{
+  width:100%;max-height:220px;object-fit:cover;
+  margin-top:12px;display:none;border-radius:3px
 }
-
-input:focus,textarea:focus,select:focus {
-  border-color:var(--red);
+.article-row{
+  padding:16px 0;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;gap:15px
 }
-
-textarea {
-  min-height:140px;
-  resize:vertical;
-  line-height:1.7;
+.article-info{flex:1;min-width:0}
+.article-info strong{
+  font-family:"Playfair Display",serif;font-size:16px;
+  display:block;margin-bottom:6px;overflow-wrap:anywhere
 }
-
-.content-area {min-height:280px}
-
-.btn {
-  padding:11px 17px;
-  border:0;
-  border-radius:3px;
-  font-weight:800;
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.4px;
+.article-meta{color:#7a838c;font-size:10px}
+.article-buttons{display:flex;gap:7px;flex-wrap:wrap}
+.article-buttons button{padding:8px 11px;font-size:10px}
+.status{
+  display:inline-block;padding:4px 7px;background:#e8f5ed;
+  color:#18733b;font-size:9px;font-weight:800;margin-right:5px
 }
-
-.btn-red {background:var(--red);color:white}
-.btn-dark {background:#17212b;color:white}
-.btn-light {background:#e9edf0;color:#17212b}
-.btn-danger {background:#8e1524;color:white}
-
-.btn:hover {opacity:.88}
-
-.full {width:100%;margin-top:20px}
-
-.dashboard-head {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
-  margin-bottom:22px;
+.status.draft{background:#fff1dc;color:#9b5a00}
+.status.breaking{background:#ffe7e9;color:#bd001b}
+.notice{
+  padding:12px;background:#f0f3f6;border-left:3px solid var(--red);
+  margin:15px 0;line-height:1.6
 }
-
-.stats {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-bottom:20px;
+#message{
+  display:none;padding:12px;margin:12px 0;border-radius:3px;
+  font-weight:700
 }
-
-.stat {
-  background:white;
-  padding:18px;
-  border:1px solid var(--border);
-  border-top:3px solid var(--red);
-}
-
-.stat strong {
-  display:block;
-  font-size:26px;
-  margin-top:7px;
-}
-
-.stat span {
-  color:#6e7882;
-  font-size:10px;
-  font-weight:800;
-  text-transform:uppercase;
-}
-
-.form-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0 18px;
-}
-
-.full-field {grid-column:1/-1}
-
-.checkline {
-  display:flex;
-  align-items:center;
-  gap:9px;
-  margin-top:18px;
-  font-weight:800;
-}
-
-.checkline input {
-  width:17px;
-  height:17px;
-  accent-color:var(--red);
-}
-
-.checkline label {
-  margin:0;
-}
-
-.actions {
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:22px;
-}
-
-.preview {
-  width:100%;
-  max-height:220px;
-  object-fit:cover;
-  margin-top:12px;
-  display:none;
-  border-radius:3px;
-}
-
-.article-row {
-  padding:16px 0;
-  border-bottom:1px solid var(--border);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-}
-
-.article-info {flex:1;min-width:0}
-
-.article-info strong {
-  font-family:"Playfair Display",serif;
-  font-size:16px;
-  display:block;
-  margin-bottom:6px;
-  overflow-wrap:anywhere;
-}
-
-.article-meta {
-  color:#7a838c;
-  font-size:10px;
-}
-
-.article-buttons {
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-}
-
-.article-buttons button {
-  padding:8px 11px;
-  font-size:10px;
-}
-
-.status {
-  display:inline-block;
-  padding:4px 7px;
-  background:#e8f5ed;
-  color:#18733b;
-  font-size:9px;
-  font-weight:800;
-  margin-right:5px;
-}
-
-.status.draft {
-  background:#fff1dc;
-  color:#9b5a00;
-}
-
-.status.breaking {
-  background:#ffe7e9;
-  color:#bd001b;
-}
-
-.notice {
-  padding:12px;
-  background:#f0f3f6;
-  border-left:3px solid var(--red);
-  margin:15px 0;
-  line-height:1.6;
-}
-
-#message {
-  display:none;
-  padding:12px;
-  margin:12px 0;
-  border-radius:3px;
-  font-weight:700;
-}
-
-.error {background:#ffe9e9;color:#a40018}
-.success {background:#e8f6ed;color:#176a35}
-
-.search-box {max-width:360px}
-
-footer {
-  text-align:center;
-  padding:25px;
-  color:#7a838c;
-  font-size:10px;
-}
-
-.hidden {display:none!important}
-
-@media(max-width:650px) {
-  .container {padding:0 12px}
-  .panel {padding:17px}
-  .stats {gap:7px}
-  .stat {padding:12px}
-  .stat strong {font-size:20px}
-  .form-grid {grid-template-columns:1fr}
-  .full-field {grid-column:auto}
-  .article-row {align-items:flex-start;flex-direction:column}
-  .topbar {padding:14px}
-  .brand h1 {font-size:17px}
+.error{background:#ffe9e9;color:#a40018}
+.success{background:#e8f6ed;color:#176a35}
+.search-box{max-width:360px}
+footer{text-align:center;padding:25px;color:#7a838c;font-size:10px}
+.hidden{display:none!important}
+@media(max-width:650px){
+  .container{padding:0 12px}
+  .panel{padding:17px}
+  .stats{gap:7px}
+  .stat{padding:12px}
+  .stat strong{font-size:20px}
+  .form-grid{grid-template-columns:1fr}
+  .full-field{grid-column:auto}
+  .article-row{align-items:flex-start;flex-direction:column}
+  .topbar{padding:14px}
+  .brand h1{font-size:17px}
 }
 </style>
 </head>
@@ -348,23 +163,19 @@ footer {
 
 <main class="container">
 
-<!-- LOGIN -->
 <section id="loginSection" class="panel login-panel">
   <h2 class="heading">Administrator Login</h2>
   <p class="muted">Sign in to manage JNTV news publications.</p>
-
   <div id="loginMessage" class="notice hidden"></div>
 
   <form id="loginForm">
     <label>Email Address</label>
     <input id="email" type="email"
-      value="nyarangojames245@gmail.com"
-      required>
+      value="nyarangojames245@mail.com" required>
 
     <label>Password</label>
     <input id="password" type="password"
-      placeholder="Enter your password"
-      required>
+      placeholder="Enter your password" required>
 
     <button class="btn btn-red full" type="submit">
       SIGN IN TO NEWSROOM
@@ -372,47 +183,35 @@ footer {
   </form>
 </section>
 
-<!-- DASHBOARD -->
 <section id="dashboard" class="hidden">
 
   <div class="dashboard-head">
     <div>
       <h2 class="heading">Publishing Dashboard</h2>
       <div class="muted">Manage your JNTV digital newsroom.</div>
+      <div class="muted" id="adminEmail"></div>
     </div>
     <button class="btn btn-dark" id="logoutBtn">LOG OUT</button>
   </div>
 
   <div class="stats">
-    <div class="stat">
-      <span>Total Articles</span>
-      <strong id="totalCount">0</strong>
-    </div>
-    <div class="stat">
-      <span>Published</span>
-      <strong id="publishedCount">0</strong>
-    </div>
-    <div class="stat">
-      <span>Drafts</span>
-      <strong id="draftCount">0</strong>
-    </div>
+    <div class="stat"><span>Total Articles</span><strong id="totalCount">0</strong></div>
+    <div class="stat"><span>Published</span><strong id="publishedCount">0</strong></div>
+    <div class="stat"><span>Drafts</span><strong id="draftCount">0</strong></div>
   </div>
 
   <div id="message"></div>
 
-  <!-- ARTICLE FORM -->
   <section class="panel">
     <h2 class="heading" id="formHeading">Create News Article</h2>
     <p class="muted">Write, edit and publish news directly to JNTV.</p>
 
     <form id="articleForm">
-
       <div class="form-grid">
 
         <div class="full-field">
           <label>Article Headline</label>
-          <input id="title" type="text"
-            placeholder="Enter news headline"
+          <input id="title" type="text" placeholder="Enter news headline"
             maxlength="250" required>
         </div>
 
@@ -441,22 +240,20 @@ footer {
         <div class="full-field">
           <label>Article Summary</label>
           <textarea id="summary"
-            placeholder="Write a short introduction or news summary..."
+            placeholder="Write a short news summary..."
             style="min-height:85px"></textarea>
         </div>
 
         <div class="full-field">
           <label>Full News Content</label>
           <textarea id="content" class="content-area"
-            placeholder="Write the complete news story here..."
-            required></textarea>
+            placeholder="Write the complete news story here..." required></textarea>
         </div>
 
         <div class="full-field">
           <label>Upload Article Photograph</label>
           <input id="imageFile" type="file"
             accept="image/jpeg,image/png,image/webp,image/gif">
-
           <img id="imagePreview" class="preview" alt="Image preview">
           <div class="muted" style="margin-top:7px">
             JPG, PNG, WEBP or GIF. Maximum 5 MB.
@@ -476,22 +273,19 @@ footer {
         <button class="btn btn-red" type="submit" id="saveBtn">
           PUBLISH ARTICLE
         </button>
-
         <button class="btn btn-light" type="button" id="newBtn">
           CLEAR FORM
         </button>
       </div>
-
       <input type="hidden" id="editingId">
     </form>
   </section>
 
-  <!-- ARTICLES -->
   <section class="panel">
     <div class="dashboard-head">
       <div>
         <h2 class="heading">Manage Articles</h2>
-        <p class="muted">View and manage all your newsroom publications.</p>
+        <p class="muted">View and manage newsroom publications.</p>
       </div>
       <button class="btn btn-light" id="refreshBtn">REFRESH</button>
     </div>
@@ -505,7 +299,6 @@ footer {
   </section>
 
 </section>
-
 </main>
 
 <footer>
@@ -531,24 +324,23 @@ const $ = id => document.getElementById(id);
 let currentUser = null;
 let articles = [];
 let currentImageUrl = '';
-let currentImagePath = '';
 
-function message(text, type='success') {
-  const el = $('message');
-  el.textContent = text;
-  el.className = type;
-  el.style.display = 'block';
+function showMessage(text,type='success') {
+  const el=$('message');
+  el.textContent=text;
+  el.className=type;
+  el.style.display='block';
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function loginMessage(text) {
-  const el = $('loginMessage');
-  el.textContent = text;
+  const el=$('loginMessage');
+  el.textContent=text;
   el.classList.remove('hidden');
 }
 
 function escapeHTML(value) {
-  return String(value ?? '').replace(/[&<>"']/g, char => ({
+  return String(value ?? '').replace(/[&<>"']/g,char=>({
     '&':'&amp;',
     '<':'&lt;',
     '>':'&gt;',
@@ -565,8 +357,10 @@ function slugify(text) {
     .replace(/^-|-$/g,'');
 }
 
+/* ADMINISTRATOR VERIFICATION */
+
 async function verifyAdmin(user) {
-  const {data,error} = await db
+  const {data,error}=await db
     .from('admin_users')
     .select('user_id')
     .eq('user_id',user.id)
@@ -574,31 +368,37 @@ async function verifyAdmin(user) {
 
   if(error) {
     throw new Error(
-      'Administrator verification failed: ' + error.message
+      'Administrator verification failed: '+error.message
     );
   }
 
   if(!data) {
     throw new Error(
-      'This account is not registered as a JNTV administrator.'
+      'Your login is valid, but your account is not registered in admin_users. Contact the project administrator.'
     );
   }
 
-  currentUser = user;
+  currentUser=user;
 }
+
+/* OPEN DASHBOARD */
 
 async function openDashboard(user) {
   await verifyAdmin(user);
 
+  $('adminEmail').textContent=user.email || '';
   $('loginSection').classList.add('hidden');
   $('dashboard').classList.remove('hidden');
 
   await loadArticles();
 }
 
+/* LOGIN */
+
 async function login(email,password) {
-  const {data,error} = await db.auth.signInWithPassword({
-    email,password
+  const {data,error}=await db.auth.signInWithPassword({
+    email:email,
+    password:password
   });
 
   if(error) throw error;
@@ -609,9 +409,10 @@ async function login(email,password) {
 $('loginForm').addEventListener('submit',async e=>{
   e.preventDefault();
 
-  const button = e.submitter;
-  button.disabled = true;
-  button.textContent = 'SIGNING IN...';
+  const button=e.submitter;
+  button.disabled=true;
+  button.textContent='SIGNING IN...';
+  $('loginMessage').classList.add('hidden');
 
   try {
     await login(
@@ -622,90 +423,94 @@ $('loginForm').addEventListener('submit',async e=>{
     loginMessage(error.message);
     await db.auth.signOut();
   } finally {
-    button.disabled = false;
-    button.textContent = 'SIGN IN TO NEWSROOM';
+    button.disabled=false;
+    button.textContent='SIGN IN TO NEWSROOM';
   }
 });
 
-async function loadArticles() {
-  $('articleList').textContent = 'Loading articles...';
+/* LOAD ARTICLES */
 
-  const {data,error} = await db
+async function loadArticles() {
+  $('articleList').textContent='Loading articles...';
+
+  const {data,error}=await db
     .from('articles')
     .select('*')
     .order('created_at',{ascending:false});
 
   if(error) {
-    $('articleList').textContent =
-      'Could not load articles: ' + error.message;
+    $('articleList').textContent=
+      'Could not load articles: '+error.message;
     return;
   }
 
-  articles = data || [];
+  articles=data || [];
 
-  $('totalCount').textContent = articles.length;
-  $('publishedCount').textContent =
+  $('totalCount').textContent=articles.length;
+  $('publishedCount').textContent=
     articles.filter(a=>a.status==='published').length;
-  $('draftCount').textContent =
+  $('draftCount').textContent=
     articles.filter(a=>a.status==='draft').length;
 
   renderArticles();
 }
 
-function renderArticles() {
-  const search = $('searchArticles').value.toLowerCase();
+/* DISPLAY ARTICLES */
 
-  const filtered = articles.filter(a=>
+function renderArticles() {
+  const search=$('searchArticles').value.toLowerCase();
+
+  const filtered=articles.filter(a=>
     (a.title || '').toLowerCase().includes(search) ||
     (a.category || '').toLowerCase().includes(search)
   );
 
-  const list = $('articleList');
+  const list=$('articleList');
 
   if(!filtered.length) {
-    list.textContent = 'No articles found.';
+    list.textContent='No articles found.';
     return;
   }
 
-  list.innerHTML = '';
+  list.innerHTML='';
 
   filtered.forEach(article=>{
-    const row = document.createElement('div');
-    row.className = 'article-row';
+    const row=document.createElement('div');
+    row.className='article-row';
 
-    const info = document.createElement('div');
-    info.className = 'article-info';
+    const info=document.createElement('div');
+    info.className='article-info';
 
-    const statusClass =
-      article.status === 'published' ? '' : 'draft';
+    const statusClass=
+      article.status==='published'?'':'draft';
 
-    info.innerHTML = `
+    info.innerHTML=`
       <strong>${escapeHTML(article.title)}</strong>
       <div class="article-meta">
         <span class="status ${statusClass}">
           ${escapeHTML(article.status || 'draft')}
         </span>
-        ${article.breaking ?
-          '<span class="status breaking">BREAKING</span>' : ''}
+        ${article.breaking?
+          '<span class="status breaking">BREAKING</span>':''}
         ${escapeHTML(article.category || '')}
         · ${escapeHTML(
-          article.created_at ?
-          new Date(article.created_at).toLocaleDateString() : ''
+          article.created_at?
+          new Date(article.created_at).toLocaleDateString():''
         )}
       </div>
     `;
 
-    const buttons = document.createElement('div');
-    buttons.className = 'article-buttons';
+    const buttons=document.createElement('div');
+    buttons.className='article-buttons';
 
-    const edit = document.createElement('button');
-    edit.className = 'btn btn-dark';
-    edit.textContent = 'EDIT';
+    const edit=document.createElement('button');
+    edit.className='btn btn-dark';
+    edit.textContent='EDIT';
     edit.addEventListener('click',()=>editArticle(article));
 
-    const remove = document.createElement('button');
-    remove.className = 'btn btn-danger';
-    remove.textContent = 'DELETE';
+    const remove=document.createElement('button');
+    remove.className='btn btn-danger';
+    remove.textContent='DELETE';
     remove.addEventListener('click',()=>deleteArticle(article));
 
     buttons.append(edit,remove);
@@ -715,28 +520,29 @@ function renderArticles() {
 }
 
 $('searchArticles').addEventListener('input',renderArticles);
-
 $('refreshBtn').addEventListener('click',loadArticles);
 
+/* IMAGE PREVIEW */
+
 $('imageFile').addEventListener('change',()=>{
-  const file = $('imageFile').files[0];
-  const preview = $('imagePreview');
+  const file=$('imageFile').files[0];
+  const preview=$('imagePreview');
 
   if(!file) {
     preview.style.display='none';
     return;
   }
 
-  if(file.size > 5*1024*1024) {
-    message('Image exceeds the 5 MB limit.','error');
+  if(file.size>5*1024*1024) {
+    showMessage('Image exceeds the 5 MB limit.','error');
     $('imageFile').value='';
     preview.style.display='none';
     return;
   }
 
   if(!['image/jpeg','image/png','image/webp','image/gif']
-      .includes(file.type)) {
-    message('Please select a JPG, PNG, WEBP or GIF image.','error');
+    .includes(file.type)) {
+    showMessage('Please select a JPG, PNG, WEBP or GIF image.','error');
     $('imageFile').value='';
     preview.style.display='none';
     return;
@@ -746,14 +552,17 @@ $('imageFile').addEventListener('change',()=>{
   preview.style.display='block';
 });
 
-async function uploadImage(file) {
-  const extension = file.name.split('.').pop().toLowerCase();
-  const path = currentUser.id + '/' +
-    Date.now() + '-' +
-    Math.random().toString(36).slice(2) +
-    '.' + extension;
+/* UPLOAD PHOTOGRAPH */
 
-  const {error} = await db.storage
+async function uploadImage(file) {
+  const extension=file.name.split('.').pop().toLowerCase();
+
+  const path=currentUser.id+'/'+
+    Date.now()+'-'+
+    Math.random().toString(36).slice(2)+
+    '.'+extension;
+
+  const {error}=await db.storage
     .from('jntv-images')
     .upload(path,file,{
       cacheControl:'3600',
@@ -763,41 +572,41 @@ async function uploadImage(file) {
 
   if(error) throw error;
 
-  const {data} = db.storage
+  const {data}=db.storage
     .from('jntv-images')
     .getPublicUrl(path);
 
-  currentImagePath = path;
   return data.publicUrl;
 }
+
+/* SAVE OR PUBLISH ARTICLE */
 
 $('articleForm').addEventListener('submit',async e=>{
   e.preventDefault();
 
-  const button = $('saveBtn');
+  const button=$('saveBtn');
   button.disabled=true;
   button.textContent='SAVING...';
 
   try {
-    const title = $('title').value.trim();
-    const status = $('status').value;
-    const editingId = $('editingId').value;
+    const title=$('title').value.trim();
+    const status=$('status').value;
+    const editingId=$('editingId').value;
 
-    const oldArticle = articles.find(
+    const oldArticle=articles.find(
       a=>String(a.id)===String(editingId)
     );
 
-    const file = $('imageFile').files[0];
-
-    let imageUrl = currentImageUrl;
+    const file=$('imageFile').files[0];
+    let imageUrl=currentImageUrl;
 
     if(file) {
-      imageUrl = await uploadImage(file);
+      imageUrl=await uploadImage(file);
     }
 
-    const now = new Date().toISOString();
+    const now=new Date().toISOString();
 
-    const article = {
+    const article={
       title:title,
       slug:slugify(title),
       summary:$('summary').value.trim(),
@@ -808,29 +617,29 @@ $('articleForm').addEventListener('submit',async e=>{
       status:status,
       breaking:$('breaking').checked,
       published_at:status==='published'
-        ? (oldArticle?.published_at || now)
-        : null,
+        ?(oldArticle?.published_at || now)
+        :null,
       updated_at:now
     };
 
     let result;
 
     if(editingId) {
-      result = await db
+      result=await db
         .from('articles')
         .update(article)
         .eq('id',editingId);
     } else {
-      result = await db
+      result=await db
         .from('articles')
         .insert(article);
     }
 
     if(result.error) throw result.error;
 
-    message(
-      editingId ?
-      'Article updated successfully!' :
+    showMessage(
+      editingId?
+      'Article updated successfully!':
       'Article saved successfully!'
     );
 
@@ -838,12 +647,14 @@ $('articleForm').addEventListener('submit',async e=>{
     await loadArticles();
 
   } catch(error) {
-    message(error.message,'error');
+    showMessage(error.message,'error');
   } finally {
     button.disabled=false;
     button.textContent='PUBLISH ARTICLE';
   }
 });
+
+/* EDIT ARTICLE */
 
 function editArticle(article) {
   $('editingId').value=article.id;
@@ -855,8 +666,6 @@ function editArticle(article) {
   $('breaking').checked=!!article.breaking;
 
   currentImageUrl=article.image_url || '';
-  currentImagePath='';
-
   $('imageFile').value='';
 
   const preview=$('imagePreview');
@@ -874,26 +683,30 @@ function editArticle(article) {
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
+/* DELETE ARTICLE */
+
 async function deleteArticle(article) {
   if(!confirm(
     'Are you sure you want to permanently delete this article?'
   )) return;
 
   try {
-    const {error} = await db
+    const {error}=await db
       .from('articles')
       .delete()
       .eq('id',article.id);
 
     if(error) throw error;
 
-    message('Article deleted successfully.');
+    showMessage('Article deleted successfully.');
     await loadArticles();
 
   } catch(error) {
-    message(error.message,'error');
+    showMessage(error.message,'error');
   }
 }
+
+/* CLEAR FORM */
 
 function clearForm() {
   $('articleForm').reset();
@@ -902,24 +715,31 @@ function clearForm() {
   $('imagePreview').style.display='none';
   $('formHeading').textContent='Create News Article';
   $('saveBtn').textContent='PUBLISH ARTICLE';
-
   currentImageUrl='';
-  currentImagePath='';
 }
 
 $('newBtn').addEventListener('click',clearForm);
 
+/* LOG OUT */
+
 $('logoutBtn').addEventListener('click',async()=>{
   await db.auth.signOut();
   currentUser=null;
+  articles=[];
+
   $('dashboard').classList.add('hidden');
   $('loginSection').classList.remove('hidden');
+  $('password').value='';
+  $('loginMessage').classList.add('hidden');
+
   clearForm();
 });
 
+/* CHECK EXISTING SESSION */
+
 async function initialise() {
   try {
-    const {data,error} = await db.auth.getSession();
+    const {data,error}=await db.auth.getSession();
 
     if(error) throw error;
 
