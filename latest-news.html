@@ -3,108 +3,655 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Latest News | James Nyarango TV</title>
-<meta name="description" content="Latest breaking news, current affairs, politics, business, sports and entertainment from Uganda, Africa and around the world.">
+
+<title>Latest News | JNTV</title>
+<meta name="description" content="Read the latest news, breaking stories, politics, business, sports and entertainment on JNTV.">
 <meta name="theme-color" content="#071a35">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
 --navy:#071a35;
 --navy2:#10294b;
---red:#d71920;
+--red:#e00016;
 --white:#fff;
---light:#f4f5f6;
---ink:#202124;
---muted:#68717c;
---line:#e2e5e9;
+--light:#f5f6f8;
+--ink:#202a36;
+--muted:#687586;
+--line:#e5e8ed;
 }
+
 *{box-sizing:border-box}
-body{margin:0;color:var(--ink);font-family:Manrope,Arial,sans-serif;font-size:13px;line-height:1.7}
-a{text-decoration:none;color:inherit}
-.header{background:var(--navy);border-bottom:3px solid var(--red)}
-.header-inner{max-width:1320px;margin:auto;padding:12px 24px;min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{width:70px;height:65px;object-fit:contain}
-.brand-name{color:white;font-weight:800;font-size:20px;line-height:1.3}
-.tagline{color:#ff7780;font-size:9px;font-weight:800;letter-spacing:1.4px}
-.header-right{display:flex;gap:10px;align-items:center}
-.search{display:flex;background:white;height:37px;width:230px}
-.search input{width:100%;min-width:0;border:0;padding:8px;outline:0;font:inherit}
-.search button{border:0;background:var(--red);color:white;padding:0 14px;cursor:pointer}
-.live{background:var(--red);color:white;padding:10px 15px;font-weight:800;font-size:10px}
-nav{background:var(--navy2)}
-.nav-inner{max-width:1320px;margin:auto;display:flex;overflow-x:auto;padding:0 15px;scrollbar-width:none}
-.nav-inner a{color:white;white-space:nowrap;padding:14px 15px;font-size:10px;font-weight:800;border-bottom:3px solid transparent}
-.nav-inner a:hover,.nav-inner a.active{background:#19395f;border-bottom-color:var(--red)}
-.container{max-width:1260px;margin:auto;padding:25px 24px 55px}
-.breadcrumb{font-size:11px;color:var(--muted);margin-bottom:20px}
-.breadcrumb a{color:var(--red);font-weight:800}
-.breaking{display:flex;align-items:center;border-bottom:1px solid var(--line);margin-bottom:25px}
-.breaking strong{background:var(--red);color:white;padding:9px 14px;font-size:10px;white-space:nowrap}
-.breaking span{padding:8px 12px;font-size:11px;font-weight:600}
-.heading{border-bottom:2px solid var(--navy);padding-bottom:15px;margin-bottom:25px}
-.eyebrow{color:var(--red);font-size:10px;font-weight:800;letter-spacing:1.3px}
-h1,h2,h3{font-family:'Playfair Display',Georgia,serif}
-.heading h1{font-size:36px;color:var(--navy);line-height:1.2;margin:5px 0}
-.heading p{margin:5px 0 0;color:var(--muted);font-size:12px}
-.section-title{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--navy);padding-bottom:9px;margin:30px 0 17px}
-.section-title h2{margin:0;color:var(--navy);font-size:23px}
-.section-title span{font-size:9px;font-weight:800;color:var(--red)}
-.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:25px}
-.feature{position:relative;min-height:350px;background:linear-gradient(0deg,rgba(7,26,53,.95),rgba(7,26,53,.05)),url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&auto=format&fit=crop&q=85') center/cover;display:flex;align-items:flex-end}
-.feature-content{padding:25px;color:white}
-.category{display:inline-block;background:var(--red);padding:5px 9px;font-size:9px;font-weight:800}
-.feature h2{font-size:29px;line-height:1.3;margin:12px 0}
-.feature p{font-size:11px;color:#e0e5ec;margin:0}
-.side-news{display:flex;flex-direction:column;gap:13px}
-.side-card{padding:17px;background:var(--light);border-left:3px solid var(--red)}
-.side-card small{color:var(--red);font-weight:800;font-size:9px}
-.side-card h3{font-size:17px;line-height:1.4;margin:5px 0;color:var(--navy)}
-.side-card p{font-size:11px;color:var(--muted);margin:0}
-.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.category-card{padding:20px;background:var(--light);border-bottom:3px solid var(--navy)}
-.category-card:hover{border-color:var(--red)}
-.category-card h3{font-size:19px;color:var(--navy);margin:0 0 5px}
-.category-card p{margin:0;color:var(--muted);font-size:11px}
-.newsroom{padding:35px 20px;text-align:center;border:1px solid var(--line)}
-.newsroom h2{font-size:22px;color:var(--navy);margin:0 0 8px}
-.newsroom p{color:var(--muted);max-width:550px;margin:auto;font-size:12px}
-.footer{background:var(--navy);color:white;border-top:4px solid var(--red)}
-.footer-inner{max-width:1320px;margin:auto;padding:35px 24px 0}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;padding-bottom:28px}
-.footer h3{font-family:Manrope,sans-serif;font-size:18px;margin:0 0 7px}
-.footer h4{font-family:Manrope,sans-serif;font-size:11px;margin:0 0 14px;border-bottom:2px solid var(--red);display:inline-block;padding-bottom:7px}
-.footer-tagline{color:#ff7780;font-size:9px;font-weight:800;letter-spacing:1px}
-.footer p,.footer li{font-size:11px;color:#c5cfdb}
-.footer p{line-height:1.9}
-.footer ul{list-style:none;padding:0;margin:0}
-.footer li{margin-bottom:9px}
-.footer a:hover{color:#ff7780}
-.copyright{border-top:1px solid #29405e;padding:15px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:10px;color:#bac5d3}
-@media(max-width:850px){
-.news-grid{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:repeat(2,1fr)}
-.category-grid{grid-template-columns:repeat(2,1fr)}
+
+body{
+margin:0;
+font-family:'Jost',Arial,sans-serif;
+font-size:14px;
+line-height:1.55;
+color:var(--ink);
+background:#fff;
 }
-@media(max-width:600px){
-.header-inner{flex-wrap:wrap;padding:10px 14px}
-.brand img{width:58px;height:55px}
-.brand-name{font-size:17px}
-.header-right{width:100%}
-.search{flex:1;width:auto}
-.container{padding:18px 14px 40px}
-.heading h1{font-size:30px}
-.feature{min-height:290px}
-.feature h2{font-size:24px}
-.category-grid{gap:10px}
-.category-card{padding:14px}
-.category-card h3{font-size:17px}
+
+a{text-decoration:none;color:inherit}
+
+img{max-width:100%;display:block}
+
+/* HEADER */
+
+.header{
+background:var(--navy);
+border-bottom:3px solid var(--red);
+}
+
+.header-inner{
+max-width:1380px;
+margin:auto;
+padding:10px 25px;
+min-height:82px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:22px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+flex-shrink:0;
+}
+
+.brand img{
+width:76px;
+height:64px;
+object-fit:contain;
+}
+
+/* NAVIGATION */
+
+.header-right{
+display:flex;
+align-items:center;
+justify-content:flex-end;
+gap:18px;
+flex:1;
+}
+
+.nav-inner{
+display:flex;
+align-items:center;
+gap:2px;
+}
+
+.nav-inner a{
+color:#fff;
+font-size:12px;
+font-weight:600;
+white-space:nowrap;
+padding:12px 10px;
+border-bottom:2px solid transparent;
+transition:.2s;
+}
+
+.nav-inner a:hover,
+.nav-inner a.active{
+color:#fff;
+border-bottom-color:var(--red);
+}
+
+.search{
+display:flex;
+height:36px;
+width:190px;
+background:#fff;
+border-radius:2px;
+overflow:hidden;
+}
+
+.search input{
+width:100%;
+min-width:0;
+border:0;
+outline:0;
+padding:0 10px;
+font-family:inherit;
+font-size:12px;
+}
+
+.search button{
+border:0;
+background:var(--red);
+color:#fff;
+padding:0 13px;
+cursor:pointer;
+font-size:17px;
+}
+
+.live{
+background:var(--red);
+color:#fff;
+padding:9px 13px;
+font-size:11px;
+font-weight:700;
+white-space:nowrap;
+}
+
+/* PAGE */
+
+.container{
+max-width:1320px;
+margin:auto;
+padding:22px 25px 55px;
+}
+
+.breadcrumb{
+font-size:11px;
+color:var(--muted);
+margin-bottom:16px;
+}
+
+.breadcrumb a{
+color:var(--red);
+font-weight:700;
+}
+
+.page-heading{
+display:flex;
+align-items:flex-end;
+justify-content:space-between;
+gap:15px;
+border-bottom:2px solid var(--navy);
+padding-bottom:12px;
+margin-bottom:22px;
+}
+
+.heading-label{
+color:var(--red);
+font-size:10px;
+font-weight:800;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.page-heading h1{
+font-size:32px;
+font-weight:700;
+line-height:1.15;
+color:var(--navy);
+margin:3px 0 0;
+}
+
+.page-heading p{
+color:var(--muted);
+font-size:12px;
+margin:0;
+}
+
+/* BREAKING NEWS */
+
+.breaking{
+display:flex;
+align-items:center;
+background:var(--light);
+border-left:4px solid var(--red);
+margin-bottom:24px;
+min-height:39px;
+overflow:hidden;
+}
+
+.breaking strong{
+background:var(--red);
+color:#fff;
+padding:10px 14px;
+font-size:10px;
+white-space:nowrap;
+}
+
+.breaking span{
+padding:8px 13px;
+font-size:12px;
+font-weight:600;
+}
+
+/* NEWS GRID */
+
+.news-grid{
+display:grid;
+grid-template-columns:1.8fr 1fr;
+gap:22px;
+}
+
+.feature{
+position:relative;
+min-height:355px;
+background:#dfe4ea;
+overflow:hidden;
+display:flex;
+align-items:flex-end;
+}
+
+.feature-image{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.feature::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(0deg,rgba(7,26,53,.94),rgba(7,26,53,0) 75%);
+}
+
+.feature-content{
+position:relative;
+z-index:1;
+padding:24px;
+color:#fff;
+width:100%;
+}
+
+.category{
+display:inline-block;
+background:var(--red);
+padding:5px 10px;
+font-size:10px;
+font-weight:700;
+text-transform:uppercase;
+}
+
+.feature h2{
+font-size:27px;
+line-height:1.25;
+font-weight:700;
+margin:10px 0;
+max-width:750px;
+}
+
+.feature p{
+font-size:12px;
+color:#e4e9ef;
+margin:0;
+}
+
+.feature-meta{
+font-size:10px;
+color:#d6dce5;
+margin-top:10px;
+}
+
+.side-news{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.side-card{
+display:flex;
+gap:13px;
+padding:12px;
+background:var(--light);
+border-bottom:1px solid var(--line);
+min-height:105px;
+}
+
+.side-card img{
+width:105px;
+min-width:105px;
+height:80px;
+object-fit:cover;
+background:#e2e6eb;
+}
+
+.side-card-content{
+min-width:0;
+}
+
+.side-card small{
+color:var(--red);
+font-size:9px;
+font-weight:800;
+text-transform:uppercase;
+}
+
+.side-card h3{
+font-size:15px;
+font-weight:700;
+line-height:1.3;
+color:var(--navy);
+margin:4px 0;
+}
+
+.side-card p{
+font-size:10px;
+color:var(--muted);
+margin:0;
+}
+
+/* SECTION HEADINGS */
+
+.section-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:2px solid var(--navy);
+padding-bottom:9px;
+margin:30px 0 16px;
+}
+
+.section-title h2{
+margin:0;
+color:var(--navy);
+font-size:21px;
+font-weight:700;
+}
+
+.section-title span{
+color:var(--red);
+font-size:10px;
+font-weight:700;
+}
+
+/* PUBLISHED ARTICLES */
+
+.articles-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:19px;
+}
+
+.article-card{
+background:#fff;
+border:1px solid var(--line);
+transition:transform .2s,border-color .2s;
+overflow:hidden;
+}
+
+.article-card:hover{
+transform:translateY(-3px);
+border-color:#c8d0db;
+}
+
+.article-image{
+width:100%;
+height:190px;
+object-fit:cover;
+background:var(--light);
+}
+
+.article-content{
+padding:14px 15px 16px;
+}
+
+.article-category{
+color:var(--red);
+font-size:10px;
+font-weight:800;
+text-transform:uppercase;
+}
+
+.article-card h3{
+color:var(--navy);
+font-size:17px;
+line-height:1.35;
+font-weight:700;
+margin:6px 0;
+}
+
+.article-card p{
+color:var(--muted);
+font-size:12px;
+margin:0 0 12px;
+}
+
+.article-meta{
+border-top:1px solid var(--line);
+padding-top:9px;
+color:var(--muted);
+font-size:10px;
+display:flex;
+justify-content:space-between;
+gap:8px;
+}
+
+.read-more{
+display:inline-block;
+margin-top:11px;
+color:var(--red);
+font-size:11px;
+font-weight:800;
+}
+
+/* CATEGORIES */
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(4,minmax(0,1fr));
+gap:13px;
+}
+
+.category-card{
+display:block;
+padding:16px;
+background:var(--light);
+border-bottom:3px solid var(--navy);
+transition:.2s;
+}
+
+.category-card:hover{
+border-bottom-color:var(--red);
+background:#eef1f5;
+}
+
+.category-card h3{
+font-size:16px;
+font-weight:700;
+color:var(--navy);
+margin:0 0 4px;
+}
+
+.category-card p{
+font-size:11px;
+color:var(--muted);
+margin:0;
+}
+
+/* EMPTY / LOADING */
+
+.loading,
+.empty-state{
+grid-column:1/-1;
+padding:30px 18px;
+text-align:center;
+background:var(--light);
+color:var(--muted);
+font-size:13px;
+}
+
+.empty-state strong{
+display:block;
+color:var(--navy);
+font-size:16px;
+margin-bottom:5px;
+}
+
+.hidden{display:none!important}
+
+/* FOOTER */
+
+.footer{
+background:var(--navy);
+color:#fff;
+border-top:4px solid var(--red);
+}
+
+.footer-inner{
+max-width:1320px;
+margin:auto;
+padding:34px 25px 0;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:1.4fr 1fr 1.2fr 1.2fr;
+gap:32px;
+padding-bottom:26px;
+}
+
+.footer h3{
+font-size:19px;
+font-weight:700;
+margin:0 0 10px;
+}
+
+.footer h4{
+font-size:12px;
+font-weight:700;
+margin:0 0 13px;
+padding-bottom:8px;
+border-bottom:2px solid var(--red);
+display:inline-block;
+}
+
+.footer p,
+.footer li{
+color:#d0d8e3;
+font-size:12px;
+line-height:1.8;
+}
+
+.footer p{margin:0 0 12px}
+
+.footer ul{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+.footer li{margin-bottom:6px}
+
+.footer a:hover{color:#ff7780}
+
+.footer-contact a{
+overflow-wrap:anywhere;
+}
+
+.copyright{
+border-top:1px solid #29405e;
+padding:14px 0;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:10px;
+color:#c5cfdb;
+font-size:11px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1050px){
+.header-inner{
+flex-wrap:wrap;
+gap:8px 18px;
+}
+
+.header-right{
+flex-wrap:wrap;
+}
+
+.nav-inner{
+flex-wrap:wrap;
+}
+
+.search{width:160px}
+
+.news-grid{grid-template-columns:1.5fr 1fr}
+
+.footer-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:700px){
+.header-inner{
+padding:10px 15px;
+}
+
+.brand img{
+width:65px;
+height:56px;
+}
+
+.header-right{
+width:100%;
+justify-content:flex-start;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.nav-inner{
+flex-wrap:nowrap;
+overflow-x:auto;
+}
+
+.nav-inner a{
+padding:12px 11px;
+}
+
+.search{
+flex:1;
+width:auto;
+}
+
+.container{
+padding:17px 14px 38px;
+}
+
+.page-heading{
+align-items:flex-start;
+flex-direction:column;
+}
+
+.page-heading h1{font-size:27px}
+
+.news-grid{grid-template-columns:1fr}
+
+.feature{min-height:285px}
+
+.feature h2{font-size:23px}
+
+.articles-grid{
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:12px;
+}
+
+.article-image{height:145px}
+
+.article-content{padding:11px}
+
+.article-card h3{font-size:15px}
+
+.category-grid{
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:10px;
+}
+
+.footer-grid{
+grid-template-columns:1fr 1fr;
+gap:23px 17px;
+}
+
+.footer-inner{padding:27px 16px 0}
+}
+
+@media(max-width:420px){
+.articles-grid{grid-template-columns:1fr}
+.article-image{height:190px}
 .footer-grid{grid-template-columns:1fr}
-.footer-inner{padding:28px 16px 0}
 }
 </style>
 </head>
@@ -113,25 +660,14 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif}
 
 <header class="header">
 <div class="header-inner">
-<a href="./index.html" class="brand">
-<img src="./JAMO%20LOGO.jpeg" alt="James Nyarango TV logo">
-<div>
-<div class="brand-name">JAMES NYARANGO TV</div>
-<div class="tagline">INFORM • ENTERTAIN • EMPOWER</div>
-</div>
-</a>
-<div class="header-right">
-<form class="search" action="./search.html" method="get">
-<input type="search" name="q" placeholder="Search news..." aria-label="Search news">
-<button type="submit">⌕</button>
-</form>
-<a href="./videos.html" class="live">● GO LIVE</a>
-</div>
-</div>
-</header>
 
-<nav>
-<div class="nav-inner">
+<a href="./index.html" class="brand" aria-label="JNTV Home">
+<img src="./JAMO%20LOGO.jpeg" alt="JNTV logo">
+</a>
+
+<div class="header-right">
+
+<nav class="nav-inner" aria-label="Main navigation">
 <a href="./index.html">HOME</a>
 <a href="./latest-news.html" class="active">LATEST NEWS</a>
 <a href="./politics.html">POLITICS</a>
@@ -139,54 +675,67 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif}
 <a href="./sports.html">SPORTS</a>
 <a href="./entertainment.html">ENTERTAINMENT</a>
 <a href="./videos.html">VIDEOS</a>
-<a href="./about.html">ABOUT US</a>
-</div>
+<a href="./about.html">ABOUT</a>
 </nav>
+
+<form class="search" action="./search.html" method="get">
+<input type="search" name="q" placeholder="Search news..." aria-label="Search news">
+<button type="submit" aria-label="Search">⌕</button>
+</form>
+
+<a href="./videos.html" class="live">● GO LIVE</a>
+
+</div>
+</div>
+</header>
 
 <main class="container">
 
-<div class="breadcrumb"><a href="./index.html">HOME</a> / LATEST NEWS</div>
+<div class="breadcrumb">
+<a href="./index.html">HOME</a> / LATEST NEWS
+</div>
 
 <div class="breaking">
 <strong>JNTV NEWS DESK</strong>
-<span>INFORMING UGANDA, AFRICA AND THE WORLD</span>
+<span>Latest headlines and developing stories</span>
 </div>
 
-<section class="heading">
-<div class="eyebrow">JAMES NYARANGO TV • NEWSROOM</div>
+<section class="page-heading">
+<div>
+<div class="heading-label">NEWS AND CURRENT AFFAIRS</div>
 <h1>Latest News</h1>
-<p>Stay informed with the latest developments, breaking stories and important updates from Uganda, Africa and around the world.</p>
+</div>
+<p>Stay updated with our latest published reports and stories.</p>
 </section>
 
-<div class="news-grid">
-<section>
+<section class="news-grid">
+
+<div id="featuredNews">
 <div class="feature">
 <div class="feature-content">
-<span class="category">TOP STORIES</span>
-<h2>THE STORIES SHAPING UGANDA AND THE WORLD</h2>
-<p>News, current affairs and developments that matter.</p>
+<span class="category">JNTV TOP STORIES</span>
+<h2>Latest News and Breaking Stories</h2>
+<p>Discover the latest reports and developments.</p>
 </div>
 </div>
+</div>
+
+<aside class="side-news" id="sideNews">
+<div class="loading">Loading latest headlines...</div>
+</aside>
+
 </section>
 
-<aside class="side-news">
-<article class="side-card">
-<small>POLITICS</small>
-<h3>Politics and Governance</h3>
-<p>Follow political developments, leadership and public affairs.</p>
-</article>
-<article class="side-card">
-<small>BUSINESS</small>
-<h3>Business and Economy</h3>
-<p>Updates on markets, trade, enterprise and economic affairs.</p>
-</article>
-<article class="side-card">
-<small>SPORTS</small>
-<h3>Sports and Competitions</h3>
-<p>Follow sporting events, teams and athletes.</p>
-</article>
-</aside>
+<section>
+<div class="section-title">
+<h2>Latest Publications</h2>
+<span>RECENT REPORTS</span>
 </div>
+
+<div class="articles-grid" id="articlesGrid">
+<div class="loading">Loading published articles...</div>
+</div>
+</section>
 
 <section>
 <div class="section-title">
@@ -195,41 +744,37 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif}
 </div>
 
 <div class="category-grid">
+
 <a href="./politics.html" class="category-card">
 <h3>Politics</h3>
 <p>Government, elections, leadership and public affairs.</p>
 </a>
+
 <a href="./business.html" class="category-card">
 <h3>Business</h3>
 <p>Markets, finance, trade and entrepreneurship.</p>
 </a>
+
 <a href="./sports.html" class="category-card">
 <h3>Sports</h3>
 <p>Football, athletics and international competitions.</p>
 </a>
+
 <a href="./entertainment.html" class="category-card">
 <h3>Entertainment</h3>
 <p>Music, film, culture and celebrity news.</p>
 </a>
+
 <a href="./videos.html" class="category-card">
 <h3>Videos</h3>
 <p>Watch reports, interviews and news features.</p>
 </a>
+
 <a href="./about.html" class="category-card">
 <h3>About JNTV</h3>
-<p>Learn more about our network and services.</p>
+<p>Learn about our network and media services.</p>
 </a>
-</div>
-</section>
 
-<section>
-<div class="section-title">
-<h2>Newsroom Updates</h2>
-<span>JNTV PUBLICATIONS</span>
-</div>
-<div class="newsroom">
-<h2>Welcome to the JNTV Newsroom</h2>
-<p>Published news articles will appear here as they are added to the website. Our newsroom is being developed to bring you reliable reports, current affairs, interviews and analysis.</p>
 </div>
 </section>
 
@@ -237,53 +782,220 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif}
 
 <footer class="footer">
 <div class="footer-inner">
+
 <div class="footer-grid">
 
 <div>
-<h3>JAMES NYARANGO TV</h3>
-<div class="footer-tagline">INFORM • ENTERTAIN • EMPOWER</div>
-<p>Your digital broadcast destination for news, current affairs, politics, business, sports and entertainment from Uganda, Africa and the world.</p>
-<a href="https://www.jamesnyarangotv.ac.ug">www.jamesnyarangotv.ac.ug</a>
+<h3>About JNTV</h3>
+<p>JNTV is a digital media platform covering news, current affairs, politics, business, sports and entertainment.</p>
+<p>Bringing important stories and developments closer to our audience.</p>
 </div>
 
 <div>
-<h4>ABOUT US</h4>
+<h4>QUICK LINKS</h4>
 <ul>
-<li><a href="./about.html">About JNTV</a></li>
-<li><a href="./about.html">Our Mission</a></li>
-<li><a href="./about.html">Advertise With Us</a></li>
+<li><a href="./index.html">Home</a></li>
+<li><a href="./latest-news.html">Latest News</a></li>
+<li><a href="./about.html">About Us</a></li>
+<li><a href="./videos.html">Videos</a></li>
 <li><a href="./about.html">Privacy Policy</a></li>
 <li><a href="./about.html">Terms and Conditions</a></li>
 </ul>
 </div>
 
-<div>
-<h4>CONTACT INFO</h4>
+<div class="footer-contact">
+<h4>CONTACT INFORMATION</h4>
 <ul>
 <li><a href="tel:+256775732004">+256 775 732 004</a></li>
 <li><a href="mailto:info@jamesnyarangotv.ac.ug">info@jamesnyarangotv.ac.ug</a></li>
 <li>Kampala, Uganda</li>
+<li><a href="https://www.jamesnyarangotv.ac.ug">www.jamesnyarangotv.ac.ug</a></li>
 </ul>
 </div>
 
 <div>
-<h4>WHAT WE OFFER</h4>
+<h4>OUR SERVICES</h4>
 <ul>
-<li>Digital Advertisements</li>
-<li>Digital Marketing</li>
-<li>Media Production</li>
+<li>News and Current Affairs</li>
+<li>Podcasts and Audio Programmes</li>
+<li>Digital Media Production</li>
+<li>Interviews and Talk Shows</li>
+<li>Video Production and Broadcasting</li>
 <li>Live Event Coverage</li>
-<li>Sponsored Content</li>
+<li>Digital Advertising and Marketing</li>
+<li>Sponsored Content and Promotions</li>
 </ul>
 </div>
 
 </div>
+
 <div class="copyright">
-<span>© 2026 James Nyarango TV (JNTV). All rights reserved.</span>
-<span>INFORM • ENTERTAIN • EMPOWER</span>
+<span>© 2026 JNTV. All rights reserved.</span>
+<span>Uganda • Africa • Worldwide</span>
 </div>
+
 </div>
 </footer>
+
+<script>
+const SUPABASE_URL = "https://eqogivrposfajrkdwqbq.supabase.co";
+const SUPABASE_KEY = "sb_publishable_l4sKYCzUW6670QvOMtBE_Q_kRCbwDZ-";
+
+const articlesGrid = document.getElementById("articlesGrid");
+const featuredNews = document.getElementById("featuredNews");
+const sideNews = document.getElementById("sideNews");
+
+function safeText(value){
+return String(value || "").replace(/[&<>"']/g, char => ({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[char]));
+}
+
+function articleDate(article){
+const date = article.published_at || article.created_at;
+if(!date) return "";
+const parsed = new Date(date);
+if(Number.isNaN(parsed.getTime())) return "";
+return parsed.toLocaleDateString("en-UG",{
+day:"numeric",
+month:"short",
+year:"numeric"
+});
+}
+
+function articleLink(article){
+return "./article.html?id=" + encodeURIComponent(article.id || "");
+}
+
+function articleImage(article){
+return article.image_url || "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&auto=format&fit=crop&q=80";
+}
+
+function articleDescription(article){
+return article.excerpt || article.summary || article.description || "";
+}
+
+function renderFeature(article){
+featuredNews.innerHTML = `
+<a href="${articleLink(article)}" class="feature">
+<img class="feature-image" src="${safeText(articleImage(article))}" alt="${safeText(article.title)}" onerror="this.style.display='none'">
+<div class="feature-content">
+<span class="category">${safeText(article.category || "Top Story")}</span>
+<h2>${safeText(article.title || "Latest News")}</h2>
+<p>${safeText(articleDescription(article))}</p>
+<div class="feature-meta">${safeText(articleDate(article))}</div>
+</div>
+</a>`;
+}
+
+function renderSide(articles){
+const items = articles.slice(1,4);
+
+if(!items.length){
+sideNews.innerHTML = `
+<div class="empty-state">
+<strong>More headlines coming soon</strong>
+Check back for the latest JNTV reports.
+</div>`;
+return;
+}
+
+sideNews.innerHTML = items.map(article => `
+<a href="${articleLink(article)}" class="side-card">
+<img src="${safeText(articleImage(article))}" alt="${safeText(article.title)}" onerror="this.style.display='none'">
+<div class="side-card-content">
+<small>${safeText(article.category || "News")}</small>
+<h3>${safeText(article.title || "Untitled story")}</h3>
+<p>${safeText(articleDate(article))}</p>
+</div>
+</a>
+`).join("");
+}
+
+function renderArticles(articles){
+if(!articles.length){
+articlesGrid.innerHTML = `
+<div class="empty-state">
+<strong>No published stories yet</strong>
+New articles will appear here when published from the JNTV newsroom.
+</div>`;
+return;
+}
+
+articlesGrid.innerHTML = articles.map(article => `
+<article class="article-card">
+<a href="${articleLink(article)}">
+<img class="article-image" src="${safeText(articleImage(article))}" alt="${safeText(article.title)}" loading="lazy" onerror="this.style.display='none'">
+<div class="article-content">
+<div class="article-category">${safeText(article.category || "News")}</div>
+<h3>${safeText(article.title || "Untitled story")}</h3>
+<p>${safeText(articleDescription(article))}</p>
+<div class="article-meta">
+<span>${safeText(article.author || "JNTV News Desk")}</span>
+<span>${safeText(articleDate(article))}</span>
+</div>
+<span class="read-more">READ FULL STORY →</span>
+</div>
+</a>
+</article>
+`).join("");
+}
+
+async function loadArticles(){
+try{
+const response = await fetch(
+SUPABASE_URL + "/rest/v1/articles?select=*&status=eq.published&order=published_at.desc",
+{
+headers:{
+"apikey":SUPABASE_KEY,
+"Authorization":"Bearer " + SUPABASE_KEY
+}
+}
+);
+
+if(!response.ok){
+throw new Error("Unable to retrieve published articles.");
+}
+
+const articles = await response.json();
+
+if(!Array.isArray(articles)){
+throw new Error("Unexpected newsroom response.");
+}
+
+if(articles.length){
+renderFeature(articles[0]);
+renderSide(articles);
+}else{
+sideNews.innerHTML = `
+<div class="empty-state">
+<strong>No headlines available</strong>
+New stories will appear here.
+</div>`;
+}
+
+renderArticles(articles);
+
+}catch(error){
+console.error("JNTV newsroom:",error);
+
+articlesGrid.innerHTML = `
+<div class="empty-state">
+<strong>Newsroom temporarily unavailable</strong>
+Please refresh the page shortly.
+</div>`;
+
+sideNews.innerHTML = `
+<div class="empty-state">Headlines could not be loaded.</div>`;
+}
+}
+
+loadArticles();
+</script>
 
 </body>
 </html>
