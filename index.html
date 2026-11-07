@@ -10,6 +10,1007 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #071a35;
+  --navy2: #102b4e;
+  --red: #c8102e;
+  --text: #172033;
+  --muted: #697386;
+  --line: #e5e9ef;
+  --soft: #f4f6f9;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  color: var(--text);
+  background: #fff;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input {
+  font: inherit;
+}
+
+/* MAIN NAVY HEADER */
+
+.header {
+  background: var(--navy);
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  width: 92%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.header-search {
+  display: flex;
+  align-items: center;
+  width: 230px;
+  height: 34px;
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.header-search input {
+  border: 0;
+  outline: 0;
+  min-width: 0;
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 11px;
+  color: var(--text);
+}
+
+.header-search button {
+  height: 100%;
+  border: 0;
+  background: var(--red);
+  color: #fff;
+  padding: 0 13px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  background: var(--navy2);
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 4%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.nav-inner a {
+  color: #fff;
+  padding: 13px 17px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .35px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background .2s;
+}
+
+.nav-inner a:hover,
+.nav-inner a.active {
+  background: var(--red);
+}
+
+/* HEADLINE TICKER */
+
+.ticker {
+  background: #f2f4f7;
+  border-bottom: 1px solid var(--line);
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ticker-label {
+  background: var(--red);
+  color: #fff;
+  padding: 9px 14px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.ticker-window {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+}
+
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: tickerMove 35s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-track a {
+  padding: 0 22px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.ticker-track a::after {
+  content: "•";
+  color: var(--red);
+  margin-left: 22px;
+}
+
+@keyframes tickerMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* PAGE */
+
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section {
+  padding: 25px 0 8px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--navy);
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+}
+
+.section-heading h2 {
+  color: var(--navy);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.section-heading a {
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* FEATURED STORIES */
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.featured-card {
+  min-width: 0;
+}
+
+.featured-card .story-image {
+  aspect-ratio: 1 / 1;
+}
+
+.featured-card h3 {
+  font-size: 15px;
+  line-height: 1.4;
+  margin-top: 9px;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.featured-card .summary {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.featured-card:first-child h3 {
+  font-size: 18px;
+}
+
+/* TOP STORIES */
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px 13px;
+}
+
+.story-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.story-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #e8ebef;
+}
+
+.story-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.story-card:hover .story-image img,
+.featured-card:hover .story-image img {
+  transform: scale(1.04);
+}
+
+.story-category {
+  display: inline-block;
+  margin-top: 7px;
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+
+.story-card h3 {
+  color: var(--navy);
+  font-size: 13px;
+  line-height: 1.4;
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+.story-date {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 6px;
+}
+
+/* CATEGORY SECTIONS */
+
+.category-section {
+  padding: 25px 0 8px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.category-card {
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+
+.category-card .story-image {
+  width: 88px;
+  min-width: 88px;
+  aspect-ratio: 1 / 1;
+}
+
+.category-card h3 {
+  color: var(--navy);
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.category-card .story-date {
+  font-size: 10px;
+}
+
+/* BREAKING NEWS */
+
+.breaking-strip {
+  margin: 23px 0 8px;
+  display: flex;
+  align-items: stretch;
+  background: #f4f6f9;
+  border: 1px solid var(--line);
+}
+
+.breaking-label {
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 11px 14px;
+  white-space: nowrap;
+}
+
+.breaking-content {
+  padding: 10px 13px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.loading,
+.empty-message,
+.error-message {
+  padding: 22px 10px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+/* COMPLETE FOOTER */
+
+.footer {
+  background: #06162d;
+  color: #d6deea;
+  margin-top: 45px;
+}
+
+.footer-main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 36px 4% 30px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+  gap: 35px;
+}
+
+.footer-column h3 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,.18);
+}
+
+.footer-column p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #bdc8d7;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin: 9px 0;
+}
+
+.footer-column li a {
+  color: #bdc8d7;
+  font-size: 12px;
+  transition: color .2s;
+}
+
+.footer-column li a:hover {
+  color: #fff;
+}
+
+.footer-follow {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 4%;
+  border-top: 1px solid rgba(255,255,255,.13);
+  border-bottom: 1px solid rgba(255,255,255,.13);
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 4%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  color: #aeb9c9;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .nav-inner {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .nav-inner a {
+    padding: 13px 12px;
+  }
+
+  .stories-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 12px; }
+
+  .header {
+    min-height: 56px;
+  }
+
+  .header-inner {
+    padding: 10px 0;
+  }
+
+  .header-search {
+    width: 190px;
+    height: 32px;
+  }
+
+  .nav-inner {
+    min-height: 38px;
+  }
+
+  .nav-inner a {
+    font-size: 9px;
+    padding: 12px 11px;
+  }
+
+  .ticker-label {
+    font-size: 8px;
+    padding: 9px;
+  }
+
+  .ticker-track a {
+    font-size: 9px;
+  }
+
+  .container {
+    width: 93%;
+  }
+
+  .section {
+    padding-top: 19px;
+  }
+
+  .section-heading h2 {
+    font-size: 17px;
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .featured-card:first-child {
+    grid-column: span 2;
+  }
+
+  .featured-card h3 {
+    font-size: 12px;
+  }
+
+  .featured-card:first-child h3 {
+    font-size: 15px;
+  }
+
+  .stories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 11px;
+  }
+
+  .story-card h3 {
+    font-size: 12px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .category-card .story-image {
+    width: 78px;
+    min-width: 78px;
+  }
+
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+    padding-top: 28px;
+  }
+
+  .footer-follow {
+    padding: 14px 5%;
+    font-size: 11px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-search { width: 160px; }
+  .stories-grid { gap: 12px 9px; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <form class="header-search" id="searchForm">
+      <input type="search" id="searchInput" placeholder="Search news..." aria-label="Search news">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="active">Home</a>
+    <a href="latest-news.html">Latest News</a>
+    <a href="politics.html">Politics</a>
+    <a href="business.html">Business</a>
+    <a href="sports.html">Sports</a>
+    <a href="videos.html">Videos</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<div class="ticker">
+  <div class="ticker-label">LATEST NEWS</div>
+  <div class="ticker-window">
+    <div class="ticker-track" id="tickerTrack">
+      <a href="latest-news.html">Bringing you the latest news and current affairs</a>
+      <a href="latest-news.html">JNTV — News • Current Affairs • Media</a>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Featured News</h2>
+      <a href="latest-news.html">More News →</a>
+    </div>
+    <div class="featured-grid" id="featuredGrid">
+      <div class="loading">Loading featured stories...</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Top Stories</h2>
+      <a href="latest-news.html">View All →</a>
+    </div>
+    <div class="stories-grid" id="topStories">
+      <div class="loading">Loading top stories...</div>
+    </div>
+  </section>
+
+  <div class="breaking-strip" id="breakingStrip" style="display:none;">
+    <div class="breaking-label">BREAKING</div>
+    <div class="breaking-content" id="breakingContent"></div>
+  </div>
+
+  <section class="category-section">
+    <div class="section-heading">
+      <h2>Politics</h2>
+      <a href="politics.html">More Politics →</a>
+    </div>
+    <div class="category-grid" id="politicsGrid">
+      <div class="loading">Loading politics stories...</div>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <div class="section-heading">
+      <h2>Business</h2>
+      <a href="business.html">More Business →</a>
+    </div>
+    <div class="category-grid" id="businessGrid">
+      <div class="loading">Loading business stories...</div>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <div class="section-heading">
+      <h2>Sports</h2>
+      <a href="sports.html">More Sports →</a>
+    </div>
+    <div class="category-grid" id="sportsGrid">
+      <div class="loading">Loading sports stories...</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Latest News</h2>
+      <a href="latest-news.html">All Latest News →</a>
+    </div>
+    <div class="stories-grid" id="latestGrid">
+      <div class="loading">Loading latest news...</div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+
+  <div class="footer-main">
+
+    <div class="footer-column">
+      <h3>About JNTV</h3>
+      <p>
+        JNTV is a digital news platform committed to bringing
+        audiences timely news, reliable information and current
+        affairs from Uganda, Africa and around the world.
+      </p>
+      <p style="margin-top:10px;">
+        We cover politics, business, sports and the stories
+        shaping our communities and society.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="latest-news.html">Latest News</a></li>
+        <li><a href="politics.html">Politics</a></li>
+        <li><a href="business.html">Business</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>More News</h3>
+      <ul>
+        <li><a href="sports.html">Sports</a></li>
+        <li><a href="entertainment.html">Entertainment</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="about.html">About JNTV</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Newsroom</h3>
+      <ul>
+        <li><a href="admin.html">Newsroom Login</a></li>
+        <li><a href="latest-news.html">Published Stories</a></li>
+      </ul>
+      <p style="margin-top:12px;">
+        For news, updates and current affairs, follow JNTV
+        and stay informed.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-follow">
+    Follow JNTV for news, updates and current affairs
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 JNTV. All rights reserved.</span>
+    <span>Digital News • Uganda.</span>
+  </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://eqogivrposfajrkdwqbq.supabase.co";
+const SUPABASE_KEY = "sb_publishable_l4sKYCzUW6670QvOMtBE_Q_kRCbwDZ-";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+function safeText(value) {
+  return String(value ?? "").replace(/[&<>"']/g, function(char) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    }[char];
+  });
+}
+
+function getTitle(article) {
+  return article.title || article.headline || "Untitled News Story";
+}
+
+function getCategory(article) {
+  return article.category || article.section || "News";
+}
+
+function getImage(article) {
+  return article.image_url ||
+         article.photo ||
+         article.image ||
+         article.imageUrl ||
+         article.thumbnail ||
+         "https://placehold.co/600x600/071a35/ffffff?text=JNTV+NEWS";
+}
+
+function getSummary(article) {
+  return article.summary ||
+         article.subheadline ||
+         article.description ||
+         article.excerpt ||
+         "";
+}
+
+function getDate(article) {
+  const dateValue = article.published_at || article.created_at;
+  if (!dateValue) return "";
+
+  const date = new Date(dateValue);
+  if (isNaN(date.getTime())) return "";
+
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
+}
+
+function articleLink(article) {
+  return "article.html?id=" + encodeURIComponent(article.id);
+}
+
+function isBreaking(article) {
+  return article.breaking === true ||
+         article.breakin === true ||
+         String(article.breaking || article.breakin || "").toLowerCase() === "yes";
+}
+
+function storyCard(article) {
+  const title = safeText(getTitle(article));
+  const category = safeText(getCategory(article));
+  const image = safeText(getImage(article));
+  const date = safeText(getDate(article));
+  const summary = safeText(getSummary(article));
+
+  return `
+    <article class="story-card">
+      <a class="story-image" href="${articleLink(article)}">
+        <img src="${image}" alt="${title}" loading="lazy"
+          onerror="this.src='https://placehold.co/600x600/071a35/ffffff?text=JNTV+NEWS'">
+      </a>
+      <span class="story-category">${category}</span>
+      <h3><a href="${articleLink(article)}">${title}</a></h3>
+      ${summary ? `<p class="summary">${summary.slice(0,115)}${summary.length > 115 ? "..." : ""}</p>` : ""}
+      <span class="story-date">${date}</span>
+    </article>
+  `;
+}
+
+function featuredCard(article, index) {
+  const title = safeText(getTitle(article));
+  const image = safeText(getImage(article));
+  const category = safeText(getCategory(article));
+  const summary = safeText(getSummary(article));
+  const date = safeText(getDate(article));
+
+  return `
+    <article class="featured-card">
+      <a class="story-image" href="${articleLink(article)}">
+        <img src="${image}" alt="${title}" loading="lazy"
+          onerror="this.src='https://placehold.co/600x600/071a35/ffffff?text=JNTV+NEWS'">
+      </a>
+      <span class="story-category">${category}</span>
+      <h3><a href="${articleLink(article)}">${title}</a></h3>
+      ${index === 0 && summary ? `<p class="summary">${summary.slice(0,150)}${summary.length > 150 ? "..." : ""}</p>` : ""}
+      <span class="story-date">${date}</span>
+    </article>
+  `;
+}
+
+function categoryCard(article) {
+  const title = safeText(getTitle(article));
+  const image = safeText(getImage(article));
+  const date = safeText(getDate(article));
+
+  return `
+    <article class="category-card">
+      <a class="story-image" href="${articleLink(article)}">
+        <img src="${image}" alt="${title}" loading="lazy"
+          onerror="this.src='https://placehold.co/300x300/071a35/ffffff?text=JNTV'">
+      </a>
+      <div>
+        <h3><a href="${articleLink(article)}">${title}</a></h3>
+        <span class="story-date">${date}</span>
+      </div>
+    </article>
+  `;
+}
+
+function renderTicker(articles) {
+  const track = document.getElementById("tickerTrack");
+
+  if (!articles.length) return;
+
+  const links = articles.slice(0, 12).map(article => {
+    return `<a href="${articleLink(article)}">${safeText(getTitle(article))}</a>`;
+  }).join("");
+
+  track.innerHTML = links + links;
+}
+
+function renderBreaking(articles) {
+  const breaking = articles.find(isBreaking);
+
+  if (!breaking) return;
+
+  document.getElementById("breakingContent").innerHTML =
+    `<a href="${articleLink(breaking)}">${safeText(getTitle(breaking))}</a>`;
+
+  document.getElementById("breakingStrip").style.display = "flex";
+}
+
+function renderCategory(articles, category, elementId) {
+  const matches = articles.filter(article =>
+    getCategory(article).toLowerCase().includes(category)
+  ).slice(0, 4);
+
+  const element = document.getElementById(elementId);
+
+  element.innerHTML = matches.length
+    ? matches.map(categoryCard).join("")
+    : `<div class="empty-message">No ${category} stories published yet.</div>`;
+}
+
+function renderHomepage(articles) {
+  const featured = articles.slice(0, 3);
+
+  document.getElementById("featuredGrid").innerHTML = featured.length
+    ? featured.map(featuredCard).join("")
+    : `<div class="empty-message">No featured stories published yet.</div>`;
+
+  const topStories = articles.slice(3, 11);
+
+  document.getElementById("topStories").innerHTML = topStories.length
+    ? topStories.map(storyCard).join("")
+    : `<div class="empty-message">New stories will appear here when published.</div>`;
+
+  document.getElementById("latestGrid").innerHTML = articles.slice(0, 8).length
+    ? articles.slice(0, 8).map(storyCard).join("")
+    : `<div class="empty-message">No latest news available.</div>`;
+
+  renderCategory(articles, "politic", "politicsGrid");
+  renderCategory(articles, "business", "businessGrid");
+  renderCategory(articles, "sport", "sportsGrid");
+
+  renderTicker(articles);
+  renderBreaking(articles);
+}
+
+async function loadNews() {
+  try {
+    const { data, error } = await supabaseClient
+      .from("articles")
+      .select("*")
+      .eq("status", "published")
+      .order("published_at", { ascending: false, nullsFirst: false })
+      .limit(50);
+
+    if (error) throw error;
+
+    const articles = data || [];
+
+    articles.sort((a, b) => {
+      const dateA = new Date(a.published_at || a.created_at || 0).getTime();
+      const dateB = new Date(b.published_at || b.created_at || 0).getTime();
+      return dateB - dateA;
+    });
+
+    renderHomepage(articles);
+
+  } catch (error) {
+    console.error("JNTV news loading error:", error);
+
+    document.getElementById("featuredGrid").innerHTML =
+      `<div class="error-message">News could not be loaded. Please refresh the page.</div>`;
+
+    document.getElementById("topStories").innerHTML =
+      `<div class="error-message">Unable to load stories at the moment.</div>`;
+  }
+}
+
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const query = document.getElementById("searchInput").value.trim();
+
+  if (!query) return;
+
+  window.location.href = "latest-news.html?search=" + encodeURIComponent(query);
+});
+
+loadNews();
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JNTV | Latest News, Politics, Business and More</title>
+<meta name="description" content="JNTV brings you the latest news, politics, business, sports and current affairs from Uganda, Africa and around the world.">
+<meta name="theme-color" content="#071a35">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
