@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Business News | JNTV</title>
 <meta name="description" content="Business, finance, markets, trade and economic news from Uganda, Africa and around the world.">
 <meta name="theme-color" content="#071a35">
@@ -39,7 +39,7 @@ body{
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 .site-header{
   background:var(--navy);
@@ -47,14 +47,14 @@ img{display:block;max-width:100%}
 }
 
 .header-inner{
-  max-width:1240px;
+  max-width:1400px;
   min-height:82px;
   margin:auto;
   padding:8px 22px;
-  display:flex;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
   align-items:center;
-  justify-content:flex-start;
-  gap:18px;
+  gap:17px;
 }
 
 .brand{
@@ -72,23 +72,19 @@ img{display:block;max-width:100%}
 .main-nav{
   display:flex;
   align-items:center;
-  justify-content:flex-start;
+  justify-content:center;
   gap:1px;
-  flex:1;
   min-width:0;
-  overflow-x:auto;
-  scrollbar-width:none;
+  white-space:nowrap;
 }
-
-.main-nav::-webkit-scrollbar{display:none}
 
 .main-nav a{
   color:#e7edf5;
   font-size:12px;
   font-weight:700;
-  letter-spacing:.25px;
+  letter-spacing:.2px;
   white-space:nowrap;
-  padding:12px 10px;
+  padding:12px 9px;
   transition:.2s ease;
 }
 
@@ -98,7 +94,68 @@ img{display:block;max-width:100%}
   background:var(--red);
 }
 
-/* SECTION BAR */
+.header-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:9px;
+  min-width:0;
+}
+
+.search-form{
+  display:flex;
+  align-items:center;
+  width:180px;
+  height:35px;
+  background:#fff;
+  border:1px solid rgba(255,255,255,.2);
+  overflow:hidden;
+}
+
+.search-form input{
+  width:100%;
+  min-width:0;
+  height:100%;
+  padding:0 10px;
+  border:0;
+  outline:0;
+  color:var(--navy);
+  background:#fff;
+  font-family:inherit;
+  font-size:11px;
+}
+
+.search-form input::placeholder{color:#8993a0}
+
+.search-form button{
+  height:100%;
+  width:35px;
+  flex:0 0 35px;
+  border:0;
+  background:#fff;
+  color:var(--navy);
+  cursor:pointer;
+  font-size:16px;
+}
+
+.latest-button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:35px;
+  padding:0 13px;
+  background:var(--red);
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.4px;
+  white-space:nowrap;
+  transition:.2s ease;
+}
+
+.latest-button:hover{background:#bd0012}
+
+/* ================= SECTION BAR ================= */
 
 .section-bar{
   background:#f5f7fa;
@@ -128,7 +185,7 @@ img{display:block;max-width:100%}
   font-weight:500;
 }
 
-/* MAIN */
+/* ================= MAIN ================= */
 
 .container{
   max-width:1240px;
@@ -180,7 +237,7 @@ img{display:block;max-width:100%}
   background:var(--red);
 }
 
-/* BUSINESS INTRO */
+/* ================= BUSINESS INTRO ================= */
 
 .business-intro{
   position:relative;
@@ -255,7 +312,7 @@ img{display:block;max-width:100%}
 
 .intro-accent span{color:#ff5363}
 
-/* CONTENT */
+/* ================= CONTENT ================= */
 
 .content-grid{
   display:grid;
@@ -290,7 +347,7 @@ img{display:block;max-width:100%}
   letter-spacing:.8px;
 }
 
-/* FEATURED STORY */
+/* ================= FEATURED STORY ================= */
 
 .featured{
   display:grid;
@@ -303,6 +360,7 @@ img{display:block;max-width:100%}
 
 .featured-media{
   position:relative;
+  display:block;
   overflow:hidden;
   background:#e8edf3;
   min-height:260px;
@@ -362,7 +420,7 @@ img{display:block;max-width:100%}
 
 .read-link:hover{color:var(--navy)}
 
-/* ARTICLE GRID */
+/* ================= ARTICLE GRID ================= */
 
 .news-grid{
   display:grid;
@@ -411,7 +469,7 @@ img{display:block;max-width:100%}
   margin:0 0 9px;
 }
 
-/* SIDEBAR */
+/* ================= SIDEBAR ================= */
 
 .sidebar{
   border-left:1px solid var(--line);
@@ -475,7 +533,7 @@ img{display:block;max-width:100%}
   margin:0;
 }
 
-/* EMPTY STATE */
+/* ================= EMPTY AND LOADING STATES ================= */
 
 .empty-state{
   padding:35px 20px;
@@ -504,7 +562,7 @@ img{display:block;max-width:100%}
   font-size:13px;
 }
 
-/* FOOTER */
+/* ================= SHARED JNTV FOOTER ================= */
 
 .site-footer{
   background:var(--navy);
@@ -515,7 +573,7 @@ img{display:block;max-width:100%}
 .footer-inner{
   max-width:1240px;
   margin:auto;
-  padding:32px 22px 27px;
+  padding:36px 22px 30px;
   display:grid;
   grid-template-columns:1.35fr 1fr 1fr 1fr;
   gap:32px;
@@ -523,27 +581,44 @@ img{display:block;max-width:100%}
 
 .footer-column h3{
   color:#fff;
-  font-size:15px;
+  font-size:14px;
   font-weight:900;
   letter-spacing:.8px;
   text-transform:uppercase;
-  margin:0 0 15px;
+  margin:0 0 16px;
+}
+
+.footer-brand{
+  color:#fff;
+  font-size:19px;
+  font-weight:900;
+  letter-spacing:.5px;
+  margin:0 0 5px;
+}
+
+.footer-tagline{
+  color:#ff6573;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin:0 0 13px;
 }
 
 .footer-column p{
   color:#c4cfdd;
-  font-size:14px;
+  font-size:13px;
   line-height:1.75;
-  margin:0;
+  margin:0 0 10px;
 }
 
 .footer-column a{
   display:block;
   color:#c4cfdd;
-  font-size:14px;
+  font-size:13px;
   font-weight:500;
   margin:0 0 10px;
   transition:.2s;
+  overflow-wrap:anywhere;
 }
 
 .footer-column a:hover{color:#fff}
@@ -558,29 +633,61 @@ img{display:block;max-width:100%}
   align-items:center;
   gap:12px;
   color:#b8c5d5;
-  font-size:12px;
+  font-size:11px;
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 
-@media(max-width:1000px){
-  .header-inner{gap:12px}
-  .main-nav a{padding:11px 7px;font-size:11px}
+@media(max-width:1150px){
+  .header-inner{gap:10px}
   .brand img{width:68px;height:58px}
-  .content-grid{grid-template-columns:minmax(0,1fr) 245px;gap:22px}
+  .main-nav a{
+    padding:11px 6px;
+    font-size:10px;
+  }
+  .search-form{width:145px}
+  .latest-button{
+    padding:0 9px;
+    font-size:9px;
+  }
+}
+
+@media(max-width:900px){
+  .header-inner{
+    grid-template-columns:auto minmax(0,1fr);
+    gap:5px 12px;
+    padding:8px 16px;
+  }
+
+  .brand{grid-column:1}
+  .header-actions{grid-column:2;grid-row:1}
+  .main-nav{
+    grid-column:1 / -1;
+    grid-row:2;
+    justify-content:center;
+    padding:2px 0 4px;
+  }
+
+  .main-nav a{
+    font-size:11px;
+    padding:9px 10px;
+  }
+
+  .content-grid{
+    grid-template-columns:minmax(0,1fr) 245px;
+    gap:22px;
+  }
+
   .sidebar{padding-left:17px}
 }
 
 @media(max-width:760px){
   .header-inner{
-    min-height:75px;
+    display:flex;
     flex-wrap:wrap;
-    gap:2px;
-    padding:6px 12px 0;
-  }
-
-  .brand{
-    flex:0 0 auto;
+    justify-content:space-between;
+    gap:4px 8px;
+    padding:7px 12px 0;
   }
 
   .brand img{
@@ -588,12 +695,37 @@ img{display:block;max-width:100%}
     height:53px;
   }
 
+  .header-actions{
+    margin-left:auto;
+    gap:6px;
+  }
+
+  .search-form{
+    width:135px;
+    height:32px;
+  }
+
+  .search-form button{
+    width:31px;
+    flex-basis:31px;
+  }
+
+  .latest-button{
+    min-height:32px;
+    padding:0 9px;
+    font-size:9px;
+  }
+
   .main-nav{
     width:100%;
     flex:1 1 100%;
     justify-content:flex-start;
-    padding-bottom:7px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding:3px 0 7px;
   }
+
+  .main-nav::-webkit-scrollbar{display:none}
 
   .main-nav a{
     font-size:10px;
@@ -602,6 +734,7 @@ img{display:block;max-width:100%}
 
   .section-bar-inner{padding:8px 14px}
   .container{padding:21px 14px 35px}
+
   .heading-copy h1{font-size:27px}
   .heading-copy p{font-size:12px}
 
@@ -644,34 +777,54 @@ img{display:block;max-width:100%}
   .news-card h3{font-size:16px}
 
   .footer-inner{
-    grid-template-columns:repeat(2,1fr);
-    padding:27px 16px 22px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    padding:28px 16px 22px;
     gap:25px;
   }
 
-  .footer-column h3{font-size:14px}
-  .footer-column a{font-size:13px}
-  .footer-column p{font-size:13px}
+  .footer-column h3{font-size:13px}
+  .footer-column a{font-size:12px}
+  .footer-column p{font-size:12px}
 
-  .footer-bottom{padding:13px 16px;font-size:11px}
+  .footer-bottom{
+    padding:13px 16px;
+    font-size:10px;
+  }
 }
 
 @media(max-width:420px){
+  .header-actions{gap:5px}
+  .search-form{width:118px}
+  .latest-button{padding:0 7px;font-size:8px}
+
   .page-heading{align-items:flex-start}
   .heading-copy h1{font-size:24px}
   .heading-mark{font-size:9px}
+
   .news-grid{gap:18px 12px}
   .news-card-image{height:110px}
   .news-card h3{font-size:15px}
   .news-card p{font-size:11px}
+
   .business-intro{padding:18px 15px}
   .intro-accent{display:none}
-  .footer-inner{grid-template-columns:1fr 1fr}
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+    gap:22px 15px;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 }
 </style>
 </head>
 
 <body>
+
+<!-- ================= HEADER ================= -->
 
 <header class="site-header">
   <div class="header-inner">
@@ -686,13 +839,31 @@ img{display:block;max-width:100%}
       <a href="./politics.html">POLITICS</a>
       <a class="active" href="./business.html">BUSINESS</a>
       <a href="./sports.html">SPORTS</a>
-      <a href="./entertainment.html">ENTERTAINMENT</a>
       <a href="./videos.html">VIDEOS</a>
-      <a href="./about.html">ABOUT</a>
+      <a href="./about.html">ABOUT US</a>
     </nav>
+
+    <div class="header-actions">
+
+      <form class="search-form" action="./search.html" method="GET" role="search">
+        <input
+          type="search"
+          name="q"
+          placeholder="Search news..."
+          aria-label="Search news"
+          required
+        >
+        <button type="submit" aria-label="Search">⌕</button>
+      </form>
+
+      <a class="latest-button" href="./latest-news.html">LATEST NEWS</a>
+
+    </div>
 
   </div>
 </header>
+
+<!-- ================= SECTION BAR ================= -->
 
 <div class="section-bar">
   <div class="section-bar-inner">
@@ -700,6 +871,8 @@ img{display:block;max-width:100%}
     <span class="section-date" id="todayDate"></span>
   </div>
 </div>
+
+<!-- ================= MAIN CONTENT ================= -->
 
 <main class="container">
 
@@ -717,6 +890,7 @@ img{display:block;max-width:100%}
       <h2>Understanding the forces behind the economy.</h2>
       <p>Follow the companies, financial decisions, policies and market developments influencing business and everyday life.</p>
     </div>
+
     <div class="intro-accent">B<span>.</span></div>
   </section>
 
@@ -754,46 +928,59 @@ img{display:block;max-width:100%}
 
 </main>
 
+<!-- ================= SHARED JNTV FOOTER ================= -->
+
 <footer class="site-footer">
 
   <div class="footer-inner">
 
     <div class="footer-column">
-      <h3>JNTV</h3>
-      <p>Independent digital journalism covering the stories, people and developments that matter.</p>
+      <div class="footer-brand">JAMES NYARANGO TV</div>
+      <div class="footer-tagline">INFORM • ENTERTAIN • EMPOWER</div>
+      <p>JNTV is a digital media platform delivering news, current affairs, politics, business, sports and entertainment from Uganda, Africa and the world.</p>
+      <a href="https://www.jamesnyarangotv.ac.ug" target="_blank" rel="noopener">www.jamesnyarangotv.ac.ug</a>
     </div>
 
     <div class="footer-column">
-      <h3>Explore</h3>
-      <a href="./index.html">Home</a>
+      <h3>About JNTV</h3>
+      <a href="./about.html">About Us</a>
       <a href="./latest-news.html">Latest News</a>
-      <a href="./politics.html">Politics</a>
-      <a href="./business.html">Business</a>
+      <a href="./videos.html">Our Videos</a>
+      <a href="mailto:info@jamesnyarangotv.ac.ug">Contact Us</a>
+      <a href="./about.html">Advertise With Us</a>
+      <a href="./about.html">Privacy Policy</a>
     </div>
 
     <div class="footer-column">
-      <h3>More News</h3>
-      <a href="./sports.html">Sports</a>
-      <a href="./entertainment.html">Entertainment</a>
-      <a href="./videos.html">Videos</a>
-      <a href="./about.html">About JNTV</a>
+      <h3>Contact Information</h3>
+      <a href="tel:+256775732004">+256 775 732 004</a>
+      <a href="mailto:info@jamesnyarangotv.ac.ug">info@jamesnyarangotv.ac.ug</a>
+      <p>Kampala, Uganda</p>
+      <a href="https://www.jamesnyarangotv.ac.ug" target="_blank" rel="noopener">Official Website</a>
     </div>
 
     <div class="footer-column">
-      <h3>Newsroom</h3>
-      <a href="./admin.html">Newsroom Login</a>
-      <a href="./latest-news.html">Published Stories</a>
-      <p>Follow JNTV for news, updates and current affairs.</p>
+      <h3>Our Services</h3>
+      <p>News and Current Affairs</p>
+      <p>Podcasts and Audio Programmes</p>
+      <p>Digital Media Production</p>
+      <p>Interviews and Talk Shows</p>
+      <p>Video Production and Broadcasting</p>
+      <p>Live Event Coverage</p>
+      <p>Digital Advertising and Marketing</p>
+      <p>Sponsored Content and Promotions</p>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    <span>© <span id="year"></span> JNTV. All rights reserved.</span>
-    <span>Digital News • Uganda</span>
+    <span>© 2026 James Nyarango TV (JNTV). All rights reserved.</span>
+    <span>INFORM • ENTERTAIN • EMPOWER</span>
   </div>
 
 </footer>
+
+<!-- ================= BUSINESS NEWS DATABASE ================= -->
 
 <script>
 const SUPABASE_URL = "https://eqogivrposfajrkdwqbq.supabase.co";
@@ -810,8 +997,6 @@ document.getElementById("todayDate").textContent =
     year:"numeric"
   }).format(new Date());
 
-document.getElementById("year").textContent = new Date().getFullYear();
-
 function escapeHTML(value){
   return String(value ?? "").replace(/[&<>"']/g, character => ({
     "&":"&amp;",
@@ -824,9 +1009,13 @@ function escapeHTML(value){
 
 function safeImage(value){
   if(!value) return "";
+
   try{
     const url = new URL(value, window.location.href);
-    return ["http:","https:"].includes(url.protocol) ? url.href : "";
+
+    return ["http:","https:"].includes(url.protocol)
+      ? url.href
+      : "";
   }catch(error){
     return "";
   }
@@ -858,9 +1047,11 @@ function articleImage(article){
 
 function articleDate(article){
   const value = article.published_at || article.date || article.publishedAt;
+
   if(!value) return "";
 
   const date = new Date(value);
+
   if(Number.isNaN(date.getTime())) return "";
 
   return new Intl.DateTimeFormat("en-GB", {
@@ -877,7 +1068,9 @@ function articleLink(article){
 }
 
 function categoryIsBusiness(article){
-  const category = String(article.category || article.section || "").toLowerCase();
+  const category = String(
+    article.category || article.section || ""
+  ).toLowerCase();
 
   return (
     category.includes("business") ||
@@ -900,6 +1093,7 @@ function renderFeatured(article){
 
   return `
     <article class="featured">
+
       <a class="featured-media" href="${link}" aria-label="${title}">
         ${image ? `<img src="${escapeHTML(image)}" alt="${title}" loading="lazy">` : ""}
       </a>
@@ -911,6 +1105,7 @@ function renderFeatured(article){
         <div class="story-meta">${date}</div>
         <a class="read-link" href="${link}">Read full story →</a>
       </div>
+
     </article>
   `;
 }
@@ -924,6 +1119,7 @@ function renderCard(article){
 
   return `
     <article class="news-card">
+
       ${image ? `
         <a class="news-card-image" href="${link}">
           <img src="${escapeHTML(image)}" alt="${title}" loading="lazy">
@@ -935,6 +1131,7 @@ function renderCard(article){
       <p>${summary}</p>
       <div class="story-meta">${date}</div>
       <a class="read-link" href="${link}">Read story →</a>
+
     </article>
   `;
 }
@@ -942,7 +1139,9 @@ function renderCard(article){
 function renderHeadlines(articles){
   if(!articles.length){
     headlineContainer.innerHTML = `
-      <div class="loading-state">New business headlines will appear here when published.</div>
+      <div class="loading-state">
+        New business headlines will appear here when published.
+      </div>
     `;
     return;
   }
@@ -1001,6 +1200,7 @@ async function loadBusinessNews(){
           <h2>More Business News</h2>
           <span>MORE STORIES</span>
         </div>
+
         <div class="news-grid">
           ${remaining.map(renderCard).join("")}
         </div>
