@@ -128,6 +128,55 @@ border-radius:2px;
 
 .live-button:hover{background:#b80d17}
 
+/* MOVING BRAND TICKER - NOW DIRECTLY BELOW HEADER */
+
+.brand-ticker{
+background:#10294b;
+color:white;
+overflow:hidden;
+border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.ticker-track{
+display:flex;
+width:max-content;
+animation:tickerMove 34s linear infinite;
+}
+
+.ticker-content{
+display:flex;
+align-items:center;
+gap:26px;
+padding:15px 18px;
+white-space:nowrap;
+font-size:13px;
+font-weight:700;
+}
+
+.ticker-content strong{
+color:#fff;
+font-weight:900;
+}
+
+.ticker-content .ticker-red{color:#ff6873}
+
+.ticker-dot{
+width:6px;
+height:6px;
+background:var(--red);
+border-radius:50%;
+flex-shrink:0;
+}
+
+.brand-ticker:hover .ticker-track{
+animation-play-state:paused;
+}
+
+@keyframes tickerMove{
+from{transform:translateX(0)}
+to{transform:translateX(-50%)}
+}
+
 /* BREAKING STRIP */
 
 .breaking-strip{
@@ -592,56 +641,6 @@ border:1px solid rgba(255,255,255,.18);
 border-radius:50%;
 }
 
-/* MOVING BRAND TICKER */
-
-.brand-ticker{
-background:#10294b;
-color:white;
-overflow:hidden;
-border-top:1px solid rgba(255,255,255,.12);
-border-bottom:1px solid rgba(255,255,255,.12);
-}
-
-.ticker-track{
-display:flex;
-width:max-content;
-animation:tickerMove 34s linear infinite;
-}
-
-.ticker-content{
-display:flex;
-align-items:center;
-gap:26px;
-padding:15px 18px;
-white-space:nowrap;
-font-size:13px;
-font-weight:700;
-}
-
-.ticker-content strong{
-color:#fff;
-font-weight:900;
-}
-
-.ticker-content .ticker-red{color:#ff6873}
-
-.ticker-dot{
-width:6px;
-height:6px;
-background:var(--red);
-border-radius:50%;
-flex-shrink:0;
-}
-
-.brand-ticker:hover .ticker-track{
-animation-play-state:paused;
-}
-
-@keyframes tickerMove{
-from{transform:translateX(0)}
-to{transform:translateX(-50%)}
-}
-
 /* FOOTER */
 
 .site-footer{
@@ -851,6 +850,54 @@ scrollbar-width:none;
 </div>
 </header>
 
+<!-- MOVING JNTV BRAND AND SERVICES TICKER - MOVED HERE -->
+
+<div class="brand-ticker" aria-label="JNTV services and information">
+<div class="ticker-track">
+
+<div class="ticker-content">
+<strong>JAMES NYARANGO TV</strong>
+<span class="ticker-dot"></span>
+<span>News and Current Affairs</span>
+<span class="ticker-dot"></span>
+<span>Politics and Governance</span>
+<span class="ticker-dot"></span>
+<span>Business and Economy</span>
+<span class="ticker-dot"></span>
+<span>Sports and Entertainment</span>
+<span class="ticker-dot"></span>
+<span>Interviews and Special Reports</span>
+<span class="ticker-dot"></span>
+<span>Digital Broadcasting</span>
+<span class="ticker-dot"></span>
+<strong class="ticker-red">CONTACT JNTV</strong>
+<span class="ticker-dot"></span>
+<span>News Tips • Partnerships • Advertising • General Enquiries</span>
+</div>
+
+<div class="ticker-content" aria-hidden="true">
+<strong>JAMES NYARANGO TV</strong>
+<span class="ticker-dot"></span>
+<span>News and Current Affairs</span>
+<span class="ticker-dot"></span>
+<span>Politics and Governance</span>
+<span class="ticker-dot"></span>
+<span>Business and Economy</span>
+<span class="ticker-dot"></span>
+<span>Sports and Entertainment</span>
+<span class="ticker-dot"></span>
+<span>Interviews and Special Reports</span>
+<span class="ticker-dot"></span>
+<span>Digital Broadcasting</span>
+<span class="ticker-dot"></span>
+<strong class="ticker-red">CONTACT JNTV</strong>
+<span class="ticker-dot"></span>
+<span>News Tips • Partnerships • Advertising • General Enquiries</span>
+</div>
+
+</div>
+</div>
+
 <div class="breaking-strip">
 <div class="breaking-inner">
 <span class="breaking-label">JNTV VIDEO DESK</span>
@@ -950,54 +997,6 @@ interviews, news coverage and special programmes.
 </section>
 
 </main>
-
-<!-- MOVING JNTV BRAND AND SERVICES TICKER -->
-
-<div class="brand-ticker" aria-label="JNTV services and information">
-<div class="ticker-track">
-
-<div class="ticker-content">
-<strong>JAMES NYARANGO TV</strong>
-<span class="ticker-dot"></span>
-<span>News and Current Affairs</span>
-<span class="ticker-dot"></span>
-<span>Politics and Governance</span>
-<span class="ticker-dot"></span>
-<span>Business and Economy</span>
-<span class="ticker-dot"></span>
-<span>Sports and Entertainment</span>
-<span class="ticker-dot"></span>
-<span>Interviews and Special Reports</span>
-<span class="ticker-dot"></span>
-<span>Digital Broadcasting</span>
-<span class="ticker-dot"></span>
-<strong class="ticker-red">CONTACT JNTV</strong>
-<span class="ticker-dot"></span>
-<span>News Tips • Partnerships • Advertising • General Enquiries</span>
-</div>
-
-<div class="ticker-content" aria-hidden="true">
-<strong>JAMES NYARANGO TV</strong>
-<span class="ticker-dot"></span>
-<span>News and Current Affairs</span>
-<span class="ticker-dot"></span>
-<span>Politics and Governance</span>
-<span class="ticker-dot"></span>
-<span>Business and Economy</span>
-<span class="ticker-dot"></span>
-<span>Sports and Entertainment</span>
-<span class="ticker-dot"></span>
-<span>Interviews and Special Reports</span>
-<span class="ticker-dot"></span>
-<span>Digital Broadcasting</span>
-<span class="ticker-dot"></span>
-<strong class="ticker-red">CONTACT JNTV</strong>
-<span class="ticker-dot"></span>
-<span>News Tips • Partnerships • Advertising • General Enquiries</span>
-</div>
-
-</div>
-</div>
 
 <footer class="site-footer">
 
