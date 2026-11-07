@@ -5,22 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Videos | JNTV</title>
-<meta name="description" content="Watch the latest news reports, interviews, programmes and video coverage from JNTV.">
+<meta name="description" content="Watch the latest JNTV news reports, interviews, documentaries and special coverage.">
 <meta name="theme-color" content="#071a35">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
 --navy:#071a35;
 --navy2:#10294b;
---red:#e00016;
---ink:#142033;
---muted:#6c7788;
---line:#e8edf3;
---light:#f3f6fa;
+--red:#d71920;
+--white:#fff;
+--ink:#182333;
+--muted:#737e8d;
+--light:#f3f5f8;
+--line:#e5e9ef;
 }
 
 *{box-sizing:border-box}
@@ -29,10 +30,10 @@ html{scroll-behavior:smooth}
 
 body{
 margin:0;
-background:#fff;
+background:#f3f5f8;
 color:var(--ink);
-font-family:'Jost',sans-serif;
-font-size:14px;
+font-family:'Manrope',sans-serif;
+font-size:13px;
 -webkit-font-smoothing:antialiased;
 }
 
@@ -43,21 +44,21 @@ img{display:block;max-width:100%}
 
 .site-header{
 background:var(--navy);
-color:#fff;
+border-bottom:3px solid var(--red);
 position:sticky;
 top:0;
 z-index:1000;
-box-shadow:0 3px 14px rgba(0,0,0,.12);
+box-shadow:0 3px 14px rgba(0,0,0,.13);
 }
 
 .header-inner{
-max-width:1440px;
+max-width:1300px;
 min-height:76px;
 margin:auto;
-padding:8px 25px;
+padding:7px 22px;
 display:flex;
 align-items:center;
-gap:19px;
+gap:20px;
 }
 
 .brand{
@@ -67,25 +68,29 @@ flex-shrink:0;
 }
 
 .brand img{
-width:62px;
-height:55px;
+width:57px;
+height:56px;
 object-fit:contain;
 }
+
+/* NAVIGATION BESIDE LOGO */
 
 .main-nav{
 display:flex;
 align-items:center;
-gap:17px;
+justify-content:flex-start;
+gap:16px;
 flex:1;
 min-width:0;
 }
 
 .main-nav a{
-color:#e8edf5;
-font-size:13px;
-font-weight:600;
+font-size:11px;
+font-weight:800;
+color:#e5eaf2;
 white-space:nowrap;
-padding:8px 0;
+padding:11px 0;
+position:relative;
 transition:.2s;
 }
 
@@ -94,72 +99,217 @@ transition:.2s;
 color:#fff;
 }
 
-.main-nav a.active{
-border-bottom:3px solid var(--red);
+.main-nav a.active:after{
+content:"";
+position:absolute;
+height:3px;
+background:var(--red);
+bottom:2px;
+left:0;
+right:0;
 }
 
 .header-actions{
 display:flex;
 align-items:center;
-gap:12px;
+gap:13px;
 flex-shrink:0;
 }
 
 .search-link{
-color:#fff;
-font-size:19px;
+font-size:21px;
+color:white;
 }
 
 .live-button{
 background:var(--red);
 color:#fff;
-padding:10px 16px;
-font-size:12px;
+padding:10px 14px;
+font-size:10px;
 font-weight:800;
-letter-spacing:.5px;
-border-radius:3px;
+letter-spacing:.7px;
+border-radius:2px;
 }
 
-.live-button:hover{background:#bd0012}
+.live-button:hover{background:#b80d17}
 
 /* BREAKING STRIP */
 
 .breaking-strip{
 background:var(--red);
-color:#fff;
-min-height:35px;
-display:flex;
-align-items:center;
+color:white;
 }
 
 .breaking-inner{
-max-width:1440px;
-width:100%;
+max-width:1300px;
+min-height:34px;
 margin:auto;
-padding:0 25px;
+padding:0 22px;
 display:flex;
 align-items:center;
-gap:13px;
-font-size:12px;
-font-weight:600;
+gap:12px;
+font-size:10px;
+font-weight:700;
 }
 
 .breaking-label{
 background:#fff;
 color:var(--red);
-font-size:10px;
-font-weight:900;
-letter-spacing:.8px;
 padding:5px 9px;
-flex-shrink:0;
+font-size:9px;
+font-weight:900;
+letter-spacing:.7px;
 }
 
-/* MAIN */
+/* PAGE */
 
 .page-wrap{
-max-width:1280px;
+max-width:1240px;
 margin:auto;
-padding:27px 24px 0;
+padding:25px 22px 0;
+}
+
+.page-heading{
+margin-bottom:19px;
+}
+
+.page-heading h1{
+font-family:'Playfair Display',serif;
+font-size:30px;
+font-weight:800;
+color:var(--navy);
+margin:0;
+}
+
+.page-heading p{
+font-size:12px;
+color:var(--muted);
+margin:5px 0 0;
+}
+
+.red-line{
+height:3px;
+width:43px;
+background:var(--red);
+margin-top:10px;
+}
+
+/* VIDEO HERO */
+
+.video-hero{
+position:relative;
+min-height:405px;
+overflow:hidden;
+background:
+linear-gradient(90deg,rgba(4,15,33,.96),rgba(4,15,33,.76) 48%,rgba(4,15,33,.12)),
+url("https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1800&q=85")
+center/cover no-repeat;
+display:flex;
+align-items:center;
+margin-bottom:25px;
+border-radius:2px;
+}
+
+.video-hero:after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+height:5px;
+width:100%;
+background:linear-gradient(90deg,var(--red) 0 28%,#fff 28% 28.5%,transparent 28.5%);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:690px;
+padding:45px 45px;
+color:#fff;
+}
+
+.hero-label{
+display:inline-block;
+background:var(--red);
+padding:7px 11px;
+font-size:9px;
+font-weight:900;
+letter-spacing:1px;
+margin-bottom:15px;
+}
+
+.hero-content h2{
+font-family:'Playfair Display',serif;
+font-size:clamp(38px,5vw,57px);
+line-height:1.08;
+font-weight:800;
+margin:0 0 13px;
+}
+
+.hero-content p{
+max-width:520px;
+font-size:13px;
+line-height:1.8;
+color:#e2e8f1;
+margin:0 0 22px;
+}
+
+.hero-buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.hero-btn{
+display:inline-block;
+padding:12px 17px;
+background:var(--red);
+color:#fff;
+font-size:10px;
+font-weight:900;
+letter-spacing:.5px;
+}
+
+.hero-btn.secondary{
+background:transparent;
+border:1px solid rgba(255,255,255,.7);
+}
+
+.hero-btn:hover{
+background:white;
+color:var(--navy);
+}
+
+/* VIDEO CATEGORY BAR */
+
+.category-bar{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+background:var(--navy);
+margin-bottom:32px;
+}
+
+.category-bar a{
+padding:16px 8px;
+text-align:center;
+color:white;
+font-size:11px;
+font-weight:800;
+border-right:1px solid rgba(255,255,255,.12);
+transition:.2s;
+}
+
+.category-bar a:last-child{border:0}
+
+.category-bar a:hover,
+.category-bar a.active{
+background:var(--red);
+}
+
+/* SECTION HEADINGS */
+
+.content-section{
+margin-bottom:38px;
 }
 
 .section-heading{
@@ -167,196 +317,43 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 gap:15px;
+border-bottom:2px solid var(--navy);
+padding-bottom:10px;
 margin-bottom:19px;
 }
 
-.section-heading h1{
-font-size:30px;
-line-height:1.1;
-margin:0;
-font-weight:800;
-color:var(--navy);
-}
-
-.section-heading p{
-margin:5px 0 0;
-color:var(--muted);
-font-size:14px;
-}
-
-.heading-mark{
-width:48px;
-height:4px;
-background:var(--red);
-margin-top:10px;
-}
-
-/* CINEMATIC VIDEO HERO */
-
-.video-hero{
-position:relative;
-min-height:435px;
-border-radius:5px;
-overflow:hidden;
-margin-bottom:30px;
-background:
-linear-gradient(90deg,rgba(4,15,33,.94) 0%,rgba(4,15,33,.76) 47%,rgba(4,15,33,.15) 100%),
-url("https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1800&q=85")
-center 48%/cover no-repeat;
-display:flex;
-align-items:flex-end;
-}
-
-.video-hero:after{
-content:"";
-position:absolute;
-left:0;
-right:0;
-bottom:0;
-height:7px;
-background:linear-gradient(90deg,var(--red) 0 28%,#fff 28% 28.5%,transparent 28.5%);
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-max-width:700px;
-padding:45px 48px 55px;
-color:#fff;
-}
-
-.hero-kicker{
-display:inline-flex;
-align-items:center;
-gap:8px;
-background:var(--red);
-padding:7px 11px;
-font-size:11px;
-font-weight:900;
-letter-spacing:1px;
-text-transform:uppercase;
-margin-bottom:17px;
-}
-
-.hero-content h2{
-font-size:clamp(35px,5vw,59px);
-line-height:1.02;
-margin:0 0 15px;
-font-weight:900;
-letter-spacing:-1px;
-text-transform:uppercase;
-}
-
-.hero-content p{
-font-size:16px;
-line-height:1.6;
-color:#e4eaf2;
-max-width:560px;
-margin:0 0 23px;
-}
-
-.hero-actions{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-}
-
-.hero-button{
-display:inline-flex;
-align-items:center;
-gap:10px;
-background:#fff;
-color:var(--navy);
-padding:12px 18px;
-font-size:12px;
-font-weight:900;
-text-transform:uppercase;
-transition:.2s;
-}
-
-.hero-button:hover{
-background:var(--red);
-color:#fff;
-}
-
-.hero-button.secondary{
-background:transparent;
-border:1px solid rgba(255,255,255,.7);
-color:#fff;
-}
-
-.hero-button.secondary:hover{
-background:#fff;
-color:var(--navy);
-}
-
-/* VIDEO CATEGORY BAR */
-
-.video-categories{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-background:var(--navy);
-margin:0 0 35px;
-border-radius:3px;
-overflow:hidden;
-}
-
-.video-categories a{
-text-align:center;
-color:#fff;
-padding:15px 10px;
-border-right:1px solid rgba(255,255,255,.13);
-font-size:13px;
-font-weight:700;
-transition:.2s;
-}
-
-.video-categories a:last-child{border:0}
-
-.video-categories a:hover{
-background:var(--red);
-}
-
-/* FEATURED VIDEO */
-
-.content-section{margin-bottom:43px}
-
-.section-title-row{
-display:flex;
-align-items:center;
-justify-content:space-between;
-border-bottom:2px solid var(--navy);
-margin-bottom:20px;
-padding-bottom:10px;
-}
-
-.section-title-row h2{
-margin:0;
+.section-heading h2{
+font-family:'Playfair Display',serif;
 font-size:22px;
 font-weight:800;
 color:var(--navy);
+margin:0;
 }
 
-.section-title-row span{
-color:var(--red);
-font-size:11px;
+.section-heading span{
+font-size:9px;
 font-weight:900;
+color:var(--red);
 letter-spacing:.8px;
 text-transform:uppercase;
 }
+
+/* FEATURED VIDEO */
 
 .featured-video{
 display:grid;
 grid-template-columns:1.55fr 1fr;
 gap:25px;
 align-items:center;
+background:white;
+padding:13px;
+box-shadow:0 2px 9px rgba(0,0,0,.045);
 }
 
 .featured-player{
 position:relative;
-width:100%;
 aspect-ratio:16/9;
-background:#071a35;
+background:var(--navy);
 overflow:hidden;
 }
 
@@ -367,96 +364,102 @@ height:100%;
 border:0;
 }
 
-.featured-placeholder{
+.video-placeholder{
 width:100%;
 height:100%;
 display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-background:
-radial-gradient(circle at 50% 45%,rgba(224,0,22,.24),transparent 40%),
-linear-gradient(135deg,#071a35,#173a66);
 color:white;
-text-align:center;
+background:
+radial-gradient(circle,rgba(215,25,32,.28),transparent 45%),
+linear-gradient(135deg,#071a35,#193b65);
 }
 
-.featured-placeholder .play{
-width:66px;
-height:66px;
+.play-circle{
+width:61px;
+height:61px;
+border-radius:50%;
+background:var(--red);
 display:flex;
 align-items:center;
 justify-content:center;
-margin-bottom:14px;
-border-radius:50%;
-background:var(--red);
-font-size:24px;
-box-shadow:0 0 0 10px rgba(255,255,255,.09);
+font-size:23px;
+margin-bottom:13px;
+box-shadow:0 0 0 9px rgba(255,255,255,.09);
 }
 
-.featured-placeholder strong{
-font-size:22px;
-font-weight:900;
+.video-placeholder strong{
+font-family:'Playfair Display',serif;
+font-size:21px;
 }
 
-.featured-placeholder small{
-margin-top:7px;
-color:#d5dce6;
-font-size:11px;
+.video-placeholder small{
+font-size:9px;
 letter-spacing:1px;
+margin-top:7px;
+color:#d4dce9;
 }
 
-.featured-info .category{
+.featured-info{
+padding:15px;
+}
+
+.featured-category{
 color:var(--red);
-font-size:11px;
+font-size:9px;
 font-weight:900;
-letter-spacing:.7px;
+letter-spacing:1px;
 text-transform:uppercase;
 }
 
 .featured-info h2{
-margin:10px 0;
-font-size:30px;
-font-weight:900;
-line-height:1.15;
+font-family:'Playfair Display',serif;
+font-size:27px;
+line-height:1.25;
 color:var(--navy);
+margin:11px 0;
 }
 
 .featured-info p{
+font-size:12px;
+line-height:1.8;
 color:var(--muted);
-font-size:14px;
-line-height:1.7;
 }
 
 .featured-meta{
-margin-top:14px;
-color:#8791a0;
-font-size:11px;
-font-weight:600;
+margin-top:16px;
+font-size:10px;
+color:#8b94a1;
+font-weight:700;
 }
 
-/* VIDEO GRID */
+/* VIDEO CARDS */
 
 .video-grid{
 display:grid;
 grid-template-columns:repeat(3,minmax(0,1fr));
-gap:26px 21px;
+gap:23px 20px;
 }
 
 .video-card{
-min-width:0;
 background:#fff;
-transition:transform .2s;
+min-width:0;
+box-shadow:0 2px 9px rgba(0,0,0,.045);
+transition:.2s;
+border-bottom:2px solid transparent;
 }
 
 .video-card:hover{
 transform:translateY(-3px);
+border-bottom-color:var(--red);
+box-shadow:0 7px 17px rgba(0,0,0,.09);
 }
 
 .video-thumbnail{
 position:relative;
 display:block;
-width:100%;
 aspect-ratio:16/9;
 overflow:hidden;
 background:var(--navy);
@@ -466,7 +469,7 @@ background:var(--navy);
 width:100%;
 height:100%;
 object-fit:cover;
-transition:transform .3s;
+transition:.3s;
 }
 
 .video-card:hover .video-thumbnail img{
@@ -478,261 +481,223 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-width:48px;
-height:48px;
+width:46px;
+height:46px;
+border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-border-radius:50%;
 background:var(--red);
-color:#fff;
-font-size:18px;
-box-shadow:0 2px 12px rgba(0,0,0,.25);
-}
-
-.video-duration{
-position:absolute;
-right:9px;
-bottom:9px;
-background:rgba(0,0,0,.8);
-color:#fff;
-font-size:10px;
-font-weight:700;
-padding:4px 7px;
+color:white;
+font-size:17px;
+box-shadow:0 2px 12px rgba(0,0,0,.3);
 }
 
 .video-details{
-padding:12px 0 14px;
-border-bottom:1px solid var(--line);
+padding:13px 14px 15px;
 }
 
 .video-category{
-color:var(--red);
-font-size:10px;
+font-size:9px;
 font-weight:900;
+color:var(--red);
 letter-spacing:.7px;
 text-transform:uppercase;
 }
 
 .video-details h3{
-margin:6px 0;
-font-size:19px;
-font-weight:800;
-line-height:1.25;
+font-family:'Playfair Display',serif;
+font-size:17px;
+line-height:1.35;
+font-weight:700;
 color:var(--navy);
+margin:7px 0;
 }
 
 .video-details p{
-margin:0 0 9px;
+font-size:11px;
+line-height:1.7;
 color:var(--muted);
-font-size:13px;
-line-height:1.6;
+margin:0 0 10px;
 }
 
 .video-meta{
-color:#8791a0;
-font-size:11px;
-font-weight:600;
+font-size:9px;
+font-weight:700;
+color:#8993a0;
 }
-
-/* EMPTY STATE */
 
 .empty-state{
 grid-column:1/-1;
-padding:45px 20px;
-background:var(--light);
+background:#fff;
 text-align:center;
-border:1px solid var(--line);
+padding:45px 20px;
+border-bottom:3px solid var(--red);
 }
 
 .empty-state h3{
-margin:0 0 8px;
-color:var(--navy);
+font-family:'Playfair Display',serif;
 font-size:23px;
-font-weight:900;
+color:var(--navy);
+margin:0 0 8px;
 }
 
 .empty-state p{
-margin:0;
 color:var(--muted);
-font-size:13px;
+font-size:12px;
+margin:0;
 }
 
-/* BROADCAST GRAPHIC PROMO */
+/* BROADCAST PROMO */
 
 .broadcast-promo{
 position:relative;
 overflow:hidden;
-min-height:195px;
-margin:10px 0 45px;
-padding:35px 40px;
-background:
-radial-gradient(circle at 84% 50%,rgba(255,255,255,.12) 0 90px,transparent 91px),
-linear-gradient(110deg,#071a35 0%,#102f58 67%,#e00016 67%,#b90013 100%);
+background:linear-gradient(105deg,#071a35 0%,#102e55 75%,#d71920 75%);
 color:#fff;
+padding:34px 38px;
+margin:12px 0 40px;
+min-height:165px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 gap:20px;
 }
 
-.broadcast-promo:before,
-.broadcast-promo:after{
-content:"";
+.promo-content{
+position:relative;
+z-index:2;
+}
+
+.promo-content small{
+color:#ffb6bd;
+font-size:9px;
+font-weight:900;
+letter-spacing:1.4px;
+}
+
+.promo-content h2{
+font-family:'Playfair Display',serif;
+font-size:29px;
+margin:8px 0;
+}
+
+.promo-content p{
+font-size:11px;
+color:#d7e0eb;
+margin:0;
+}
+
+.promo-symbol{
+font-size:62px;
+position:relative;
+z-index:2;
+}
+
+.promo-rings{
 position:absolute;
-border:1px solid rgba(255,255,255,.17);
-border-radius:50%;
-right:75px;
-top:-85px;
+right:65px;
+top:-90px;
 width:250px;
 height:250px;
+border:1px solid rgba(255,255,255,.18);
+border-radius:50%;
 }
 
-.broadcast-promo:after{
-right:110px;
-top:-50px;
-width:180px;
-height:180px;
+.promo-rings:after{
+content:"";
+position:absolute;
+inset:30px;
+border:1px solid rgba(255,255,255,.18);
+border-radius:50%;
 }
 
-.promo-text{
-position:relative;
-z-index:2;
-}
-
-.promo-text small{
-font-size:11px;
-font-weight:900;
-letter-spacing:1.5px;
-color:#ffb7bf;
-}
-
-.promo-text h2{
-font-size:31px;
-line-height:1.1;
-margin:7px 0;
-font-weight:900;
-}
-
-.promo-text p{
-margin:0;
-font-size:14px;
-color:#e3eaf4;
-}
-
-.promo-icon{
-position:relative;
-z-index:2;
-font-size:75px;
-line-height:1;
-}
-
-/* GRAPHIC FOOTER */
+/* FOOTER */
 
 .site-footer{
 background:#06162d;
 color:#dbe3ef;
 position:relative;
-overflow:hidden;
 }
 
-.footer-top-graphic{
-height:7px;
-background:linear-gradient(90deg,var(--red) 0 20%,#fff 20% 20.5%,#193c67 20.5% 100%);
-}
-
-.footer-art{
-position:absolute;
-right:-60px;
-top:15px;
-width:400px;
-height:270px;
-opacity:.13;
-pointer-events:none;
-}
-
-.footer-art svg{
-width:100%;
-height:100%;
+.footer-top{
+height:5px;
+background:linear-gradient(90deg,var(--red) 0 22%,white 22% 22.5%,#17365e 22.5%);
 }
 
 .footer-main{
-max-width:1280px;
+max-width:1240px;
 margin:auto;
-padding:48px 24px 38px;
+padding:42px 22px 32px;
 display:grid;
-grid-template-columns:1.45fr 1fr 1fr 1fr;
-gap:35px;
-position:relative;
-z-index:1;
+grid-template-columns:1.4fr 1fr 1fr 1fr;
+gap:30px;
 }
 
 .footer-column h3{
-color:#fff;
+font-family:'Playfair Display',serif;
 font-size:16px;
-font-weight:800;
-margin:0 0 17px;
-position:relative;
+color:white;
+margin:0 0 16px;
 padding-bottom:10px;
+position:relative;
 }
 
 .footer-column h3:after{
 content:"";
 position:absolute;
-left:0;
 bottom:0;
-width:34px;
+left:0;
 height:3px;
+width:33px;
 background:var(--red);
 }
 
 .footer-column p{
+font-size:11px;
+line-height:1.8;
 color:#aebbd0;
-font-size:13px;
-line-height:1.7;
-margin:0 0 13px;
+margin:0 0 12px;
 }
 
 .footer-column a{
 display:block;
-color:#b9c5d7;
-font-size:13px;
-margin:0 0 10px;
+font-size:11px;
+color:#bac6d7;
+margin-bottom:10px;
 transition:.2s;
 }
 
 .footer-column a:hover{
-color:#fff;
+color:white;
 padding-left:3px;
 }
 
 .footer-highlight{
 display:inline-block;
-color:#fff;
 background:var(--red);
-font-size:10px;
-font-weight:900;
-letter-spacing:1px;
 padding:6px 9px;
+font-size:9px;
+font-weight:900;
+letter-spacing:.8px;
 margin-bottom:13px;
 }
 
 .footer-socials{
 display:flex;
-gap:9px;
-margin-top:17px;
+gap:8px;
+margin-top:16px;
 }
 
 .footer-socials a{
-width:34px;
-height:34px;
-display:flex;
-align-items:center;
-justify-content:center;
-border:1px solid rgba(255,255,255,.22);
+width:32px;
+height:32px;
+border:1px solid rgba(255,255,255,.25);
 border-radius:50%;
-color:#fff;
-font-size:12px;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
 font-weight:800;
 margin:0;
 }
@@ -749,57 +714,43 @@ border-top:1px solid rgba(255,255,255,.1);
 }
 
 .footer-bottom-inner{
-max-width:1280px;
+max-width:1240px;
 margin:auto;
-padding:17px 24px;
+padding:15px 22px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 gap:15px;
-color:#8998ae;
-font-size:12px;
+font-size:10px;
+color:#8c9ab0;
 }
 
-.footer-bottom strong{color:#fff}
-
-.footer-credit{
-font-size:11px;
-color:#71829a;
-}
+.footer-bottom strong{color:white}
 
 /* RESPONSIVE */
 
-@media(max-width:1100px){
-.header-inner{
-gap:13px;
-padding-left:16px;
-padding-right:16px;
-}
+@media(max-width:1050px){
+.header-inner{gap:13px}
 .main-nav{gap:11px}
-.main-nav a{font-size:12px}
-.header-actions{gap:8px}
-.live-button{padding:9px 11px}
+.main-nav a{font-size:10px}
+.brand img{width:51px;height:51px}
 }
 
 @media(max-width:850px){
 .header-inner{
-min-height:68px;
 flex-wrap:wrap;
-gap:10px;
 padding:8px 15px;
+gap:8px;
 }
 
-.brand img{
-width:55px;
-height:48px;
-}
+.brand img{width:50px;height:47px}
 
 .main-nav{
 order:3;
 flex-basis:100%;
 overflow-x:auto;
-gap:19px;
-padding:5px 0 8px;
+gap:18px;
+padding:4px 0 7px;
 scrollbar-width:none;
 }
 
@@ -808,69 +759,60 @@ scrollbar-width:none;
 .header-actions{margin-left:auto}
 
 .featured-video{grid-template-columns:1fr}
-
 .footer-main{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:600px){
-.breaking-inner{
-padding:0 13px;
-font-size:11px;
-}
+.breaking-inner{padding:0 13px;font-size:9px}
 
-.page-wrap{padding:22px 15px 0}
+.page-wrap{padding:20px 14px 0}
 
-.section-heading h1{font-size:26px}
-.section-heading p{font-size:12px}
+.page-heading h1{font-size:27px}
 
-.video-hero{
-min-height:390px;
-background-position:center;
-}
+.video-hero{min-height:360px}
 
-.hero-content{padding:30px 22px 42px}
+.hero-content{padding:30px 22px}
 
-.hero-content h2{font-size:37px}
-.hero-content p{font-size:14px}
+.hero-content h2{font-size:39px}
 
-.video-categories{grid-template-columns:repeat(3,1fr)}
+.hero-content p{font-size:11px}
 
-.video-categories a{
-padding:12px 6px;
-font-size:12px;
-}
+.category-bar{grid-template-columns:repeat(3,1fr)}
 
-.featured-info h2{font-size:25px}
+.category-bar a{font-size:10px;padding:13px 5px}
+
+.section-heading h2{font-size:19px}
+
+.featured-info h2{font-size:24px}
 
 .video-grid{
 grid-template-columns:repeat(2,minmax(0,1fr));
-gap:19px 13px;
+gap:15px 12px;
 }
 
-.video-details h3{font-size:16px}
-.video-details p{font-size:12px}
+.video-details{padding:10px}
 
-.broadcast-promo{
-padding:27px 22px;
-min-height:165px;
-}
+.video-details h3{font-size:15px}
 
-.promo-text h2{font-size:23px}
-.promo-text p{font-size:12px}
-.promo-icon{font-size:52px}
+.video-details p{font-size:10px}
+
+.broadcast-promo{padding:25px 20px}
+
+.promo-content h2{font-size:22px}
+
+.promo-content p{font-size:10px}
+
+.promo-symbol{font-size:43px}
 
 .footer-main{
-padding:35px 18px 25px;
-gap:28px 18px;
+padding:32px 17px;
+gap:25px 15px;
 }
 
-.footer-column h3{font-size:15px}
-.footer-column p,.footer-column a{font-size:12px}
-
 .footer-bottom-inner{
+padding:14px 17px;
 flex-direction:column;
 align-items:flex-start;
-padding:15px 18px;
 }
 }
 
@@ -882,156 +824,169 @@ padding:15px 18px;
 
 <body>
 
+<!-- HEADER: LOGO AND PAGES ON ONE LINE -->
+
 <header class="site-header">
 <div class="header-inner">
 
-<a class="brand" href="./index.html" aria-label="JNTV Home">
-<img src="./JAMO%20LOGO.jpeg" alt="JNTV Logo">
+<a class="brand" href="../index.html" aria-label="JNTV Home">
+<img src="../JAMO%20LOGO.jpeg" alt="JNTV">
 </a>
 
 <nav class="main-nav" aria-label="Main navigation">
-<a href="./index.html">HOME</a>
-<a href="./latest-news.html">LATEST NEWS</a>
-<a href="./politics.html">POLITICS</a>
-<a href="./business.html">BUSINESS</a>
-<a href="./sports.html">SPORTS</a>
+<a href="../index.html">HOME</a>
+<a href="../latest-news.html">LATEST NEWS</a>
+<a href="../politics.html">POLITICS</a>
+<a href="../business.html">BUSINESS</a>
+<a href="../sports.html">SPORTS</a>
 <a class="active" href="./videos.html">VIDEOS</a>
-<a href="./about.html">ABOUT</a>
+<a href="../about.html">ABOUT</a>
 </nav>
 
 <div class="header-actions">
-<a class="search-link" href="./latest-news.html" aria-label="Search news">⌕</a>
-<a class="live-button" href="./live.html">GO LIVE</a>
+<a class="search-link" href="../latest-news.html" aria-label="Search">⌕</a>
+<a class="live-button" href="../live.html">GO LIVE</a>
 </div>
 
 </div>
 </header>
 
+<!-- BREAKING STRIP -->
+
 <div class="breaking-strip">
 <div class="breaking-inner">
-<span class="breaking-label">JNTV VIDEO DESK</span>
-<span>News Reports • Interviews • Programmes • Special Coverage</span>
+<span class="breaking-label">VIDEO DESK</span>
+<span>News Reports • Interviews • Documentaries • Special Coverage</span>
 </div>
 </div>
 
 <main class="page-wrap">
 
-<div class="section-heading">
-<div>
+<div class="page-heading">
 <h1>Videos</h1>
-<p>Watch reports, interviews, programmes and exclusive coverage from Uganda, Africa and around the world.</p>
-<div class="heading-mark"></div>
-</div>
+<p>Watch the stories that matter from Uganda, Africa and around the world.</p>
+<div class="red-line"></div>
 </div>
 
-<!-- CINEMATIC VIDEO HERO -->
+<!-- HERO -->
 
 <section class="video-hero">
 <div class="hero-content">
-<span class="hero-kicker">JNTV DIGITAL BROADCAST</span>
+
+<span class="hero-label">JNTV DIGITAL BROADCAST</span>
+
 <h2>Stories Beyond The Headlines</h2>
+
 <p>
-Watch the stories that matter. Explore news reports, interviews,
-documentaries and video coverage from across the world.
+Go beyond the headlines with exclusive reports, interviews,
+documentaries and important stories from across the world.
 </p>
-<div class="hero-actions">
-<a class="hero-button" href="#latest-videos">Explore Videos <span>▶</span></a>
-<a class="hero-button secondary" href="./latest-news.html">Latest News</a>
+
+<div class="hero-buttons">
+<a href="#latest-videos" class="hero-btn">EXPLORE VIDEOS ▶</a>
+<a href="../latest-news.html" class="hero-btn secondary">LATEST NEWS</a>
 </div>
+
 </div>
 </section>
 
-<nav class="video-categories" aria-label="Video categories">
-<a href="#latest-videos">News Reports</a>
-<a href="#latest-videos">Interviews</a>
-<a href="#latest-videos">Programmes</a>
-<a href="#latest-videos">Documentaries</a>
-<a href="#latest-videos">Special Coverage</a>
+<!-- CATEGORIES -->
+
+<nav class="category-bar" aria-label="Video categories">
+<a href="#latest-videos" data-filter="all" class="active">ALL VIDEOS</a>
+<a href="#latest-videos" data-filter="news">NEWS REPORTS</a>
+<a href="#latest-videos" data-filter="interview">INTERVIEWS</a>
+<a href="#latest-videos" data-filter="programme">PROGRAMMES</a>
+<a href="#latest-videos" data-filter="documentary">DOCUMENTARIES</a>
 </nav>
 
-<!-- FEATURED VIDEO -->
+<!-- FEATURED -->
 
 <section class="content-section">
-<div class="section-title-row">
+
+<div class="section-heading">
 <h2>Featured Video</h2>
 <span>JNTV Spotlight</span>
 </div>
 
 <section class="featured-video" id="featuredVideo">
+
 <div class="featured-player">
-<div class="featured-placeholder">
-<div class="play">▶</div>
+<div class="video-placeholder">
+<div class="play-circle">▶</div>
 <strong>JNTV VIDEO CENTRE</strong>
 <small>NEWS • REPORTS • INTERVIEWS</small>
 </div>
 </div>
 
 <div class="featured-info">
-<span class="category">JNTV FEATURED</span>
+<span class="featured-category">JNTV FEATURED</span>
 <h2>Watch the latest from our video desk</h2>
 <p>
-Stay informed through our video reports, interviews,
-news coverage and programmes.
+Stay informed through our latest video reports,
+interviews, news coverage and special programmes.
 </p>
-<div class="featured-meta">JNTV VIDEO DESK</div>
+<div class="featured-meta">JNTV DIGITAL MEDIA</div>
 </div>
+
 </section>
 </section>
 
 <!-- LATEST VIDEOS -->
 
 <section class="content-section" id="latest-videos">
-<div class="section-title-row">
+
+<div class="section-heading">
 <h2>Latest Videos</h2>
 <span>Video Library</span>
 </div>
 
-<section class="video-grid" id="videoGrid">
+<div class="video-grid" id="videoGrid">
+
 <div class="empty-state">
 <h3>Videos Coming Soon</h3>
 <p>Published JNTV video stories will appear here.</p>
 </div>
-</section>
+
+</div>
+
 </section>
 
-<!-- BROADCAST PROMO GRAPHIC -->
+<!-- PROMOTIONAL GRAPHIC -->
 
 <section class="broadcast-promo">
-<div class="promo-text">
-<small>JNTV VIDEO COVERAGE</small>
+
+<div class="promo-rings"></div>
+
+<div class="promo-content">
+<small>JNTV DIGITAL MEDIA</small>
 <h2>Watch. Discover. Stay Informed.</h2>
-<p>Bringing important stories closer to you through digital media.</p>
+<p>Bringing important stories closer to you through digital broadcasting.</p>
 </div>
-<div class="promo-icon" aria-hidden="true">▶</div>
+
+<div class="promo-symbol">▶</div>
+
 </section>
 
 </main>
 
-<!-- GRAPHIC FOOTER -->
+<!-- FOOTER -->
 
 <footer class="site-footer">
 
-<div class="footer-top-graphic"></div>
-
-<div class="footer-art" aria-hidden="true">
-<svg viewBox="0 0 420 270" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="210" cy="135" r="100" stroke="white" stroke-width="3"/>
-<circle cx="210" cy="135" r="77" stroke="white" stroke-width="2"/>
-<circle cx="210" cy="135" r="53" stroke="white" stroke-width="2"/>
-<path d="M188 100L250 135L188 170V100Z" stroke="white" stroke-width="4" stroke-linejoin="round"/>
-<path d="M20 135H110M310 135H400" stroke="white" stroke-width="2"/>
-<path d="M210 10V35M210 235V260M85 135H110M310 135H335" stroke="white" stroke-width="2"/>
-</svg>
-</div>
+<div class="footer-top"></div>
 
 <div class="footer-main">
 
 <div class="footer-column">
+
 <span class="footer-highlight">JNTV DIGITAL MEDIA</span>
-<h3>Video Coverage</h3>
+
+<h3>About Our Videos</h3>
+
 <p>
-Watch news reports, interviews, documentaries and special programmes
-covering Uganda, Africa and the world.
+Watch news reports, interviews, documentaries and special coverage
+from Uganda, Africa and around the world.
 </p>
 
 <div class="footer-socials">
@@ -1040,33 +995,38 @@ covering Uganda, Africa and the world.
 <a href="https://www.tiktok.com/" aria-label="TikTok">♪</a>
 <a href="https://www.instagram.com/" aria-label="Instagram">◎</a>
 </div>
+
 </div>
 
 <div class="footer-column">
 <h3>Explore JNTV</h3>
-<a href="./index.html">Home</a>
-<a href="./latest-news.html">Latest News</a>
-<a href="./politics.html">Politics</a>
-<a href="./business.html">Business</a>
-<a href="./sports.html">Sports</a>
+<a href="../index.html">Home</a>
+<a href="../latest-news.html">Latest News</a>
+<a href="../politics.html">Politics</a>
+<a href="../business.html">Business</a>
+<a href="../sports.html">Sports</a>
 <a href="./videos.html">Videos</a>
+<a href="../about.html">About</a>
 </div>
 
 <div class="footer-column">
 <h3>Video Categories</h3>
-<a href="#latest-videos">News Reports</a>
-<a href="#latest-videos">Interviews</a>
-<a href="#latest-videos">Programmes</a>
-<a href="#latest-videos">Documentaries</a>
-<a href="#latest-videos">Special Coverage</a>
+<a href="#latest-videos" data-filter="news">News Reports</a>
+<a href="#latest-videos" data-filter="interview">Interviews</a>
+<a href="#latest-videos" data-filter="programme">Programmes</a>
+<a href="#latest-videos" data-filter="documentary">Documentaries</a>
+<a href="#latest-videos" data-filter="all">All Videos</a>
 </div>
 
 <div class="footer-column">
-<h3>Get in Touch</h3>
-<p>For news tips, partnerships, advertising and general enquiries, contact the JNTV team.</p>
-<a href="./about.html">About JNTV</a>
-<a href="./contact.html">Contact Us</a>
-<a href="./latest-news.html">Read Latest News</a>
+<h3>Contact JNTV</h3>
+<p>
+For news tips, partnerships, advertising and general enquiries,
+get in touch with our team.
+</p>
+<a href="../about.html">About JNTV</a>
+<a href="../contact.html">Contact Us</a>
+<a href="../latest-news.html">Read Latest News</a>
 </div>
 
 </div>
@@ -1074,7 +1034,7 @@ covering Uganda, Africa and the world.
 <div class="footer-bottom">
 <div class="footer-bottom-inner">
 <span>© <span id="year"></span> <strong>JNTV</strong>. All rights reserved.</span>
-<span class="footer-credit">News • Current Affairs • Digital Media</span>
+<span>News • Current Affairs • Digital Media</span>
 </div>
 </div>
 
@@ -1090,9 +1050,13 @@ const KEY="jntvArticles";
 const grid=document.getElementById("videoGrid");
 const featured=document.getElementById("featuredVideo");
 
-document.getElementById("year").textContent=new Date().getFullYear();
+let currentFilter="all";
+let videos=[];
 
-function escapeHTML(value){
+document.getElementById("year").textContent=
+new Date().getFullYear();
+
+function esc(value){
 return String(value??"").replace(/[&<>"']/g,function(c){
 return {
 "&":"&amp;",
@@ -1104,35 +1068,38 @@ return {
 });
 }
 
-function title(a){
+function getTitle(a){
 return a.headline||a.title||"Untitled video";
 }
 
-function category(a){
+function getCategory(a){
 return a.category||a.section||"Video";
 }
 
-function summary(a){
+function getSummary(a){
 return String(a.summary||a.description||a.excerpt||a.content||"")
 .replace(/<[^>]*>/g,"")
 .trim();
 }
 
-function image(a){
-const value=String(a.photo||a.image||a.imageUrl||a.thumbnail||"").trim();
+function getImage(a){
+const value=String(
+a.photo||a.image||a.imageUrl||a.thumbnail||""
+).trim();
 
-if(/^https?:\/\//i.test(value))return escapeHTML(value);
+if(/^https?:\/\//i.test(value))return esc(value);
 
-if(/^data:image\/(jpeg|png|webp|gif);base64,/i.test(value))return value;
+if(/^data:image\/(jpeg|png|webp|gif);base64,/i.test(value))
+return value;
 
 return "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900&auto=format&fit=crop&q=80";
 }
 
-function link(a){
-return "./article.html?id="+encodeURIComponent(a.id||a.articleId||"");
+function getLink(a){
+return "../article.html?id="+encodeURIComponent(a.id||a.articleId||"");
 }
 
-function videoUrl(a){
+function getVideo(a){
 return String(a.videoUrl||a.video||"").trim();
 }
 
@@ -1140,14 +1107,15 @@ function getEmbed(url){
 
 if(!url)return "";
 
+try{
+
+const parsed=new URL(url);
 let id="";
 
-try{
-const parsed=new URL(url);
-
 if(parsed.hostname.includes("youtu.be")){
-id=parsed.pathname.slice(1);
+id=parsed.pathname.slice(1).split("/")[0];
 }
+
 else if(parsed.hostname.includes("youtube.com")){
 id=parsed.searchParams.get("v")||"";
 
@@ -1159,33 +1127,73 @@ if(!id&&parsed.pathname.includes("/shorts/")){
 id=parsed.pathname.split("/shorts/")[1].split("/")[0];
 }
 }
-}catch(e){
+
+if(id){
+return "https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id);
+}
+
+}catch(e){}
+
 return "";
 }
 
-return id
-?"https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id)
-:"";
-}
-
-function player(url){
+function makePlayer(url){
 
 const embed=getEmbed(url);
 
 if(embed){
-return '<iframe src="'+embed+'" title="JNTV Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+return '<iframe src="'+esc(embed)+'" title="JNTV Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 }
 
 if(/^https?:\/\/.+\.(mp4|webm|ogg)(\?.*)?$/i.test(url)){
-return '<video controls playsinline preload="metadata"><source src="'+escapeHTML(url)+'"></video>';
+return '<video controls playsinline preload="metadata"><source src="'+esc(url)+'"></video>';
 }
 
 return `
-<div class="featured-placeholder">
-<div class="play">▶</div>
+<div class="video-placeholder">
+<div class="play-circle">▶</div>
 <strong>JNTV VIDEO CENTRE</strong>
 <small>VIDEO PLAYER NOT AVAILABLE</small>
 </div>`;
+}
+
+function isVideo(a){
+
+const cat=getCategory(a).toLowerCase();
+
+return cat.includes("video")||
+cat.includes("episode")||
+cat.includes("interview")||
+cat.includes("documentary")||
+cat.includes("programme")||
+cat.includes("program")||
+Boolean(getVideo(a));
+}
+
+function matchesFilter(a){
+
+if(currentFilter==="all")return true;
+
+const cat=getCategory(a).toLowerCase();
+const title=getTitle(a).toLowerCase();
+
+if(currentFilter==="news"){
+return cat.includes("news")||cat.includes("report");
+}
+
+if(currentFilter==="interview"){
+return cat.includes("interview")||title.includes("interview");
+}
+
+if(currentFilter==="programme"){
+return cat.includes("programme")||cat.includes("program");
+}
+
+if(currentFilter==="documentary"){
+return cat.includes("documentary");
+}
+
+return true;
 }
 
 function render(){
@@ -1201,29 +1209,29 @@ articles=[];
 if(!Array.isArray(articles))articles=[];
 
 articles=articles.filter(a=>
-(!a.status||String(a.status).toLowerCase()==="published")
+a&&(!a.status||String(a.status).toLowerCase()==="published")
 );
 
-articles=articles.slice().reverse();
+articles.reverse();
 
-const videos=articles.filter(a=>{
-const cat=category(a).toLowerCase();
+videos=articles.filter(isVideo);
 
-return cat.includes("video")||
-cat.includes("episode")||
-cat.includes("programme")||
-cat.includes("program")||
-Boolean(videoUrl(a));
-});
+const visible=videos.filter(matchesFilter);
 
 if(!videos.length){
 
 featured.querySelector(".featured-player").innerHTML=`
-<div class="featured-placeholder">
-<div class="play">▶</div>
+<div class="video-placeholder">
+<div class="play-circle">▶</div>
 <strong>JNTV VIDEO CENTRE</strong>
 <small>NEWS • REPORTS • INTERVIEWS</small>
 </div>`;
+
+featured.querySelector(".featured-info").innerHTML=`
+<span class="featured-category">JNTV FEATURED</span>
+<h2>Watch the latest from our video desk</h2>
+<p>Published video reports and programmes will appear here.</p>
+<div class="featured-meta">JNTV DIGITAL MEDIA</div>`;
 
 grid.innerHTML=`
 <div class="empty-state">
@@ -1234,59 +1242,108 @@ grid.innerHTML=`
 return;
 }
 
+/* FEATURED VIDEO */
+
 const first=videos[0];
 
 featured.querySelector(".featured-player").innerHTML=
-player(videoUrl(first));
+makePlayer(getVideo(first));
 
 featured.querySelector(".featured-info").innerHTML=`
-<span class="category">${escapeHTML(category(first))}</span>
-<h2>${escapeHTML(title(first))}</h2>
-<p>${escapeHTML(summary(first).slice(0,300))}</p>
-<div class="featured-meta">JNTV • ${escapeHTML(first.date||"Latest Video")}</div>
-`;
+<span class="featured-category">${esc(getCategory(first))}</span>
+<h2>${esc(getTitle(first))}</h2>
+<p>${esc(getSummary(first).slice(0,300))}</p>
+<div class="featured-meta">JNTV • ${esc(first.date||"Latest Video")}</div>`;
 
-const remaining=videos.slice(1);
+/* VIDEO GRID */
 
-if(!remaining.length){
+if(!visible.length){
+
 grid.innerHTML=`
 <div class="empty-state">
-<h3>More Videos Coming Soon</h3>
-<p>New published video stories will appear here.</p>
+<h3>No Videos In This Category</h3>
+<p>More video stories will appear here when published.</p>
 </div>`;
+
 return;
 }
 
-grid.innerHTML=remaining.map(a=>{
+grid.innerHTML=visible.map(a=>`
 
-return `
 <article class="video-card">
 
-<a class="video-thumbnail" href="${link(a)}">
-<img src="${image(a)}" alt="${escapeHTML(title(a))}"
+<a class="video-thumbnail" href="${getLink(a)}">
+
+<img
+src="${getImage(a)}"
+alt="${esc(getTitle(a))}"
 loading="lazy"
-onerror="this.style.display='none'">
+onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900';">
+
 <span class="play-button">▶</span>
+
 </a>
 
 <div class="video-details">
-<span class="video-category">${escapeHTML(category(a))}</span>
-<h3><a href="${link(a)}">${escapeHTML(title(a))}</a></h3>
-<p>${escapeHTML(summary(a).slice(0,150))}</p>
-<div class="video-meta">${escapeHTML(a.date||"JNTV NEWS")}</div>
+
+<span class="video-category">${esc(getCategory(a))}</span>
+
+<h3>
+<a href="${getLink(a)}">${esc(getTitle(a))}</a>
+</h3>
+
+<p>${esc(getSummary(a).slice(0,145))}</p>
+
+<div class="video-meta">
+${esc(a.date||"JNTV VIDEO DESK")}
 </div>
 
-</article>`;
+</div>
 
-}).join("");
+</article>
+
+`).join("");
 
 }
 
+/* CATEGORY FILTERS */
+
+document.querySelectorAll("[data-filter]").forEach(link=>{
+
+link.addEventListener("click",function(e){
+
+e.preventDefault();
+
+currentFilter=this.dataset.filter;
+
+document.querySelectorAll(".category-bar a").forEach(a=>{
+a.classList.toggle("active",a.dataset.filter===currentFilter);
+});
+
 render();
 
-window.addEventListener("storage",function(e){
-if(e.key===KEY)render();
+document.getElementById("latest-videos").scrollIntoView({
+behavior:"smooth",
+block:"start"
 });
+
+});
+
+});
+
+/* INITIAL LOAD */
+
+render();
+
+/* REFRESH WHEN ADMIN PUBLISHES */
+
+window.addEventListener("storage",function(e){
+
+if(e.key===KEY)render();
+
+});
+
+window.addEventListener("pageshow",render);
 
 })();
 </script>
