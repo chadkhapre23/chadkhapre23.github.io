@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sports | JNTV</title>
-<meta name="description" content="Latest sports news, football, transfers, results and international sporting updates from JNTV.">
+<title>Sports News | JNTV</title>
+<meta name="description" content="Latest football, sports news, transfers, results and sporting updates from Uganda, Africa and around the world.">
 <meta name="theme-color" content="#071a35">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,13 +16,16 @@
   --navy:#071a35;
   --red:#e00016;
   --ink:#172033;
-  --muted:#687386;
-  --line:#e8ebef;
-  --soft:#f4f6f9;
+  --muted:#697587;
+  --soft:#f3f5f8;
 }
 
 *{
   box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -39,86 +41,93 @@ a{
   text-decoration:none;
 }
 
-/* HEADER */
+/* MAIN NAVIGATION */
+
 .header{
   background:var(--navy);
-  border-bottom:2px solid var(--red);
 }
 
 .header-inner{
   max-width:1380px;
-  min-height:72px;
+  min-height:70px;
   margin:auto;
-  padding:7px 18px;
+  padding:6px 16px;
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:12px;
 }
 
 .brand{
   display:flex;
   align-items:center;
   flex-shrink:0;
-  margin-right:2px;
+  margin:0;
 }
 
 .brand img{
   display:block;
   width:62px;
-  height:56px;
+  height:55px;
   object-fit:contain;
 }
 
 .header-right{
   display:flex;
   align-items:center;
-  gap:9px;
   flex:1;
   min-width:0;
+  gap:9px;
 }
 
 .nav-inner{
   display:flex;
   align-items:center;
-  gap:0;
-  white-space:nowrap;
+  justify-content:flex-start;
   flex:1;
   min-width:0;
+  gap:0;
+  white-space:nowrap;
 }
 
 .nav-inner a{
+  display:block;
   color:#fff;
+  font-family:'Jost',sans-serif;
   font-size:11px;
   font-weight:700;
-  padding:12px 8px;
-  border-bottom:2px solid transparent;
+  padding:11px 8px;
+  transition:color .2s ease;
 }
 
 .nav-inner a:hover,
 .nav-inner a.active{
-  border-bottom-color:var(--red);
+  color:#ff4b59;
 }
 
 .search{
-  height:32px;
-  width:125px;
   display:flex;
+  align-items:center;
+  width:120px;
+  height:32px;
   flex-shrink:0;
   background:#fff;
   overflow:hidden;
+  border-radius:2px;
 }
 
 .search input{
   width:100%;
   min-width:0;
+  height:100%;
   border:0;
   outline:0;
   padding:0 8px;
-  font-family:inherit;
+  font-family:'Jost',sans-serif;
   font-size:11px;
 }
 
 .search button{
+  height:100%;
   border:0;
   background:var(--red);
   color:#fff;
@@ -128,29 +137,34 @@ a{
 }
 
 .live{
+  display:flex;
+  align-items:center;
+  justify-content:center;
   background:var(--red);
   color:#fff;
   padding:8px 10px;
+  font-family:'Jost',sans-serif;
   font-size:10px;
   font-weight:800;
   white-space:nowrap;
   flex-shrink:0;
 }
 
-/* PAGE LAYOUT */
+/* PAGE */
+
 .container{
-  max-width:1180px;
-  margin:auto;
+  max-width:1200px;
   padding:0 20px;
+  margin:0 auto;
 }
 
 .page-heading{
-  padding:24px 0 15px;
+  padding:22px 0 13px;
 }
 
 .kicker{
   color:var(--red);
-  font-size:11px;
+  font-size:10px;
   font-weight:800;
   letter-spacing:1px;
   text-transform:uppercase;
@@ -158,10 +172,10 @@ a{
 
 .page-heading h1{
   color:var(--navy);
-  font-size:31px;
+  font-size:30px;
+  font-weight:800;
   line-height:1.15;
   margin:3px 0;
-  font-weight:800;
 }
 
 .page-heading p{
@@ -170,18 +184,24 @@ a{
   margin:3px 0 0;
 }
 
-/* LEAD STORY */
+/* FEATURE STORY */
+
 .lead-layout{
   display:grid;
-  grid-template-columns:minmax(0,1.8fr) minmax(260px,.85fr);
+  grid-template-columns:minmax(0,1.85fr) minmax(250px,.85fr);
   gap:25px;
-  margin:13px 0 30px;
+  margin:12px 0 30px;
+}
+
+.feature{
+  display:block;
+  min-width:0;
 }
 
 .lead-image{
-  display:block;
   width:100%;
-  height:365px;
+  height:370px;
+  display:block;
   object-fit:cover;
   background:#e9edf2;
 }
@@ -190,7 +210,7 @@ a{
   color:var(--red);
   font-size:10px;
   font-weight:800;
-  letter-spacing:.8px;
+  letter-spacing:.7px;
   text-transform:uppercase;
   margin:10px 0 4px;
 }
@@ -198,8 +218,8 @@ a{
 .lead-title{
   color:var(--navy);
   font-size:27px;
-  line-height:1.25;
   font-weight:800;
+  line-height:1.25;
   margin:0 0 7px;
 }
 
@@ -216,7 +236,8 @@ a{
   font-weight:600;
 }
 
-/* SIDE STORIES */
+/* HEADLINES */
+
 .side-panel{
   min-width:0;
 }
@@ -230,15 +251,15 @@ a{
 
 .side-story{
   display:grid;
-  grid-template-columns:100px 1fr;
+  grid-template-columns:96px minmax(0,1fr);
   gap:11px;
-  padding:11px 0;
-  border-bottom:1px solid var(--line);
+  padding:10px 0;
 }
 
 .side-story img{
-  width:100px;
-  height:73px;
+  display:block;
+  width:96px;
+  height:72px;
   object-fit:cover;
   background:#e9edf2;
 }
@@ -251,9 +272,10 @@ a{
   margin:0 0 5px;
 }
 
-/* MORE STORIES */
+/* LATEST NEWS */
+
 .latest-section{
-  margin:0 0 40px;
+  margin:0 0 38px;
 }
 
 .section-heading{
@@ -280,17 +302,18 @@ a{
 .stories-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:22px;
+  gap:23px;
 }
 
 .story-card{
+  display:block;
   min-width:0;
 }
 
 .story-card img{
   display:block;
   width:100%;
-  height:180px;
+  height:185px;
   object-fit:cover;
   background:#e9edf2;
 }
@@ -316,7 +339,8 @@ a{
   color:var(--red);
 }
 
-/* MESSAGES */
+/* LOADING */
+
 .loading,
 .empty,
 .error{
@@ -331,24 +355,20 @@ a{
   color:#a3202b;
 }
 
-/* FOOTER */
+/* SIMPLE FOOTER */
+
 .footer{
   background:var(--navy);
-  color:#e0e5ed;
+  color:#dce2eb;
+  padding:17px 15px;
   text-align:center;
-  padding:22px 15px;
-  font-size:13px;
-  line-height:1.8;
+  font-size:12px;
+  font-weight:500;
 }
 
-.footer strong{
-  color:#fff;
-  font-size:14px;
-  font-weight:800;
-}
+/* RESPONSIVE NAVIGATION */
 
-/* TABLET */
-@media(max-width:1050px){
+@media(max-width:1120px){
   .header-inner{
     flex-wrap:wrap;
   }
@@ -376,21 +396,20 @@ a{
   }
 }
 
-/* MOBILE */
 @media(max-width:700px){
   .header-inner{
-    padding:7px 12px;
-    gap:5px;
+    padding:7px 11px;
+    gap:7px;
   }
 
   .brand img{
-    width:56px;
-    height:50px;
+    width:55px;
+    height:49px;
   }
 
   .header-right{
-    width:100%;
-    gap:6px;
+    flex-wrap:wrap;
+    gap:5px;
   }
 
   .nav-inner{
@@ -400,8 +419,8 @@ a{
   }
 
   .nav-inner a{
-    padding:9px 9px;
     font-size:10px;
+    padding:9px 8px;
   }
 
   .search{
@@ -414,7 +433,7 @@ a{
   }
 
   .page-heading{
-    padding:19px 0 12px;
+    padding:17px 0 11px;
   }
 
   .page-heading h1{
@@ -464,7 +483,7 @@ a{
 <header class="header">
   <div class="header-inner">
 
-    <a href="./index.html" class="brand" aria-label="JNTV Home">
+    <a href="./index.html" class="brand" aria-label="Home">
       <img src="./JAMO%20LOGO.jpeg" alt="JNTV logo">
     </a>
 
@@ -476,7 +495,6 @@ a{
         <a href="./politics.html">POLITICS</a>
         <a href="./business.html">BUSINESS</a>
         <a href="./sports.html" class="active">SPORTS</a>
-        <a href="./entertainment.html">ENTERTAINMENT</a>
         <a href="./videos.html">VIDEOS</a>
         <a href="./about.html">ABOUT</a>
       </nav>
@@ -496,9 +514,9 @@ a{
   <div class="container">
 
     <section class="page-heading">
-      <div class="kicker">JNTV SPORTS DESK</div>
+      <div class="kicker">SPORTS DESK</div>
       <h1>Sports</h1>
-      <p>Football, transfers, match results and sporting news from Uganda, Africa and the world.</p>
+      <p>Football, transfers, match results and sporting news from Uganda, Africa and around the world.</p>
     </section>
 
     <section class="lead-layout">
@@ -519,7 +537,7 @@ a{
     <section class="latest-section">
       <div class="section-heading">
         <h2>Latest Sports News</h2>
-        <span>JNTV SPORTS</span>
+        <span>SPORTS</span>
       </div>
 
       <div id="stories-grid" class="stories-grid">
@@ -531,10 +549,7 @@ a{
 </main>
 
 <footer class="footer">
-  <strong>JNTV</strong><br>
-  News • Current Affairs • Media<br>
-  Inform • Entertain • Empower<br>
-  © <span id="year"></span> All rights reserved.
+  © <span id="year"></span> JNTV. All rights reserved.
 </footer>
 
 <script>
@@ -605,7 +620,7 @@ function imageMarkup(article,className){
   const image = getImage(article);
 
   if(!image){
-    return `<div class="${className}" style="display:flex;align-items:center;justify-content:center;color:#8992a1;background:#e9edf2;">JNTV SPORTS</div>`;
+    return `<div class="${className}" style="display:flex;align-items:center;justify-content:center;color:#8992a1;background:#e9edf2;">SPORTS</div>`;
   }
 
   return `<img class="${className}" src="${safe(image)}" alt="${safe(getTitle(article))}" loading="lazy" onerror="this.style.display='none'">`;
@@ -618,7 +633,7 @@ function renderFeature(article){
       <div class="category">SPORTS</div>
       <h2 class="lead-title">${safe(getTitle(article))}</h2>
       <p class="lead-excerpt">${safe(getExcerpt(article)).slice(0,260)}</p>
-      <div class="meta">${safe(getDate(article))} | JNTV SPORTS</div>
+      <div class="meta">${safe(getDate(article))}</div>
     </a>
   `;
 }
@@ -683,20 +698,9 @@ async function loadSports(){
     });
 
     if(!sports.length){
-      featureArea.innerHTML = `
-        <div class="empty">
-          No published sports stories were found. Publish a story in your JNTV newsroom and set its category to Sports.
-        </div>
-      `;
-
-      sideStories.innerHTML = `
-        <div class="empty">Sports headlines will appear here after publication.</div>
-      `;
-
-      storiesGrid.innerHTML = `
-        <div class="empty">Your published Sports stories will appear here automatically.</div>
-      `;
-
+      featureArea.innerHTML = `<div class="empty">No published sports stories were found. Publish a story in your newsroom and set its category to Sports.</div>`;
+      sideStories.innerHTML = `<div class="empty">Sports headlines will appear here after publication.</div>`;
+      storiesGrid.innerHTML = `<div class="empty">Published Sports stories will appear here automatically.</div>`;
       return;
     }
 
@@ -707,17 +711,9 @@ async function loadSports(){
   }catch(error){
     console.error("JNTV Sports error:",error);
 
-    featureArea.innerHTML = `
-      <div class="error">Sports news could not be loaded. Please check the newsroom connection and try again.</div>
-    `;
-
-    sideStories.innerHTML = `
-      <div class="error">Sports headlines are temporarily unavailable.</div>
-    `;
-
-    storiesGrid.innerHTML = `
-      <div class="error">The news service is temporarily unavailable. Please refresh the page.</div>
-    `;
+    featureArea.innerHTML = `<div class="error">Sports news could not be loaded. Please check the newsroom connection.</div>`;
+    sideStories.innerHTML = `<div class="error">Sports headlines are temporarily unavailable.</div>`;
+    storiesGrid.innerHTML = `<div class="error">The news service is temporarily unavailable. Please refresh the page.</div>`;
   }
 }
 
