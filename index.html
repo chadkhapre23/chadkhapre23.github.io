@@ -56,7 +56,7 @@ padding:8px 22px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:18px;
+gap:12px;
 }
 
 .brand{
@@ -72,14 +72,14 @@ object-fit:contain;
 }
 
 .navigation{
-flex:1;
+flex:1 1 auto;
 min-width:0;
 }
 
 .nav-inner{
 display:flex;
 align-items:center;
-justify-content:center;
+justify-content:flex-start;
 min-height:80px;
 overflow-x:auto;
 scrollbar-width:none;
@@ -92,7 +92,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 min-height:80px;
-padding:0 11px;
+padding:0 10px;
 color:#fff;
 font-size:12px;
 font-weight:800;
@@ -109,13 +109,13 @@ border-bottom-color:var(--red);
 .header-actions{
 display:flex;
 align-items:center;
-gap:10px;
+gap:9px;
 flex-shrink:0;
 }
 
 .search-box{
 display:flex;
-width:175px;
+width:155px;
 height:38px;
 background:#fff;
 }
@@ -131,6 +131,7 @@ font-size:12px;
 
 .search-box button{
 width:40px;
+flex-shrink:0;
 border:0;
 background:var(--red);
 color:white;
@@ -138,7 +139,7 @@ cursor:pointer;
 }
 
 .live-button{
-padding:11px 12px;
+padding:11px 10px;
 background:var(--red);
 color:white;
 font-size:11px;
@@ -235,7 +236,7 @@ from{transform:translateX(0)}
 to{transform:translateX(-50%)}
 }
 
-/* BREAKING LABEL */
+/* SECTION HEADINGS */
 
 .section-heading{
 display:flex;
@@ -650,25 +651,34 @@ color:#d0d7e1;
 font-size:13px;
 }
 
-/* RESPONSIVE */
+/* TABLET */
 
-@media(max-width:1150px){
+@media(max-width:1150px) and (min-width:761px){
 
-.header-inner{flex-wrap:wrap}
-
-.navigation{
-order:3;
-flex:0 0 100%;
+.header-inner{
+gap:7px;
+padding-left:14px;
+padding-right:14px;
 }
 
-.nav-inner{
-min-height:43px;
-justify-content:flex-start;
+.brand img{
+width:72px;
+height:65px;
 }
 
-.nav-inner a{min-height:43px}
+.nav-inner a{
+padding:0 7px;
+font-size:11px;
+}
 
-.header-actions{margin-left:auto}
+.search-box{width:125px}
+
+.header-actions{gap:6px}
+
+.live-button{
+padding:10px 8px;
+font-size:10px;
+}
 
 .hero-layout{
 grid-template-columns:1fr;
@@ -685,11 +695,14 @@ grid-template-columns:repeat(3,minmax(0,1fr));
 
 }
 
+/* MOBILE AND SMALL TABLETS */
+
 @media(max-width:760px){
 
 .header-inner{
 padding:9px 14px;
 gap:8px;
+flex-wrap:wrap;
 }
 
 .brand img{
@@ -802,8 +815,6 @@ html{scroll-behavior:auto}
 
 <body>
 
-<!-- HEADER -->
-
 <header class="top-header">
 <div class="header-inner">
 
@@ -839,8 +850,6 @@ html{scroll-behavior:auto}
 
 <main class="home-main">
 
-<!-- HEADLINE TICKER -->
-
 <div class="breaking-strip">
 <div class="breaking-label">JNTV HEADLINES</div>
 <div class="ticker-window">
@@ -854,8 +863,6 @@ html{scroll-behavior:auto}
 </div>
 </div>
 </div>
-
-<!-- MAIN LEAD AND TOP STORIES -->
 
 <section class="hero-layout">
 
@@ -893,8 +900,6 @@ html{scroll-behavior:auto}
 </aside>
 </section>
 
-<!-- LATEST NEWS -->
-
 <section class="news-section">
 <div class="section-heading">
 <h2>Latest News</h2>
@@ -908,13 +913,9 @@ html{scroll-behavior:auto}
 </div>
 </section>
 
-<!-- AUTOMATIC CATEGORY SECTIONS -->
-
 <div id="categorySections"></div>
 
 </main>
-
-<!-- FOOTER -->
 
 <footer class="footer">
 <div class="footer-inner">
@@ -990,8 +991,6 @@ For enquiries, advertising, partnerships and media services, contact the JNTV te
 (function(){
 
 "use strict";
-
-/* EXISTING SUPABASE CONNECTION */
 
 const SUPABASE_URL =
 "https://eqogivrposfajrkdwqbq.supabase.co";
@@ -1077,8 +1076,6 @@ String(a.breaking||a.breakin||"").toLowerCase()==="true"||
 String(a.breaking||a.breakin||"")==="1";
 }
 
-/* NEWS TICKER */
-
 function renderTicker(articles){
 
 let items=articles.slice(0,15).map(a=>`
@@ -1098,8 +1095,6 @@ tickerTrack.innerHTML=`
 <div class="ticker-group" aria-hidden="true">${items}</div>
 `;
 }
-
-/* LEAD STORY */
 
 function renderLead(a){
 
@@ -1136,8 +1131,6 @@ ${escapeHTML(summary(a).slice(0,350))}
 `;
 }
 
-/* TOP STORIES */
-
 function renderTopStories(articles){
 
 const items=articles.slice(1,5);
@@ -1164,8 +1157,6 @@ exclusiveStories.innerHTML=items.map(a=>`
 
 `).join("");
 }
-
-/* ARTICLE CARD */
 
 function card(a){
 
@@ -1202,8 +1193,6 @@ ${escapeHTML(category(a))}
 `;
 }
 
-/* LATEST NEWS */
-
 function renderLatest(articles){
 
 if(!articles.length){
@@ -1214,8 +1203,6 @@ return;
 
 latestNews.innerHTML=articles.slice(0,8).map(card).join("");
 }
-
-/* ORGANISE NEWS BY CATEGORY */
 
 function renderCategories(articles){
 
@@ -1276,8 +1263,6 @@ ${stories.slice(0,4).map(card).join("")}
 }).join("");
 
 }
-
-/* SEARCH */
 
 function searchNews(){
 
@@ -1341,8 +1326,6 @@ renderCategories(allArticles);
 
 }
 
-/* FETCH PUBLISHED STORIES */
-
 async function loadArticles(){
 
 try{
@@ -1380,8 +1363,6 @@ Unable to load published news. Please check Supabase access permissions.
 
 }
 
-/* SEARCH CONTROLS */
-
 searchButton.addEventListener("click",searchNews);
 
 searchInput.addEventListener("keydown",e=>{
@@ -1391,8 +1372,6 @@ if(e.key==="Enter")searchNews();
 searchInput.addEventListener("input",()=>{
 if(!searchInput.value.trim())renderAll();
 });
-
-/* START */
 
 loadArticles();
 
