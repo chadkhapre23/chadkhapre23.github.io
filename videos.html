@@ -5,1337 +5,1745 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Videos | JNTV</title>
-<meta name="description" content="Watch the latest JNTV news reports, interviews, documentaries and special coverage.">
+<meta name="description" content="Watch JNTV news reports, interviews, documentaries, programmes and special coverage from Uganda, Africa and around the world.">
 <meta name="theme-color" content="#071a35">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
---navy:#071a35;
---navy2:#10294b;
---red:#d71920;
---white:#fff;
---ink:#182333;
---muted:#737e8d;
---light:#f3f5f8;
---line:#e5e9ef;
+  --navy:#071a35;
+  --navy2:#102746;
+  --red:#e00016;
+  --text:#172335;
+  --muted:#687586;
+  --line:#e5e9ef;
+  --light:#f4f6f9;
+  --white:#fff;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 
 body{
-margin:0;
-background:#f3f5f8;
-color:var(--ink);
-font-family:'Jost',sans-serif;
-font-size:14px;
--webkit-font-smoothing:antialiased;
+  margin:0;
+  background:#fff;
+  color:var(--text);
+  font-family:'Manrope',sans-serif;
+  -webkit-font-smoothing:antialiased;
 }
 
-a{text-decoration:none;color:inherit}
+a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 
 /* HEADER */
 
 .site-header{
-background:var(--navy);
-border-bottom:3px solid var(--red);
-position:sticky;
-top:0;
-z-index:1000;
-box-shadow:0 3px 14px rgba(0,0,0,.13);
+  background:var(--navy);
+  border-bottom:3px solid var(--red);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .header-inner{
-max-width:1300px;
-min-height:79px;
-margin:auto;
-padding:7px 22px;
-display:flex;
-align-items:center;
-gap:21px;
+  max-width:1400px;
+  min-height:82px;
+  margin:auto;
+  padding:8px 22px;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:17px;
 }
 
 .brand{
-display:flex;
-align-items:center;
-flex-shrink:0;
+  display:flex;
+  align-items:center;
 }
 
 .brand img{
-width:66px;
-height:62px;
-object-fit:contain;
+  width:76px;
+  height:64px;
+  object-fit:contain;
 }
 
 .main-nav{
-display:flex;
-align-items:center;
-justify-content:flex-start;
-gap:16px;
-flex:1;
-min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1px;
+  min-width:0;
+  white-space:nowrap;
 }
 
 .main-nav a{
-font-size:12px;
-font-weight:700;
-color:#e5eaf2;
-white-space:nowrap;
-padding:11px 0;
-position:relative;
-transition:.2s;
+  color:#e7edf5;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.15px;
+  padding:12px 9px;
+  white-space:nowrap;
+  transition:.2s;
 }
 
 .main-nav a:hover,
-.main-nav a.active{color:#fff}
-
-.main-nav a.active:after{
-content:"";
-position:absolute;
-height:3px;
-background:var(--red);
-bottom:2px;
-left:0;
-right:0;
+.main-nav a.active{
+  color:#fff;
+  background:var(--red);
 }
 
 .header-actions{
-display:flex;
-align-items:center;
-gap:13px;
-flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:9px;
 }
 
-.search-link{
-font-size:21px;
-color:white;
+.search-form{
+  display:flex;
+  align-items:center;
+  width:180px;
+  height:35px;
+  background:#fff;
+  overflow:hidden;
 }
 
-.live-button{
-background:var(--red);
-color:#fff;
-padding:10px 14px;
-font-size:11px;
-font-weight:800;
-letter-spacing:.7px;
-border-radius:2px;
+.search-form input{
+  width:100%;
+  min-width:0;
+  height:100%;
+  padding:0 10px;
+  border:0;
+  outline:0;
+  color:var(--navy);
+  font-family:inherit;
+  font-size:11px;
 }
 
-.live-button:hover{background:#b80d17}
-
-/* MOVING BRAND TICKER - NOW DIRECTLY BELOW HEADER */
-
-.brand-ticker{
-background:#10294b;
-color:white;
-overflow:hidden;
-border-bottom:1px solid rgba(255,255,255,.12);
+.search-form button{
+  height:100%;
+  width:35px;
+  flex:0 0 35px;
+  border:0;
+  background:#fff;
+  color:var(--navy);
+  cursor:pointer;
+  font-size:17px;
 }
 
-.ticker-track{
-display:flex;
-width:max-content;
-animation:tickerMove 34s linear infinite;
+.latest-button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:35px;
+  padding:0 13px;
+  background:var(--red);
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.4px;
+  white-space:nowrap;
 }
 
-.ticker-content{
-display:flex;
-align-items:center;
-gap:26px;
-padding:15px 18px;
-white-space:nowrap;
-font-size:13px;
-font-weight:700;
+.latest-button:hover{background:#bd0012}
+
+/* SECTION BAR */
+
+.section-bar{
+  background:#f5f7fa;
+  border-bottom:1px solid var(--line);
 }
 
-.ticker-content strong{
-color:#fff;
-font-weight:900;
+.section-bar-inner{
+  max-width:1240px;
+  margin:auto;
+  padding:9px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
 }
 
-.ticker-content .ticker-red{color:#ff6873}
-
-.ticker-dot{
-width:6px;
-height:6px;
-background:var(--red);
-border-radius:50%;
-flex-shrink:0;
+.section-label{
+  color:var(--navy);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.2px;
 }
 
-.brand-ticker:hover .ticker-track{
-animation-play-state:paused;
-}
-
-@keyframes tickerMove{
-from{transform:translateX(0)}
-to{transform:translateX(-50%)}
+.section-date{
+  color:var(--muted);
+  font-size:11px;
+  font-weight:600;
 }
 
 /* BREAKING STRIP */
 
 .breaking-strip{
-background:var(--red);
-color:white;
-overflow:hidden;
+  background:var(--red);
+  color:#fff;
 }
 
 .breaking-inner{
-max-width:1300px;
-min-height:36px;
-margin:auto;
-padding:0 22px;
-display:flex;
-align-items:center;
-gap:13px;
-font-size:12px;
-font-weight:600;
+  max-width:1240px;
+  margin:auto;
+  padding:9px 22px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:11px;
+  font-weight:700;
 }
 
 .breaking-label{
-background:#fff;
-color:var(--red);
-padding:5px 10px;
-font-size:10px;
-font-weight:900;
-letter-spacing:.7px;
-flex-shrink:0;
+  background:#fff;
+  color:var(--red);
+  padding:5px 9px;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  flex-shrink:0;
 }
 
-/* PAGE */
+/* MAIN PAGE */
 
-.page-wrap{
-max-width:1240px;
-margin:auto;
-padding:25px 22px 0;
+.container{
+  max-width:1240px;
+  margin:0 auto;
+  padding:26px 22px 45px;
 }
 
-.page-heading{margin-bottom:19px}
-
-.page-heading h1{
-font-size:30px;
-font-weight:800;
-color:var(--navy);
-margin:0;
+.page-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:20px;
+  padding-bottom:14px;
+  margin-bottom:20px;
+  border-bottom:1px solid var(--line);
 }
 
-.page-heading p{
-font-size:14px;
-color:var(--muted);
-margin:5px 0 0;
+.heading-copy h1{
+  color:var(--navy);
+  font-family:'Playfair Display',serif;
+  font-size:31px;
+  line-height:1.1;
+  font-weight:800;
+  margin:0;
 }
 
-.red-line{
-height:3px;
-width:43px;
-background:var(--red);
-margin-top:10px;
+.heading-copy p{
+  color:var(--muted);
+  font-size:12px;
+  margin:6px 0 0;
+  font-weight:500;
+}
+
+.heading-mark{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--navy);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+
+.heading-mark:before{
+  content:"";
+  width:22px;
+  height:3px;
+  background:var(--red);
 }
 
 /* VIDEO HERO */
 
 .video-hero{
-position:relative;
-min-height:405px;
-overflow:hidden;
-background:
-linear-gradient(90deg,rgba(4,15,33,.96),rgba(4,15,33,.76) 48%,rgba(4,15,33,.12)),
-url("https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1800&q=85")
-center/cover no-repeat;
-display:flex;
-align-items:center;
-margin-bottom:25px;
-border-radius:2px;
+  position:relative;
+  min-height:390px;
+  margin-bottom:27px;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(4,16,35,.94),rgba(4,16,35,.70) 48%,rgba(4,16,35,.12)),
+    url("https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+  display:flex;
+  align-items:center;
 }
 
 .video-hero:after{
-content:"";
-position:absolute;
-bottom:0;
-left:0;
-height:5px;
-width:100%;
-background:linear-gradient(90deg,var(--red) 0 28%,#fff 28% 28.5%,transparent 28.5%);
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:5px;
+  background:linear-gradient(90deg,var(--red) 0 28%,#fff 28% 29%,transparent 29%);
 }
 
 .hero-content{
-position:relative;
-z-index:2;
-max-width:690px;
-padding:45px;
-color:#fff;
+  position:relative;
+  z-index:2;
+  max-width:690px;
+  padding:38px;
+  color:#fff;
 }
 
 .hero-label{
-display:inline-block;
-background:var(--red);
-padding:7px 11px;
-font-size:11px;
-font-weight:900;
-letter-spacing:1px;
-margin-bottom:15px;
+  display:inline-block;
+  background:var(--red);
+  color:#fff;
+  padding:7px 11px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  margin-bottom:14px;
 }
 
 .hero-content h2{
-font-size:clamp(38px,5vw,57px);
-line-height:1.08;
-font-weight:900;
-margin:0 0 13px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5vw,51px);
+  line-height:1.06;
+  font-weight:800;
+  margin:0 0 12px;
 }
 
 .hero-content p{
-max-width:520px;
-font-size:15px;
-line-height:1.8;
-color:#e2e8f1;
-margin:0 0 22px;
+  color:#e0e7f0;
+  font-size:13px;
+  line-height:1.7;
+  max-width:540px;
+  margin:0 0 20px;
 }
 
 .hero-buttons{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 .hero-btn{
-display:inline-block;
-padding:12px 17px;
-background:var(--red);
-color:#fff;
-font-size:11px;
-font-weight:900;
-letter-spacing:.5px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 16px;
+  background:var(--red);
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.4px;
+  transition:.2s;
 }
 
 .hero-btn.secondary{
-background:transparent;
-border:1px solid rgba(255,255,255,.7);
+  background:transparent;
+  border:1px solid rgba(255,255,255,.7);
 }
 
 .hero-btn:hover{
-background:white;
-color:var(--navy);
+  background:#fff;
+  color:var(--navy);
 }
 
-/* CATEGORY BAR */
+/* CATEGORY NAVIGATION */
 
 .category-bar{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-background:var(--navy);
-margin-bottom:32px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  background:var(--navy);
+  margin-bottom:32px;
 }
 
 .category-bar a{
-padding:16px 8px;
-text-align:center;
-color:white;
-font-size:12px;
-font-weight:800;
-border-right:1px solid rgba(255,255,255,.12);
-transition:.2s;
+  padding:13px 8px;
+  text-align:center;
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  border-right:1px solid rgba(255,255,255,.13);
+  transition:.2s;
 }
 
 .category-bar a:last-child{border:0}
 
 .category-bar a:hover,
-.category-bar a.active{background:var(--red)}
+.category-bar a.active{
+  background:var(--red);
+}
 
 /* SECTION HEADINGS */
 
 .content-section{margin-bottom:38px}
 
 .section-heading{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-border-bottom:2px solid var(--navy);
-padding-bottom:10px;
-margin-bottom:19px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border-bottom:2px solid var(--navy);
+  padding-bottom:10px;
+  margin-bottom:19px;
 }
 
 .section-heading h2{
-font-size:23px;
-font-weight:900;
-color:var(--navy);
-margin:0;
+  font-family:'Playfair Display',serif;
+  font-size:21px;
+  font-weight:800;
+  color:var(--navy);
+  margin:0;
 }
 
 .section-heading span{
-font-size:11px;
-font-weight:900;
-color:var(--red);
-letter-spacing:.8px;
-text-transform:uppercase;
+  color:var(--red);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.9px;
+  text-transform:uppercase;
 }
 
 /* FEATURED VIDEO */
 
 .featured-video{
-display:grid;
-grid-template-columns:1.55fr 1fr;
-gap:25px;
-align-items:center;
-background:white;
-padding:13px;
-box-shadow:0 2px 9px rgba(0,0,0,.045);
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:23px;
+  align-items:center;
+  background:#fff;
+  border:1px solid var(--line);
+  padding:12px;
 }
 
 .featured-player{
-position:relative;
-aspect-ratio:16/9;
-background:var(--navy);
-overflow:hidden;
+  position:relative;
+  aspect-ratio:16/9;
+  background:var(--navy);
+  overflow:hidden;
 }
 
 .featured-player iframe,
 .featured-player video{
-width:100%;
-height:100%;
-border:0;
+  width:100%;
+  height:100%;
+  border:0;
 }
 
 .video-placeholder{
-width:100%;
-height:100%;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-color:white;
-background:
-radial-gradient(circle,rgba(215,25,32,.28),transparent 45%),
-linear-gradient(135deg,#071a35,#193b65);
+  width:100%;
+  height:100%;
+  min-height:190px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  color:#fff;
+  background:
+    radial-gradient(circle,rgba(224,0,22,.28),transparent 45%),
+    linear-gradient(135deg,#071a35,#193b65);
+  text-align:center;
 }
 
 .play-circle{
-width:61px;
-height:61px;
-border-radius:50%;
-background:var(--red);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:23px;
-margin-bottom:13px;
-box-shadow:0 0 0 9px rgba(255,255,255,.09);
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:var(--red);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  margin-bottom:13px;
+  box-shadow:0 0 0 9px rgba(255,255,255,.09);
 }
 
 .video-placeholder strong{
-font-size:22px;
-font-weight:900;
+  font-family:'Playfair Display',serif;
+  font-size:21px;
+  font-weight:800;
 }
 
 .video-placeholder small{
-font-size:10px;
-letter-spacing:1px;
-margin-top:7px;
-color:#d4dce9;
+  font-size:9px;
+  letter-spacing:1px;
+  margin-top:7px;
+  color:#d4dce9;
 }
 
 .featured-info{padding:15px}
 
 .featured-category{
-color:var(--red);
-font-size:11px;
-font-weight:900;
-letter-spacing:1px;
-text-transform:uppercase;
+  color:var(--red);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
 }
 
 .featured-info h2{
-font-size:29px;
-line-height:1.25;
-color:var(--navy);
-margin:11px 0;
-font-weight:900;
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  line-height:1.25;
+  color:var(--navy);
+  margin:10px 0;
+  font-weight:800;
 }
 
 .featured-info p{
-font-size:14px;
-line-height:1.8;
-color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+  color:var(--muted);
+  margin:0;
 }
 
 .featured-meta{
-margin-top:16px;
-font-size:12px;
-color:#8b94a1;
-font-weight:700;
+  margin-top:15px;
+  font-size:10px;
+  color:#8993a0;
+  font-weight:700;
 }
 
-/* VIDEO CARDS */
+.featured-read{
+  display:inline-block;
+  margin-top:13px;
+  color:var(--red);
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+/* VIDEO GRID */
 
 .video-grid{
-display:grid;
-grid-template-columns:repeat(3,minmax(0,1fr));
-gap:23px 20px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:23px 19px;
 }
 
 .video-card{
-background:#fff;
-min-width:0;
-box-shadow:0 2px 9px rgba(0,0,0,.045);
-transition:.2s;
-border-bottom:2px solid transparent;
+  background:#fff;
+  min-width:0;
+  border-bottom:1px solid var(--line);
+  transition:.2s;
 }
 
 .video-card:hover{
-transform:translateY(-3px);
-border-bottom-color:var(--red);
-box-shadow:0 7px 17px rgba(0,0,0,.09);
+  transform:translateY(-3px);
+  border-bottom:2px solid var(--red);
 }
 
 .video-thumbnail{
-position:relative;
-display:block;
-aspect-ratio:16/9;
-overflow:hidden;
-background:var(--navy);
+  position:relative;
+  display:block;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--navy);
 }
 
 .video-thumbnail img{
-width:100%;
-height:100%;
-object-fit:cover;
-transition:.3s;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.3s;
 }
 
-.video-card:hover .video-thumbnail img{transform:scale(1.04)}
+.video-card:hover .video-thumbnail img{
+  transform:scale(1.04);
+}
 
 .play-button{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:46px;
-height:46px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:var(--red);
-color:white;
-font-size:18px;
-box-shadow:0 2px 12px rgba(0,0,0,.3);
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--red);
+  color:#fff;
+  font-size:16px;
+  box-shadow:0 2px 12px rgba(0,0,0,.3);
 }
 
-.video-details{
-padding:13px 14px 15px;
-}
+.video-details{padding:12px 1px 15px}
 
 .video-category{
-font-size:11px;
-font-weight:900;
-color:var(--red);
-letter-spacing:.7px;
-text-transform:uppercase;
+  font-size:9px;
+  font-weight:900;
+  color:var(--red);
+  letter-spacing:.8px;
+  text-transform:uppercase;
 }
 
 .video-details h3{
-font-size:19px;
-line-height:1.35;
-font-weight:800;
-color:var(--navy);
-margin:7px 0;
+  font-family:'Playfair Display',serif;
+  font-size:17px;
+  line-height:1.3;
+  font-weight:700;
+  color:var(--navy);
+  margin:6px 0 8px;
 }
 
+.video-details h3 a:hover{color:var(--red)}
+
 .video-details p{
-font-size:13px;
-line-height:1.7;
-color:var(--muted);
-margin:0 0 10px;
+  font-size:11px;
+  line-height:1.7;
+  color:var(--muted);
+  margin:0 0 9px;
 }
 
 .video-meta{
-font-size:11px;
-font-weight:700;
-color:#8993a0;
+  font-size:10px;
+  font-weight:600;
+  color:#8993a0;
 }
 
 .empty-state{
-grid-column:1/-1;
-background:#fff;
-text-align:center;
-padding:45px 20px;
-border-bottom:3px solid var(--red);
+  grid-column:1/-1;
+  background:var(--light);
+  text-align:center;
+  padding:35px 20px;
+  border-bottom:3px solid var(--red);
 }
 
 .empty-state h3{
-font-size:24px;
-color:var(--navy);
-margin:0 0 8px;
-font-weight:900;
+  font-family:'Playfair Display',serif;
+  font-size:21px;
+  color:var(--navy);
+  margin:0 0 8px;
 }
 
 .empty-state p{
-color:var(--muted);
-font-size:13px;
-margin:0;
+  color:var(--muted);
+  font-size:12px;
+  margin:0;
 }
 
-/* BROADCAST PROMO */
+/* BROADCAST PROMOTION */
 
 .broadcast-promo{
-position:relative;
-overflow:hidden;
-background:linear-gradient(105deg,#071a35 0%,#102e55 75%,#d71920 75%);
-color:#fff;
-padding:34px 38px;
-margin:12px 0 40px;
-min-height:165px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(105deg,#071a35 0%,#102e55 72%,#e00016 72%);
+  color:#fff;
+  padding:30px;
+  margin:12px 0 0;
+  min-height:155px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
 .promo-content{position:relative;z-index:2}
 
 .promo-content small{
-color:#ffb6bd;
-font-size:11px;
-font-weight:900;
-letter-spacing:1.4px;
+  color:#ff9ba4;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.4px;
 }
 
 .promo-content h2{
-font-size:30px;
-margin:8px 0;
-font-weight:900;
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  margin:7px 0;
+  font-weight:800;
 }
 
 .promo-content p{
-font-size:14px;
-color:#d7e0eb;
-margin:0;
+  font-size:11px;
+  color:#d7e0eb;
+  margin:0;
 }
 
 .promo-symbol{
-font-size:62px;
-position:relative;
-z-index:2;
+  font-size:58px;
+  position:relative;
+  z-index:2;
 }
 
 .promo-rings{
-position:absolute;
-right:65px;
-top:-90px;
-width:250px;
-height:250px;
-border:1px solid rgba(255,255,255,.18);
-border-radius:50%;
+  position:absolute;
+  right:65px;
+  top:-90px;
+  width:250px;
+  height:250px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;
 }
 
 .promo-rings:after{
-content:"";
-position:absolute;
-inset:30px;
-border:1px solid rgba(255,255,255,.18);
-border-radius:50%;
+  content:"";
+  position:absolute;
+  inset:30px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;
 }
 
-/* FOOTER */
+/* SHARED JNTV FOOTER */
 
 .site-footer{
-background:#06162d;
-color:#dbe3ef;
-position:relative;
+  background:var(--navy);
+  color:#d4deea;
+  border-top:3px solid var(--red);
 }
 
-.footer-top{
-height:5px;
-background:linear-gradient(90deg,var(--red) 0 22%,white 22% 22.5%,#17365e 22.5%);
-}
-
-.footer-main{
-max-width:1240px;
-margin:auto;
-padding:44px 22px 35px;
-display:grid;
-grid-template-columns:1.4fr 1fr 1fr 1fr;
-gap:30px;
+.footer-inner{
+  max-width:1240px;
+  margin:auto;
+  padding:36px 22px 30px;
+  display:grid;
+  grid-template-columns:1.35fr 1fr 1fr 1fr;
+  gap:32px;
 }
 
 .footer-column h3{
-font-size:19px;
-color:white;
-margin:0 0 17px;
-padding-bottom:10px;
-position:relative;
-font-weight:800;
+  color:#fff;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  margin:0 0 16px;
 }
 
-.footer-column h3:after{
-content:"";
-position:absolute;
-bottom:0;
-left:0;
-height:3px;
-width:33px;
-background:var(--red);
+.footer-brand{
+  color:#fff;
+  font-size:19px;
+  font-weight:900;
+  letter-spacing:.5px;
+  margin:0 0 5px;
+}
+
+.footer-tagline{
+  color:#ff6573;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin:0 0 13px;
 }
 
 .footer-column p{
-font-size:14px;
-line-height:1.8;
-color:#aebbd0;
-margin:0 0 14px;
+  color:#c4cfdd;
+  font-size:12px;
+  line-height:1.75;
+  margin:0 0 10px;
 }
 
 .footer-column a{
-display:block;
-font-size:14px;
-color:#bac6d7;
-margin-bottom:11px;
-transition:.2s;
+  display:block;
+  color:#c4cfdd;
+  font-size:12px;
+  font-weight:500;
+  margin:0 0 10px;
+  transition:.2s;
+  overflow-wrap:anywhere;
 }
 
-.footer-column a:hover{
-color:white;
-padding-left:3px;
-}
-
-.footer-highlight{
-display:inline-block;
-background:var(--red);
-padding:7px 10px;
-font-size:11px;
-font-weight:900;
-letter-spacing:.8px;
-margin-bottom:13px;
-}
-
-.footer-socials{
-display:flex;
-gap:8px;
-margin-top:17px;
-}
-
-.footer-socials a{
-width:34px;
-height:34px;
-border:1px solid rgba(255,255,255,.25);
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-font-weight:800;
-margin:0;
-}
-
-.footer-socials a:hover{
-background:var(--red);
-border-color:var(--red);
-padding:0;
-}
+.footer-column a:hover{color:#fff}
 
 .footer-bottom{
-background:#030e20;
-border-top:1px solid rgba(255,255,255,.1);
+  max-width:1240px;
+  margin:auto;
+  padding:15px 22px;
+  border-top:1px solid rgba(255,255,255,.16);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  color:#b8c5d5;
+  font-size:10px;
 }
-
-.footer-bottom-inner{
-max-width:1240px;
-margin:auto;
-padding:17px 22px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:15px;
-font-size:12px;
-color:#8c9ab0;
-}
-
-.footer-bottom strong{color:white}
 
 /* RESPONSIVE */
 
-@media(max-width:1100px){
-.header-inner{gap:13px}
-.main-nav{gap:11px}
-.main-nav a{font-size:11px}
-.brand img{width:59px;height:57px}
+@media(max-width:1150px){
+  .header-inner{gap:10px}
+  .brand img{width:68px;height:58px}
+  .main-nav a{
+    padding:11px 6px;
+    font-size:10px;
+  }
+  .search-form{width:145px}
+  .latest-button{padding:0 9px;font-size:9px}
 }
 
-@media(max-width:850px){
-.header-inner{
-flex-wrap:wrap;
-padding:8px 15px;
-gap:8px;
+@media(max-width:900px){
+  .header-inner{
+    grid-template-columns:auto minmax(0,1fr);
+    gap:5px 12px;
+    padding:8px 16px;
+  }
+
+  .brand{grid-column:1}
+  .header-actions{grid-column:2;grid-row:1}
+
+  .main-nav{
+    grid-column:1/-1;
+    grid-row:2;
+    justify-content:center;
+    padding:2px 0 4px;
+  }
+
+  .main-nav a{
+    font-size:10px;
+    padding:9px;
+  }
+
+  .featured-video{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:repeat(2,1fr)}
 }
 
-.brand img{width:57px;height:53px}
+@media(max-width:760px){
+  .header-inner{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:4px 8px;
+    padding:7px 12px 0;
+  }
 
-.main-nav{
-order:3;
-flex-basis:100%;
-overflow-x:auto;
-gap:18px;
-padding:4px 0 7px;
-scrollbar-width:none;
+  .brand img{width:65px;height:53px}
+
+  .header-actions{
+    margin-left:auto;
+    gap:6px;
+  }
+
+  .search-form{width:135px;height:32px}
+  .search-form button{width:31px;flex-basis:31px}
+
+  .latest-button{
+    min-height:32px;
+    padding:0 9px;
+    font-size:9px;
+  }
+
+  .main-nav{
+    width:100%;
+    flex:1 1 100%;
+    justify-content:flex-start;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding:3px 0 7px;
+  }
+
+  .main-nav::-webkit-scrollbar{display:none}
+
+  .main-nav a{
+    font-size:10px;
+    padding:9px 10px;
+  }
+
+  .breaking-inner{padding:8px 14px}
+  .section-bar-inner{padding:8px 14px}
+  .container{padding:21px 14px 35px}
+
+  .heading-copy h1{font-size:27px}
+  .heading-copy p{font-size:11px}
+
+  .video-hero{min-height:340px}
+  .hero-content{padding:28px 22px}
+  .hero-content h2{font-size:35px}
+
+  .category-bar{grid-template-columns:repeat(3,1fr)}
+  .category-bar a{font-size:9px;padding:12px 5px}
+
+  .video-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:20px 13px;
+  }
+
+  .video-details h3{font-size:15px}
+  .video-details p{font-size:11px}
+
+  .broadcast-promo{padding:25px 19px}
+  .promo-content h2{font-size:23px}
+  .promo-symbol{font-size:45px}
+
+  .footer-inner{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    padding:28px 16px 22px;
+    gap:25px;
+  }
+
+  .footer-column h3{font-size:12px}
+  .footer-column a,.footer-column p{font-size:11px}
+
+  .footer-bottom{
+    padding:13px 16px;
+    font-size:9px;
+  }
 }
 
-.main-nav::-webkit-scrollbar{display:none}
-.header-actions{margin-left:auto}
-.featured-video{grid-template-columns:1fr}
-.footer-main{grid-template-columns:repeat(2,1fr)}
-}
+@media(max-width:420px){
+  .search-form{width:118px}
+  .latest-button{padding:0 7px;font-size:8px}
 
-@media(max-width:600px){
-.breaking-inner{padding:0 13px;font-size:10px}
-.page-wrap{padding:20px 14px 0}
-.page-heading h1{font-size:28px}
-.page-heading p{font-size:12px}
-.video-hero{min-height:360px}
-.hero-content{padding:30px 22px}
-.hero-content h2{font-size:39px}
-.hero-content p{font-size:13px}
-.category-bar{grid-template-columns:repeat(3,1fr)}
-.category-bar a{font-size:10px;padding:13px 5px}
-.section-heading h2{font-size:20px}
-.featured-info h2{font-size:25px}
-.video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 12px}
-.video-details{padding:10px}
-.video-details h3{font-size:16px}
-.video-details p{font-size:12px}
-.broadcast-promo{padding:25px 20px}
-.promo-content h2{font-size:23px}
-.promo-content p{font-size:12px}
-.promo-symbol{font-size:43px}
-.footer-main{padding:32px 17px;gap:25px 15px}
-.footer-column h3{font-size:17px}
-.footer-column p,.footer-column a{font-size:13px}
-.footer-bottom-inner{padding:14px 17px;flex-direction:column;align-items:flex-start}
-.ticker-content{font-size:12px}
-}
+  .heading-copy h1{font-size:24px}
+  .heading-mark{font-size:9px}
 
-@media(max-width:380px){
-.video-grid{grid-template-columns:1fr}
+  .video-hero{min-height:310px}
+  .hero-content{padding:23px 16px}
+  .hero-content h2{font-size:30px}
+
+  .video-grid{gap:17px 11px}
+  .video-details h3{font-size:14px}
+
+  .promo-symbol{font-size:36px}
+  .promo-content h2{font-size:20px}
+
+  .footer-inner{gap:22px 14px}
+  .footer-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header class="site-header">
-<div class="header-inner">
+  <div class="header-inner">
 
-<a class="brand" href="../index.html" aria-label="JNTV Home">
-<img src="../JAMO%20LOGO.jpeg" alt="JNTV">
-</a>
+    <a class="brand" href="./index.html" aria-label="JNTV Home">
+      <img src="./JAMO%20LOGO.jpeg" alt="JNTV Logo">
+    </a>
 
-<nav class="main-nav" aria-label="Main navigation">
-<a href="../index.html">HOME</a>
-<a href="../latest-news.html">LATEST NEWS</a>
-<a href="../politics.html">POLITICS</a>
-<a href="../business.html">BUSINESS</a>
-<a href="../sports.html">SPORTS</a>
-<a class="active" href="./videos.html">VIDEOS</a>
-<a href="../about.html">ABOUT</a>
-</nav>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="./index.html">HOME</a>
+      <a href="./latest-news.html">LATEST NEWS</a>
+      <a href="./politics.html">POLITICS</a>
+      <a href="./business.html">BUSINESS</a>
+      <a href="./sports.html">SPORTS</a>
+      <a class="active" href="./videos.html">VIDEOS</a>
+      <a href="./about.html">ABOUT US</a>
+    </nav>
 
-<div class="header-actions">
-<a class="search-link" href="../latest-news.html" aria-label="Search">⌕</a>
-<a class="live-button" href="../live.html">GO LIVE</a>
-</div>
+    <div class="header-actions">
 
-</div>
+      <form class="search-form" action="./search.html" method="GET" role="search">
+        <input type="search" name="q" placeholder="Search news..."
+          aria-label="Search news" required>
+        <button type="submit" aria-label="Search">⌕</button>
+      </form>
+
+      <a class="latest-button" href="./latest-news.html">LATEST NEWS</a>
+
+    </div>
+  </div>
 </header>
 
-<!-- MOVING JNTV BRAND AND SERVICES TICKER - MOVED HERE -->
+<!-- SECTION BAR -->
 
-<div class="brand-ticker" aria-label="JNTV services and information">
-<div class="ticker-track">
-
-<div class="ticker-content">
-<strong>JAMES NYARANGO TV</strong>
-<span class="ticker-dot"></span>
-<span>News and Current Affairs</span>
-<span class="ticker-dot"></span>
-<span>Politics and Governance</span>
-<span class="ticker-dot"></span>
-<span>Business and Economy</span>
-<span class="ticker-dot"></span>
-<span>Sports and Entertainment</span>
-<span class="ticker-dot"></span>
-<span>Interviews and Special Reports</span>
-<span class="ticker-dot"></span>
-<span>Digital Broadcasting</span>
-<span class="ticker-dot"></span>
-<strong class="ticker-red">CONTACT JNTV</strong>
-<span class="ticker-dot"></span>
-<span>News Tips • Partnerships • Advertising • General Enquiries</span>
+<div class="section-bar">
+  <div class="section-bar-inner">
+    <span class="section-label">JNTV VIDEOS</span>
+    <span class="section-date" id="todayDate"></span>
+  </div>
 </div>
 
-<div class="ticker-content" aria-hidden="true">
-<strong>JAMES NYARANGO TV</strong>
-<span class="ticker-dot"></span>
-<span>News and Current Affairs</span>
-<span class="ticker-dot"></span>
-<span>Politics and Governance</span>
-<span class="ticker-dot"></span>
-<span>Business and Economy</span>
-<span class="ticker-dot"></span>
-<span>Sports and Entertainment</span>
-<span class="ticker-dot"></span>
-<span>Interviews and Special Reports</span>
-<span class="ticker-dot"></span>
-<span>Digital Broadcasting</span>
-<span class="ticker-dot"></span>
-<strong class="ticker-red">CONTACT JNTV</strong>
-<span class="ticker-dot"></span>
-<span>News Tips • Partnerships • Advertising • General Enquiries</span>
-</div>
-
-</div>
-</div>
+<!-- BREAKING STRIP -->
 
 <div class="breaking-strip">
-<div class="breaking-inner">
-<span class="breaking-label">JNTV VIDEO DESK</span>
-<span>News Reports • Interviews • Documentaries • Special Coverage</span>
-</div>
-</div>
-
-<main class="page-wrap">
-
-<div class="page-heading">
-<h1>Videos</h1>
-<p>Watch the stories that matter from Uganda, Africa and around the world.</p>
-<div class="red-line"></div>
+  <div class="breaking-inner">
+    <span class="breaking-label">VIDEO DESK</span>
+    <span>News Reports • Interviews • Documentaries • Programmes • Special Coverage</span>
+  </div>
 </div>
 
-<section class="video-hero">
-<div class="hero-content">
-<span class="hero-label">JNTV DIGITAL BROADCAST</span>
-<h2>Stories Beyond The Headlines</h2>
-<p>
-Go beyond the headlines with exclusive reports, interviews,
-documentaries and important stories from across the world.
-</p>
-<div class="hero-buttons">
-<a href="#latest-videos" class="hero-btn">EXPLORE VIDEOS ▶</a>
-<a href="../latest-news.html" class="hero-btn secondary">LATEST NEWS</a>
-</div>
-</div>
-</section>
+<main class="container">
 
-<nav class="category-bar" aria-label="Video categories">
-<a href="#latest-videos" data-filter="all" class="active">ALL VIDEOS</a>
-<a href="#latest-videos" data-filter="news">NEWS REPORTS</a>
-<a href="#latest-videos" data-filter="interview">INTERVIEWS</a>
-<a href="#latest-videos" data-filter="programme">PROGRAMMES</a>
-<a href="#latest-videos" data-filter="documentary">DOCUMENTARIES</a>
-</nav>
+  <!-- PAGE HEADING -->
 
-<section class="content-section">
+  <section class="page-heading">
+    <div class="heading-copy">
+      <h1>Videos</h1>
+      <p>Watch the stories that matter from Uganda, Africa and around the world.</p>
+    </div>
+    <div class="heading-mark">JNTV DIGITAL MEDIA</div>
+  </section>
 
-<div class="section-heading">
-<h2>Featured Video</h2>
-<span>JNTV Spotlight</span>
-</div>
+  <!-- VIDEO HERO -->
 
-<section class="featured-video" id="featuredVideo">
+  <section class="video-hero">
 
-<div class="featured-player">
-<div class="video-placeholder">
-<div class="play-circle">▶</div>
-<strong>JNTV VIDEO CENTRE</strong>
-<small>NEWS • REPORTS • INTERVIEWS</small>
-</div>
-</div>
+    <div class="hero-content">
 
-<div class="featured-info">
-<span class="featured-category">JNTV FEATURED</span>
-<h2>Watch the latest from our video desk</h2>
-<p>
-Stay informed through our latest video reports,
-interviews, news coverage and special programmes.
-</p>
-<div class="featured-meta">JNTV DIGITAL MEDIA</div>
-</div>
+      <span class="hero-label">JNTV DIGITAL BROADCAST</span>
 
-</section>
-</section>
+      <h2>Stories Beyond The Headlines</h2>
 
-<section class="content-section" id="latest-videos">
+      <p>
+        Go beyond the headlines with exclusive reports, interviews,
+        documentaries and important stories from across the world.
+      </p>
 
-<div class="section-heading">
-<h2>Latest Videos</h2>
-<span>Video Library</span>
-</div>
+      <div class="hero-buttons">
+        <a href="#latest-videos" class="hero-btn">EXPLORE VIDEOS →</a>
+        <a href="./latest-news.html" class="hero-btn secondary">LATEST NEWS</a>
+      </div>
 
-<div class="video-grid" id="videoGrid">
-<div class="empty-state">
-<h3>Videos Coming Soon</h3>
-<p>Published JNTV video stories will appear here.</p>
-</div>
-</div>
+    </div>
 
-</section>
+  </section>
 
-<section class="broadcast-promo">
+  <!-- VIDEO CATEGORIES -->
 
-<div class="promo-rings"></div>
+  <nav class="category-bar" aria-label="Video categories">
 
-<div class="promo-content">
-<small>JNTV DIGITAL MEDIA</small>
-<h2>Watch. Discover. Stay Informed.</h2>
-<p>Bringing important stories closer to you through digital broadcasting.</p>
-</div>
+    <a href="#latest-videos" data-filter="all" class="active">ALL VIDEOS</a>
+    <a href="#latest-videos" data-filter="news">NEWS REPORTS</a>
+    <a href="#latest-videos" data-filter="interview">INTERVIEWS</a>
+    <a href="#latest-videos" data-filter="programme">PROGRAMMES</a>
+    <a href="#latest-videos" data-filter="documentary">DOCUMENTARIES</a>
 
-<div class="promo-symbol">▶</div>
+  </nav>
 
-</section>
+  <!-- FEATURED VIDEO -->
+
+  <section class="content-section">
+
+    <div class="section-heading">
+      <h2>Featured Video</h2>
+      <span>JNTV Spotlight</span>
+    </div>
+
+    <section class="featured-video" id="featuredVideo">
+
+      <div class="featured-player" id="featuredPlayer">
+
+        <div class="video-placeholder">
+          <div class="play-circle">▶</div>
+          <strong>JNTV VIDEO CENTRE</strong>
+          <small>NEWS • REPORTS • INTERVIEWS</small>
+        </div>
+
+      </div>
+
+      <div class="featured-info" id="featuredInfo">
+
+        <span class="featured-category">JNTV FEATURED</span>
+
+        <h2>Watch the latest from our video desk</h2>
+
+        <p>
+          Stay informed through our latest video reports,
+          interviews, news coverage and special programmes.
+        </p>
+
+        <div class="featured-meta">JNTV DIGITAL MEDIA</div>
+
+      </div>
+
+    </section>
+
+  </section>
+
+  <!-- VIDEO LIBRARY -->
+
+  <section class="content-section" id="latest-videos">
+
+    <div class="section-heading">
+      <h2>Latest Videos</h2>
+      <span>Video Library</span>
+    </div>
+
+    <div class="video-grid" id="videoGrid">
+
+      <div class="empty-state">
+        <h3>Loading Videos</h3>
+        <p>Your latest published videos will appear here.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BROADCAST PROMOTION -->
+
+  <section class="broadcast-promo">
+
+    <div class="promo-rings"></div>
+
+    <div class="promo-content">
+      <small>JNTV DIGITAL MEDIA</small>
+      <h2>Watch. Discover. Stay Informed.</h2>
+      <p>Bringing important stories closer to you through digital broadcasting.</p>
+    </div>
+
+    <div class="promo-symbol">▶</div>
+
+  </section>
 
 </main>
 
+<!-- SHARED JNTV FOOTER -->
+
 <footer class="site-footer">
 
-<div class="footer-top"></div>
+  <div class="footer-inner">
 
-<div class="footer-main">
+    <div class="footer-column">
 
-<div class="footer-column">
-<span class="footer-highlight">JNTV DIGITAL MEDIA</span>
-<h3>About Our Videos</h3>
-<p>
-Watch news reports, interviews, documentaries and special coverage
-from Uganda, Africa and around the world.
-</p>
+      <div class="footer-brand">JAMES NYARANGO TV</div>
 
-<div class="footer-socials">
-<a href="https://www.facebook.com/" aria-label="Facebook">f</a>
-<a href="https://www.youtube.com/" aria-label="YouTube">▶</a>
-<a href="https://www.tiktok.com/" aria-label="TikTok">♪</a>
-<a href="https://www.instagram.com/" aria-label="Instagram">◎</a>
-</div>
-</div>
+      <div class="footer-tagline">
+        INFORM • ENTERTAIN • EMPOWER
+      </div>
 
-<div class="footer-column">
-<h3>Explore JNTV</h3>
-<a href="../index.html">Home</a>
-<a href="../latest-news.html">Latest News</a>
-<a href="../politics.html">Politics</a>
-<a href="../business.html">Business</a>
-<a href="../sports.html">Sports</a>
-<a href="./videos.html">Videos</a>
-<a href="../about.html">About</a>
-</div>
+      <p>
+        JNTV is a digital media platform delivering news, current affairs,
+        politics, business, sports and entertainment from Uganda, Africa and the world.
+      </p>
 
-<div class="footer-column">
-<h3>What We Do</h3>
-<a href="#latest-videos">News Reports</a>
-<a href="#latest-videos">Interviews</a>
-<a href="#latest-videos">Documentaries</a>
-<a href="#latest-videos">Special Coverage</a>
-<a href="../latest-news.html">Current Affairs</a>
-<a href="../live.html">Digital Broadcasting</a>
-</div>
+      <a href="https://www.jamesnyarangotv.ac.ug"
+         target="_blank" rel="noopener">
+        www.jamesnyarangotv.ac.ug
+      </a>
 
-<div class="footer-column">
-<h3>Contact JNTV</h3>
-<p>
-For news tips, partnerships, advertising and general enquiries,
-get in touch with our team.
-</p>
-<a href="../about.html">About JNTV</a>
-<a href="../contact.html">Contact Us</a>
-<a href="../latest-news.html">Read Latest News</a>
-</div>
+    </div>
 
-</div>
+    <div class="footer-column">
 
-<div class="footer-bottom">
-<div class="footer-bottom-inner">
-<span>© <span id="year"></span> <strong>JNTV</strong>. All rights reserved.</span>
-<span>News • Current Affairs • Digital Media</span>
-</div>
-</div>
+      <h3>About JNTV</h3>
+
+      <a href="./about.html">About Us</a>
+      <a href="./latest-news.html">Latest News</a>
+      <a href="./videos.html">Our Videos</a>
+      <a href="mailto:info@jamesnyarangotv.ac.ug">Contact Us</a>
+      <a href="./about.html">Advertise With Us</a>
+      <a href="./about.html">Privacy Policy</a>
+
+    </div>
+
+    <div class="footer-column">
+
+      <h3>Contact Information</h3>
+
+      <a href="tel:+256775732004">+256 775 732 004</a>
+
+      <a href="mailto:info@jamesnyarangotv.ac.ug">
+        info@jamesnyarangotv.ac.ug
+      </a>
+
+      <p>Kampala, Uganda</p>
+
+      <a href="https://www.jamesnyarangotv.ac.ug"
+         target="_blank" rel="noopener">
+        Official Website
+      </a>
+
+    </div>
+
+    <div class="footer-column">
+
+      <h3>Our Services</h3>
+
+      <p>News and Current Affairs</p>
+      <p>Podcasts and Audio Programmes</p>
+      <p>Digital Media Production</p>
+      <p>Interviews and Talk Shows</p>
+      <p>Video Production and Broadcasting</p>
+      <p>Live Event Coverage</p>
+      <p>Digital Advertising and Marketing</p>
+      <p>Sponsored Content and Promotions</p>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <span>© 2026 James Nyarango TV (JNTV). All rights reserved.</span>
+
+    <span>INFORM • ENTERTAIN • EMPOWER</span>
+
+  </div>
 
 </footer>
 
+<!-- SUPABASE VIDEO SYSTEM -->
+
 <script>
-(function(){
 
 "use strict";
 
-const KEY="jntvArticles";
-const grid=document.getElementById("videoGrid");
-const featured=document.getElementById("featuredVideo");
+const SUPABASE_URL = "https://eqogivrposfajrkdwqbq.supabase.co";
 
-let currentFilter="all";
-let videos=[];
+const SUPABASE_KEY = "sb_publishable_l4sKYCzUW6670QvOMtBE_Q_kRCbwDZ-";
 
-document.getElementById("year").textContent=new Date().getFullYear();
+const ARTICLES_ENDPOINT =
+  SUPABASE_URL +
+  "/rest/v1/articles?select=*&status=eq.published&order=published_at.desc&limit=100";
 
-function esc(value){
-return String(value??"").replace(/[&<>"']/g,function(c){
-return {
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
-}[c];
-});
+const FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1000&q=80";
+
+const grid = document.getElementById("videoGrid");
+const featuredPlayer = document.getElementById("featuredPlayer");
+const featuredInfo = document.getElementById("featuredInfo");
+
+let allVideos = [];
+let currentFilter = "all";
+
+/* DATE */
+
+document.getElementById("todayDate").textContent =
+  new Intl.DateTimeFormat("en-GB", {
+    weekday:"long",
+    day:"numeric",
+    month:"long",
+    year:"numeric"
+  }).format(new Date());
+
+/* HELPERS */
+
+function escapeHTML(value){
+
+  return String(value ?? "").replace(/[&<>"']/g, character => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#039;"
+  })[character]);
+
 }
 
-function getTitle(a){
-return a.headline||a.title||"Untitled video";
+function getTitle(article){
+
+  return article.title ||
+         article.headline ||
+         article.news_title ||
+         "JNTV Video";
+
 }
 
-function getCategory(a){
-return a.category||a.section||"Video";
+function getCategory(article){
+
+  return article.category ||
+         article.section ||
+         "Video";
+
 }
 
-function getSummary(a){
-return String(a.summary||a.description||a.excerpt||a.content||"")
-.replace(/<[^>]*>/g,"")
-.trim();
+function getSummary(article){
+
+  const value =
+    article.excerpt ||
+    article.summary ||
+    article.description ||
+    article.content ||
+    "";
+
+  const clean = String(value)
+    .replace(/<[^>]*>/g,"")
+    .trim();
+
+  return clean.length > 220
+    ? clean.substring(0,217) + "..."
+    : clean || "Watch this JNTV report for the full story.";
+
 }
 
-function getImage(a){
-const value=String(a.photo||a.image||a.imageUrl||a.thumbnail||"").trim();
+function getImage(article){
 
-if(/^https?:\/\//i.test(value))return esc(value);
+  const value =
+    article.image_url ||
+    article.featured_image ||
+    article.image ||
+    article.photo ||
+    article.thumbnail ||
+    "";
 
-if(/^data:image\/(jpeg|png|webp|gif);base64,/i.test(value))return value;
+  if(!value) return FALLBACK_IMAGE;
 
-return "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900&auto=format&fit=crop&q=80";
+  try{
+
+    const url = new URL(value,window.location.href);
+
+    if(["http:","https:"].includes(url.protocol)){
+      return url.href;
+    }
+
+  }catch(error){}
+
+  return FALLBACK_IMAGE;
+
 }
 
-function getLink(a){
-return "../article.html?id="+encodeURIComponent(a.id||a.articleId||"");
+function getDate(article){
+
+  const value =
+    article.published_at ||
+    article.created_at ||
+    article.date;
+
+  if(!value) return "JNTV VIDEO DESK";
+
+  const date = new Date(value);
+
+  if(Number.isNaN(date.getTime())){
+    return "JNTV VIDEO DESK";
+  }
+
+  return date.toLocaleDateString("en-GB",{
+    day:"numeric",
+    month:"short",
+    year:"numeric"
+  });
+
 }
 
-function getVideo(a){
-return String(a.videoUrl||a.video||"").trim();
+function getArticleLink(article){
+
+  return article.id
+    ? "./article.html?id=" + encodeURIComponent(article.id)
+    : "./latest-news.html";
+
 }
 
-function getEmbed(url){
+/* VIDEO URL DETECTION */
 
-if(!url)return "";
+function getVideoURL(article){
 
-try{
-const parsed=new URL(url);
-let id="";
+  return String(
+    article.video_url ||
+    article.videoUrl ||
+    article.youtube_url ||
+    article.youtubeUrl ||
+    article.video_link ||
+    article.video ||
+    article.media_url ||
+    ""
+  ).trim();
 
-if(parsed.hostname.includes("youtu.be")){
-id=parsed.pathname.slice(1).split("/")[0];
 }
 
-else if(parsed.hostname.includes("youtube.com")){
-id=parsed.searchParams.get("v")||"";
+function getYouTubeID(url){
 
-if(!id&&parsed.pathname.includes("/embed/")){
-id=parsed.pathname.split("/embed/")[1].split("/")[0];
+  try{
+
+    const parsed = new URL(url);
+
+    if(parsed.hostname.includes("youtu.be")){
+      return parsed.pathname.split("/").filter(Boolean)[0] || "";
+    }
+
+    if(
+      parsed.hostname.includes("youtube.com") ||
+      parsed.hostname.includes("youtube-nocookie.com")
+    ){
+
+      if(parsed.searchParams.get("v")){
+        return parsed.searchParams.get("v");
+      }
+
+      const parts = parsed.pathname.split("/").filter(Boolean);
+
+      if(parts[0] === "embed" || parts[0] === "shorts"){
+        return parts[1] || "";
+      }
+
+    }
+
+  }catch(error){}
+
+  return "";
+
 }
 
-if(!id&&parsed.pathname.includes("/shorts/")){
-id=parsed.pathname.split("/shorts/")[1].split("/")[0];
-}
+function getVimeoID(url){
+
+  try{
+
+    const parsed = new URL(url);
+
+    if(
+      parsed.hostname.includes("vimeo.com") &&
+      !parsed.hostname.includes("player.vimeo.com")
+    ){
+
+      const parts = parsed.pathname.split("/").filter(Boolean);
+
+      return parts[parts.length-1] || "";
+
+    }
+
+    if(parsed.hostname.includes("player.vimeo.com")){
+      const parts = parsed.pathname.split("/").filter(Boolean);
+      return parts[parts.length-1] || "";
+    }
+
+  }catch(error){}
+
+  return "";
+
 }
 
-if(id){
-return "https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id);
-}
-
-}catch(e){}
-
-return "";
-}
+/* VIDEO PLAYER */
 
 function makePlayer(url){
 
-const embed=getEmbed(url);
+  if(!url){
 
-if(embed){
-return '<iframe src="'+esc(embed)+'" title="JNTV Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
-}
+    return `
+      <div class="video-placeholder">
+        <div class="play-circle">▶</div>
+        <strong>JNTV VIDEO CENTRE</strong>
+        <small>VIDEO LINK NOT PROVIDED</small>
+      </div>
+    `;
 
-if(/^https?:\/\/.+\.(mp4|webm|ogg)(\?.*)?$/i.test(url)){
-return '<video controls playsinline preload="metadata"><source src="'+esc(url)+'"></video>';
-}
+  }
 
-return `
-<div class="video-placeholder">
-<div class="play-circle">▶</div>
-<strong>JNTV VIDEO CENTRE</strong>
-<small>VIDEO PLAYER NOT AVAILABLE</small>
-</div>`;
-}
+  const youtubeID = getYouTubeID(url);
 
-function isVideo(a){
+  if(youtubeID){
 
-const cat=getCategory(a).toLowerCase();
+    return `
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(youtubeID)}"
+        title="JNTV Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    `;
 
-return cat.includes("video")||
-cat.includes("episode")||
-cat.includes("interview")||
-cat.includes("documentary")||
-cat.includes("programme")||
-cat.includes("program")||
-Boolean(getVideo(a));
-}
+  }
 
-function matchesFilter(a){
+  const vimeoID = getVimeoID(url);
 
-if(currentFilter==="all")return true;
+  if(vimeoID){
 
-const cat=getCategory(a).toLowerCase();
-const title=getTitle(a).toLowerCase();
+    return `
+      <iframe
+        src="https://player.vimeo.com/video/${encodeURIComponent(vimeoID)}"
+        title="JNTV Video"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    `;
 
-if(currentFilter==="news"){
-return cat.includes("news")||cat.includes("report");
-}
+  }
 
-if(currentFilter==="interview"){
-return cat.includes("interview")||title.includes("interview");
-}
+  try{
 
-if(currentFilter==="programme"){
-return cat.includes("programme")||cat.includes("program");
-}
+    const parsed = new URL(url);
 
-if(currentFilter==="documentary"){
-return cat.includes("documentary");
-}
+    if(
+      ["http:","https:"].includes(parsed.protocol) &&
+      /\.(mp4|webm|ogg)$/i.test(parsed.pathname)
+    ){
 
-return true;
-}
+      return `
+        <video controls playsinline preload="metadata">
+          <source src="${escapeHTML(parsed.href)}">
+          Your browser does not support video playback.
+        </video>
+      `;
 
-function render(){
+    }
 
-let articles=[];
+  }catch(error){}
 
-try{
-articles=JSON.parse(localStorage.getItem(KEY)||"[]");
-}catch(e){
-articles=[];
-}
-
-if(!Array.isArray(articles))articles=[];
-
-articles=articles.filter(a=>
-a&&(!a.status||String(a.status).toLowerCase()==="published")
-);
-
-articles.reverse();
-
-videos=articles.filter(isVideo);
-const visible=videos.filter(matchesFilter);
-
-if(!videos.length){
-
-featured.querySelector(".featured-player").innerHTML=`
-<div class="video-placeholder">
-<div class="play-circle">▶</div>
-<strong>JNTV VIDEO CENTRE</strong>
-<small>NEWS • REPORTS • INTERVIEWS</small>
-</div>`;
-
-featured.querySelector(".featured-info").innerHTML=`
-<span class="featured-category">JNTV FEATURED</span>
-<h2>Watch the latest from our video desk</h2>
-<p>Published video reports and programmes will appear here.</p>
-<div class="featured-meta">JNTV DIGITAL MEDIA</div>`;
-
-grid.innerHTML=`
-<div class="empty-state">
-<h3>Videos Coming Soon</h3>
-<p>Published JNTV video stories will appear here.</p>
-</div>`;
-
-return;
-}
-
-const first=videos[0];
-
-featured.querySelector(".featured-player").innerHTML=
-makePlayer(getVideo(first));
-
-featured.querySelector(".featured-info").innerHTML=`
-<span class="featured-category">${esc(getCategory(first))}</span>
-<h2>${esc(getTitle(first))}</h2>
-<p>${esc(getSummary(first).slice(0,300))}</p>
-<div class="featured-meta">JNTV • ${esc(first.date||"Latest Video")}</div>`;
-
-if(!visible.length){
-
-grid.innerHTML=`
-<div class="empty-state">
-<h3>No Videos In This Category</h3>
-<p>More video stories will appear here when published.</p>
-</div>`;
-
-return;
-}
-
-grid.innerHTML=visible.map(a=>`
-
-<article class="video-card">
-
-<a class="video-thumbnail" href="${getLink(a)}">
-<img src="${getImage(a)}"
-alt="${esc(getTitle(a))}"
-loading="lazy"
-onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900';">
-<span class="play-button">▶</span>
-</a>
-
-<div class="video-details">
-<span class="video-category">${esc(getCategory(a))}</span>
-<h3><a href="${getLink(a)}">${esc(getTitle(a))}</a></h3>
-<p>${esc(getSummary(a).slice(0,145))}</p>
-<div class="video-meta">${esc(a.date||"JNTV VIDEO DESK")}</div>
-</div>
-
-</article>
-
-`).join("");
+  return `
+    <div class="video-placeholder">
+      <div class="play-circle">▶</div>
+      <strong>JNTV VIDEO CENTRE</strong>
+      <small>OPEN THE FULL STORY TO WATCH</small>
+    </div>
+  `;
 
 }
 
-document.querySelectorAll("[data-filter]").forEach(link=>{
+/* IDENTIFY VIDEO ARTICLES */
 
-link.addEventListener("click",function(e){
+function isVideoArticle(article){
 
-e.preventDefault();
-currentFilter=this.dataset.filter;
+  const category = String(getCategory(article)).toLowerCase();
 
-document.querySelectorAll(".category-bar a").forEach(a=>{
-a.classList.toggle("active",a.dataset.filter===currentFilter);
+  const videoURL = getVideoURL(article);
+
+  const videoCategories = [
+    "video",
+    "videos",
+    "interview",
+    "documentary",
+    "programme",
+    "program",
+    "broadcast",
+    "video report",
+    "news report"
+  ];
+
+  return Boolean(videoURL) ||
+    videoCategories.some(term => category.includes(term));
+
+}
+
+/* CATEGORY FILTERS */
+
+function matchesFilter(article){
+
+  if(currentFilter === "all") return true;
+
+  const category = String(getCategory(article)).toLowerCase();
+  const title = getTitle(article).toLowerCase();
+
+  if(currentFilter === "news"){
+    return category.includes("news") ||
+           category.includes("report");
+  }
+
+  if(currentFilter === "interview"){
+    return category.includes("interview") ||
+           title.includes("interview");
+  }
+
+  if(currentFilter === "programme"){
+    return category.includes("programme") ||
+           category.includes("program");
+  }
+
+  if(currentFilter === "documentary"){
+    return category.includes("documentary") ||
+           title.includes("documentary");
+  }
+
+  return true;
+
+}
+
+/* FEATURED VIDEO */
+
+function renderFeatured(article){
+
+  const title = getTitle(article);
+
+  featuredPlayer.innerHTML =
+    makePlayer(getVideoURL(article));
+
+  featuredInfo.innerHTML = `
+
+    <span class="featured-category">
+      ${escapeHTML(getCategory(article))}
+    </span>
+
+    <h2>${escapeHTML(title)}</h2>
+
+    <p>${escapeHTML(getSummary(article))}</p>
+
+    <div class="featured-meta">
+      JNTV • ${escapeHTML(getDate(article))}
+    </div>
+
+    <a class="featured-read" href="${getArticleLink(article)}">
+      Read Full Story →
+    </a>
+
+  `;
+
+}
+
+/* VIDEO CARDS */
+
+function renderVideos(){
+
+  const visible = allVideos.filter(matchesFilter);
+
+  if(!visible.length){
+
+    grid.innerHTML = `
+      <div class="empty-state">
+        <h3>No Videos In This Category</h3>
+        <p>Published videos in this category will appear here.</p>
+      </div>
+    `;
+
+    return;
+
+  }
+
+  grid.innerHTML = visible.map(article => {
+
+    const title = escapeHTML(getTitle(article));
+    const category = escapeHTML(getCategory(article));
+    const summary = escapeHTML(getSummary(article));
+    const image = escapeHTML(getImage(article));
+    const date = escapeHTML(getDate(article));
+    const link = getArticleLink(article);
+
+    return `
+
+      <article class="video-card">
+
+        <a class="video-thumbnail" href="${link}">
+
+          <img
+            src="${image}"
+            alt="${title}"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+
+          <span class="play-button">▶</span>
+
+        </a>
+
+        <div class="video-details">
+
+          <span class="video-category">${category}</span>
+
+          <h3>
+            <a href="${link}">${title}</a>
+          </h3>
+
+          <p>${summary}</p>
+
+          <span class="video-meta">${date}</span>
+
+        </div>
+
+      </article>
+
+    `;
+
+  }).join("");
+
+}
+
+/* LOAD PUBLISHED VIDEOS FROM SUPABASE */
+
+async function loadVideos(){
+
+  grid.innerHTML = `
+    <div class="empty-state">
+      <h3>Loading Videos</h3>
+      <p>Connecting to the JNTV video library...</p>
+    </div>
+  `;
+
+  try{
+
+    const response = await fetch(ARTICLES_ENDPOINT,{
+
+      method:"GET",
+
+      headers:{
+        "apikey":SUPABASE_KEY,
+        "Authorization":"Bearer " + SUPABASE_KEY,
+        "Content-Type":"application/json"
+      }
+
+    });
+
+    if(!response.ok){
+      throw new Error("Could not retrieve published articles.");
+    }
+
+    const articles = await response.json();
+
+    allVideos = articles
+      .filter(article =>
+        article &&
+        String(article.status || "").toLowerCase() === "published" &&
+        isVideoArticle(article)
+      );
+
+    if(!allVideos.length){
+
+      featuredPlayer.innerHTML = `
+        <div class="video-placeholder">
+          <div class="play-circle">▶</div>
+          <strong>JNTV VIDEO CENTRE</strong>
+          <small>NEWS • REPORTS • INTERVIEWS</small>
+        </div>
+      `;
+
+      featuredInfo.innerHTML = `
+        <span class="featured-category">JNTV FEATURED</span>
+        <h2>Watch the latest from our video desk</h2>
+        <p>Published video reports and programmes will appear here.</p>
+        <div class="featured-meta">JNTV DIGITAL MEDIA</div>
+      `;
+
+      grid.innerHTML = `
+        <div class="empty-state">
+          <h3>Videos Coming Soon</h3>
+          <p>
+            No published video articles were found.
+            Publish an article with a video category or video link to display it here.
+          </p>
+        </div>
+      `;
+
+      return;
+
+    }
+
+    renderFeatured(allVideos[0]);
+    renderVideos();
+
+  }catch(error){
+
+    console.error("JNTV Videos Error:",error);
+
+    grid.innerHTML = `
+      <div class="empty-state">
+        <h3>Videos Temporarily Unavailable</h3>
+        <p>Please check your internet connection and refresh the page.</p>
+      </div>
+    `;
+
+  }
+
+}
+
+/* FILTER BUTTONS */
+
+document.querySelectorAll("[data-filter]").forEach(link => {
+
+  link.addEventListener("click",function(event){
+
+    event.preventDefault();
+
+    currentFilter = this.dataset.filter;
+
+    document.querySelectorAll(".category-bar a").forEach(item => {
+
+      item.classList.toggle(
+        "active",
+        item.dataset.filter === currentFilter
+      );
+
+    });
+
+    renderVideos();
+
+    document.getElementById("latest-videos").scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+  });
+
 });
 
-render();
+/* START */
 
-document.getElementById("latest-videos").scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+loadVideos();
 
-});
-
-});
-
-render();
-
-window.addEventListener("storage",function(e){
-if(e.key===KEY)render();
-});
-
-window.addEventListener("pageshow",render);
-
-})();
 </script>
 
 </body>
