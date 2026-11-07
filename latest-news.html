@@ -46,20 +46,20 @@ border-bottom:3px solid var(--red);
 }
 
 .header-inner{
-max-width:1380px;
-margin:auto;
-padding:10px 25px;
+max-width:1400px;
 min-height:82px;
+margin:auto;
+padding:8px 22px;
 display:flex;
 align-items:center;
-justify-content:flex-start;
-gap:18px;
+justify-content:space-between;
+gap:16px;
 }
 
 .brand{
 display:flex;
 align-items:center;
-flex-shrink:0;
+flex:0 0 auto;
 }
 
 .brand img{
@@ -68,30 +68,33 @@ height:64px;
 object-fit:contain;
 }
 
-/* NAVIGATION */
-
 .header-right{
-display:flex;
+display:grid;
+grid-template-columns:minmax(0,1fr) auto auto;
 align-items:center;
-justify-content:flex-start;
 gap:12px;
-flex:0 1 auto;
+flex:1 1 auto;
 min-width:0;
 }
 
 .nav-inner{
 display:flex;
 align-items:center;
-gap:2px;
-flex:0 1 auto;
+justify-content:center;
+gap:0;
+min-width:0;
+white-space:nowrap;
 }
 
 .nav-inner a{
+display:flex;
+align-items:center;
+justify-content:center;
 color:#fff;
-font-size:12px;
-font-weight:600;
+font-size:11px;
+font-weight:700;
 white-space:nowrap;
-padding:12px 9px;
+padding:13px 10px;
 border-bottom:2px solid transparent;
 transition:.2s;
 }
@@ -104,8 +107,9 @@ border-bottom-color:var(--red);
 
 .search{
 display:flex;
+align-items:center;
 height:36px;
-width:175px;
+width:155px;
 flex-shrink:0;
 background:#fff;
 border-radius:2px;
@@ -123,23 +127,30 @@ font-size:12px;
 }
 
 .search button{
+height:36px;
 border:0;
 background:var(--red);
 color:#fff;
-padding:0 13px;
+padding:0 12px;
 cursor:pointer;
 font-size:17px;
 }
 
 .live{
+display:flex;
+align-items:center;
+justify-content:center;
 background:var(--red);
 color:#fff;
-padding:9px 13px;
+padding:10px 13px;
 font-size:11px;
-font-weight:700;
+font-weight:800;
 white-space:nowrap;
 flex-shrink:0;
+transition:.2s;
 }
+
+.live:hover{background:#bd0012}
 
 /* PAGE */
 
@@ -310,9 +321,7 @@ object-fit:cover;
 background:#e2e6eb;
 }
 
-.side-card-content{
-min-width:0;
-}
+.side-card-content{min-width:0}
 
 .side-card small{
 color:var(--red);
@@ -386,9 +395,7 @@ object-fit:cover;
 background:var(--light);
 }
 
-.article-content{
-padding:14px 15px 16px;
-}
+.article-content{padding:14px 15px 16px}
 
 .article-category{
 color:var(--red);
@@ -484,7 +491,7 @@ margin-bottom:5px;
 
 .hidden{display:none!important}
 
-/* FOOTER */
+/* FOOTER - MATCHES ARTICLE PAGE */
 
 .footer{
 background:var(--navy);
@@ -500,8 +507,8 @@ padding:34px 25px 0;
 
 .footer-grid{
 display:grid;
-grid-template-columns:1.4fr 1fr 1.2fr 1.2fr;
-gap:32px;
+grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+gap:30px;
 padding-bottom:26px;
 }
 
@@ -539,8 +546,22 @@ margin:0;
 
 .footer a:hover{color:#ff7780}
 
-.footer-contact a{
-overflow-wrap:anywhere;
+.footer-contact a{overflow-wrap:anywhere}
+
+.footer-tagline{
+font-size:11px;
+font-weight:700;
+letter-spacing:1px;
+color:#fff;
+margin:0 0 12px;
+}
+
+.footer-website{
+display:inline-block;
+margin-top:5px;
+font-size:12px;
+font-weight:600;
+color:#fff;
 }
 
 .copyright{
@@ -554,30 +575,54 @@ color:#c5cfdb;
 font-size:11px;
 }
 
-/* RESPONSIVE */
+/* TABLET */
 
-@media(max-width:1250px){
-.header-inner{gap:13px}
-.header-right{gap:7px}
-.nav-inner a{padding:12px 7px;font-size:11px}
-.search{width:145px}
+@media(max-width:1150px){
+.header-inner{
+gap:12px;
 }
 
-@media(max-width:1050px){
-.header-inner{
-flex-wrap:wrap;
-gap:8px 18px;
+.brand img{
+width:70px;
+height:60px;
 }
 
 .header-right{
+gap:7px;
+}
+
+.nav-inner a{
+font-size:10px;
+padding:12px 6px;
+}
+
+.search{width:135px}
+
+.live{
+padding:9px 10px;
+font-size:10px;
+}
+}
+
+@media(max-width:950px){
+.header-inner{
 flex-wrap:wrap;
+justify-content:space-between;
+}
+
+.header-right{
+width:100%;
+grid-template-columns:minmax(0,1fr) auto auto;
 }
 
 .nav-inner{
-flex-wrap:wrap;
+justify-content:center;
+overflow-x:auto;
 }
 
-.search{width:160px}
+.nav-inner a{
+padding:12px 8px;
+}
 
 .news-grid{grid-template-columns:1.5fr 1fr}
 
@@ -585,6 +630,8 @@ flex-wrap:wrap;
 grid-template-columns:repeat(2,1fr);
 }
 }
+
+/* MOBILE */
 
 @media(max-width:700px){
 .header-inner{
@@ -599,23 +646,35 @@ height:56px;
 
 .header-right{
 width:100%;
-justify-content:flex-start;
+display:flex;
 flex-wrap:wrap;
+justify-content:flex-start;
 gap:8px;
 }
 
 .nav-inner{
+width:100%;
+justify-content:flex-start;
 flex-wrap:nowrap;
 overflow-x:auto;
+scrollbar-width:none;
 }
 
+.nav-inner::-webkit-scrollbar{display:none}
+
 .nav-inner a{
-padding:12px 11px;
+flex-shrink:0;
+padding:11px 10px;
+font-size:11px;
 }
 
 .search{
 flex:1;
 width:auto;
+}
+
+.live{
+padding:10px 12px;
 }
 
 .container{
@@ -684,9 +743,8 @@ gap:23px 17px;
 <a href="./politics.html">POLITICS</a>
 <a href="./business.html">BUSINESS</a>
 <a href="./sports.html">SPORTS</a>
-<a href="./entertainment.html">ENTERTAINMENT</a>
 <a href="./videos.html">VIDEOS</a>
-<a href="./about.html">ABOUT</a>
+<a href="./about.html">ABOUT US</a>
 </nav>
 
 <form class="search" action="./search.html" method="get">
@@ -694,7 +752,7 @@ gap:23px 17px;
 <button type="submit" aria-label="Search">⌕</button>
 </form>
 
-<a href="./videos.html" class="live">● GO LIVE</a>
+<a href="./latest-news.html" class="live">LATEST NEWS</a>
 
 </div>
 </div>
@@ -797,20 +855,21 @@ gap:23px 17px;
 <div class="footer-grid">
 
 <div>
-<h3>About JNTV</h3>
-<p>JNTV is a digital media platform covering news, current affairs, politics, business, sports and entertainment.</p>
-<p>Bringing important stories and developments closer to our audience.</p>
+<h3>JAMES NYARANGO TV</h3>
+<div class="footer-tagline">INFORM • ENTERTAIN • EMPOWER</div>
+<p>JNTV is a digital media platform delivering news, current affairs, politics, business, sports and entertainment from Uganda, Africa and the world.</p>
+<a class="footer-website" href="https://www.jamesnyarangotv.ac.ug">www.jamesnyarangotv.ac.ug</a>
 </div>
 
 <div>
-<h4>QUICK LINKS</h4>
+<h4>ABOUT JNTV</h4>
 <ul>
-<li><a href="./index.html">Home</a></li>
-<li><a href="./latest-news.html">Latest News</a></li>
 <li><a href="./about.html">About Us</a></li>
-<li><a href="./videos.html">Videos</a></li>
+<li><a href="./latest-news.html">Latest News</a></li>
+<li><a href="./videos.html">Our Videos</a></li>
+<li><a href="mailto:info@jamesnyarangotv.ac.ug">Contact Us</a></li>
+<li><a href="./about.html">Advertise With Us</a></li>
 <li><a href="./about.html">Privacy Policy</a></li>
-<li><a href="./about.html">Terms and Conditions</a></li>
 </ul>
 </div>
 
@@ -820,7 +879,7 @@ gap:23px 17px;
 <li><a href="tel:+256775732004">+256 775 732 004</a></li>
 <li><a href="mailto:info@jamesnyarangotv.ac.ug">info@jamesnyarangotv.ac.ug</a></li>
 <li>Kampala, Uganda</li>
-<li><a href="https://www.jamesnyarangotv.ac.ug">www.jamesnyarangotv.ac.ug</a></li>
+<li><a href="https://www.jamesnyarangotv.ac.ug">Official Website</a></li>
 </ul>
 </div>
 
@@ -841,8 +900,8 @@ gap:23px 17px;
 </div>
 
 <div class="copyright">
-<span>© 2026 JNTV. All rights reserved.</span>
-<span>Uganda • Africa • Worldwide</span>
+<span>© 2026 James Nyarango TV (JNTV). All rights reserved.</span>
+<span>INFORM • ENTERTAIN • EMPOWER</span>
 </div>
 
 </div>
@@ -869,8 +928,11 @@ return String(value || "").replace(/[&<>"']/g, char => ({
 function articleDate(article){
 const date = article.published_at || article.created_at;
 if(!date) return "";
+
 const parsed = new Date(date);
+
 if(Number.isNaN(parsed.getTime())) return "";
+
 return parsed.toLocaleDateString("en-UG",{
 day:"numeric",
 month:"short",
