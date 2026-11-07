@@ -10,7 +10,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -25,15 +25,14 @@
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
 margin:0;
 background:#f3f5f8;
 color:var(--ink);
-font-family:'Manrope',sans-serif;
-font-size:13px;
+font-family:'Jost',sans-serif;
+font-size:14px;
 -webkit-font-smoothing:antialiased;
 }
 
@@ -53,12 +52,12 @@ box-shadow:0 3px 14px rgba(0,0,0,.13);
 
 .header-inner{
 max-width:1300px;
-min-height:76px;
+min-height:79px;
 margin:auto;
 padding:7px 22px;
 display:flex;
 align-items:center;
-gap:20px;
+gap:21px;
 }
 
 .brand{
@@ -68,12 +67,10 @@ flex-shrink:0;
 }
 
 .brand img{
-width:57px;
-height:56px;
+width:66px;
+height:62px;
 object-fit:contain;
 }
-
-/* NAVIGATION BESIDE LOGO */
 
 .main-nav{
 display:flex;
@@ -85,8 +82,8 @@ min-width:0;
 }
 
 .main-nav a{
-font-size:11px;
-font-weight:800;
+font-size:12px;
+font-weight:700;
 color:#e5eaf2;
 white-space:nowrap;
 padding:11px 0;
@@ -95,9 +92,7 @@ transition:.2s;
 }
 
 .main-nav a:hover,
-.main-nav a.active{
-color:#fff;
-}
+.main-nav a.active{color:#fff}
 
 .main-nav a.active:after{
 content:"";
@@ -125,7 +120,7 @@ color:white;
 background:var(--red);
 color:#fff;
 padding:10px 14px;
-font-size:10px;
+font-size:11px;
 font-weight:800;
 letter-spacing:.7px;
 border-radius:2px;
@@ -138,27 +133,29 @@ border-radius:2px;
 .breaking-strip{
 background:var(--red);
 color:white;
+overflow:hidden;
 }
 
 .breaking-inner{
 max-width:1300px;
-min-height:34px;
+min-height:36px;
 margin:auto;
 padding:0 22px;
 display:flex;
 align-items:center;
-gap:12px;
-font-size:10px;
-font-weight:700;
+gap:13px;
+font-size:12px;
+font-weight:600;
 }
 
 .breaking-label{
 background:#fff;
 color:var(--red);
-padding:5px 9px;
-font-size:9px;
+padding:5px 10px;
+font-size:10px;
 font-weight:900;
 letter-spacing:.7px;
+flex-shrink:0;
 }
 
 /* PAGE */
@@ -169,12 +166,9 @@ margin:auto;
 padding:25px 22px 0;
 }
 
-.page-heading{
-margin-bottom:19px;
-}
+.page-heading{margin-bottom:19px}
 
 .page-heading h1{
-font-family:'Playfair Display',serif;
 font-size:30px;
 font-weight:800;
 color:var(--navy);
@@ -182,7 +176,7 @@ margin:0;
 }
 
 .page-heading p{
-font-size:12px;
+font-size:14px;
 color:var(--muted);
 margin:5px 0 0;
 }
@@ -224,7 +218,7 @@ background:linear-gradient(90deg,var(--red) 0 28%,#fff 28% 28.5%,transparent 28.
 position:relative;
 z-index:2;
 max-width:690px;
-padding:45px 45px;
+padding:45px;
 color:#fff;
 }
 
@@ -232,23 +226,22 @@ color:#fff;
 display:inline-block;
 background:var(--red);
 padding:7px 11px;
-font-size:9px;
+font-size:11px;
 font-weight:900;
 letter-spacing:1px;
 margin-bottom:15px;
 }
 
 .hero-content h2{
-font-family:'Playfair Display',serif;
 font-size:clamp(38px,5vw,57px);
 line-height:1.08;
-font-weight:800;
+font-weight:900;
 margin:0 0 13px;
 }
 
 .hero-content p{
 max-width:520px;
-font-size:13px;
+font-size:15px;
 line-height:1.8;
 color:#e2e8f1;
 margin:0 0 22px;
@@ -265,7 +258,7 @@ display:inline-block;
 padding:12px 17px;
 background:var(--red);
 color:#fff;
-font-size:10px;
+font-size:11px;
 font-weight:900;
 letter-spacing:.5px;
 }
@@ -280,7 +273,7 @@ background:white;
 color:var(--navy);
 }
 
-/* VIDEO CATEGORY BAR */
+/* CATEGORY BAR */
 
 .category-bar{
 display:grid;
@@ -293,7 +286,7 @@ margin-bottom:32px;
 padding:16px 8px;
 text-align:center;
 color:white;
-font-size:11px;
+font-size:12px;
 font-weight:800;
 border-right:1px solid rgba(255,255,255,.12);
 transition:.2s;
@@ -302,15 +295,11 @@ transition:.2s;
 .category-bar a:last-child{border:0}
 
 .category-bar a:hover,
-.category-bar a.active{
-background:var(--red);
-}
+.category-bar a.active{background:var(--red)}
 
 /* SECTION HEADINGS */
 
-.content-section{
-margin-bottom:38px;
-}
+.content-section{margin-bottom:38px}
 
 .section-heading{
 display:flex;
@@ -323,15 +312,14 @@ margin-bottom:19px;
 }
 
 .section-heading h2{
-font-family:'Playfair Display',serif;
-font-size:22px;
-font-weight:800;
+font-size:23px;
+font-weight:900;
 color:var(--navy);
 margin:0;
 }
 
 .section-heading span{
-font-size:9px;
+font-size:11px;
 font-weight:900;
 color:var(--red);
 letter-spacing:.8px;
@@ -391,46 +379,44 @@ box-shadow:0 0 0 9px rgba(255,255,255,.09);
 }
 
 .video-placeholder strong{
-font-family:'Playfair Display',serif;
-font-size:21px;
+font-size:22px;
+font-weight:900;
 }
 
 .video-placeholder small{
-font-size:9px;
+font-size:10px;
 letter-spacing:1px;
 margin-top:7px;
 color:#d4dce9;
 }
 
-.featured-info{
-padding:15px;
-}
+.featured-info{padding:15px}
 
 .featured-category{
 color:var(--red);
-font-size:9px;
+font-size:11px;
 font-weight:900;
 letter-spacing:1px;
 text-transform:uppercase;
 }
 
 .featured-info h2{
-font-family:'Playfair Display',serif;
-font-size:27px;
+font-size:29px;
 line-height:1.25;
 color:var(--navy);
 margin:11px 0;
+font-weight:900;
 }
 
 .featured-info p{
-font-size:12px;
+font-size:14px;
 line-height:1.8;
 color:var(--muted);
 }
 
 .featured-meta{
 margin-top:16px;
-font-size:10px;
+font-size:12px;
 color:#8b94a1;
 font-weight:700;
 }
@@ -472,9 +458,7 @@ object-fit:cover;
 transition:.3s;
 }
 
-.video-card:hover .video-thumbnail img{
-transform:scale(1.04);
-}
+.video-card:hover .video-thumbnail img{transform:scale(1.04)}
 
 .play-button{
 position:absolute;
@@ -489,7 +473,7 @@ align-items:center;
 justify-content:center;
 background:var(--red);
 color:white;
-font-size:17px;
+font-size:18px;
 box-shadow:0 2px 12px rgba(0,0,0,.3);
 }
 
@@ -498,7 +482,7 @@ padding:13px 14px 15px;
 }
 
 .video-category{
-font-size:9px;
+font-size:11px;
 font-weight:900;
 color:var(--red);
 letter-spacing:.7px;
@@ -506,23 +490,22 @@ text-transform:uppercase;
 }
 
 .video-details h3{
-font-family:'Playfair Display',serif;
-font-size:17px;
+font-size:19px;
 line-height:1.35;
-font-weight:700;
+font-weight:800;
 color:var(--navy);
 margin:7px 0;
 }
 
 .video-details p{
-font-size:11px;
+font-size:13px;
 line-height:1.7;
 color:var(--muted);
 margin:0 0 10px;
 }
 
 .video-meta{
-font-size:9px;
+font-size:11px;
 font-weight:700;
 color:#8993a0;
 }
@@ -536,15 +519,15 @@ border-bottom:3px solid var(--red);
 }
 
 .empty-state h3{
-font-family:'Playfair Display',serif;
-font-size:23px;
+font-size:24px;
 color:var(--navy);
 margin:0 0 8px;
+font-weight:900;
 }
 
 .empty-state p{
 color:var(--muted);
-font-size:12px;
+font-size:13px;
 margin:0;
 }
 
@@ -564,26 +547,23 @@ align-items:center;
 gap:20px;
 }
 
-.promo-content{
-position:relative;
-z-index:2;
-}
+.promo-content{position:relative;z-index:2}
 
 .promo-content small{
 color:#ffb6bd;
-font-size:9px;
+font-size:11px;
 font-weight:900;
 letter-spacing:1.4px;
 }
 
 .promo-content h2{
-font-family:'Playfair Display',serif;
-font-size:29px;
+font-size:30px;
 margin:8px 0;
+font-weight:900;
 }
 
 .promo-content p{
-font-size:11px;
+font-size:14px;
 color:#d7e0eb;
 margin:0;
 }
@@ -612,6 +592,56 @@ border:1px solid rgba(255,255,255,.18);
 border-radius:50%;
 }
 
+/* MOVING BRAND TICKER */
+
+.brand-ticker{
+background:#10294b;
+color:white;
+overflow:hidden;
+border-top:1px solid rgba(255,255,255,.12);
+border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.ticker-track{
+display:flex;
+width:max-content;
+animation:tickerMove 34s linear infinite;
+}
+
+.ticker-content{
+display:flex;
+align-items:center;
+gap:26px;
+padding:15px 18px;
+white-space:nowrap;
+font-size:13px;
+font-weight:700;
+}
+
+.ticker-content strong{
+color:#fff;
+font-weight:900;
+}
+
+.ticker-content .ticker-red{color:#ff6873}
+
+.ticker-dot{
+width:6px;
+height:6px;
+background:var(--red);
+border-radius:50%;
+flex-shrink:0;
+}
+
+.brand-ticker:hover .ticker-track{
+animation-play-state:paused;
+}
+
+@keyframes tickerMove{
+from{transform:translateX(0)}
+to{transform:translateX(-50%)}
+}
+
 /* FOOTER */
 
 .site-footer{
@@ -628,19 +658,19 @@ background:linear-gradient(90deg,var(--red) 0 22%,white 22% 22.5%,#17365e 22.5%)
 .footer-main{
 max-width:1240px;
 margin:auto;
-padding:42px 22px 32px;
+padding:44px 22px 35px;
 display:grid;
 grid-template-columns:1.4fr 1fr 1fr 1fr;
 gap:30px;
 }
 
 .footer-column h3{
-font-family:'Playfair Display',serif;
-font-size:16px;
+font-size:19px;
 color:white;
-margin:0 0 16px;
+margin:0 0 17px;
 padding-bottom:10px;
 position:relative;
+font-weight:800;
 }
 
 .footer-column h3:after{
@@ -654,17 +684,17 @@ background:var(--red);
 }
 
 .footer-column p{
-font-size:11px;
+font-size:14px;
 line-height:1.8;
 color:#aebbd0;
-margin:0 0 12px;
+margin:0 0 14px;
 }
 
 .footer-column a{
 display:block;
-font-size:11px;
+font-size:14px;
 color:#bac6d7;
-margin-bottom:10px;
+margin-bottom:11px;
 transition:.2s;
 }
 
@@ -676,8 +706,8 @@ padding-left:3px;
 .footer-highlight{
 display:inline-block;
 background:var(--red);
-padding:6px 9px;
-font-size:9px;
+padding:7px 10px;
+font-size:11px;
 font-weight:900;
 letter-spacing:.8px;
 margin-bottom:13px;
@@ -686,12 +716,12 @@ margin-bottom:13px;
 .footer-socials{
 display:flex;
 gap:8px;
-margin-top:16px;
+margin-top:17px;
 }
 
 .footer-socials a{
-width:32px;
-height:32px;
+width:34px;
+height:34px;
 border:1px solid rgba(255,255,255,.25);
 border-radius:50%;
 display:flex;
@@ -716,12 +746,12 @@ border-top:1px solid rgba(255,255,255,.1);
 .footer-bottom-inner{
 max-width:1240px;
 margin:auto;
-padding:15px 22px;
+padding:17px 22px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 gap:15px;
-font-size:10px;
+font-size:12px;
 color:#8c9ab0;
 }
 
@@ -729,11 +759,11 @@ color:#8c9ab0;
 
 /* RESPONSIVE */
 
-@media(max-width:1050px){
+@media(max-width:1100px){
 .header-inner{gap:13px}
 .main-nav{gap:11px}
-.main-nav a{font-size:10px}
-.brand img{width:51px;height:51px}
+.main-nav a{font-size:11px}
+.brand img{width:59px;height:57px}
 }
 
 @media(max-width:850px){
@@ -743,7 +773,7 @@ padding:8px 15px;
 gap:8px;
 }
 
-.brand img{width:50px;height:47px}
+.brand img{width:57px;height:53px}
 
 .main-nav{
 order:3;
@@ -755,65 +785,37 @@ scrollbar-width:none;
 }
 
 .main-nav::-webkit-scrollbar{display:none}
-
 .header-actions{margin-left:auto}
-
 .featured-video{grid-template-columns:1fr}
 .footer-main{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:600px){
-.breaking-inner{padding:0 13px;font-size:9px}
-
+.breaking-inner{padding:0 13px;font-size:10px}
 .page-wrap{padding:20px 14px 0}
-
-.page-heading h1{font-size:27px}
-
+.page-heading h1{font-size:28px}
+.page-heading p{font-size:12px}
 .video-hero{min-height:360px}
-
 .hero-content{padding:30px 22px}
-
 .hero-content h2{font-size:39px}
-
-.hero-content p{font-size:11px}
-
+.hero-content p{font-size:13px}
 .category-bar{grid-template-columns:repeat(3,1fr)}
-
 .category-bar a{font-size:10px;padding:13px 5px}
-
-.section-heading h2{font-size:19px}
-
-.featured-info h2{font-size:24px}
-
-.video-grid{
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:15px 12px;
-}
-
+.section-heading h2{font-size:20px}
+.featured-info h2{font-size:25px}
+.video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 12px}
 .video-details{padding:10px}
-
-.video-details h3{font-size:15px}
-
-.video-details p{font-size:10px}
-
+.video-details h3{font-size:16px}
+.video-details p{font-size:12px}
 .broadcast-promo{padding:25px 20px}
-
-.promo-content h2{font-size:22px}
-
-.promo-content p{font-size:10px}
-
+.promo-content h2{font-size:23px}
+.promo-content p{font-size:12px}
 .promo-symbol{font-size:43px}
-
-.footer-main{
-padding:32px 17px;
-gap:25px 15px;
-}
-
-.footer-bottom-inner{
-padding:14px 17px;
-flex-direction:column;
-align-items:flex-start;
-}
+.footer-main{padding:32px 17px;gap:25px 15px}
+.footer-column h3{font-size:17px}
+.footer-column p,.footer-column a{font-size:13px}
+.footer-bottom-inner{padding:14px 17px;flex-direction:column;align-items:flex-start}
+.ticker-content{font-size:12px}
 }
 
 @media(max-width:380px){
@@ -823,8 +825,6 @@ align-items:flex-start;
 </head>
 
 <body>
-
-<!-- HEADER: LOGO AND PAGES ON ONE LINE -->
 
 <header class="site-header">
 <div class="header-inner">
@@ -851,11 +851,9 @@ align-items:flex-start;
 </div>
 </header>
 
-<!-- BREAKING STRIP -->
-
 <div class="breaking-strip">
 <div class="breaking-inner">
-<span class="breaking-label">VIDEO DESK</span>
+<span class="breaking-label">JNTV VIDEO DESK</span>
 <span>News Reports • Interviews • Documentaries • Special Coverage</span>
 </div>
 </div>
@@ -868,29 +866,20 @@ align-items:flex-start;
 <div class="red-line"></div>
 </div>
 
-<!-- HERO -->
-
 <section class="video-hero">
 <div class="hero-content">
-
 <span class="hero-label">JNTV DIGITAL BROADCAST</span>
-
 <h2>Stories Beyond The Headlines</h2>
-
 <p>
 Go beyond the headlines with exclusive reports, interviews,
 documentaries and important stories from across the world.
 </p>
-
 <div class="hero-buttons">
 <a href="#latest-videos" class="hero-btn">EXPLORE VIDEOS ▶</a>
 <a href="../latest-news.html" class="hero-btn secondary">LATEST NEWS</a>
 </div>
-
 </div>
 </section>
-
-<!-- CATEGORIES -->
 
 <nav class="category-bar" aria-label="Video categories">
 <a href="#latest-videos" data-filter="all" class="active">ALL VIDEOS</a>
@@ -899,8 +888,6 @@ documentaries and important stories from across the world.
 <a href="#latest-videos" data-filter="programme">PROGRAMMES</a>
 <a href="#latest-videos" data-filter="documentary">DOCUMENTARIES</a>
 </nav>
-
-<!-- FEATURED -->
 
 <section class="content-section">
 
@@ -932,8 +919,6 @@ interviews, news coverage and special programmes.
 </section>
 </section>
 
-<!-- LATEST VIDEOS -->
-
 <section class="content-section" id="latest-videos">
 
 <div class="section-heading">
@@ -942,17 +927,13 @@ interviews, news coverage and special programmes.
 </div>
 
 <div class="video-grid" id="videoGrid">
-
 <div class="empty-state">
 <h3>Videos Coming Soon</h3>
 <p>Published JNTV video stories will appear here.</p>
 </div>
-
 </div>
 
 </section>
-
-<!-- PROMOTIONAL GRAPHIC -->
 
 <section class="broadcast-promo">
 
@@ -970,7 +951,53 @@ interviews, news coverage and special programmes.
 
 </main>
 
-<!-- FOOTER -->
+<!-- MOVING JNTV BRAND AND SERVICES TICKER -->
+
+<div class="brand-ticker" aria-label="JNTV services and information">
+<div class="ticker-track">
+
+<div class="ticker-content">
+<strong>JAMES NYARANGO TV</strong>
+<span class="ticker-dot"></span>
+<span>News and Current Affairs</span>
+<span class="ticker-dot"></span>
+<span>Politics and Governance</span>
+<span class="ticker-dot"></span>
+<span>Business and Economy</span>
+<span class="ticker-dot"></span>
+<span>Sports and Entertainment</span>
+<span class="ticker-dot"></span>
+<span>Interviews and Special Reports</span>
+<span class="ticker-dot"></span>
+<span>Digital Broadcasting</span>
+<span class="ticker-dot"></span>
+<strong class="ticker-red">CONTACT JNTV</strong>
+<span class="ticker-dot"></span>
+<span>News Tips • Partnerships • Advertising • General Enquiries</span>
+</div>
+
+<div class="ticker-content" aria-hidden="true">
+<strong>JAMES NYARANGO TV</strong>
+<span class="ticker-dot"></span>
+<span>News and Current Affairs</span>
+<span class="ticker-dot"></span>
+<span>Politics and Governance</span>
+<span class="ticker-dot"></span>
+<span>Business and Economy</span>
+<span class="ticker-dot"></span>
+<span>Sports and Entertainment</span>
+<span class="ticker-dot"></span>
+<span>Interviews and Special Reports</span>
+<span class="ticker-dot"></span>
+<span>Digital Broadcasting</span>
+<span class="ticker-dot"></span>
+<strong class="ticker-red">CONTACT JNTV</strong>
+<span class="ticker-dot"></span>
+<span>News Tips • Partnerships • Advertising • General Enquiries</span>
+</div>
+
+</div>
+</div>
 
 <footer class="site-footer">
 
@@ -979,11 +1006,8 @@ interviews, news coverage and special programmes.
 <div class="footer-main">
 
 <div class="footer-column">
-
 <span class="footer-highlight">JNTV DIGITAL MEDIA</span>
-
 <h3>About Our Videos</h3>
-
 <p>
 Watch news reports, interviews, documentaries and special coverage
 from Uganda, Africa and around the world.
@@ -995,7 +1019,6 @@ from Uganda, Africa and around the world.
 <a href="https://www.tiktok.com/" aria-label="TikTok">♪</a>
 <a href="https://www.instagram.com/" aria-label="Instagram">◎</a>
 </div>
-
 </div>
 
 <div class="footer-column">
@@ -1010,12 +1033,13 @@ from Uganda, Africa and around the world.
 </div>
 
 <div class="footer-column">
-<h3>Video Categories</h3>
-<a href="#latest-videos" data-filter="news">News Reports</a>
-<a href="#latest-videos" data-filter="interview">Interviews</a>
-<a href="#latest-videos" data-filter="programme">Programmes</a>
-<a href="#latest-videos" data-filter="documentary">Documentaries</a>
-<a href="#latest-videos" data-filter="all">All Videos</a>
+<h3>What We Do</h3>
+<a href="#latest-videos">News Reports</a>
+<a href="#latest-videos">Interviews</a>
+<a href="#latest-videos">Documentaries</a>
+<a href="#latest-videos">Special Coverage</a>
+<a href="../latest-news.html">Current Affairs</a>
+<a href="../live.html">Digital Broadcasting</a>
 </div>
 
 <div class="footer-column">
@@ -1046,15 +1070,13 @@ get in touch with our team.
 "use strict";
 
 const KEY="jntvArticles";
-
 const grid=document.getElementById("videoGrid");
 const featured=document.getElementById("featuredVideo");
 
 let currentFilter="all";
 let videos=[];
 
-document.getElementById("year").textContent=
-new Date().getFullYear();
+document.getElementById("year").textContent=new Date().getFullYear();
 
 function esc(value){
 return String(value??"").replace(/[&<>"']/g,function(c){
@@ -1083,14 +1105,11 @@ return String(a.summary||a.description||a.excerpt||a.content||"")
 }
 
 function getImage(a){
-const value=String(
-a.photo||a.image||a.imageUrl||a.thumbnail||""
-).trim();
+const value=String(a.photo||a.image||a.imageUrl||a.thumbnail||"").trim();
 
 if(/^https?:\/\//i.test(value))return esc(value);
 
-if(/^data:image\/(jpeg|png|webp|gif);base64,/i.test(value))
-return value;
+if(/^data:image\/(jpeg|png|webp|gif);base64,/i.test(value))return value;
 
 return "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900&auto=format&fit=crop&q=80";
 }
@@ -1108,7 +1127,6 @@ function getEmbed(url){
 if(!url)return "";
 
 try{
-
 const parsed=new URL(url);
 let id="";
 
@@ -1215,7 +1233,6 @@ a&&(!a.status||String(a.status).toLowerCase()==="published")
 articles.reverse();
 
 videos=articles.filter(isVideo);
-
 const visible=videos.filter(matchesFilter);
 
 if(!videos.length){
@@ -1242,8 +1259,6 @@ grid.innerHTML=`
 return;
 }
 
-/* FEATURED VIDEO */
-
 const first=videos[0];
 
 featured.querySelector(".featured-player").innerHTML=
@@ -1254,8 +1269,6 @@ featured.querySelector(".featured-info").innerHTML=`
 <h2>${esc(getTitle(first))}</h2>
 <p>${esc(getSummary(first).slice(0,300))}</p>
 <div class="featured-meta">JNTV • ${esc(first.date||"Latest Video")}</div>`;
-
-/* VIDEO GRID */
 
 if(!visible.length){
 
@@ -1273,31 +1286,18 @@ grid.innerHTML=visible.map(a=>`
 <article class="video-card">
 
 <a class="video-thumbnail" href="${getLink(a)}">
-
-<img
-src="${getImage(a)}"
+<img src="${getImage(a)}"
 alt="${esc(getTitle(a))}"
 loading="lazy"
 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900';">
-
 <span class="play-button">▶</span>
-
 </a>
 
 <div class="video-details">
-
 <span class="video-category">${esc(getCategory(a))}</span>
-
-<h3>
-<a href="${getLink(a)}">${esc(getTitle(a))}</a>
-</h3>
-
+<h3><a href="${getLink(a)}">${esc(getTitle(a))}</a></h3>
 <p>${esc(getSummary(a).slice(0,145))}</p>
-
-<div class="video-meta">
-${esc(a.date||"JNTV VIDEO DESK")}
-</div>
-
+<div class="video-meta">${esc(a.date||"JNTV VIDEO DESK")}</div>
 </div>
 
 </article>
@@ -1306,14 +1306,11 @@ ${esc(a.date||"JNTV VIDEO DESK")}
 
 }
 
-/* CATEGORY FILTERS */
-
 document.querySelectorAll("[data-filter]").forEach(link=>{
 
 link.addEventListener("click",function(e){
 
 e.preventDefault();
-
 currentFilter=this.dataset.filter;
 
 document.querySelectorAll(".category-bar a").forEach(a=>{
@@ -1331,16 +1328,10 @@ block:"start"
 
 });
 
-/* INITIAL LOAD */
-
 render();
 
-/* REFRESH WHEN ADMIN PUBLISHES */
-
 window.addEventListener("storage",function(e){
-
 if(e.key===KEY)render();
-
 });
 
 window.addEventListener("pageshow",render);
