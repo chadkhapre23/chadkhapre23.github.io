@@ -4,875 +4,1100 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>News Article | James Nyarango TV</title>
-<meta name="description" content="Read the latest news, politics, business, sports and current affairs from James Nyarango TV.">
+<title>JNTV | Latest News, Politics, Business and More</title>
+<meta name="description" content="JNTV brings you the latest news, politics, business, sports and current affairs from Uganda, Africa and around the world.">
 <meta name="theme-color" content="#071a35">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-:root{
---navy:#071a35;
---navy2:#10294b;
---red:#e00016;
---ink:#202124;
---muted:#666d75;
---line:#e5e7eb;
---light:#f5f6f7;
---white:#fff;
+:root {
+  --navy: #071a35;
+  --navy-light: #102b50;
+  --red: #e00016;
+  --white: #ffffff;
+  --grey: #707783;
+  --light: #f3f5f8;
+  --border: #e5e8ed;
 }
 
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
-
-body{
-margin:0;
-background:#fff;
-color:var(--ink);
-font-family:'Jost',Arial,sans-serif;
-font-size:15px;
-line-height:1.55;
--webkit-font-smoothing:antialiased;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-a{text-decoration:none;color:inherit}
-button,input{font:inherit}
+body {
+  font-family: 'Jost', sans-serif;
+  color: #17202b;
+  background: #fff;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+.container {
+  width: min(1180px, 94%);
+  margin: auto;
+}
+
+/* TOP BAR */
+
+.topbar {
+  background: var(--navy);
+  color: #fff;
+  font-size: 11px;
+  padding: 7px 0;
+}
+
+.topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-right {
+  color: #dce4ef;
+}
 
 /* HEADER */
 
-.top-header{
-background:var(--navy);
-border-bottom:3px solid var(--red);
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
 }
 
-.header-inner{
-max-width:1400px;
-min-height:88px;
-margin:auto;
-padding:8px 22px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:12px;
+.header-main {
+  min-height: 83px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
 }
 
-.brand{
-display:flex;
-align-items:center;
-flex-shrink:0;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 190px;
 }
 
-.brand img{
-width:83px;
-height:70px;
-object-fit:contain;
+.brand img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
 }
 
-.navigation{
-flex:1 1 auto;
-min-width:0;
+.brand-name {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: -.7px;
 }
 
-.nav-inner{
-display:flex;
-align-items:center;
-justify-content:center;
-min-height:80px;
-overflow-x:auto;
-scrollbar-width:none;
+.brand-tagline {
+  color: var(--red);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 5px;
 }
 
-.nav-inner::-webkit-scrollbar{display:none}
+.header-search {
+  display: flex;
+  width: 275px;
+  height: 37px;
+  border: 1px solid #dce1e8;
+  border-radius: 3px;
+  overflow: hidden;
+}
 
-.nav-inner a{
-display:flex;
-align-items:center;
-justify-content:center;
-min-height:80px;
-padding:0 10px;
-color:#fff;
-font-size:12px;
-font-weight:800;
-white-space:nowrap;
-border-bottom:3px solid transparent;
+.header-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  padding: 0 11px;
+  font-size: 12px;
+}
+
+.header-search button {
+  width: 42px;
+  background: var(--navy);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  background: var(--navy);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-inner a {
+  color: #fff;
+  padding: 13px 17px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: .4px;
+  transition: background .2s;
 }
 
 .nav-inner a:hover,
-.nav-inner a.active{
-background:#18375e;
-border-bottom-color:var(--red);
+.nav-inner a.active {
+  background: var(--red);
 }
 
-.header-actions{
-display:flex;
-align-items:center;
-gap:9px;
-flex-shrink:0;
+/* BREAKING / TICKER */
+
+.ticker-wrap {
+  background: #f1f2f4;
+  border-bottom: 1px solid #e2e5e9;
+  overflow: hidden;
 }
 
-.search-box{
-display:flex;
-width:155px;
-height:38px;
-background:#fff;
+.ticker-inner {
+  display: flex;
+  align-items: center;
+  min-height: 39px;
+  overflow: hidden;
 }
 
-.search-box input{
-width:100%;
-min-width:0;
-border:0;
-outline:0;
-padding:0 10px;
-font-size:12px;
+.ticker-label {
+  background: var(--red);
+  color: #fff;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 12px 14px;
+  white-space: nowrap;
+  z-index: 2;
 }
 
-.search-box button{
-width:40px;
-flex-shrink:0;
-border:0;
-background:var(--red);
-color:white;
-cursor:pointer;
+.ticker-window {
+  overflow: hidden;
+  flex: 1;
+  white-space: nowrap;
 }
 
-.live-button{
-padding:11px 10px;
-background:var(--red);
-color:white;
-font-size:11px;
-font-weight:900;
-white-space:nowrap;
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  animation: tickerMove 38s linear infinite;
 }
 
-.pulse-dot{
-display:inline-block;
-width:7px;
-height:7px;
-margin-right:6px;
-border-radius:50%;
-background:white;
-animation:pulse 1.4s infinite;
+.ticker-track:hover {
+  animation-play-state: paused;
 }
 
-@keyframes pulse{50%{opacity:.3}}
-
-/* ARTICLE PAGE */
-
-.article-main{
-max-width:1100px;
-margin:0 auto;
-padding:30px 24px 55px;
+.ticker-item {
+  padding: 0 28px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
 }
 
-.breadcrumb{
-margin-bottom:18px;
-color:#737b84;
-font-size:12px;
-font-weight:700;
+.ticker-item::before {
+  content: "●";
+  color: var(--red);
+  font-size: 9px;
+  margin-right: 10px;
 }
 
-.breadcrumb a:hover{color:var(--red)}
-
-.article-layout{
-max-width:900px;
-margin:auto;
+@keyframes tickerMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-.article{background:#fff}
+/* SECTION HEADINGS */
 
-.category{
-display:block;
-margin-bottom:9px;
-color:var(--red);
-font-size:12px;
-font-weight:900;
-text-transform:uppercase;
-letter-spacing:.6px;
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--navy);
+  margin-bottom: 15px;
+  padding-bottom: 7px;
 }
 
-.breaking{
-display:inline-block;
-background:var(--red);
-color:white;
-padding:5px 11px;
-font-size:11px;
-font-weight:900;
-margin:0 0 12px;
+.section-heading h2 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: .2px;
 }
 
-.article h1{
-margin:0 0 14px;
-color:#202124;
-font-size:34px;
-font-weight:900;
-line-height:1.2;
-letter-spacing:-.5px;
+.section-heading a {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 700;
 }
 
-.subheadline{
-margin:0 0 17px;
-color:#555d65;
-font-size:17px;
-line-height:1.7;
+/* FEATURED */
+
+.featured-section {
+  padding: 23px 0 18px;
 }
 
-.details{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-align-items:center;
-padding:12px 0;
-margin-bottom:18px;
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line);
-color:#747b83;
-font-size:12px;
+.featured-layout {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 17px;
 }
 
-.article-image{
-display:block;
-width:100%;
-max-height:570px;
-object-fit:cover;
-margin:15px 0 25px;
-background:#eceff2;
+.featured-main {
+  position: relative;
+  min-height: 340px;
+  background: #101c2c;
+  overflow: hidden;
+  border-radius: 3px;
+  color: #fff;
 }
 
-.story{
-color:#292d32;
-font-size:17px;
-line-height:1.9;
-white-space:pre-wrap;
-overflow-wrap:anywhere;
+.featured-main img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  opacity: .78;
+  transition: transform .4s;
 }
 
-.article-actions{
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-gap:12px;
-margin-top:30px;
-padding-top:20px;
-border-top:1px solid var(--line);
+.featured-main:hover img {
+  transform: scale(1.035);
 }
 
-.back-button,
-.next-button{
-display:inline-block;
-padding:10px 16px;
-background:var(--red);
-color:#fff;
-font-size:11px;
-font-weight:900;
+.featured-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 20%, rgba(3,13,27,.92) 100%);
 }
 
-.next-button{background:var(--navy)}
-
-.back-button:hover,
-.next-button:hover{opacity:.88}
-
-.message{
-padding:35px;
-background:#f7f8fa;
-border:1px solid var(--line);
-text-align:center;
+.featured-content {
+  position: absolute;
+  bottom: 0;
+  padding: 22px;
+  width: 100%;
+  z-index: 2;
 }
 
-.message h2{
-margin:0 0 10px;
-color:var(--navy);
-font-size:23px;
-font-weight:900;
+.category-label {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  padding: 4px 9px;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 9px;
 }
 
-.message p{
-color:#626970;
-font-size:14px;
+.featured-content h1 {
+  font-size: clamp(21px, 3vw, 30px);
+  line-height: 1.16;
+  font-weight: 800;
+  margin-bottom: 9px;
 }
 
-.message a{
-display:inline-block;
-margin-top:12px;
-padding:10px 16px;
-background:var(--red);
-color:white;
-font-size:11px;
-font-weight:900;
+.featured-content p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #e4e8ed;
+  max-width: 650px;
+}
+
+.story-meta {
+  font-size: 10px;
+  color: #cbd3dd;
+  margin-top: 10px;
+}
+
+.featured-side {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+}
+
+.side-story {
+  position: relative;
+  min-height: 164px;
+  background: #18263a;
+  overflow: hidden;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.side-story img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .72;
+}
+
+.side-story::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.9));
+}
+
+.side-story-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 13px;
+  z-index: 2;
+}
+
+.side-story h3 {
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+/* TOP STORIES */
+
+.top-stories {
+  padding: 15px 0 30px;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.story-card {
+  min-width: 0;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: box-shadow .2s, transform .2s;
+}
+
+.story-card:hover {
+  box-shadow: 0 5px 17px rgba(7,26,53,.10);
+  transform: translateY(-2px);
+}
+
+.story-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.35 / 1;
+  background: #e8ebef;
+  overflow: hidden;
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s;
+}
+
+.story-card:hover .story-image img {
+  transform: scale(1.04);
+}
+
+.story-card-content {
+  padding: 11px 11px 13px;
+}
+
+.story-category {
+  color: var(--red);
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.story-card h3 {
+  font-size: 14px;
+  line-height: 1.32;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 7px;
+}
+
+.story-card p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #68717e;
+}
+
+.card-date {
+  margin-top: 9px;
+  font-size: 10px;
+  color: #8a929d;
+}
+
+/* CATEGORY SECTIONS */
+
+.category-section {
+  padding: 8px 0 24px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.category-card {
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 3px;
+  display: flex;
+  gap: 11px;
+  min-width: 0;
+}
+
+.category-card img {
+  width: 92px;
+  height: 76px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.category-card h3 {
+  color: var(--navy);
+  font-size: 13px;
+  line-height: 1.35;
+  margin-top: 4px;
+}
+
+.category-card .story-category {
+  margin: 0;
+}
+
+/* LOADING AND EMPTY STATES */
+
+.message {
+  text-align: center;
+  padding: 25px 12px;
+  color: var(--grey);
+  font-size: 12px;
+  grid-column: 1 / -1;
+}
+
+.error-message {
+  color: #b42318;
 }
 
 /* FOOTER */
 
-.footer{
-margin-top:50px;
-background:var(--navy);
-color:white;
-border-top:4px solid var(--red);
+footer {
+  background: var(--navy);
+  color: #fff;
+  margin-top: 20px;
+  padding: 28px 0 14px;
 }
 
-.footer-inner{
-max-width:1360px;
-margin:auto;
-padding:42px 25px 0;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 30px;
+  padding-bottom: 22px;
 }
 
-.footer-columns{
-display:grid;
-grid-template-columns:1.4fr 1fr 1fr 1.2fr;
-gap:35px;
-padding-bottom:35px;
+.footer-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
-.footer-brand h3{
-margin:0 0 10px;
-font-size:24px;
-font-weight:900;
+.footer-grid p,
+.footer-grid a {
+  font-size: 11px;
+  color: #c9d2df;
+  line-height: 1.9;
 }
 
-.footer-tagline{
-color:#ff7782;
-font-size:13px;
-font-weight:900;
-letter-spacing:1px;
+.footer-grid a {
+  display: block;
 }
 
-.footer-desc{
-max-width:360px;
-margin:15px 0;
-color:#d5dce6;
-font-size:15px;
-line-height:1.85;
+.footer-bottom {
+  border-top: 1px solid #30435d;
+  padding-top: 13px;
+  text-align: center;
+  font-size: 10px;
+  color: #b9c5d3;
 }
 
-.footer-web-link{
-color:white;
-font-size:15px;
-font-weight:700;
-overflow-wrap:anywhere;
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .featured-layout {
+    grid-template-columns: 1.3fr 1fr;
+  }
+
+  .stories-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .header-search {
+    width: 210px;
+  }
 }
 
-.footer-col h4{
-display:inline-block;
-margin:0 0 17px;
-padding-bottom:9px;
-border-bottom:2px solid var(--red);
-font-size:17px;
-font-weight:900;
-}
+@media (max-width: 600px) {
+  .topbar {
+    font-size: 10px;
+  }
 
-.footer-col ul{
-list-style:none;
-padding:0;
-margin:0;
-}
+  .header-main {
+    min-height: 68px;
+    gap: 8px;
+  }
 
-.footer-col li{
-margin-bottom:12px;
-color:#d5dce6;
-font-size:15px;
-line-height:1.6;
-}
+  .brand {
+    min-width: 0;
+    gap: 7px;
+  }
 
-.footer-col a{color:#d5dce6}
-.footer-col a:hover{color:#ff7782}
+  .brand img {
+    width: 48px;
+    height: 48px;
+  }
 
-.footer-contact-note{
-margin-top:12px;
-color:#c4ccd7;
-font-size:14px;
-line-height:1.8;
-}
+  .brand-name {
+    font-size: 19px;
+  }
 
-.copyright-bar{
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:12px;
-padding:18px 0;
-border-top:1px solid #29405e;
-color:#d0d7e1;
-font-size:13px;
-}
+  .brand-tagline {
+    font-size: 7px;
+  }
 
-/* TABLET */
+  .header-search {
+    width: 135px;
+    height: 33px;
+  }
 
-@media(max-width:1150px) and (min-width:761px){
+  .header-search input {
+    font-size: 10px;
+    padding: 0 7px;
+  }
 
-.header-inner{
-gap:7px;
-padding-left:14px;
-padding-right:14px;
-}
+  .nav-inner {
+    min-height: 39px;
+  }
 
-.brand img{
-width:72px;
-height:65px;
-}
+  .nav-inner a {
+    padding: 12px 13px;
+    font-size: 10px;
+  }
 
-.nav-inner a{
-padding:0 7px;
-font-size:11px;
-}
+  .ticker-label {
+    font-size: 9px;
+    padding: 12px 9px;
+  }
 
-.search-box{width:125px}
+  .ticker-item {
+    font-size: 11px;
+    padding: 0 17px;
+  }
 
-.header-actions{gap:6px}
+  .featured-section {
+    padding-top: 16px;
+  }
 
-.live-button{
-padding:10px 8px;
-font-size:10px;
-}
+  .featured-layout {
+    grid-template-columns: 1fr;
+  }
 
-.footer-columns{
-grid-template-columns:repeat(2,1fr);
-}
+  .featured-main {
+    min-height: 260px;
+  }
 
-}
+  .featured-content {
+    padding: 15px;
+  }
 
-/* MOBILE */
+  .featured-content h1 {
+    font-size: 22px;
+  }
 
-@media(max-width:760px){
+  .featured-side {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 135px;
+  }
 
-.header-inner{
-padding:9px 14px;
-gap:8px;
-flex-wrap:wrap;
-}
+  .side-story {
+    min-height: 135px;
+  }
 
-.brand img{
-width:72px;
-height:58px;
-}
+  .side-story h3 {
+    font-size: 12px;
+  }
 
-.header-actions{
-margin-left:auto;
-}
+  .stories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
 
-.search-box{width:165px}
+  .story-card-content {
+    padding: 9px;
+  }
 
-.navigation{
-order:3;
-flex:0 0 100%;
-}
+  .story-card h3 {
+    font-size: 12px;
+  }
 
-.nav-inner{
-min-height:43px;
-justify-content:flex-start;
-}
+  .story-card p {
+    font-size: 10px;
+  }
 
-.nav-inner a{
-min-height:43px;
-padding:0 12px;
-font-size:11px;
-}
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
 
-.article-main{
-padding:20px 15px 40px;
-}
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
 
-.article h1{font-size:27px}
-
-.subheadline{font-size:15px}
-
-.story{font-size:16px}
-
-.footer-columns{
-grid-template-columns:repeat(2,1fr);
-gap:25px;
-}
-
-}
-
-@media(max-width:520px){
-
-.header-actions{
-width:100%;
-margin:0;
-}
-
-.search-box{flex:1}
-
-.live-button{font-size:10px}
-
-.article-main{padding:18px 15px 35px}
-
-.article h1{font-size:25px}
-
-.article-image{margin:12px 0 20px}
-
-.story{font-size:15px;line-height:1.85}
-
-.footer-columns{grid-template-columns:1fr}
-
-.footer-inner{padding:30px 17px 0}
-
-}
-
-@media(prefers-reduced-motion:reduce){
-.pulse-dot{animation:none}
-html{scroll-behavior:auto}
+  .footer-grid > div:first-child {
+    grid-column: 1 / -1;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header class="top-header">
-<div class="header-inner">
-
-<a class="brand" href="./index.html">
-<img src="./JAMO%20LOGO.jpeg" alt="JNTV Logo">
-</a>
-
-<nav class="navigation">
-<div class="nav-inner">
-<a href="./index.html">HOME</a>
-<a href="./latest-news.html">LATEST NEWS</a>
-<a href="./politics.html">POLITICS</a>
-<a href="./business.html">BUSINESS</a>
-<a href="./sports.html">SPORTS</a>
-<a href="./videos.html">VIDEOS</a>
-<a href="./about.html">ABOUT US</a>
+<div class="topbar">
+  <div class="container topbar-inner">
+    <span>JNTV | INFORM • ENTERTAIN • EMPOWER</span>
+    <span class="topbar-right">News • Current Affairs • Media</span>
+  </div>
 </div>
-</nav>
 
-<div class="header-actions">
+<header>
+  <div class="container header-main">
+    <a href="index.html" class="brand">
+      <img src="./JAMO%20LOGO.jpeg" alt="JNTV Logo">
+      <div>
+        <div class="brand-name">JNTV</div>
+        <div class="brand-tagline">INFORM • ENTERTAIN • EMPOWER</div>
+      </div>
+    </a>
 
-<form class="search-box" action="./latest-news.html" method="get">
-<input type="search" name="search" placeholder="Search news..." aria-label="Search news">
-<button type="submit" aria-label="Search">⌕</button>
-</form>
+    <form class="header-search" id="searchForm">
+      <input type="search" id="searchInput" placeholder="Search news..." aria-label="Search news">
+      <button type="submit" aria-label="Search">⌕</button>
+    </form>
+  </div>
 
-<a href="./latest-news.html" class="live-button">
-<span class="pulse-dot"></span>LATEST NEWS
-</a>
-
-</div>
-</div>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="active">HOME</a>
+      <a href="latest.html">LATEST NEWS</a>
+      <a href="politics.html">POLITICS</a>
+      <a href="business.html">BUSINESS</a>
+      <a href="sports.html">SPORTS</a>
+      <a href="videos.html">VIDEOS</a>
+      <a href="about.html">ABOUT US</a>
+    </div>
+  </nav>
 </header>
 
-<main class="article-main">
-
-<div class="breadcrumb">
-<a href="./index.html">HOME</a> /
-<span id="breadcrumbCategory">LATEST NEWS</span>
+<!-- MOVING HEADLINES -->
+<div class="ticker-wrap">
+  <div class="container ticker-inner">
+    <div class="ticker-label">LATEST</div>
+    <div class="ticker-window">
+      <div class="ticker-track" id="tickerTrack">
+        <span class="ticker-item">Loading latest headlines...</span>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="article-layout" id="articleContainer">
-<div class="message">
-<h2>LOADING ARTICLE...</h2>
-<p>Please wait while we retrieve this story.</p>
-</div>
-</div>
+<main class="container">
+
+  <!-- FEATURED NEWS -->
+  <section class="featured-section">
+    <div class="section-heading">
+      <h2>Featured News</h2>
+      <a href="latest.html">MORE NEWS →</a>
+    </div>
+
+    <div class="featured-layout">
+      <a href="#" class="featured-main" id="featuredMain">
+        <img id="featuredImage" src="" alt="Featured news">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <span class="category-label" id="featuredCategory">LATEST NEWS</span>
+          <h1 id="featuredTitle">Loading latest news...</h1>
+          <p id="featuredSummary"></p>
+          <div class="story-meta" id="featuredMeta"></div>
+        </div>
+      </a>
+
+      <div class="featured-side" id="featuredSide">
+        <div class="message">Loading top headlines...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP STORIES -->
+  <section class="top-stories">
+    <div class="section-heading">
+      <h2>Top Stories</h2>
+      <a href="latest.html">VIEW ALL →</a>
+    </div>
+
+    <div class="stories-grid" id="topStories">
+      <div class="message">Loading published stories...</div>
+    </div>
+  </section>
+
+  <!-- LATEST POLITICS -->
+  <section class="category-section">
+    <div class="section-heading">
+      <h2>Politics</h2>
+      <a href="politics.html">MORE POLITICS →</a>
+    </div>
+    <div class="category-grid" id="politicsStories">
+      <div class="message">Loading politics stories...</div>
+    </div>
+  </section>
+
+  <!-- LATEST BUSINESS -->
+  <section class="category-section">
+    <div class="section-heading">
+      <h2>Business</h2>
+      <a href="business.html">MORE BUSINESS →</a>
+    </div>
+    <div class="category-grid" id="businessStories">
+      <div class="message">Loading business stories...</div>
+    </div>
+  </section>
+
+  <!-- LATEST SPORTS -->
+  <section class="category-section">
+    <div class="section-heading">
+      <h2>Sports</h2>
+      <a href="sports.html">MORE SPORTS →</a>
+    </div>
+    <div class="category-grid" id="sportsStories">
+      <div class="message">Loading sports stories...</div>
+    </div>
+  </section>
 
 </main>
 
-<footer class="footer">
-<div class="footer-inner">
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title">JNTV</div>
+        <p>INFORM • ENTERTAIN • EMPOWER.</p>
+        <p>Bringing you news, current affairs and stories from Uganda, Africa and around the world.</p>
+      </div>
 
-<div class="footer-columns">
+      <div>
+        <div class="footer-title">Explore</div>
+        <a href="index.html">Home</a>
+        <a href="latest.html">Latest News</a>
+        <a href="politics.html">Politics</a>
+        <a href="business.html">Business</a>
+        <a href="sports.html">Sports</a>
+      </div>
 
-<div class="footer-brand">
-<h3>JAMES NYARANGO TV</h3>
-<div class="footer-tagline">INFORM • ENTERTAIN • EMPOWER</div>
+      <div>
+        <div class="footer-title">More from JNTV</div>
+        <a href="videos.html">Videos</a>
+        <a href="about.html">About Us</a>
+        <a href="https://www.tiktok.com/@jamesnyarango1" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
 
-<p class="footer-desc">
-Your digital broadcast destination for trusted news, current affairs, politics, business, sports and entertainment from Uganda, Africa and around the world. Connecting audiences through journalism, storytelling and digital media.
-</p>
-
-<a href="https://www.jamesnyarangotv.ac.ug" class="footer-web-link">
-www.jamesnyarangotv.ac.ug
-</a>
-</div>
-
-<div class="footer-col">
-<h4>ABOUT JNTV</h4>
-<ul>
-<li><a href="./about.html">About Us</a></li>
-<li><a href="./latest-news.html">Latest News</a></li>
-<li><a href="./videos.html">Our Videos</a></li>
-<li><a href="mailto:info@jamesnyarangotv.ac.ug">Contact Us</a></li>
-<li><a href="#">Advertise With Us</a></li>
-<li><a href="#">Privacy Policy</a></li>
-</ul>
-</div>
-
-<div class="footer-col">
-<h4>CONTACT INFORMATION</h4>
-<ul>
-<li><a href="tel:+256775732004">+256 775 732 004</a></li>
-<li><a href="mailto:info@jamesnyarangotv.ac.ug">info@jamesnyarangotv.ac.ug</a></li>
-<li>Kampala, Uganda</li>
-<li><a href="https://www.jamesnyarangotv.ac.ug">Official Website</a></li>
-</ul>
-
-<div class="footer-contact-note">
-For enquiries, advertising, partnerships and media services, contact the JNTV team.
-</div>
-</div>
-
-<div class="footer-col">
-<h4>OUR SERVICES</h4>
-<ul>
-<li>News and Current Affairs</li>
-<li>Podcasts and Audio Programmes</li>
-<li>Digital Media Production</li>
-<li>Interviews and Talk Shows</li>
-<li>Video Production and Broadcasting</li>
-<li>Live Event Coverage</li>
-<li>Digital Advertising and Marketing</li>
-<li>Sponsored Content and Promotions</li>
-</ul>
-</div>
-
-</div>
-
-<div class="copyright-bar">
-<div>© 2026 James Nyarango TV (JNTV). All rights reserved.</div>
-<div>INFORM • ENTERTAIN • EMPOWER</div>
-</div>
-
-</div>
+    <div class="footer-bottom">
+      © <span id="year"></span> JNTV. All rights reserved.
+      INFORM • ENTERTAIN • EMPOWER.
+    </div>
+  </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script>
-(function(){
+const SUPABASE_URL = "https://eqogivrposfajrkdwqbq.supabase.co";
+const SUPABASE_KEY = "sb_publishable_l4sKYCzUW6670QvOMtBE_Q_kRCbwDZ-";
 
-"use strict";
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const SUPABASE_URL =
-"https://eqogivrposfajrkdwqbq.supabase.co";
+let allStories = [];
 
-const SUPABASE_KEY =
-"sb_publishable_l4sKYCzUW6670QvOMtBE_Q_kRCbwDZ-";
+document.getElementById("year").textContent = new Date().getFullYear();
 
-const db=window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
+function getValue(story, names, fallback = "") {
+  for (const name of names) {
+    if (story[name] !== undefined && story[name] !== null && story[name] !== "") {
+      return story[name];
+    }
+  }
+  return fallback;
+}
 
-const container=document.getElementById("articleContainer");
-const breadcrumbCategory=document.getElementById("breadcrumbCategory");
+function titleOf(story) {
+  return getValue(story, ["title", "headline", "news_title"], "Untitled story");
+}
 
-function safe(value){
-return String(value??"").replace(/[&<>"']/g,function(c){
-return {
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#39;"
-}[c];
+function categoryOf(story) {
+  return getValue(story, ["category", "section", "news_category"], "Latest News");
+}
+
+function summaryOf(story) {
+  return getValue(
+    story,
+    ["summary", "subheadline", "description", "excerpt"],
+    ""
+  );
+}
+
+function imageOf(story) {
+  return getValue(
+    story,
+    ["image_url", "photo", "image", "imageUrl", "thumbnail"],
+    ""
+  );
+}
+
+function dateOf(story) {
+  const date = getValue(story, ["published_at", "created_at", "date"], "");
+  if (!date) return "";
+  const parsed = new Date(date);
+  if (isNaN(parsed.getTime())) return "";
+  return parsed.toLocaleDateString("en-UG", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
+}
+
+function articleLink(story) {
+  return "article.html?id=" + encodeURIComponent(story.id);
+}
+
+function safeImage(story) {
+  const image = imageOf(story);
+  return image || "https://placehold.co/800x500/071a35/ffffff?text=JNTV+News";
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[char]);
+}
+
+function renderTicker(stories) {
+  const track = document.getElementById("tickerTrack");
+
+  if (!stories.length) {
+    track.innerHTML = '<span class="ticker-item">No published headlines yet.</span>';
+    return;
+  }
+
+  const headlines = stories.slice(0, 12).map(story =>
+    `<a class="ticker-item" href="${articleLink(story)}">${escapeHTML(titleOf(story))}</a>`
+  ).join("");
+
+  track.innerHTML = headlines + headlines;
+}
+
+function renderFeatured(stories) {
+  if (!stories.length) {
+    document.getElementById("featuredTitle").textContent =
+      "Welcome to JNTV";
+    document.getElementById("featuredSummary").textContent =
+      "Your source for news, current affairs and stories.";
+    document.getElementById("featuredMeta").textContent =
+      "INFORM • ENTERTAIN • EMPOWER";
+    return;
+  }
+
+  const featured = stories[0];
+
+  document.getElementById("featuredMain").href = articleLink(featured);
+  document.getElementById("featuredImage").src = safeImage(featured);
+  document.getElementById("featuredTitle").textContent = titleOf(featured);
+  document.getElementById("featuredCategory").textContent = categoryOf(featured);
+  document.getElementById("featuredSummary").textContent = summaryOf(featured);
+  document.getElementById("featuredMeta").textContent =
+    dateOf(featured);
+
+  const sideStories = stories.slice(1, 3);
+  const side = document.getElementById("featuredSide");
+
+  if (!sideStories.length) {
+    side.innerHTML = '<div class="message">More stories coming soon.</div>';
+    return;
+  }
+
+  side.innerHTML = sideStories.map(story => `
+    <a class="side-story" href="${articleLink(story)}">
+      <img src="${escapeHTML(safeImage(story))}" alt="${escapeHTML(titleOf(story))}">
+      <div class="side-story-content">
+        <span class="category-label">${escapeHTML(categoryOf(story))}</span>
+        <h3>${escapeHTML(titleOf(story))}</h3>
+      </div>
+    </a>
+  `).join("");
+}
+
+function renderTopStories(stories) {
+  const container = document.getElementById("topStories");
+  const selected = stories.slice(0, 8);
+
+  if (!selected.length) {
+    container.innerHTML = '<div class="message">No published stories available yet.</div>';
+    return;
+  }
+
+  container.innerHTML = selected.map(story => `
+    <article class="story-card">
+      <a class="story-image" href="${articleLink(story)}">
+        <img src="${escapeHTML(safeImage(story))}" alt="${escapeHTML(titleOf(story))}" loading="lazy">
+      </a>
+      <div class="story-card-content">
+        <div class="story-category">${escapeHTML(categoryOf(story))}</div>
+        <h3><a href="${articleLink(story)}">${escapeHTML(titleOf(story))}</a></h3>
+        <p>${escapeHTML(summaryOf(story))}</p>
+        <div class="card-date">${escapeHTML(dateOf(story))}</div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderCategoryStories(stories, category, elementId) {
+  const container = document.getElementById(elementId);
+
+  const selected = stories.filter(story =>
+    categoryOf(story).toLowerCase().includes(category.toLowerCase())
+  ).slice(0, 3);
+
+  if (!selected.length) {
+    container.innerHTML = '<div class="message">No published ' +
+      escapeHTML(category.toLowerCase()) + ' stories yet.</div>';
+    return;
+  }
+
+  container.innerHTML = selected.map(story => `
+    <a class="category-card" href="${articleLink(story)}">
+      <img src="${escapeHTML(safeImage(story))}" alt="${escapeHTML(titleOf(story))}" loading="lazy">
+      <div>
+        <div class="story-category">${escapeHTML(categoryOf(story))}</div>
+        <h3>${escapeHTML(titleOf(story))}</h3>
+      </div>
+    </a>
+  `).join("");
+}
+
+async function loadHomepage() {
+  const topStories = document.getElementById("topStories");
+
+  try {
+    const { data, error } = await db
+      .from("articles")
+      .select("*")
+      .eq("status", "published")
+      .order("published_at", { ascending: false })
+      .limit(50);
+
+    if (error) throw error;
+
+    allStories = data || [];
+
+    renderTicker(allStories);
+    renderFeatured(allStories);
+    renderTopStories(allStories);
+    renderCategoryStories(allStories, "politics", "politicsStories");
+    renderCategoryStories(allStories, "business", "businessStories");
+    renderCategoryStories(allStories, "sports", "sportsStories");
+
+  } catch (error) {
+    console.error("JNTV homepage error:", error);
+
+    topStories.innerHTML =
+      '<div class="message error-message">Unable to load news at the moment. Please refresh the page.</div>';
+
+    document.getElementById("featuredTitle").textContent =
+      "News is temporarily unavailable";
+  }
+}
+
+/* SEARCH PUBLISHED STORIES */
+
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const query = document.getElementById("searchInput").value.trim().toLowerCase();
+
+  if (!query) {
+    renderTopStories(allStories);
+    return;
+  }
+
+  const results = allStories.filter(story =>
+    titleOf(story).toLowerCase().includes(query) ||
+    summaryOf(story).toLowerCase().includes(query) ||
+    categoryOf(story).toLowerCase().includes(query)
+  );
+
+  renderTopStories(results);
+
+  document.querySelector(".top-stories").scrollIntoView({
+    behavior: "smooth"
+  });
 });
-}
 
-function getTitle(a){
-return a.title||a.headline||"Untitled News Story";
-}
+/* LOAD NEWS AND CHECK FOR NEW PUBLICATIONS */
 
-function getCategory(a){
-return String(a.category||a.section||"Latest News").trim();
-}
-
-function getSummary(a){
-return String(
-a.summary||a.subheadline||a.description||a.excerpt||""
-).replace(/<[^>]*>/g,"").trim();
-}
-
-function getStory(a){
-return String(
-a.content||a.story||a.body||a.article||a.description||""
-);
-}
-
-function getImage(a){
-const value=a.image_url||a.photo||a.image||
-a.imageUrl||a.thumbnail||"";
-
-if(/^https?:\/\//i.test(value)){
-try{
-const url=new URL(value);
-if(url.protocol==="https:"||url.protocol==="http"){
-return url.href;
-}
-}catch(error){}
-}
-
-return "";
-}
-
-function getDate(a){
-const value=a.published_at||a.created_at||a.date;
-
-if(!value)return "JNTV NEWS";
-
-const d=new Date(value);
-
-if(isNaN(d.getTime()))return safe(value);
-
-return d.toLocaleDateString("en-UG",{
-day:"numeric",
-month:"long",
-year:"numeric"
-});
-}
-
-function isBreaking(a){
-return a.breaking===true||
-a.breakin===true||
-String(a.breaking||a.breakin||"").toLowerCase()==="true"||
-String(a.breaking||a.breakin||"")==="1";
-}
-
-function showNotFound(){
-container.innerHTML=`
-<div class="message">
-<h2>ARTICLE NOT FOUND</h2>
-<p>We could not find this published news story.</p>
-<p>Please return to the homepage and select a published article.</p>
-<a href="./index.html">RETURN TO HOMEPAGE</a>
-</div>`;
-}
-
-function renderArticle(article,articles){
-
-const headline=getTitle(article);
-const category=getCategory(article);
-const story=getStory(article);
-const summary=getSummary(article);
-const image=getImage(article);
-const date=getDate(article);
-const author=article.author||article.reporter||"";
-
-breadcrumbCategory.textContent=category.toUpperCase();
-document.title=headline+" | James Nyarango TV";
-
-let imageHTML="";
-
-if(image){
-imageHTML=`
-<img
-class="article-image"
-src="${safe(image)}"
-alt="${safe(headline)}"
-onerror="this.style.display='none'">
-`;
-}
-
-let nextArticle=null;
-
-const currentIndex=articles.findIndex(
-item=>String(item.id)===String(article.id)
-);
-
-if(currentIndex>=0&&currentIndex<articles.length-1){
-nextArticle=articles[currentIndex+1];
-}
-
-const nextButton=nextArticle?`
-<a class="next-button" href="./article.html?id=${encodeURIComponent(nextArticle.id)}">
-READ NEXT: ${safe(getTitle(nextArticle).slice(0,65))} →
-</a>
-`:"";
-
-container.innerHTML=`
-<article class="article">
-
-<span class="category">${safe(category)}</span>
-
-${isBreaking(article)?'<div class="breaking">BREAKING NEWS</div>':''}
-
-<h1>${safe(headline)}</h1>
-
-${summary?`<p class="subheadline">${safe(summary)}</p>`:''}
-
-<div class="details">
-<span>${safe(date)}</span>
-${author?`<span>|</span><span>By ${safe(author)}</span>`:''}
-<span>|</span>
-<span>James Nyarango TV</span>
-</div>
-
-${imageHTML}
-
-<div class="story">${safe(story)}</div>
-
-<div class="article-actions">
-<a class="back-button" href="./index.html">← BACK TO HOMEPAGE</a>
-${nextButton}
-</div>
-
-</article>
-`;
-
-}
-
-async function loadArticle(){
-
-const params=new URLSearchParams(window.location.search);
-const id=params.get("id");
-
-if(!id){
-showNotFound();
-return;
-}
-
-try{
-
-const {data:article,error}=await db
-.from("articles")
-.select("*")
-.eq("id",id)
-.eq("status","published")
-.maybeSingle();
-
-if(error)throw error;
-
-if(!article){
-showNotFound();
-return;
-}
-
-const {data:articles,error:articlesError}=await db
-.from("articles")
-.select("*")
-.eq("status","published")
-.order("published_at",{
-ascending:false,
-nullsFirst:false
-})
-.order("created_at",{
-ascending:false
-});
-
-if(articlesError)throw articlesError;
-
-renderArticle(article,articles||[]);
-
-}catch(error){
-
-console.error("JNTV article error:",error);
-
-container.innerHTML=`
-<div class="message">
-<h2>UNABLE TO LOAD ARTICLE</h2>
-<p>We could not retrieve this story at the moment.</p>
-<p>Please refresh the page or return to the homepage.</p>
-<a href="./index.html">RETURN TO HOMEPAGE</a>
-</div>`;
-
-}
-
-}
-
-loadArticle();
-
-})();
+loadHomepage();
+setInterval(loadHomepage, 60000);
 </script>
 
 </body>
