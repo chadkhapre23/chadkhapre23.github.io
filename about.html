@@ -38,7 +38,7 @@ line-height:1.65;
 a{text-decoration:none;color:inherit}
 button{font:inherit}
 
-/* HEADER */
+/* HEADER AND NAVIGATION ON ONE LINE */
 .top-header{
 background:var(--navy);
 border-bottom:3px solid var(--red);
@@ -50,7 +50,7 @@ margin:auto;
 padding:8px 24px;
 display:flex;
 align-items:center;
-gap:24px;
+gap:18px;
 }
 .brand{
 flex:0 0 auto;
@@ -63,27 +63,22 @@ height:66px;
 object-fit:contain;
 display:block;
 }
-.header-label{
-margin-left:auto;
-color:#d7e0ed;
-font-size:10px;
-font-weight:800;
-letter-spacing:2px;
-white-space:nowrap;
-}
 
-/* NAVIGATION BESIDE LOGO */
+/* Navigation is now beside the logo */
 .navigation{
-background:var(--navy2);
-border-bottom:1px solid #dce1e8;
+flex:1;
+min-width:0;
+background:transparent;
+border:0;
 }
 .nav-inner{
-max-width:1400px;
-min-height:46px;
-margin:auto;
-padding:0 24px;
+max-width:none;
+min-height:60px;
+margin:0;
+padding:0;
 display:flex;
 align-items:stretch;
+justify-content:flex-start;
 overflow-x:auto;
 scrollbar-width:none;
 }
@@ -92,11 +87,11 @@ scrollbar-width:none;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:0 17px;
+padding:0 15px;
 color:#fff;
 font-size:11px;
 font-weight:800;
-letter-spacing:.55px;
+letter-spacing:.45px;
 white-space:nowrap;
 border-bottom:3px solid transparent;
 transition:.2s;
@@ -548,19 +543,14 @@ font-size:11px;
 }
 
 /* RESPONSIVE */
-@media(min-width:1100px){
-.header-inner{
-min-height:76px;
-}
-.navigation .nav-inner{
-min-height:43px;
-}
+@media(max-width:1000px){
+.header-inner{gap:10px;padding-left:15px;padding-right:15px}
+.brand img{width:65px;height:58px}
+.nav-inner a{padding:0 10px;font-size:10px}
 }
 @media(max-width:800px){
-.header-inner{
-gap:15px;
-}
-.header-label{display:none}
+.header-inner{gap:8px}
+.nav-inner a{padding:0 9px;font-size:9px}
 .intro{grid-template-columns:1fr}
 .values-grid{grid-template-columns:repeat(2,1fr)}
 .coverage-grid{grid-template-columns:repeat(2,1fr)}
@@ -569,18 +559,19 @@ gap:15px;
 @media(max-width:600px){
 .header-inner{
 min-height:68px;
-padding:6px 13px;
+padding:6px 10px;
+gap:7px;
 }
 .brand img{
-width:65px;
-height:56px;
+width:57px;
+height:52px;
 }
 .nav-inner{
-padding:0 5px;
+min-height:55px;
 }
 .nav-inner a{
-padding:0 12px;
-font-size:10px;
+padding:0 9px;
+font-size:9px;
 }
 .brand-ticker{height:33px}
 .ticker-label{padding:0 11px;font-size:9px}
@@ -616,12 +607,10 @@ transition-duration:.01ms!important;
 
 <header class="top-header">
 <div class="header-inner">
+
 <a class="brand" href="./index.html" aria-label="JNTV Home">
 <img src="./JAMO%20LOGO.jpeg" alt="JNTV Logo">
 </a>
-<div class="header-label">ABOUT JNTV</div>
-</div>
-</header>
 
 <nav class="navigation">
 <div class="nav-inner">
@@ -634,6 +623,9 @@ transition-duration:.01ms!important;
 <a href="./about.html" class="active">ABOUT US</a>
 </div>
 </nav>
+
+</div>
+</header>
 
 <div class="brand-ticker">
 <div class="ticker-label">JNTV</div>
