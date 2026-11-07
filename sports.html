@@ -4,689 +4,456 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sports News | James Nyarango TV</title>
-<meta name="description" content="Follow sports news, football, athletics, basketball, rugby and sporting developments from Uganda, Africa and around the world.">
+<title>Sports | JNTV</title>
+<meta name="description" content="Latest sports news, football, transfers, results and international sporting updates from JNTV.">
 <meta name="theme-color" content="#071a35">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
   --navy:#071a35;
-  --navy2:#10294b;
   --red:#e00016;
-  --ink:#202124;
-  --muted:#62676d;
-  --line:#dfe2e5;
-  --light:#f4f5f6;
-  --white:#fff;
+  --ink:#172033;
+  --muted:#687386;
+  --line:#e8ebef;
+  --soft:#f4f6f9;
 }
 
-* {
+*{
   box-sizing:border-box;
 }
 
-html {
-  scroll-behavior:smooth;
-}
-
-body {
+body{
   margin:0;
   background:#fff;
   color:var(--ink);
-  font-family:'Manrope',Arial,sans-serif;
+  font-family:'Jost',sans-serif;
   font-size:14px;
-  line-height:1.65;
 }
 
-a {
+a{
   color:inherit;
   text-decoration:none;
 }
 
-button,input {
-  font:inherit;
-}
-
 /* HEADER */
-
-.top-header {
+.header{
   background:var(--navy);
-  border-bottom:3px solid var(--red);
+  border-bottom:2px solid var(--red);
 }
 
-.header-inner {
-  max-width:1360px;
-  min-height:92px;
+.header-inner{
+  max-width:1380px;
+  min-height:72px;
   margin:auto;
-  padding:10px 25px;
+  padding:7px 18px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:25px;
+  gap:9px;
 }
 
-.brand {
+.brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  flex-shrink:0;
+  margin-right:2px;
 }
 
-.brand img {
-  width:76px;
-  height:68px;
+.brand img{
+  display:block;
+  width:62px;
+  height:56px;
   object-fit:contain;
 }
 
-.brand-name {
-  margin:0;
-  color:#fff;
-  font-family:'Manrope',Arial,sans-serif;
-  font-size:21px;
-  font-weight:800;
-  line-height:1.2;
-  letter-spacing:-.5px;
-}
-
-.brand-tagline {
-  margin-top:5px;
-  color:#ff7782;
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:1.6px;
-}
-
-.header-actions {
+.header-right{
   display:flex;
   align-items:center;
-  gap:12px;
-}
-
-.search-box {
-  display:flex;
-  width:245px;
-  height:39px;
-  background:#fff;
-}
-
-.search-box input {
+  gap:9px;
   flex:1;
-  width:0;
   min-width:0;
-  border:0;
-  outline:0;
-  padding:0 12px;
-  font-size:12px;
 }
 
-.search-box button {
-  width:43px;
-  border:0;
-  background:var(--red);
-  color:#fff;
-  font-size:19px;
-  cursor:pointer;
-}
-
-.live-button {
+.nav-inner{
   display:flex;
   align-items:center;
-  gap:8px;
-  padding:11px 15px;
-  background:var(--red);
+  gap:0;
+  white-space:nowrap;
+  flex:1;
+  min-width:0;
+}
+
+.nav-inner a{
   color:#fff;
   font-size:11px;
-  font-weight:800;
-  white-space:nowrap;
-}
-
-.pulse-dot {
-  width:8px;
-  height:8px;
-  background:#fff;
-  border-radius:50%;
-  animation:pulse 1.4s infinite;
-}
-
-@keyframes pulse {
-  50% {opacity:.3;}
-}
-
-/* NAVIGATION */
-
-.navigation {
-  background:var(--navy2);
-}
-
-.nav-inner {
-  max-width:1360px;
-  min-height:45px;
-  margin:auto;
-  padding:0 20px;
-  display:flex;
-  align-items:stretch;
-  overflow-x:auto;
-  scrollbar-width:none;
-}
-
-.nav-inner::-webkit-scrollbar {
-  display:none;
-}
-
-.nav-inner a {
-  display:flex;
-  align-items:center;
-  padding:0 16px;
-  color:#fff;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.35px;
-  white-space:nowrap;
-  border-bottom:3px solid transparent;
+  font-weight:700;
+  padding:12px 8px;
+  border-bottom:2px solid transparent;
 }
 
 .nav-inner a:hover,
-.nav-inner a.active {
-  background:#18375e;
+.nav-inner a.active{
   border-bottom-color:var(--red);
 }
 
-/* MAIN */
-
-.main-container {
-  max-width:1320px;
-  margin:auto;
-  padding:25px 25px 55px;
+.search{
+  height:32px;
+  width:125px;
+  display:flex;
+  flex-shrink:0;
+  background:#fff;
+  overflow:hidden;
 }
 
-.breadcrumb {
-  margin-bottom:20px;
-  color:#747a81;
+.search input{
+  width:100%;
+  min-width:0;
+  border:0;
+  outline:0;
+  padding:0 8px;
+  font-family:inherit;
   font-size:11px;
 }
 
-.breadcrumb a {
-  color:var(--red);
-  font-weight:700;
+.search button{
+  border:0;
+  background:var(--red);
+  color:#fff;
+  padding:0 9px;
+  font-size:16px;
+  cursor:pointer;
 }
 
-.breaking-strip {
-  display:flex;
-  align-items:center;
-  min-height:38px;
-  margin-bottom:27px;
+.live{
+  background:var(--red);
+  color:#fff;
+  padding:8px 10px;
+  font-size:10px;
+  font-weight:800;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+/* PAGE LAYOUT */
+.container{
+  max-width:1180px;
+  margin:auto;
+  padding:0 20px;
+}
+
+.page-heading{
+  padding:24px 0 15px;
+}
+
+.kicker{
+  color:var(--red);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.page-heading h1{
+  color:var(--navy);
+  font-size:31px;
+  line-height:1.15;
+  margin:3px 0;
+  font-weight:800;
+}
+
+.page-heading p{
+  color:var(--muted);
+  font-size:12px;
+  margin:3px 0 0;
+}
+
+/* LEAD STORY */
+.lead-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.8fr) minmax(260px,.85fr);
+  gap:25px;
+  margin:13px 0 30px;
+}
+
+.lead-image{
+  display:block;
+  width:100%;
+  height:365px;
+  object-fit:cover;
+  background:#e9edf2;
+}
+
+.category{
+  color:var(--red);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  margin:10px 0 4px;
+}
+
+.lead-title{
+  color:var(--navy);
+  font-size:27px;
+  line-height:1.25;
+  font-weight:800;
+  margin:0 0 7px;
+}
+
+.lead-excerpt{
+  color:#596477;
+  font-size:13px;
+  line-height:1.65;
+  margin:0 0 8px;
+}
+
+.meta{
+  color:#8992a1;
+  font-size:10px;
+  font-weight:600;
+}
+
+/* SIDE STORIES */
+.side-panel{
+  min-width:0;
+}
+
+.side-heading{
+  color:var(--navy);
+  font-size:19px;
+  font-weight:800;
+  margin:0 0 8px;
+}
+
+.side-story{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:11px;
+  padding:11px 0;
   border-bottom:1px solid var(--line);
 }
 
-.breaking-label {
-  flex-shrink:0;
-  padding:9px 14px;
-  background:var(--red);
-  color:#fff;
+.side-story img{
+  width:100px;
+  height:73px;
+  object-fit:cover;
+  background:#e9edf2;
+}
+
+.side-story h3{
+  color:var(--navy);
+  font-size:14px;
+  font-weight:700;
+  line-height:1.35;
+  margin:0 0 5px;
+}
+
+/* MORE STORIES */
+.latest-section{
+  margin:0 0 40px;
+}
+
+.section-heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:15px;
+}
+
+.section-heading h2{
+  color:var(--navy);
+  font-size:22px;
+  font-weight:800;
+  margin:0;
+}
+
+.section-heading span{
+  color:var(--red);
   font-size:10px;
   font-weight:800;
   letter-spacing:.7px;
 }
 
-.breaking-text {
-  padding:7px 13px;
-  color:#292d32;
-  font-size:11px;
-  font-weight:600;
-}
-
-/* PAGE HEADING */
-
-.page-heading {
-  margin-bottom:25px;
-  padding-bottom:17px;
-  border-bottom:2px solid var(--navy);
-}
-
-.page-heading .eyebrow {
-  color:var(--red);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:1.5px;
-}
-
-.page-heading h1 {
-  margin:5px 0 7px;
-  color:var(--navy);
-  font-family:'Playfair Display',Georgia,serif;
-  font-size:38px;
-  line-height:1.2;
-  font-weight:800;
-}
-
-.page-heading p {
-  max-width:750px;
-  margin:0;
-  color:var(--muted);
-  font-size:13px;
-}
-
-/* SPORTS HERO */
-
-.sports-hero {
-  position:relative;
-  min-height:330px;
-  display:flex;
-  align-items:flex-end;
-  overflow:hidden;
-  margin-bottom:32px;
-  background:
-    linear-gradient(90deg,rgba(7,26,53,.96),rgba(7,26,53,.60)),
-    url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1600&auto=format&fit=crop&q=85') center/cover;
-}
-
-.sports-hero-content {
-  max-width:750px;
-  padding:35px;
-  color:#fff;
-}
-
-.sports-hero-content span {
-  display:inline-block;
-  padding:6px 10px;
-  background:var(--red);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-
-.sports-hero-content h2 {
-  margin:15px 0 12px;
-  font-family:'Playfair Display',Georgia,serif;
-  font-size:39px;
-  line-height:1.18;
-  font-weight:800;
-}
-
-.sports-hero-content p {
-  max-width:600px;
-  margin:0;
-  color:#e0e6ee;
-  font-size:13px;
-  line-height:1.8;
-}
-
-/* SPORT CATEGORIES */
-
-.section-heading {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  margin:34px 0 17px;
-  padding-bottom:10px;
-  border-bottom:2px solid var(--navy);
-}
-
-.section-heading h2 {
-  margin:0;
-  color:var(--navy);
-  font-family:'Playfair Display',Georgia,serif;
-  font-size:23px;
-  font-weight:800;
-}
-
-.section-heading span {
-  color:var(--red);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.5px;
-}
-
-.sport-grid {
+.stories-grid{
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:16px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;
 }
 
-.sport-card {
-  min-height:155px;
-  padding:21px 18px;
-  background:var(--light);
-  border-bottom:3px solid var(--navy);
-  transition:.2s;
+.story-card{
+  min-width:0;
 }
 
-.sport-card:hover {
-  transform:translateY(-3px);
-  border-bottom-color:var(--red);
-}
-
-.sport-icon {
+.story-card img{
   display:block;
-  margin-bottom:12px;
-  font-size:27px;
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  background:#e9edf2;
 }
 
-.sport-card h3 {
-  margin:0 0 5px;
+.story-card h3{
   color:var(--navy);
-  font-family:'Playfair Display',Georgia,serif;
   font-size:18px;
+  font-weight:800;
+  line-height:1.35;
+  margin:5px 0 6px;
 }
 
-.sport-card p {
-  margin:0;
+.story-card p{
   color:var(--muted);
-  font-size:11px;
-  line-height:1.7;
-}
-
-/* NEWS AREA */
-
-.news-layout {
-  display:grid;
-  grid-template-columns:minmax(0,2fr) minmax(250px,.8fr);
-  gap:30px;
-  align-items:start;
-}
-
-.news-placeholder {
-  padding:35px 25px;
-  border:1px solid var(--line);
-  background:#fff;
-  text-align:center;
-}
-
-.news-placeholder .placeholder-icon {
-  display:block;
-  margin-bottom:12px;
-  color:var(--red);
-  font-size:32px;
-}
-
-.news-placeholder h3 {
+  font-size:12px;
+  line-height:1.6;
   margin:0 0 8px;
-  color:var(--navy);
-  font-family:'Playfair Display',Georgia,serif;
-  font-size:21px;
 }
 
-.news-placeholder p {
-  max-width:500px;
-  margin:0 auto;
+.lead-title:hover,
+.side-story h3:hover,
+.story-card h3:hover{
+  color:var(--red);
+}
+
+/* MESSAGES */
+.loading,
+.empty,
+.error{
+  padding:25px 12px;
+  text-align:center;
   color:var(--muted);
-  font-size:12px;
+  background:var(--soft);
+  font-size:13px;
 }
 
-/* SIDEBAR */
-
-.sidebar-box {
-  margin-bottom:22px;
-  padding:20px;
-  background:var(--navy);
-  color:#fff;
-}
-
-.sidebar-box h3 {
-  margin:0 0 10px;
-  font-family:'Playfair Display',Georgia,serif;
-  font-size:20px;
-}
-
-.sidebar-box p {
-  margin:0;
-  color:#d8dfe8;
-  font-size:12px;
-  line-height:1.8;
-}
-
-.sidebar-box a {
-  display:inline-block;
-  margin-top:14px;
-  padding:9px 13px;
-  background:var(--red);
-  color:#fff;
-  font-size:10px;
-  font-weight:800;
-}
-
-.coverage-list {
-  padding:18px;
-  border:1px solid var(--line);
-}
-
-.coverage-list h3 {
-  margin:0 0 12px;
-  padding-bottom:9px;
-  border-bottom:2px solid var(--navy);
-  color:var(--navy);
-  font-family:'Playfair Display',Georgia,serif;
-  font-size:18px;
-}
-
-.coverage-list ul {
-  margin:0;
-  padding-left:18px;
-}
-
-.coverage-list li {
-  margin-bottom:10px;
-  color:var(--muted);
-  font-size:12px;
+.error{
+  color:#a3202b;
 }
 
 /* FOOTER */
-
-.footer {
-  margin-top:35px;
+.footer{
   background:var(--navy);
+  color:#e0e5ed;
+  text-align:center;
+  padding:22px 15px;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.footer strong{
   color:#fff;
-  border-top:4px solid var(--red);
-}
-
-.footer-inner {
-  max-width:1360px;
-  margin:auto;
-  padding:38px 25px 0;
-}
-
-.footer-columns {
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1fr 1fr;
-  gap:35px;
-  padding-bottom:30px;
-}
-
-.footer-brand h3 {
-  margin:0 0 8px;
-  font-size:19px;
+  font-size:14px;
   font-weight:800;
 }
 
-.footer-tagline {
-  color:#ff7580;
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:1.4px;
-}
-
-.footer-desc {
-  max-width:340px;
-  margin:13px 0;
-  color:#c4ccd7;
-  font-size:11px;
-  line-height:1.9;
-}
-
-.footer-web-link {
-  color:#fff;
-  font-size:11px;
-  font-weight:700;
-}
-
-.footer-col h4 {
-  display:inline-block;
-  margin:0 0 15px;
-  padding-bottom:8px;
-  border-bottom:2px solid var(--red);
-  font-size:11px;
-  font-weight:800;
-}
-
-.footer-col ul {
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-
-.footer-col li {
-  margin-bottom:10px;
-  color:#c4ccd7;
-  font-size:11px;
-}
-
-.footer-col a {
-  color:#c4ccd7;
-}
-
-.footer-col a:hover {
-  color:#ff7580;
-}
-
-.copyright-bar {
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:12px;
-  padding:16px 0;
-  border-top:1px solid #29405e;
-  color:#b9c2cf;
-  font-size:10px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:950px) {
-  .sport-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
+/* TABLET */
+@media(max-width:1050px){
+  .header-inner{
+    flex-wrap:wrap;
   }
 
-  .news-layout {
+  .header-right{
+    flex-wrap:wrap;
+  }
+
+  .nav-inner{
+    overflow-x:auto;
+  }
+}
+
+@media(max-width:800px){
+  .lead-layout{
     grid-template-columns:1fr;
   }
 
-  .footer-columns {
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
+  .lead-image{
+    height:320px;
+  }
+
+  .stories-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
 
-@media(max-width:760px) {
-  .header-inner {
-    min-height:80px;
-    padding:10px 15px;
-    flex-wrap:wrap;
-    gap:12px;
+/* MOBILE */
+@media(max-width:700px){
+  .header-inner{
+    padding:7px 12px;
+    gap:5px;
   }
 
-  .brand img {
-    width:65px;
-    height:57px;
+  .brand img{
+    width:56px;
+    height:50px;
   }
 
-  .brand-name {
-    font-size:18px;
-  }
-
-  .header-actions {
+  .header-right{
     width:100%;
+    gap:6px;
   }
 
-  .search-box {
+  .nav-inner{
+    width:100%;
+    flex:1 1 100%;
+    overflow-x:auto;
+  }
+
+  .nav-inner a{
+    padding:9px 9px;
+    font-size:10px;
+  }
+
+  .search{
     flex:1;
     width:auto;
   }
 
-  .nav-inner {
-    padding:0 8px;
+  .container{
+    padding:0 14px;
   }
 
-  .nav-inner a {
-    padding:0 12px;
-    font-size:10px;
+  .page-heading{
+    padding:19px 0 12px;
   }
 
-  .main-container {
-    padding:18px 15px 40px;
+  .page-heading h1{
+    font-size:27px;
   }
 
-  .page-heading h1 {
-    font-size:31px;
+  .lead-image{
+    height:235px;
   }
 
-  .sports-hero {
-    min-height:290px;
+  .lead-title{
+    font-size:23px;
   }
 
-  .sports-hero-content {
-    padding:24px;
+  .stories-grid{
+    grid-template-columns:1fr 1fr;
+    gap:14px;
   }
 
-  .sports-hero-content h2 {
-    font-size:30px;
+  .story-card img{
+    height:125px;
+  }
+
+  .story-card h3{
+    font-size:15px;
+  }
+
+  .story-card p{
+    font-size:11px;
   }
 }
 
-@media(max-width:520px) {
-  .brand-name {
-    font-size:17px;
-  }
-
-  .brand-tagline {
-    font-size:8px;
-    letter-spacing:1px;
-  }
-
-  .live-button {
-    padding:11px;
-    font-size:10px;
-  }
-
-  .sports-hero {
-    min-height:260px;
-  }
-
-  .sports-hero-content {
-    padding:20px;
-  }
-
-  .sports-hero-content h2 {
-    font-size:26px;
-  }
-
-  .sports-hero-content p {
-    font-size:11px;
-  }
-
-  .sport-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:10px;
-  }
-
-  .sport-card {
-    min-height:145px;
-    padding:15px 12px;
-  }
-
-  .sport-card h3 {
-    font-size:16px;
-  }
-
-  .footer-columns {
+@media(max-width:420px){
+  .stories-grid{
     grid-template-columns:1fr;
-    gap:23px;
   }
 
-  .footer-inner {
-    padding:30px 17px 0;
+  .story-card img{
+    height:190px;
   }
 }
 </style>
@@ -694,254 +461,268 @@ button,input {
 
 <body>
 
-<!-- HEADER -->
-
-<header class="top-header">
+<header class="header">
   <div class="header-inner">
 
-    <a class="brand" href="./index.html">
-      <img src="./JAMO%20LOGO.jpeg" alt="James Nyarango TV logo">
-      <div>
-        <div class="brand-name">JAMES NYARANGO TV</div>
-        <div class="brand-tagline">INFORM • ENTERTAIN • EMPOWER</div>
-      </div>
+    <a href="./index.html" class="brand" aria-label="JNTV Home">
+      <img src="./JAMO%20LOGO.jpeg" alt="JNTV logo">
     </a>
 
-    <div class="header-actions">
-      <form class="search-box" action="./search.html" method="get">
-        <input type="search" name="q" placeholder="Search news..." aria-label="Search news">
+    <div class="header-right">
+
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="./index.html">HOME</a>
+        <a href="./latest-news.html">LATEST NEWS</a>
+        <a href="./politics.html">POLITICS</a>
+        <a href="./business.html">BUSINESS</a>
+        <a href="./sports.html" class="active">SPORTS</a>
+        <a href="./entertainment.html">ENTERTAINMENT</a>
+        <a href="./videos.html">VIDEOS</a>
+        <a href="./about.html">ABOUT</a>
+      </nav>
+
+      <form class="search" action="./search.html" method="get">
+        <input type="search" name="q" placeholder="Search..." aria-label="Search news">
         <button type="submit" aria-label="Search">⌕</button>
       </form>
 
-      <a href="./videos.html" class="live-button">
-        <span class="pulse-dot"></span> GO LIVE
-      </a>
-    </div>
+      <a href="./videos.html" class="live">● GO LIVE</a>
 
+    </div>
   </div>
 </header>
 
-<!-- NAVIGATION -->
+<main>
+  <div class="container">
 
-<nav class="navigation">
-  <div class="nav-inner">
-    <a href="./index.html">HOME</a>
-    <a href="./latest-news.html">LATEST NEWS</a>
-    <a href="./politics.html">POLITICS</a>
-    <a href="./business.html">BUSINESS</a>
-    <a href="./sports.html" class="active">SPORTS</a>
-    <a href="./entertainment.html">ENTERTAINMENT</a>
-    <a href="./videos.html">VIDEOS</a>
-    <a href="./about.html">ABOUT US</a>
-  </div>
-</nav>
+    <section class="page-heading">
+      <div class="kicker">JNTV SPORTS DESK</div>
+      <h1>Sports</h1>
+      <p>Football, transfers, match results and sporting news from Uganda, Africa and the world.</p>
+    </section>
 
-<!-- MAIN CONTENT -->
+    <section class="lead-layout">
 
-<main class="main-container">
-
-  <div class="breadcrumb">
-    <a href="./index.html">HOME</a> / SPORTS
-  </div>
-
-  <div class="breaking-strip">
-    <span class="breaking-label">JNTV SPORTS</span>
-    <div class="breaking-text">
-      Sports news, match developments and sporting stories from Uganda, Africa and around the world.
-    </div>
-  </div>
-
-  <!-- PAGE TITLE -->
-
-  <section class="page-heading">
-    <span class="eyebrow">JAMES NYARANGO TV • SPORTS DESK</span>
-    <h1>Sports News</h1>
-    <p>
-      Your destination for football, athletics, basketball, rugby and the biggest sporting developments across the world.
-    </p>
-  </section>
-
-  <!-- HERO -->
-
-  <section class="sports-hero">
-    <div class="sports-hero-content">
-      <span>SPORTS • ANALYSIS • RESULTS</span>
-      <h2>THE WORLD OF SPORTS, ALL IN ONE PLACE.</h2>
-      <p>
-        Follow the teams, athletes, competitions and sporting moments shaping Uganda, Africa and international sport.
-        Stay informed with James Nyarango TV.
-      </p>
-    </div>
-  </section>
-
-  <!-- SPORT CATEGORIES -->
-
-  <section>
-    <div class="section-heading">
-      <h2>Explore Sports</h2>
-      <span>JNTV SPORTS COVERAGE</span>
-    </div>
-
-    <div class="sport-grid">
-
-      <article class="sport-card">
-        <span class="sport-icon">⚽</span>
-        <h3>Football</h3>
-        <p>Ugandan football, African competitions and international leagues.</p>
-      </article>
-
-      <article class="sport-card">
-        <span class="sport-icon">🏃</span>
-        <h3>Athletics</h3>
-        <p>Track and field, road running and Ugandan sporting talent.</p>
-      </article>
-
-      <article class="sport-card">
-        <span class="sport-icon">🏀</span>
-        <h3>Basketball</h3>
-        <p>Local leagues, international competitions and basketball news.</p>
-      </article>
-
-      <article class="sport-card">
-        <span class="sport-icon">🏉</span>
-        <h3>Rugby</h3>
-        <p>Rugby competitions, teams, results and major developments.</p>
-      </article>
-
-      <article class="sport-card">
-        <span class="sport-icon">🥊</span>
-        <h3>Boxing</h3>
-        <p>Boxing events, professional fights and emerging talent.</p>
-      </article>
-
-      <article class="sport-card">
-        <span class="sport-icon">🏐</span>
-        <h3>Volleyball</h3>
-        <p>Volleyball competitions and updates from the sporting community.</p>
-      </article>
-
-      <article class="sport-card">
-        <span class="sport-icon">🏏</span>
-        <h3>Cricket</h3>
-        <p>Cricket fixtures, results and international coverage.</p>
-      </article>
-
-      <article class="sport-card">
-        <span class="sport-icon">🏆</span>
-        <h3>Other Sports</h3>
-        <p>More competitions, sporting personalities and major events.</p>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- LATEST SPORTS NEWS -->
-
-  <section>
-    <div class="section-heading">
-      <h2>Latest Sports News</h2>
-      <span>JNTV NEWSROOM</span>
-    </div>
-
-    <div class="news-layout">
-
-      <div class="news-placeholder">
-        <span class="placeholder-icon">🏆</span>
-        <h3>Sports Coverage Coming Soon</h3>
-        <p>
-          The JNTV Sports Desk is ready for publication. Sports articles will appear here as they are published by the newsroom.
-          Check back for the latest reports, interviews, match coverage and analysis.
-        </p>
+      <div id="feature-area">
+        <div class="loading">Loading sports news...</div>
       </div>
 
-      <aside>
-
-        <div class="sidebar-box">
-          <h3>Sports on JNTV</h3>
-          <p>
-            From local competitions to international sporting events, James Nyarango TV brings you closer to the action.
-          </p>
-          <a href="./index.html">BACK TO HOMEPAGE →</a>
+      <aside class="side-panel">
+        <h2 class="side-heading">Top Sports Stories</h2>
+        <div id="side-stories">
+          <div class="loading">Loading headlines...</div>
         </div>
-
-        <div class="coverage-list">
-          <h3>Our Coverage</h3>
-          <ul>
-            <li>Ugandan sports</li>
-            <li>African competitions</li>
-            <li>International football</li>
-            <li>Major sporting events</li>
-            <li>Athlete interviews</li>
-            <li>Sports analysis</li>
-          </ul>
-        </div>
-
       </aside>
-    </div>
-  </section>
 
+    </section>
+
+    <section class="latest-section">
+      <div class="section-heading">
+        <h2>Latest Sports News</h2>
+        <span>JNTV SPORTS</span>
+      </div>
+
+      <div id="stories-grid" class="stories-grid">
+        <div class="loading">Loading stories...</div>
+      </div>
+    </section>
+
+  </div>
 </main>
 
-<!-- FOOTER -->
-
 <footer class="footer">
-  <div class="footer-inner">
-
-    <div class="footer-columns">
-
-      <div class="footer-brand">
-        <h3>JAMES NYARANGO TV</h3>
-        <div class="footer-tagline">INFORM • ENTERTAIN • EMPOWER</div>
-
-        <p class="footer-desc">
-          Your digital broadcast destination for news, current affairs, politics, business, sports and entertainment from Uganda, Africa and the world.
-        </p>
-
-        <a href="https://www.jamesnyarangotv.ac.ug" target="_blank" rel="noopener" class="footer-web-link">
-          www.jamesnyarangotv.ac.ug
-        </a>
-      </div>
-
-      <div class="footer-col">
-        <h4>ABOUT US</h4>
-        <ul>
-          <li><a href="./about.html">About JNTV</a></li>
-          <li><a href="./about.html">Advertise With Us</a></li>
-          <li><a href="./about.html">Privacy Policy</a></li>
-          <li><a href="./about.html">Contact Us</a></li>
-          <li><a href="./about.html">Terms and Conditions</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>CONTACT INFO</h4>
-        <ul>
-          <li><a href="tel:+256775732004">+256 775 732 004</a></li>
-          <li><a href="mailto:info@jamesnyarangotv.ac.ug">info@jamesnyarangotv.ac.ug</a></li>
-          <li>Kampala, Uganda</li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>WHAT WE OFFER</h4>
-        <ul>
-          <li>Digital Advertisements</li>
-          <li>Digital Marketing</li>
-          <li>Media Production</li>
-          <li>Live Event Coverage</li>
-          <li>Sponsored Content</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="copyright-bar">
-      <div>© 2026 James Nyarango TV (JNTV). All rights reserved.</div>
-      <div>INFORM • ENTERTAIN • EMPOWER</div>
-    </div>
-
-  </div>
+  <strong>JNTV</strong><br>
+  News • Current Affairs • Media<br>
+  Inform • Entertain • Empower<br>
+  © <span id="year"></span> All rights reserved.
 </footer>
+
+<script>
+const SUPABASE_URL = "https://eqogivrposfajrkdwqbq.supabase.co";
+const SUPABASE_KEY = "sb_publishable_l4sKYCzUW6670QvOMtBE_Q_kRCbwDZ-";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const featureArea = document.getElementById("feature-area");
+const sideStories = document.getElementById("side-stories");
+const storiesGrid = document.getElementById("stories-grid");
+
+function safe(value){
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#039;"
+  })[char]);
+}
+
+function getTitle(article){
+  return article.title ||
+         article.headline ||
+         article.news_title ||
+         "Untitled story";
+}
+
+function getImage(article){
+  return article.image_url ||
+         article.featured_image ||
+         article.image ||
+         article.thumbnail ||
+         article.photo ||
+         "";
+}
+
+function getExcerpt(article){
+  return article.excerpt ||
+         article.summary ||
+         article.description ||
+         article.content ||
+         "";
+}
+
+function getDate(article){
+  const date = article.published_at || article.created_at || article.date;
+
+  if(!date) return "JNTV Sports";
+
+  const parsed = new Date(date);
+
+  if(Number.isNaN(parsed.getTime())) return "JNTV Sports";
+
+  return parsed.toLocaleDateString("en-UG",{
+    day:"numeric",
+    month:"short",
+    year:"numeric"
+  });
+}
+
+function getArticleLink(article){
+  return "./article.html?id=" + encodeURIComponent(article.id);
+}
+
+function imageMarkup(article,className){
+  const image = getImage(article);
+
+  if(!image){
+    return `<div class="${className}" style="display:flex;align-items:center;justify-content:center;color:#8992a1;background:#e9edf2;">JNTV SPORTS</div>`;
+  }
+
+  return `<img class="${className}" src="${safe(image)}" alt="${safe(getTitle(article))}" loading="lazy" onerror="this.style.display='none'">`;
+}
+
+function renderFeature(article){
+  featureArea.innerHTML = `
+    <a class="feature" href="${getArticleLink(article)}">
+      ${imageMarkup(article,"lead-image")}
+      <div class="category">SPORTS</div>
+      <h2 class="lead-title">${safe(getTitle(article))}</h2>
+      <p class="lead-excerpt">${safe(getExcerpt(article)).slice(0,260)}</p>
+      <div class="meta">${safe(getDate(article))} | JNTV SPORTS</div>
+    </a>
+  `;
+}
+
+function renderSide(articles){
+  if(!articles.length){
+    sideStories.innerHTML = `<div class="empty">More sports headlines will appear here when published.</div>`;
+    return;
+  }
+
+  sideStories.innerHTML = articles.map(article => `
+    <a class="side-story" href="${getArticleLink(article)}">
+      ${imageMarkup(article,"")}
+      <div>
+        <h3>${safe(getTitle(article))}</h3>
+        <div class="meta">${safe(getDate(article))}</div>
+      </div>
+    </a>
+  `).join("");
+}
+
+function renderGrid(articles){
+  if(!articles.length){
+    storiesGrid.innerHTML = `<div class="empty">No additional sports stories are available yet.</div>`;
+    return;
+  }
+
+  storiesGrid.innerHTML = articles.map(article => `
+    <a class="story-card" href="${getArticleLink(article)}">
+      ${imageMarkup(article,"")}
+      <div class="category">SPORTS</div>
+      <h3>${safe(getTitle(article))}</h3>
+      <p>${safe(getExcerpt(article)).slice(0,150)}</p>
+      <div class="meta">${safe(getDate(article))}</div>
+    </a>
+  `).join("");
+}
+
+async function loadSports(){
+  try{
+    const endpoint = SUPABASE_URL +
+      "/rest/v1/articles?select=*&status=eq.published&order=published_at.desc&limit=100";
+
+    const response = await fetch(endpoint,{
+      method:"GET",
+      headers:{
+        "apikey":SUPABASE_KEY,
+        "Authorization":"Bearer " + SUPABASE_KEY
+      }
+    });
+
+    if(!response.ok){
+      const detail = await response.text();
+      throw new Error("News database returned " + response.status + ": " + detail);
+    }
+
+    const allArticles = await response.json();
+
+    const sports = allArticles.filter(article => {
+      const category = String(article.category || "").toLowerCase().trim();
+      return category.includes("sport");
+    });
+
+    if(!sports.length){
+      featureArea.innerHTML = `
+        <div class="empty">
+          No published sports stories were found. Publish a story in your JNTV newsroom and set its category to Sports.
+        </div>
+      `;
+
+      sideStories.innerHTML = `
+        <div class="empty">Sports headlines will appear here after publication.</div>
+      `;
+
+      storiesGrid.innerHTML = `
+        <div class="empty">Your published Sports stories will appear here automatically.</div>
+      `;
+
+      return;
+    }
+
+    renderFeature(sports[0]);
+    renderSide(sports.slice(1,5));
+    renderGrid(sports.slice(1));
+
+  }catch(error){
+    console.error("JNTV Sports error:",error);
+
+    featureArea.innerHTML = `
+      <div class="error">Sports news could not be loaded. Please check the newsroom connection and try again.</div>
+    `;
+
+    sideStories.innerHTML = `
+      <div class="error">Sports headlines are temporarily unavailable.</div>
+    `;
+
+    storiesGrid.innerHTML = `
+      <div class="error">The news service is temporarily unavailable. Please refresh the page.</div>
+    `;
+  }
+}
+
+loadSports();
+</script>
 
 </body>
 </html>
