@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>James Nyarango TV | News, Politics, Business & Sports</title>
-<meta name="description" content="James Nyarango TV brings you breaking news, politics, business, sports and entertainment from Uganda, Africa and around the world.">
+<title>News Article | James Nyarango TV</title>
+<meta name="description" content="Read the latest news, politics, business, sports and current affairs from James Nyarango TV.">
 <meta name="theme-color" content="#071a35">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,7 +79,7 @@ min-width:0;
 .nav-inner{
 display:flex;
 align-items:center;
-justify-content:flex-start;
+justify-content:center;
 min-height:80px;
 overflow-x:auto;
 scrollbar-width:none;
@@ -159,403 +159,148 @@ animation:pulse 1.4s infinite;
 
 @keyframes pulse{50%{opacity:.3}}
 
-/* PAGE */
+/* ARTICLE PAGE */
 
-.home-main{
-max-width:1360px;
-margin:auto;
-padding:24px 24px 55px;
+.article-main{
+max-width:1100px;
+margin:0 auto;
+padding:30px 24px 55px;
 }
 
-/* TICKER */
-
-.breaking-strip{
-display:flex;
-min-height:42px;
-margin-bottom:25px;
-overflow:hidden;
-border:1px solid var(--line);
-background:#f7f8fa;
-}
-
-.breaking-label{
-display:flex;
-align-items:center;
-flex-shrink:0;
-padding:0 15px;
-background:var(--red);
-color:#fff;
-font-size:11px;
-font-weight:900;
-letter-spacing:.5px;
-}
-
-.ticker-window{
-flex:1;
-min-width:0;
-display:flex;
-align-items:center;
-overflow:hidden;
-}
-
-.ticker-track{
-display:flex;
-width:max-content;
-animation:scrollTicker 55s linear infinite;
-}
-
-.ticker-group{
-display:flex;
-flex-shrink:0;
-align-items:center;
-}
-
-.ticker-item{
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:0 22px;
-font-size:13px;
+.breadcrumb{
+margin-bottom:18px;
+color:#737b84;
+font-size:12px;
 font-weight:700;
-white-space:nowrap;
 }
 
-.ticker-item:hover{color:var(--red)}
+.breadcrumb a:hover{color:var(--red)}
 
-.ticker-separator{
-color:var(--red);
-font-size:18px;
+.article-layout{
+max-width:900px;
+margin:auto;
 }
 
-.ticker-window:hover .ticker-track{
-animation-play-state:paused;
-}
+.article{background:#fff}
 
-@keyframes scrollTicker{
-from{transform:translateX(0)}
-to{transform:translateX(-50%)}
-}
-
-/* SECTION HEADINGS */
-
-.section-heading{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:12px;
-margin:0 0 17px;
-padding-bottom:9px;
-border-bottom:2px solid var(--navy);
-}
-
-.section-heading h2{
-margin:0;
-font-size:23px;
-font-weight:900;
-line-height:1.25;
-}
-
-.section-heading a{
-color:var(--red);
-font-size:11px;
-font-weight:900;
-white-space:nowrap;
-}
-
-/* LEAD STORY */
-
-.hero-layout{
-display:grid;
-grid-template-columns:minmax(0,2.1fr) minmax(270px,.9fr);
-gap:28px;
-margin-bottom:38px;
-}
-
-.lead-story{
-display:grid;
-grid-template-columns:1.25fr 1fr;
-gap:22px;
-align-items:start;
-min-width:0;
-}
-
-.lead-image-link{
+.category{
 display:block;
-aspect-ratio:16/10;
-overflow:hidden;
-background:#eceff2;
-}
-
-.lead-image{
-width:100%;
-height:100%;
-display:block;
-object-fit:cover;
-transition:transform .3s;
-}
-
-.lead-image-link:hover img{transform:scale(1.025)}
-
-.category-label{
-display:block;
-margin-bottom:7px;
+margin-bottom:9px;
 color:var(--red);
-font-size:11px;
+font-size:12px;
 font-weight:900;
 text-transform:uppercase;
 letter-spacing:.6px;
 }
 
-.lead-content h1{
-margin:0 0 12px;
-font-size:30px;
-line-height:1.15;
+.breaking{
+display:inline-block;
+background:var(--red);
+color:white;
+padding:5px 11px;
+font-size:11px;
 font-weight:900;
+margin:0 0 12px;
+}
+
+.article h1{
+margin:0 0 14px;
+color:#202124;
+font-size:34px;
+font-weight:900;
+line-height:1.2;
 letter-spacing:-.5px;
 }
 
-.lead-content h1 a:hover{color:var(--red)}
-
-.lead-description{
-margin:0 0 14px;
+.subheadline{
+margin:0 0 17px;
 color:#555d65;
-font-size:14px;
+font-size:17px;
 line-height:1.7;
 }
 
-.news-meta{
+.details{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+align-items:center;
+padding:12px 0;
+margin-bottom:18px;
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line);
 color:#747b83;
 font-size:12px;
 }
 
-.lead-bottom{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-padding-top:10px;
-border-top:1px solid var(--line);
+.article-image{
+display:block;
+width:100%;
+max-height:570px;
+object-fit:cover;
+margin:15px 0 25px;
+background:#eceff2;
 }
 
-.read-story{
-color:var(--red);
-font-size:11px;
-font-weight:900;
-}
-
-/* SIDEBAR */
-
-.home-sidebar{min-width:0}
-
-.sidebar-section{margin-bottom:25px}
-
-.sidebar-heading{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:10px;
-padding-bottom:9px;
-border-bottom:2px solid var(--navy);
-}
-
-.sidebar-heading h3{
-margin:0;
+.story{
+color:#292d32;
 font-size:17px;
-font-weight:900;
+line-height:1.9;
+white-space:pre-wrap;
+overflow-wrap:anywhere;
 }
 
-.sidebar-heading a{
-color:var(--red);
-font-size:11px;
-font-weight:900;
-}
-
-.exclusive-card{
-display:grid;
-grid-template-columns:110px 1fr;
-gap:13px;
-padding:12px 0;
-border-bottom:1px solid var(--line);
-}
-
-.exclusive-image{
-display:block;
-width:110px;
-height:76px;
-overflow:hidden;
-background:#eceff2;
-}
-
-.exclusive-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.exclusive-card h4{
-margin:0;
-font-size:16px;
-line-height:1.3;
-font-weight:800;
-}
-
-.exclusive-card h4 a:hover{color:var(--red)}
-
-.watch-panel{
-margin-top:20px;
-padding:20px;
-background:#f2f5f8;
-border-left:4px solid var(--red);
-}
-
-.watch-panel small{
-color:var(--red);
-font-weight:900;
-font-size:11px;
-}
-
-.watch-panel h3{
-margin:8px 0;
-color:var(--navy);
-font-size:21px;
-font-weight:900;
-}
-
-.watch-panel p{
-margin:0;
-color:#555d65;
-font-size:14px;
-}
-
-.watch-panel a{
-display:inline-block;
-margin-top:13px;
-padding:9px 13px;
-background:var(--red);
-color:white;
-font-size:11px;
-font-weight:900;
-}
-
-/* NEWS CARDS */
-
-.news-grid{
-display:grid;
-grid-template-columns:repeat(4,minmax(0,1fr));
-gap:24px 19px;
-}
-
-.news-card{
-min-width:0;
-background:#fff;
-border-bottom:1px solid var(--line);
-overflow:hidden;
-}
-
-.news-card-image-wrap{
-display:block;
-width:100%;
-aspect-ratio:16/10;
-overflow:hidden;
-background:#eceff2;
-}
-
-.news-card-image{
-width:100%;
-height:100%;
-display:block;
-object-fit:cover;
-transition:transform .3s;
-}
-
-.news-card:hover .news-card-image{
-transform:scale(1.025);
-}
-
-.news-content{
-padding:11px 0 14px;
-}
-
-.news-content h3{
-margin:0 0 9px;
-font-size:19px;
-font-weight:900;
-line-height:1.25;
-}
-
-.news-content h3 a:hover{color:var(--red)}
-
-.news-content p{
-margin:0 0 12px;
-color:#626970;
-font-size:13px;
-line-height:1.65;
-}
-
-.news-card-bottom{
+.article-actions{
 display:flex;
-justify-content:space-between;
+flex-wrap:wrap;
 align-items:center;
-gap:8px;
-padding-top:9px;
+gap:12px;
+margin-top:30px;
+padding-top:20px;
 border-top:1px solid var(--line);
 }
 
-.news-card-bottom .news-meta{font-size:11px}
-
-/* CATEGORY SECTIONS */
-
-.category-section{
-margin-top:42px;
-}
-
-.category-section .section-heading{
-border-bottom:2px solid var(--navy);
-}
-
-.category-section .news-grid{
-grid-template-columns:repeat(4,minmax(0,1fr));
-}
-
-/* VIDEO SECTION */
-
-.video-label{
+.back-button,
+.next-button{
 display:inline-block;
-padding:4px 8px;
+padding:10px 16px;
 background:var(--red);
-color:white;
-font-size:10px;
+color:#fff;
+font-size:11px;
 font-weight:900;
 }
 
-/* EMPTY STATES */
+.next-button{background:var(--navy)}
 
-.empty-message{
-padding:20px;
-background:#f7f8fa;
-border:1px solid var(--line);
-color:#626970;
-font-size:14px;
-}
+.back-button:hover,
+.next-button:hover{opacity:.88}
 
-.no-results{
-grid-column:1/-1;
-padding:30px;
+.message{
+padding:35px;
 background:#f7f8fa;
 border:1px solid var(--line);
 text-align:center;
-color:#626970;
 }
 
-/* SEARCH */
+.message h2{
+margin:0 0 10px;
+color:var(--navy);
+font-size:23px;
+font-weight:900;
+}
 
-.search-status{
-display:none;
-margin-bottom:18px;
-padding:12px;
-background:#f5f6f7;
-border-left:3px solid var(--red);
-font-weight:700;
+.message p{
+color:#626970;
+font-size:14px;
+}
+
+.message a{
+display:inline-block;
+margin-top:12px;
+padding:10px 16px;
+background:var(--red);
+color:white;
+font-size:11px;
+font-weight:900;
 }
 
 /* FOOTER */
@@ -680,22 +425,13 @@ padding:10px 8px;
 font-size:10px;
 }
 
-.hero-layout{
-grid-template-columns:1fr;
-}
-
-.lead-story{
-grid-template-columns:1.2fr 1fr;
-}
-
-.news-grid,
-.category-section .news-grid{
-grid-template-columns:repeat(3,minmax(0,1fr));
+.footer-columns{
+grid-template-columns:repeat(2,1fr);
 }
 
 }
 
-/* MOBILE AND SMALL TABLETS */
+/* MOBILE */
 
 @media(max-width:760px){
 
@@ -732,30 +468,15 @@ padding:0 12px;
 font-size:11px;
 }
 
-.home-main{padding:18px 15px 40px}
-
-.lead-story{
-grid-template-columns:1fr;
-gap:13px;
+.article-main{
+padding:20px 15px 40px;
 }
 
-.lead-content h1{font-size:26px}
+.article h1{font-size:27px}
 
-.home-sidebar{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-}
+.subheadline{font-size:15px}
 
-.watch-panel{grid-column:1/-1}
-
-.news-grid,
-.category-section .news-grid{
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:20px 13px;
-}
-
-.news-content h3{font-size:17px}
+.story{font-size:16px}
 
 .footer-columns{
 grid-template-columns:repeat(2,1fr);
@@ -775,30 +496,13 @@ margin:0;
 
 .live-button{font-size:10px}
 
-.breaking-label{
-padding:0 10px;
-font-size:10px;
-}
+.article-main{padding:18px 15px 35px}
 
-.ticker-item{
-padding:0 13px;
-font-size:12px;
-}
+.article h1{font-size:25px}
 
-.home-sidebar{grid-template-columns:1fr}
+.article-image{margin:12px 0 20px}
 
-.watch-panel{grid-column:auto}
-
-.news-grid,
-.category-section .news-grid{
-grid-template-columns:repeat(2,minmax(0,1fr));
-}
-
-.news-content h3{font-size:16px}
-
-.news-content p{font-size:12px}
-
-.section-heading h2{font-size:20px}
+.story{font-size:15px;line-height:1.85}
 
 .footer-columns{grid-template-columns:1fr}
 
@@ -807,7 +511,7 @@ grid-template-columns:repeat(2,minmax(0,1fr));
 }
 
 @media(prefers-reduced-motion:reduce){
-.ticker-track,.pulse-dot{animation:none}
+.pulse-dot{animation:none}
 html{scroll-behavior:auto}
 }
 </style>
@@ -824,7 +528,7 @@ html{scroll-behavior:auto}
 
 <nav class="navigation">
 <div class="nav-inner">
-<a href="./index.html" class="active">HOME</a>
+<a href="./index.html">HOME</a>
 <a href="./latest-news.html">LATEST NEWS</a>
 <a href="./politics.html">POLITICS</a>
 <a href="./business.html">BUSINESS</a>
@@ -835,85 +539,33 @@ html{scroll-behavior:auto}
 </nav>
 
 <div class="header-actions">
-<div class="search-box">
-<input type="search" id="searchInput" placeholder="Search news..." aria-label="Search news">
-<button id="searchButton" type="button">⌕</button>
-</div>
+
+<form class="search-box" action="./latest-news.html" method="get">
+<input type="search" name="search" placeholder="Search news..." aria-label="Search news">
+<button type="submit" aria-label="Search">⌕</button>
+</form>
 
 <a href="./latest-news.html" class="live-button">
 <span class="pulse-dot"></span>LATEST NEWS
 </a>
-</div>
 
+</div>
 </div>
 </header>
 
-<main class="home-main">
+<main class="article-main">
 
-<div class="breaking-strip">
-<div class="breaking-label">JNTV HEADLINES</div>
-<div class="ticker-window">
-<div class="ticker-track" id="tickerTrack">
-<div class="ticker-group">
-<span class="ticker-item">Welcome to James Nyarango TV — Inform, Entertain, Empower.</span>
-</div>
-<div class="ticker-group">
-<span class="ticker-item">Welcome to James Nyarango TV — Inform, Entertain, Empower.</span>
-</div>
-</div>
-</div>
+<div class="breadcrumb">
+<a href="./index.html">HOME</a> /
+<span id="breadcrumbCategory">LATEST NEWS</span>
 </div>
 
-<section class="hero-layout">
-
-<div>
-<div class="section-heading">
-<h2>Top News</h2>
-<a href="./latest-news.html">ALL NEWS →</a>
-</div>
-
-<div class="lead-story" id="leadStory">
-<div class="empty-message">Loading the latest news...</div>
+<div class="article-layout" id="articleContainer">
+<div class="message">
+<h2>LOADING ARTICLE...</h2>
+<p>Please wait while we retrieve this story.</p>
 </div>
 </div>
-
-<aside class="home-sidebar">
-
-<section class="sidebar-section">
-<div class="sidebar-heading">
-<h3>Top Stories</h3>
-<a href="./latest-news.html">MORE →</a>
-</div>
-
-<div id="exclusiveStories">
-<div class="empty-message">Loading top stories...</div>
-</div>
-</section>
-
-<div class="watch-panel">
-<small>JNTV DIGITAL BROADCAST</small>
-<h3>Watch. Listen. Stay Informed.</h3>
-<p>Discover interviews, news reports, programmes, podcasts and exclusive digital content.</p>
-<a href="./videos.html">EXPLORE VIDEOS →</a>
-</div>
-
-</aside>
-</section>
-
-<section class="news-section">
-<div class="section-heading">
-<h2>Latest News</h2>
-<a href="./latest-news.html">VIEW ALL →</a>
-</div>
-
-<div class="search-status" id="searchStatus"></div>
-
-<div class="news-grid" id="latestNews">
-<div class="no-results">Loading published articles...</div>
-</div>
-</section>
-
-<div id="categorySections"></div>
 
 </main>
 
@@ -998,339 +650,195 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 "sb_publishable_l4sKYCzUW6670QvOMtBE_Q_kRCbwDZ-";
 
-const db = window.supabase.createClient(
+const db=window.supabase.createClient(
 SUPABASE_URL,
 SUPABASE_KEY
 );
 
-const leadStory=document.getElementById("leadStory");
-const latestNews=document.getElementById("latestNews");
-const exclusiveStories=document.getElementById("exclusiveStories");
-const tickerTrack=document.getElementById("tickerTrack");
-const categorySections=document.getElementById("categorySections");
-const searchInput=document.getElementById("searchInput");
-const searchButton=document.getElementById("searchButton");
-const searchStatus=document.getElementById("searchStatus");
+const container=document.getElementById("articleContainer");
+const breadcrumbCategory=document.getElementById("breadcrumbCategory");
 
-let allArticles=[];
-
-function escapeHTML(value){
-return String(value??"").replace(/[&<>"']/g,c=>({
+function safe(value){
+return String(value??"").replace(/[&<>"']/g,function(c){
+return {
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
 '"':"&quot;",
-"'":"&#039;"
-})[c]);
+"'":"&#39;"
+}[c];
+});
 }
 
-function title(a){
-return a.title||a.headline||"Untitled news story";
+function getTitle(a){
+return a.title||a.headline||"Untitled News Story";
 }
 
-function category(a){
-return String(a.category||a.section||"News").trim();
+function getCategory(a){
+return String(a.category||a.section||"Latest News").trim();
 }
 
-function summary(a){
+function getSummary(a){
 return String(
-a.summary||a.subheadline||a.description||
-a.excerpt||a.content||a.story||""
+a.summary||a.subheadline||a.description||a.excerpt||""
 ).replace(/<[^>]*>/g,"").trim();
 }
 
-function image(a){
+function getStory(a){
+return String(
+a.content||a.story||a.body||a.article||a.description||""
+);
+}
+
+function getImage(a){
 const value=a.image_url||a.photo||a.image||
 a.imageUrl||a.thumbnail||"";
 
 if(/^https?:\/\//i.test(value)){
 try{
-const u=new URL(value);
-if(u.protocol==="https:"||u.protocol==="http:"){
-return escapeHTML(u.href);
+const url=new URL(value);
+if(url.protocol==="https:"||url.protocol==="http"){
+return url.href;
 }
-}catch(e){}
-}
-
-return "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1000&auto=format&fit=crop&q=80";
+}catch(error){}
 }
 
-function date(a){
-const value=a.published_at||a.created_at;
+return "";
+}
+
+function getDate(a){
+const value=a.published_at||a.created_at||a.date;
+
 if(!value)return "JNTV NEWS";
+
 const d=new Date(value);
-if(isNaN(d.getTime()))return "JNTV NEWS";
+
+if(isNaN(d.getTime()))return safe(value);
+
 return d.toLocaleDateString("en-UG",{
-day:"numeric",month:"short",year:"numeric"
+day:"numeric",
+month:"long",
+year:"numeric"
 });
 }
 
-function link(a){
-return "./article.html?id="+encodeURIComponent(a.id||"");
-}
-
-function breaking(a){
+function isBreaking(a){
 return a.breaking===true||
 a.breakin===true||
 String(a.breaking||a.breakin||"").toLowerCase()==="true"||
 String(a.breaking||a.breakin||"")==="1";
 }
 
-function renderTicker(articles){
-
-let items=articles.slice(0,15).map(a=>`
-<a class="ticker-item" href="${link(a)}">
-${breaking(a)?'<strong style="color:#e00016">BREAKING:</strong> ':''}
-${escapeHTML(title(a))}
-<span class="ticker-separator">•</span>
-</a>
-`).join("");
-
-if(!items){
-items='<span class="ticker-item">Welcome to James Nyarango TV.</span>';
+function showNotFound(){
+container.innerHTML=`
+<div class="message">
+<h2>ARTICLE NOT FOUND</h2>
+<p>We could not find this published news story.</p>
+<p>Please return to the homepage and select a published article.</p>
+<a href="./index.html">RETURN TO HOMEPAGE</a>
+</div>`;
 }
 
-tickerTrack.innerHTML=`
-<div class="ticker-group">${items}</div>
-<div class="ticker-group" aria-hidden="true">${items}</div>
+function renderArticle(article,articles){
+
+const headline=getTitle(article);
+const category=getCategory(article);
+const story=getStory(article);
+const summary=getSummary(article);
+const image=getImage(article);
+const date=getDate(article);
+const author=article.author||article.reporter||"";
+
+breadcrumbCategory.textContent=category.toUpperCase();
+document.title=headline+" | James Nyarango TV";
+
+let imageHTML="";
+
+if(image){
+imageHTML=`
+<img
+class="article-image"
+src="${safe(image)}"
+alt="${safe(headline)}"
+onerror="this.style.display='none'">
 `;
 }
 
-function renderLead(a){
+let nextArticle=null;
 
-if(!a)return;
-
-leadStory.innerHTML=`
-
-<a class="lead-image-link" href="${link(a)}">
-<img class="lead-image"
-src="${image(a)}"
-alt="${escapeHTML(title(a))}">
-</a>
-
-<div class="lead-content">
-
-<span class="category-label">
-${escapeHTML(category(a))}
-</span>
-
-<h1>
-<a href="${link(a)}">${escapeHTML(title(a))}</a>
-</h1>
-
-<p class="lead-description">
-${escapeHTML(summary(a).slice(0,350))}
-</p>
-
-<div class="lead-bottom">
-<span class="news-meta">${date(a)}</span>
-<a class="read-story" href="${link(a)}">READ FULL STORY →</a>
-</div>
-
-</div>
-`;
-}
-
-function renderTopStories(articles){
-
-const items=articles.slice(1,5);
-
-if(!items.length){
-exclusiveStories.innerHTML=
-'<div class="empty-message">More top stories coming soon.</div>';
-return;
-}
-
-exclusiveStories.innerHTML=items.map(a=>`
-
-<article class="exclusive-card">
-
-<a href="${link(a)}" class="exclusive-image">
-<img src="${image(a)}" alt="${escapeHTML(title(a))}">
-</a>
-
-<h4>
-<a href="${link(a)}">${escapeHTML(title(a))}</a>
-</h4>
-
-</article>
-
-`).join("");
-}
-
-function card(a){
-
-return `
-
-<article class="news-card">
-
-<a href="${link(a)}" class="news-card-image-wrap">
-<img class="news-card-image"
-src="${image(a)}"
-alt="${escapeHTML(title(a))}">
-</a>
-
-<div class="news-content">
-
-<span class="category-label">
-${escapeHTML(category(a))}
-</span>
-
-<h3>
-<a href="${link(a)}">${escapeHTML(title(a))}</a>
-</h3>
-
-<p>${escapeHTML(summary(a).slice(0,170))}</p>
-
-<div class="news-card-bottom">
-<span class="news-meta">${date(a)}</span>
-<a href="${link(a)}" class="read-story">READ MORE →</a>
-</div>
-
-</div>
-</article>
-
-`;
-}
-
-function renderLatest(articles){
-
-if(!articles.length){
-latestNews.innerHTML=
-'<div class="no-results">No published news articles found.</div>';
-return;
-}
-
-latestNews.innerHTML=articles.slice(0,8).map(card).join("");
-}
-
-function renderCategories(articles){
-
-const preferred=[
-"Politics",
-"Business",
-"Sports",
-"Entertainment",
-"Technology",
-"Education",
-"Health",
-"World News"
-];
-
-const categories=[...new Set(
-articles.map(a=>category(a))
-)].filter(c=>c&&c.toLowerCase()!=="news");
-
-categories.sort((a,b)=>{
-
-const ai=preferred.findIndex(x=>x.toLowerCase()===a.toLowerCase());
-const bi=preferred.findIndex(x=>x.toLowerCase()===b.toLowerCase());
-
-if(ai===-1&&bi===-1)return a.localeCompare(b);
-if(ai===-1)return 1;
-if(bi===-1)return -1;
-
-return ai-bi;
-});
-
-categorySections.innerHTML=categories.map(cat=>{
-
-const stories=articles.filter(
-a=>category(a).toLowerCase()===cat.toLowerCase()
+const currentIndex=articles.findIndex(
+item=>String(item.id)===String(article.id)
 );
 
-if(!stories.length)return "";
+if(currentIndex>=0&&currentIndex<articles.length-1){
+nextArticle=articles[currentIndex+1];
+}
 
-return `
-
-<section class="category-section">
-
-<div class="section-heading">
-<h2>${escapeHTML(cat)}</h2>
-<a href="./latest-news.html?category=${encodeURIComponent(cat)}">
-MORE ${escapeHTML(cat.toUpperCase())} →
+const nextButton=nextArticle?`
+<a class="next-button" href="./article.html?id=${encodeURIComponent(nextArticle.id)}">
+READ NEXT: ${safe(getTitle(nextArticle).slice(0,65))} →
 </a>
+`:"";
+
+container.innerHTML=`
+<article class="article">
+
+<span class="category">${safe(category)}</span>
+
+${isBreaking(article)?'<div class="breaking">BREAKING NEWS</div>':''}
+
+<h1>${safe(headline)}</h1>
+
+${summary?`<p class="subheadline">${safe(summary)}</p>`:''}
+
+<div class="details">
+<span>${safe(date)}</span>
+${author?`<span>|</span><span>By ${safe(author)}</span>`:''}
+<span>|</span>
+<span>James Nyarango TV</span>
 </div>
 
-<div class="news-grid">
-${stories.slice(0,4).map(card).join("")}
+${imageHTML}
+
+<div class="story">${safe(story)}</div>
+
+<div class="article-actions">
+<a class="back-button" href="./index.html">← BACK TO HOMEPAGE</a>
+${nextButton}
 </div>
 
-</section>
-
+</article>
 `;
 
-}).join("");
-
 }
 
-function searchNews(){
+async function loadArticle(){
 
-const q=searchInput.value.trim().toLowerCase();
+const params=new URLSearchParams(window.location.search);
+const id=params.get("id");
 
-if(!q){
-renderAll();
+if(!id){
+showNotFound();
 return;
 }
-
-const results=allArticles.filter(a=>{
-
-const text=[
-title(a),
-category(a),
-summary(a),
-a.author||""
-].join(" ").toLowerCase();
-
-return text.includes(q);
-});
-
-searchStatus.style.display="block";
-searchStatus.textContent=
-results.length+" search result(s) for: "+searchInput.value;
-
-leadStory.innerHTML="";
-exclusiveStories.innerHTML="";
-categorySections.innerHTML="";
-
-renderLatest(results);
-
-document.querySelector(".news-section").scrollIntoView({
-behavior:"smooth"
-});
-}
-
-function renderAll(){
-
-searchStatus.style.display="none";
-
-if(!allArticles.length){
-leadStory.innerHTML=
-'<div class="empty-message">Welcome to James Nyarango TV. Your latest published story will appear here.</div>';
-
-exclusiveStories.innerHTML=
-'<div class="empty-message">Top stories will appear here.</div>';
-
-latestNews.innerHTML=
-'<div class="no-results">No published articles available yet.</div>';
-
-categorySections.innerHTML="";
-return;
-}
-
-renderTicker(allArticles);
-renderLead(allArticles[0]);
-renderTopStories(allArticles);
-renderLatest(allArticles);
-renderCategories(allArticles);
-
-}
-
-async function loadArticles(){
 
 try{
 
-const {data,error}=await db
+const {data:article,error}=await db
+.from("articles")
+.select("*")
+.eq("id",id)
+.eq("status","published")
+.maybeSingle();
+
+if(error)throw error;
+
+if(!article){
+showNotFound();
+return;
+}
+
+const {data:articles,error:articlesError}=await db
 .from("articles")
 .select("*")
 .eq("status","published")
@@ -1342,38 +850,27 @@ nullsFirst:false
 ascending:false
 });
 
-if(error)throw error;
+if(articlesError)throw articlesError;
 
-allArticles=data||[];
-
-renderAll();
-
-console.log("JNTV articles loaded:",allArticles.length);
+renderArticle(article,articles||[]);
 
 }catch(error){
 
-console.error("JNTV error:",error);
+console.error("JNTV article error:",error);
 
-latestNews.innerHTML=`
-<div class="no-results">
-Unable to load published news. Please check Supabase access permissions.
+container.innerHTML=`
+<div class="message">
+<h2>UNABLE TO LOAD ARTICLE</h2>
+<p>We could not retrieve this story at the moment.</p>
+<p>Please refresh the page or return to the homepage.</p>
+<a href="./index.html">RETURN TO HOMEPAGE</a>
 </div>`;
 
 }
 
 }
 
-searchButton.addEventListener("click",searchNews);
-
-searchInput.addEventListener("keydown",e=>{
-if(e.key==="Enter")searchNews();
-});
-
-searchInput.addEventListener("input",()=>{
-if(!searchInput.value.trim())renderAll();
-});
-
-loadArticles();
+loadArticle();
 
 })();
 </script>
